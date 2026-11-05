@@ -114,17 +114,17 @@ export default function AmbulanceCrewTerminal() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#F8F9FA] text-[#0B0B0C] flex flex-col font-sans select-none selection:bg-[#00652C] selection:text-white">
-      {/* ── Top In-Cab Command Bar (High Contrast Stitch Specification) ───── */}
-      <header className="flex-shrink-0 bg-white border-b border-[#0B0B0C]/12 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#C6F432] selection:text-[#0B0B0C]">
+      {/* ── Top In-Cab Command Bar (60:30:10 Midnight & Lime Specification) ───── */}
+      <header className="flex-shrink-0 bg-[#121316] border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2.5 bg-[#212328] px-3 py-1.5 rounded-xl border border-[#0B0B0C]/12">
+          <div className="flex items-center gap-2.5 bg-[#181A1F] px-3 py-1.5 rounded-xl border border-white/10">
             <img src="/nivaran-icon.png" alt="NIVARAN" className="w-8 h-8 object-contain rounded-lg bg-white/10 p-0.5" />
             <div className="flex flex-col">
               <span className="font-headline font-extrabold text-sm text-white uppercase tracking-tight">
                 {registration}
               </span>
-              <span className="text-[10px] text-[#00652C] font-mono font-bold tracking-wider uppercase">
+              <span className="text-[10px] text-[#C6F432] font-mono font-bold tracking-wider uppercase">
                 GNCTD ADVANCED LIFE SUPPORT (ALS)
               </span>
             </div>
@@ -155,10 +155,10 @@ export default function AmbulanceCrewTerminal() {
           </button>
 
           {/* Speed Indicator */}
-          <div className="bg-[#1D1F24] border border-[#0B0B0C]/12 px-3 py-1 rounded-xl flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#00652C] text-[18px]">speed</span>
+          <div className="bg-[#181A1F] border border-white/10 px-3 py-1 rounded-xl flex items-center gap-2">
+            <span className="material-symbols-outlined text-[#C6F432] text-[18px]">speed</span>
             <div className="flex items-baseline gap-0.5">
-              <span className="font-headline text-lg font-extrabold text-white font-mono">{activeSpeed}</span>
+              <span className="font-headline text-lg font-extrabold text-[#C6F432] font-mono">{activeSpeed}</span>
               <span className="text-[10px] text-white/50 font-bold">KM/H</span>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function AmbulanceCrewTerminal() {
           {/* Return to Dispatcher CAD link */}
           <Link
             href="/"
-            className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold"
+            className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all"
           >
             CAD Console
           </Link>
@@ -177,7 +177,7 @@ export default function AmbulanceCrewTerminal() {
       <main className="flex-1 min-h-0 overflow-y-auto p-4 max-w-5xl mx-auto w-full flex flex-col justify-between space-y-4">
         {/* Driving Lockout Notice if Active */}
         {safeDrivingLockout && (
-          <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 shadow-lg">
+          <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 shadow-lg text-white">
             <span className="material-symbols-outlined text-[32px] text-white">do_not_disturb_on</span>
             <div className="flex flex-col">
               <span className="font-headline font-extrabold text-sm uppercase">Driver Safe-Use Mode Active</span>
@@ -187,56 +187,56 @@ export default function AmbulanceCrewTerminal() {
         )}
 
         {/* Active Incident Card */}
-        <div className="bg-white border border-[#0B0B0C]/12 rounded-2xl p-5 shadow-xl space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#0B0B0C]/12">
+        <div className="bg-[#121316] border border-white/10 rounded-2xl p-5 shadow-xl space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-white/10">
             <div className="flex items-center gap-2">
               <span className="bg-[#BA1A1A] text-white text-xs font-extrabold px-3 py-1 rounded-md uppercase tracking-wider flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-white"></span>
                 PRIORITY: CODE RED CRITICAL
               </span>
-              <span className="bg-[#0B0B0C] text-white text-xs font-bold px-2.5 py-1 rounded uppercase">
+              <span className="bg-[#181A1F] text-[#C6F432] border border-[#C6F432]/30 text-xs font-bold px-2.5 py-1 rounded uppercase">
                 STEMI ALERT
               </span>
             </div>
 
-            <span className="font-mono text-xs text-[#0B0B0C]/70">INCIDENT: #{incidentId}</span>
+            <span className="font-mono text-xs text-white/60">INCIDENT: #{incidentId}</span>
           </div>
 
           {/* Dual Patient & Scene Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-[#0B0B0C]/10 space-y-2">
-              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block">
+            <div className="bg-[#181A1F] p-4 rounded-xl border border-white/10 space-y-2">
+              <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider block">
                 Patient Identification
               </span>
               <div className="flex items-baseline gap-2">
-                <span className="font-headline text-xl font-extrabold text-[#0B0B0C]">{patientName}</span>
-                <span className="text-xs font-mono text-[#00652C] font-bold">({patientAgeGender})</span>
+                <span className="font-headline text-xl font-extrabold text-white">{patientName}</span>
+                <span className="text-xs font-mono text-[#C6F432] font-bold">({patientAgeGender})</span>
               </div>
-              <span className="text-[11px] font-bold text-[#BA1A1A] uppercase block">Chief Complaint:</span>
-              <p className="text-xs text-[#0B0B0C]/90 leading-relaxed font-medium">{chiefComplaint}</p>
+              <span className="text-[11px] font-bold text-[#F87171] uppercase block">Chief Complaint:</span>
+              <p className="text-xs text-white/90 leading-relaxed font-medium">{chiefComplaint}</p>
             </div>
 
-            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-[#0B0B0C]/10 space-y-2">
-              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block">
+            <div className="bg-[#181A1F] p-4 rounded-xl border border-white/10 space-y-2">
+              <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider block">
                 Scene & Route Destination
               </span>
               <div className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[#00652C] text-[20px] shrink-0 mt-0.5">
+                <span className="material-symbols-outlined text-[#C6F432] text-[20px] shrink-0 mt-0.5">
                   location_on
                 </span>
                 <div>
-                  <span className="font-headline text-base font-bold text-[#0B0B0C] block leading-tight">
+                  <span className="font-headline text-base font-bold text-white block leading-tight">
                     {sceneAddress}
                   </span>
-                  <span className="text-[11px] text-[#0B0B0C]/70 mt-1 block">
-                    Assigned Receiving Hospital: <strong className="text-[#0B0B0C]">{destinationHospital}</strong>
+                  <span className="text-[11px] text-white/70 mt-1 block">
+                    Assigned Receiving Hospital: <strong className="text-white">{destinationHospital}</strong>
                   </span>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#0B0B0C]/12 flex items-center justify-between">
-                <span className="text-xs text-[#0B0B0C]/70">Target ETA to Scene:</span>
-                <span className="font-headline text-xl font-extrabold text-[#00652C] font-mono">
+              <div className="pt-2 border-t border-white/10 flex items-center justify-between">
+                <span className="text-xs text-white/60">Target ETA to Scene:</span>
+                <span className="font-headline text-xl font-extrabold text-[#C6F432] font-mono">
                   {formatEta(etaSec)}
                 </span>
               </div>
@@ -244,26 +244,26 @@ export default function AmbulanceCrewTerminal() {
           </div>
 
           {/* In-Cab Vitals Strip */}
-          <div className="bg-[#F4F6F9] p-3 rounded-xl border border-[#0B0B0C]/10 grid grid-cols-5 gap-2 text-xs">
+          <div className="bg-[#181A1F] p-3 rounded-xl border border-white/10 grid grid-cols-5 gap-2 text-xs">
             <div className="text-center">
-              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">PULSE</span>
-              <span className="font-mono font-extrabold text-base text-[#BA1A1A]">{vitals.hr} bpm</span>
+              <span className="text-[10px] text-white/50 block font-bold">PULSE</span>
+              <span className="font-mono font-extrabold text-base text-[#F87171]">{vitals.hr} bpm</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">BP</span>
-              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.bp}</span>
+              <span className="text-[10px] text-white/50 block font-bold">BP</span>
+              <span className="font-mono font-extrabold text-base text-white">{vitals.bp}</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">SPO2</span>
-              <span className="font-mono font-extrabold text-base text-[#00652C]">{vitals.spo2}%</span>
+              <span className="text-[10px] text-white/50 block font-bold">SPO2</span>
+              <span className="font-mono font-extrabold text-base text-[#C6F432]">{vitals.spo2}%</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">RESP</span>
-              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.rr} /m</span>
+              <span className="text-[10px] text-white/50 block font-bold">RESP</span>
+              <span className="font-mono font-extrabold text-base text-white">{vitals.rr} /m</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">GCS</span>
-              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.gcs} / 15</span>
+              <span className="text-[10px] text-white/50 block font-bold">GCS</span>
+              <span className="font-mono font-extrabold text-base text-white">{vitals.gcs} / 15</span>
             </div>
           </div>
         </div>
@@ -275,7 +275,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("EN_ROUTE", "EN_ROUTE")}
-              className="w-full py-5 rounded-2xl bg-[#00652C] hover:bg-[#004D20] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">check_circle</span>
               <span>1. ACKNOWLEDGE DISPATCH &amp; START ROUTE</span>
@@ -287,7 +287,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("ON_SCENE", "ON_SCENE")}
-              className="w-full py-5 rounded-2xl bg-[#00652C] hover:bg-[#004D20] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">near_me</span>
               <span>2. MARK ARRIVED AT SCENE (CURBSIDE)</span>
@@ -299,7 +299,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("TRANSPORTING", "TRANSPORTING")}
-              className="w-full py-5 rounded-2xl bg-[#3B82F6] hover:bg-[#2563EB] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">accessible</span>
               <span>3. PATIENT ONBOARD · EN ROUTE TO ED</span>
@@ -311,7 +311,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("AT_HOSPITAL", "HANDED_OVER")}
-              className="w-full py-5 rounded-2xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">local_hospital</span>
               <span>4. MARK ARRIVED AT HOSPITAL ED</span>
@@ -323,7 +323,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("STANDBY", "CLOSED")}
-              className="w-full py-5 rounded-2xl bg-[#00652C] hover:bg-[#004D20] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">task_alt</span>
               <span>5. COMPLETE HANDOVER &amp; RETURN TO SERVICE</span>
@@ -332,15 +332,15 @@ export default function AmbulanceCrewTerminal() {
 
           {/* STANDBY STATE */}
           {currentStep === "STANDBY" && (
-            <div className="bg-white p-6 rounded-2xl border border-[#0B0B0C]/12 text-center space-y-3">
-              <span className="material-symbols-outlined text-[48px] text-[#00652C]">verified</span>
-              <h3 className="font-headline text-xl font-extrabold text-[#0B0B0C]">Ambulance Unit {registration} Ready</h3>
-              <p className="text-xs text-[#0B0B0C]/70">
+            <div className="bg-[#121316] p-6 rounded-2xl border border-white/10 text-center space-y-3">
+              <span className="material-symbols-outlined text-[48px] text-[#C6F432]">verified</span>
+              <h3 className="font-headline text-xl font-extrabold text-white">Ambulance Unit {registration} Ready</h3>
+              <p className="text-xs text-white/70">
                 Unit returned to AVAILABLE status in Delhi Central CAD pool. Standing by for next dispatch alert.
               </p>
               <button
                 onClick={() => setCurrentStep("DISPATCHED")}
-                className="px-5 py-2.5 rounded-xl bg-[#00652C] hover:bg-[#004D20] text-xs font-bold text-white mt-2 shadow transition-all active:scale-95"
+                className="px-5 py-2.5 rounded-xl bg-[#C6F432] hover:bg-[#AEE01E] text-xs font-extrabold text-[#0B0B0C] mt-2 shadow-md transition-all active:scale-95"
               >
                 Simulate New Incoming Dispatch Alert
               </button>

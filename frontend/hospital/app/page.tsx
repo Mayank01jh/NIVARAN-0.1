@@ -333,7 +333,7 @@ export default function HospitalConsole() {
                 <span className="font-headline font-extrabold text-[#E8DCC4] text-lg tracking-tight uppercase leading-none">
                   NIVARAN
                 </span>
-                <span className="bg-[#5B21B6] text-[#FFFFFF] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#8B5CF6] text-[#FFFFFF] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   ED-COMMAND
                 </span>
               </div>
@@ -371,7 +371,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("radar")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "radar"
-                ? "bg-[#5B21B6] text-white shadow-sm"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -381,7 +381,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("capacity")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "capacity"
-                ? "bg-[#5B21B6] text-white shadow-sm"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -391,7 +391,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("telemetry")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "telemetry"
-                ? "bg-[#5B21B6] text-white shadow-sm"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -401,7 +401,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("paramedic")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "paramedic"
-                ? "bg-[#5B21B6] text-white shadow-sm"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -429,7 +429,7 @@ export default function HospitalConsole() {
               <span className="text-xs font-bold text-[#E8DCC4]">Dr. S. Nair</span>
               <span className="text-[10px] text-[#E8DCC4]/70">Triage Chief · Duty Lead</span>
             </div>
-            <div className="w-8 h-8 rounded-full bg-[#5B21B6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
               SN
             </div>
           </div>
@@ -447,7 +447,7 @@ export default function HospitalConsole() {
                 <span className="font-headline font-bold text-xs text-[#E8DCC4] tracking-wider uppercase leading-none">
                   NIVARAN CLINICAL
                 </span>
-                <span className="text-[10px] text-[#5B21B6] font-semibold mt-0.5">ED Pre-Arrival Network</span>
+                <span className="text-[10px] text-[#8B5CF6] font-semibold mt-0.5">ED Pre-Arrival Network</span>
               </div>
             </div>
             <div>
@@ -458,7 +458,7 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("radar")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "radar" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "radar" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -466,7 +466,7 @@ export default function HospitalConsole() {
                     <span>Casualty Radar</span>
                   </div>
                   <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#5B21B6] text-white"
+                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#8B5CF6] text-white"
                   }`}>
                     {preAlerts.length}
                   </span>
@@ -475,7 +475,7 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("capacity")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "capacity" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "capacity" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -490,20 +490,20 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("telemetry")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "telemetry" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "telemetry" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">monitor_heart</span>
                     <span>Vital Telemetry</span>
                   </div>
-                  <span className="text-[10px] text-[#5B21B6] font-bold">Live AI</span>
+                  <span className="text-[10px] text-[#8B5CF6] font-bold">Live AI</span>
                 </button>
 
                 <button
                   onClick={() => setActiveTab("paramedic")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "paramedic" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "paramedic" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -517,25 +517,25 @@ export default function HospitalConsole() {
 
             <div>
               <div className="flex items-center justify-between px-2 mb-2">
-                <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-[#E8DCC4] uppercase tracking-wider">
                   Clinical Readiness
                 </span>
-                <span className="text-[9px] text-[#E8DCC4]/50 font-mono">Click to toggle</span>
+                <span className="text-[9px] text-[#E8DCC4]/80 font-mono">Click to toggle</span>
               </div>
-              <div className="space-y-1 text-xs">
+              <div className="space-y-1.5 text-xs">
                 {/* Cath Lab Toggle */}
                 <button
                   type="button"
                   onClick={toggleCathLab}
-                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
                   title="Click to toggle Cath Lab availability"
                 >
-                  <span className="font-medium group-hover:text-white">Cath Lab Status</span>
+                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Cath Lab Status</span>
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                       capacity.cath_lab_operational
-                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
-                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
+                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
                     }`}
                   >
                     <span
@@ -551,15 +551,15 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleTraumaTeam}
-                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
                   title="Click to toggle Trauma Team status"
                 >
-                  <span className="font-medium group-hover:text-white">Trauma Team Alpha</span>
+                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Trauma Team Alpha</span>
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                       capacity.trauma_team_standby
-                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
-                        : "bg-[#D97706]/20 text-[#FBBF24] border border-[#D97706]/30"
+                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
+                        : "bg-[#D97706]/25 text-[#FBBF24] border border-[#D97706]/40"
                     }`}
                   >
                     <span
@@ -575,15 +575,15 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleCtScanner}
-                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
                   title="Click to toggle CT Scanner operational status"
                 >
-                  <span className="font-medium group-hover:text-white">CT Scanner</span>
+                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">CT Scanner</span>
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                       capacity.ct_scanner_operational
-                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
-                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
+                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
                     }`}
                   >
                     <span
@@ -599,15 +599,15 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleBloodBank}
-                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
                   title="Click to toggle Blood Bank reserve status"
                 >
-                  <span className="font-medium group-hover:text-white">Blood Bank (O-Neg)</span>
+                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Blood Bank (O-Neg)</span>
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                       bloodBankNormal
-                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
-                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
+                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
                     }`}
                   >
                     <span
@@ -638,7 +638,7 @@ export default function HospitalConsole() {
         {/* Operational Workspace Body */}
         <main className="flex-1 min-h-0 p-5 flex flex-col gap-4 overflow-hidden">
           {/* Subheader Banner */}
-          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex-shrink-0 bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 flex-wrap mb-1">
                 <span className="bg-[#C8EBD1] text-[#022111] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
@@ -659,7 +659,7 @@ export default function HospitalConsole() {
             <div className="flex items-center gap-3">
               <button
                 onClick={loadInboundData}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F2EADA] hover:bg-[#1F3D2B] text-[#1F3D2B] text-xs font-bold transition-all shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#E8DCC4] hover:bg-[#1F3D2B] hover:text-[#E8DCC4] text-[#1F3D2B] text-xs font-bold transition-all shadow-sm"
                 title="Refresh Live Data"
               >
                 <span className="material-symbols-outlined text-[16px]">sync</span>
@@ -671,25 +671,25 @@ export default function HospitalConsole() {
           {/* 5-Column Operational Metrics Grid (Stitch design specification) */}
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3.5">
             {/* Metric 1 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Inbound Transports</span>
-                <span className="material-symbols-outlined text-[#5B21B6] text-[18px]">ambulance</span>
+                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">ambulance</span>
               </div>
               <div className="my-2">
                 <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   {preAlerts.length < 10 ? `0${preAlerts.length}` : preAlerts.length}
                 </span>
-                <span className="text-xs font-bold text-[#5B21B6] ml-1.5">En Route</span>
+                <span className="text-xs font-bold text-[#8B5CF6] ml-1.5">En Route</span>
               </div>
-              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#5B21B6] h-full rounded-full" style={{ width: "75%" }}></div>
+              <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
+                <div className="bg-[#8B5CF6] h-full rounded-full" style={{ width: "75%" }}></div>
               </div>
               <span className="text-[10px] text-[#BA1A1A] font-bold mt-1.5">1 ETA &lt; 5m</span>
             </div>
 
             {/* Metric 2 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Trauma Bays</span>
                 <span className="material-symbols-outlined text-[#1F3D2B] text-[18px]">meeting_room</span>
@@ -700,14 +700,14 @@ export default function HospitalConsole() {
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Open / Ready</span>
               </div>
-              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "66%" }}></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Bay 1 & 2 Staged</span>
             </div>
 
             {/* Metric 3 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>ICU Capacity</span>
                 <span className="material-symbols-outlined text-[#10B981] text-[18px]">vital_signs</span>
@@ -718,14 +718,14 @@ export default function HospitalConsole() {
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
-              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#10B981] h-full rounded-full" style={{ width: "75%" }}></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Surge reserve: 3</span>
             </div>
 
             {/* Metric 4 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+            <div className="bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>General Acute ER</span>
                 <span className="material-symbols-outlined text-[#1F3D2B]/65 text-[18px]">single_bed</span>
@@ -736,7 +736,7 @@ export default function HospitalConsole() {
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
-              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "60%" }}></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Cap: {capacity.er_beds_total} Total</span>
@@ -745,19 +745,19 @@ export default function HospitalConsole() {
             {/* Metric 5 */}
             <div 
               onClick={toggleCathLab}
-              className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1 cursor-pointer hover:border-[#5B21B6] transition-all group"
+              className="bg-[#F2EADA] p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1 cursor-pointer hover:border-[#8B5CF6] transition-all group"
               title="Click to toggle Cath Lab Readiness"
             >
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
-                <span className="group-hover:text-[#5B21B6] transition-colors">Cath Lab / OR</span>
-                <span className="material-symbols-outlined text-[#5B21B6] text-[18px]">medical_services</span>
+                <span className="group-hover:text-[#8B5CF6] transition-colors">Cath Lab / OR</span>
+                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">medical_services</span>
               </div>
               <div className="my-2">
                 <span className={`font-headline text-3xl font-extrabold ${capacity.cath_lab_operational ? "text-[#1F3D2B]" : "text-[#BA1A1A]"}`}>
                   {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
                 </span>
               </div>
-              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
                 <div 
                   className={`h-full rounded-full transition-all duration-300 ${
                     capacity.cath_lab_operational ? "bg-[#10B981] w-full" : "bg-[#BA1A1A] w-1/4"
@@ -800,8 +800,8 @@ export default function HospitalConsole() {
                       onClick={() => setSelectedAlert(alert)}
                       className={`p-4 rounded-2xl border transition-all cursor-pointer relative ${
                         isSelected
-                          ? "bg-white border-[#1F3D2B] shadow-md ring-2 ring-[#1F3D2B]/10"
-                          : "bg-white border-[#1F3D2B]/20 hover:border-[#1F3D2B]/40 shadow-sm"
+                          ? "bg-[#EDE4D0] border-2 border-[#8B5CF6] shadow-md ring-2 ring-[#8B5CF6]/30"
+                          : "bg-[#F2EADA] border border-[#1F3D2B]/20 hover:border-[#8B5CF6] shadow-sm"
                       }`}
                     >
                       {/* Priority left indicator bar */}
@@ -876,7 +876,7 @@ export default function HospitalConsole() {
                           <span className="text-[#1F3D2B]/65">
                             GCS: <strong className="text-[#1F3D2B]">{alert.vitals.gcs}/15</strong>
                           </span>
-                          <span className="ml-auto text-[11px] text-[#5B21B6] font-bold">
+                          <span className="ml-auto text-[11px] text-[#8B5CF6] font-bold">
                             Cath Lab Standby
                           </span>
                         </div>
@@ -890,7 +890,7 @@ export default function HospitalConsole() {
               {/* Right Column: Pre-Arrival Telemetry & Staging Inspector (5 Cols) */}
               <div className="xl:col-span-5 flex flex-col min-h-0 overflow-hidden">
                 {selectedAlert ? (
-                  <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#1F3D2B]/20 shadow-sm space-y-4 overflow-y-auto">
+                  <div className="flex-1 min-h-0 bg-[#F2EADA] p-5 rounded-2xl border border-[#1F3D2B]/20 shadow-sm space-y-4 overflow-y-auto">
                     <div className="flex items-center justify-between pb-3 border-b border-[#1F3D2B]/20">
                       <div>
                         <span className="text-[10px] font-bold text-[#1F3D2B]/65 uppercase">Case Detail Inspector</span>
@@ -934,7 +934,7 @@ export default function HospitalConsole() {
                     )}
 
                     {/* AI Clinical Triage Summary (With Mandatory Disclaimer) */}
-                    <div className="p-4 rounded-xl bg-[#5B21B6] border border-[#5B21B6]/40 space-y-2 text-white shadow-sm">
+                    <div className="p-4 rounded-xl bg-[#8B5CF6] border border-[#7C3AED]/40 space-y-2 text-white shadow-sm">
                       <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                         <span className="material-symbols-outlined text-[16px]">smart_toy</span>
                         <span>AI Clinical Triage Summary</span>
@@ -958,16 +958,16 @@ export default function HospitalConsole() {
                             onChange={(e) =>
                               setStagedBays({ ...stagedBays, [selectedAlert.alert_id]: e.target.checked })
                             }
-                            className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
+                            className="rounded text-[#8B5CF6] focus:ring-[#8B5CF6]"
                           />
                           <span className="font-semibold text-[#E8DCC4]">Trauma Resuscitation Bay 1 Staged</span>
                         </label>
                         <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] border border-white/10 cursor-pointer">
-                          <input type="checkbox" defaultChecked className="rounded text-[#5B21B6]" />
+                          <input type="checkbox" defaultChecked className="rounded text-[#8B5CF6]" />
                           <span className="font-semibold text-[#E8DCC4]">Cath Lab Team Activated</span>
                         </label>
                         <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] border border-white/10 cursor-pointer">
-                          <input type="checkbox" defaultChecked className="rounded text-[#5B21B6]" />
+                          <input type="checkbox" defaultChecked className="rounded text-[#8B5CF6]" />
                           <span className="font-semibold text-[#E8DCC4]">Type O-Negative Blood Crossmatched</span>
                         </label>
                       </div>
@@ -985,7 +985,7 @@ export default function HospitalConsole() {
                     </div>
                   </div>
                 ) : (
-                  <div className="bg-white p-8 rounded-2xl border border-[#1F3D2B]/20 text-center text-[#1F3D2B]/65 text-xs">
+                  <div className="bg-[#F2EADA] p-8 rounded-2xl border border-[#1F3D2B]/20 text-center text-[#1F3D2B]/65 text-xs">
                     Select an inbound casualty from the queue to inspect full telemetry.
                   </div>
                 )}
@@ -998,7 +998,7 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "capacity" && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-3xl space-y-6">
+              <div className="bg-[#F2EADA] p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-3xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#1F3D2B]/20 pb-4">
                 <div>
                   <h2 className="font-headline text-xl font-extrabold text-[#1F3D2B]">
@@ -1029,7 +1029,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                     <div>
@@ -1040,7 +1040,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                   </div>
@@ -1057,7 +1057,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                     <div>
@@ -1068,7 +1068,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                   </div>
@@ -1085,7 +1085,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                     <div>
@@ -1096,7 +1096,7 @@ export default function HospitalConsole() {
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                        className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                       />
                     </div>
                   </div>
@@ -1112,7 +1112,7 @@ export default function HospitalConsole() {
                       onChange={(e) =>
                         setCapacity({ ...capacity, or_available: Number(e.target.value) })
                       }
-                      className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
+                      className="w-20 px-2 py-1 rounded bg-[#EDE4D0] text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#8B5CF6]"
                     />
                   </div>
                 </div>
@@ -1129,7 +1129,7 @@ export default function HospitalConsole() {
                       onChange={(e) =>
                         setCapacity({ ...capacity, ct_scanner_operational: e.target.checked })
                       }
-                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
+                      className="rounded text-[#8B5CF6] focus:ring-[#8B5CF6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">CT Scanner Active</span>
                   </label>
@@ -1141,7 +1141,7 @@ export default function HospitalConsole() {
                       onChange={(e) =>
                         setCapacity({ ...capacity, cath_lab_operational: e.target.checked })
                       }
-                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
+                      className="rounded text-[#8B5CF6] focus:ring-[#8B5CF6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">Cath Lab Ready</span>
                   </label>
@@ -1153,7 +1153,7 @@ export default function HospitalConsole() {
                       onChange={(e) =>
                         setCapacity({ ...capacity, trauma_team_standby: e.target.checked })
                       }
-                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
+                      className="rounded text-[#8B5CF6] focus:ring-[#8B5CF6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">Trauma Team Standby</span>
                   </label>
@@ -1227,7 +1227,7 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "telemetry" && selectedAlert && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-6">
+              <div className="bg-[#F2EADA] p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#1F3D2B]/20 pb-4">
                 <div>
                   <div className="flex items-center gap-2">
@@ -1278,7 +1278,7 @@ export default function HospitalConsole() {
               )}
 
               {/* Clinical AI Guidance with Required Disclaimer */}
-              <div className="p-4 rounded-xl bg-[#5B21B6] border border-[#5B21B6]/40 space-y-2 text-white shadow-sm">
+              <div className="p-4 rounded-xl bg-[#8B5CF6] border border-[#8B5CF6]/40 space-y-2 text-white shadow-sm">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
                   <span>AI Clinical Decision Support Assessment</span>
@@ -1309,7 +1309,7 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "paramedic" && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-4">
+              <div className="bg-[#F2EADA] p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-4">
               <h2 className="font-headline text-xl font-extrabold text-[#1F3D2B]">
                 Field Telemetry & Paramedic Direct Bridge
               </h2>
@@ -1327,7 +1327,7 @@ export default function HospitalConsole() {
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-sm text-[#1F3D2B]">{alert.ambulance_id}</span>
                         <span className="text-xs text-[#1F3D2B]/65">· Case #{alert.incident_id}</span>
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#5B21B6] text-white">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#8B5CF6] text-white">
                           En Route
                         </span>
                       </div>
@@ -1354,7 +1354,7 @@ export default function HospitalConsole() {
                       </div>
                       <button
                         onClick={() => handleCompleteHandover(alert)}
-                        className="px-3.5 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1"
+                        className="px-3.5 py-2 rounded-xl bg-[#8B5CF6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1"
                       >
                         <span className="material-symbols-outlined text-[15px]">how_to_reg</span>
                         <span>Confirm Handover</span>

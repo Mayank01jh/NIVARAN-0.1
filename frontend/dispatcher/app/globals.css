@@ -5,22 +5,22 @@
 /* ======================================================
    NIVARAN CAD Command & Crew Hub — Tactical Operations
    Strict 60:30:10 Design System:
-   60% Bright (Pure White #FFFFFF) | 30% Dark (Midnight Black #0B0B0C) | 10% Dark (Deep Tactical Green #00652C)
+   60% Midnight Black (#0B0B0C) | 30% Pure White (#FFFFFF) | 10% Lime Green (#C6F432)
    ====================================================== */
 
 :root {
-  --bright-60: #FFFFFF;
-  --bright-surface: #F8F9FA;
-  --bright-card: #FFFFFF;
-  --bright-border: rgba(11, 11, 12, 0.12);
+  --midnight-60: #0B0B0C;
+  --midnight-surface: #121316;
+  --midnight-elevated: #181A1F;
+  --midnight-border: rgba(255, 255, 255, 0.1);
 
-  --dark-30: #0B0B0C;
-  --dark-surface: #121316;
-  --dark-muted: rgba(11, 11, 12, 0.65);
+  --white-30: #FFFFFF;
+  --white-muted: rgba(255, 255, 255, 0.7);
+  --white-subtle: rgba(255, 255, 255, 0.5);
 
-  --accent-10: #00652C;
-  --accent-hover: #004D20;
-  --accent-text: #FFFFFF;
+  --lime-10: #C6F432;
+  --lime-dark: #AEE01E;
+  --lime-glow: rgba(198, 244, 50, 0.35);
 
   --font-headline: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -36,8 +36,8 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: var(--bright-60);
-  color: var(--dark-30);
+  background-color: var(--midnight-60);
+  color: var(--white-30);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
