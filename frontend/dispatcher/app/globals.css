@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ======================================================
    NIVARAN CAD Command — Tactical Operations White
    Design System: Midnight Black (#0B0B0C, #0B1C30) + Pure White (#FFFFFF) + Lime Green (#C6F432, #ACF847)

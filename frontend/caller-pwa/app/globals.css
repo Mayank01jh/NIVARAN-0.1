@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ======================================================
    NIVARAN Lifeline — Citizen Emergency App Design System
    Palette: Deep Navy (#14213D) + Warm Cream (#F4EDE0, #FFF9EE) + Emergency Coral (#FF6B5B)

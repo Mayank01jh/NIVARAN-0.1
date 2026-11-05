@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ======================================================
    NIVARAN Hospital ED Command — Clinical Precision Operations
    Design System: Forest Green (#1F3D2B) + Sand Beige (#E8DCC4, #F0EDE9) + Electric Purple (#8B5CF6)
