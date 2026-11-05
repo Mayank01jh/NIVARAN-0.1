@@ -480,7 +480,7 @@ export default function HospitalConsole() {
                     <span className="material-symbols-outlined text-[18px]">airport_shuttle</span>
                     <span>Ambulance Fleet</span>
                   </div>
-                  <span className="text-[10px] text-[#1F3D2B]/65">4 Units</span>
+                  <span className="text-[10px] text-[#E8DCC4]/70">4 Units</span>
                 </button>
               </nav>
             </div>
@@ -490,19 +490,19 @@ export default function HospitalConsole() {
                 Clinical Readiness
               </span>
               <div className="space-y-1.5 px-2 text-xs">
-                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
+                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
                   <span>Cath Lab Status</span>
                   <span className="font-bold text-[#10B981]">READY</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
+                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
                   <span>Trauma Team Alpha</span>
                   <span className="font-bold text-[#10B981]">STANDBY</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
+                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
                   <span>CT Scanner</span>
                   <span className="font-bold text-[#10B981]">OPERATIONAL</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
+                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
                   <span>Blood Bank (O-Neg)</span>
                   <span className="font-bold text-[#10B981]">12 UNITS</span>
                 </div>
@@ -511,15 +511,15 @@ export default function HospitalConsole() {
           </div>
 
           {/* Network Link pill */}
-          <div className="p-3 bg-[#F2EADA] rounded-xl border border-[#1F3D2B]/20 space-y-1">
+          <div className="p-3 bg-[#1F3D2B] rounded-xl border border-white/10 space-y-1 text-[#E8DCC4]">
             <div className="flex items-center justify-between text-[11px]">
-              <span className="font-bold text-[#1F3D2B]/65 uppercase">Network Link</span>
+              <span className="font-bold text-[#E8DCC4]/70 uppercase">Network Link</span>
               <span className="text-[#10B981] font-bold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
                 AIIMS-ED-01
               </span>
             </div>
-            <span className="text-[10px] text-[#1F3D2B]/65 block">Encrypted Clinical Bridge · 24/7</span>
+            <span className="text-[10px] text-[#E8DCC4]/70 block">Encrypted Clinical Bridge · 24/7</span>
           </div>
         </aside>
 
@@ -779,27 +779,27 @@ export default function HospitalConsole() {
                     {/* Vitals Grid */}
                     {selectedAlert.vitals && (
                       <div className="grid grid-cols-2 gap-2.5">
-                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                          <span className="text-[10px] text-[#1F3D2B]/65 block">Heart Rate</span>
-                          <span className="font-headline text-xl font-extrabold text-[#BA1A1A]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-white/10">
+                          <span className="text-[10px] text-[#E8DCC4]/70 block font-bold">Heart Rate</span>
+                          <span className="font-headline text-xl font-extrabold text-[#F87171]">
                             {selectedAlert.vitals.heart_rate} <span className="text-xs font-normal">BPM</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                          <span className="text-[10px] text-[#1F3D2B]/65 block">Blood Pressure</span>
-                          <span className="font-headline text-xl font-extrabold text-[#1F3D2B]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-white/10">
+                          <span className="text-[10px] text-[#E8DCC4]/70 block font-bold">Blood Pressure</span>
+                          <span className="font-headline text-xl font-extrabold text-[#E8DCC4]">
                             {selectedAlert.vitals.blood_pressure} <span className="text-xs font-normal">mmHg</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                          <span className="text-[10px] text-[#1F3D2B]/65 block">Pulse Oximetry (SpO2)</span>
-                          <span className="font-headline text-xl font-extrabold text-[#10B981]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-white/10">
+                          <span className="text-[10px] text-[#E8DCC4]/70 block font-bold">Pulse Oximetry (SpO2)</span>
+                          <span className="font-headline text-xl font-extrabold text-[#4ADE80]">
                             {selectedAlert.vitals.spo2_pct}% <span className="text-xs font-normal">Room air</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                          <span className="text-[10px] text-[#1F3D2B]/65 block">Glasgow Coma Scale</span>
-                          <span className="font-headline text-xl font-extrabold text-[#1F3D2B]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-white/10">
+                          <span className="text-[10px] text-[#E8DCC4]/70 block font-bold">Glasgow Coma Scale</span>
+                          <span className="font-headline text-xl font-extrabold text-[#E8DCC4]">
                             {selectedAlert.vitals.gcs} / 15
                           </span>
                         </div>
@@ -807,15 +807,15 @@ export default function HospitalConsole() {
                     )}
 
                     {/* AI Clinical Triage Summary (With Mandatory Disclaimer) */}
-                    <div className="p-3.5 rounded-xl bg-[#5B21B6]/50 border border-[#5B21B6]/30 space-y-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
+                    <div className="p-4 rounded-xl bg-[#5B21B6] border border-[#5B21B6]/40 space-y-2 text-white shadow-sm">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                         <span className="material-symbols-outlined text-[16px]">smart_toy</span>
                         <span>AI Clinical Triage Summary</span>
                       </div>
-                      <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
+                      <p className="text-xs text-white/95 font-medium leading-relaxed">
                         {selectedAlert.notes}
                       </p>
-                      <div className="pt-2 border-t border-[#5B21B6]/20 text-[10px] text-[#1F3D2B]/65 italic">
+                      <div className="pt-2 border-t border-white/20 text-[10px] text-white/80 italic">
                         <strong>Clinical Decision Support:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                       </div>
                     </div>
@@ -824,24 +824,24 @@ export default function HospitalConsole() {
                     <div className="space-y-2">
                       <span className="text-xs font-bold text-[#1F3D2B] block">Facility Preparation Checklist</span>
                       <div className="space-y-1.5 text-xs">
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] border border-white/10 cursor-pointer">
                           <input
                             type="checkbox"
                             checked={stagedBays[selectedAlert.alert_id] || false}
                             onChange={(e) =>
                               setStagedBays({ ...stagedBays, [selectedAlert.alert_id]: e.target.checked })
                             }
-                            className="rounded text-[#1F3D2B] focus:ring-[#1F3D2B]"
+                            className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
                           />
-                          <span className="font-semibold text-[#1F3D2B]">Trauma Resuscitation Bay 1 Staged</span>
+                          <span className="font-semibold text-[#E8DCC4]">Trauma Resuscitation Bay 1 Staged</span>
                         </label>
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
-                          <input type="checkbox" defaultChecked className="rounded text-[#1F3D2B]" />
-                          <span className="font-semibold text-[#1F3D2B]">Cath Lab Team Activated</span>
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] border border-white/10 cursor-pointer">
+                          <input type="checkbox" defaultChecked className="rounded text-[#5B21B6]" />
+                          <span className="font-semibold text-[#E8DCC4]">Cath Lab Team Activated</span>
                         </label>
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
-                          <input type="checkbox" defaultChecked className="rounded text-[#1F3D2B]" />
-                          <span className="font-semibold text-[#1F3D2B]">Type O-Negative Blood Crossmatched</span>
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] border border-white/10 cursor-pointer">
+                          <input type="checkbox" defaultChecked className="rounded text-[#5B21B6]" />
+                          <span className="font-semibold text-[#E8DCC4]">Type O-Negative Blood Crossmatched</span>
                         </label>
                       </div>
                     </div>
@@ -891,101 +891,101 @@ export default function HospitalConsole() {
 
               {/* Beds Numbers Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                <div className="p-4 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 space-y-2">
                   <span className="text-xs font-bold text-[#1F3D2B]">General Acute ER Beds</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Available</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Available</label>
                       <input
                         type="number"
                         value={capacity.er_beds_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total Beds</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Total Beds</label>
                       <input
                         type="number"
                         value={capacity.er_beds_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                <div className="p-4 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 space-y-2">
                   <span className="text-xs font-bold text-[#1F3D2B]">Critical ICU Beds</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Available</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Available</label>
                       <input
                         type="number"
                         value={capacity.icu_beds_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total ICU</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Total ICU</label>
                       <input
                         type="number"
                         value={capacity.icu_beds_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                <div className="p-4 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 space-y-2">
                   <span className="text-xs font-bold text-[#1F3D2B]">Trauma Resuscitation Bays</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Open Bays</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Open Bays</label>
                       <input
                         type="number"
                         value={capacity.trauma_bays_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total Bays</label>
+                      <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Total Bays</label>
                       <input
                         type="number"
                         value={capacity.trauma_bays_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                <div className="p-4 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 space-y-2">
                   <span className="text-xs font-bold text-[#1F3D2B]">Emergency Operating Theatres</span>
                   <div>
-                    <label className="text-[10px] text-[#1F3D2B]/65 block">Open Theatres</label>
+                    <label className="text-[10px] text-[#1F3D2B]/70 block font-bold">Open Theatres</label>
                     <input
                       type="number"
                       value={capacity.or_available}
                       onChange={(e) =>
                         setCapacity({ ...capacity, or_available: Number(e.target.value) })
                       }
-                      className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
+                      className="w-20 px-2 py-1 rounded bg-white text-[#1F3D2B] border border-[#1F3D2B]/20 font-bold text-sm focus:outline-none focus:border-[#5B21B6]"
                     />
                   </div>
                 </div>
@@ -995,38 +995,38 @@ export default function HospitalConsole() {
               <div className="space-y-3">
                 <span className="text-xs font-bold text-[#1F3D2B] block">Critical Facility Readiness</span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.ct_scanner_operational}
                       onChange={(e) =>
                         setCapacity({ ...capacity, ct_scanner_operational: e.target.checked })
                       }
-                      className="rounded text-[#1F3D2B]"
+                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">CT Scanner Active</span>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.cath_lab_operational}
                       onChange={(e) =>
                         setCapacity({ ...capacity, cath_lab_operational: e.target.checked })
                       }
-                      className="rounded text-[#1F3D2B]"
+                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">Cath Lab Ready</span>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/15 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.trauma_team_standby}
                       onChange={(e) =>
                         setCapacity({ ...capacity, trauma_team_standby: e.target.checked })
                       }
-                      className="rounded text-[#1F3D2B]"
+                      className="rounded text-[#5B21B6] focus:ring-[#5B21B6]"
                     />
                     <span className="text-xs font-bold text-[#1F3D2B]">Trauma Team Standby</span>
                   </label>
@@ -1043,11 +1043,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "NORMAL"
                         ? "bg-[#C8EBD1] border-[#10B981] text-[#022111]"
-                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
+                        : "bg-[#F2EADA] border-[#1F3D2B]/20 text-[#1F3D2B] hover:bg-[#E8DCC4]"
                     }`}
                   >
                     ● NORMAL (Open)
-                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/70 mt-0.5">
                       Accepting all casualties
                     </span>
                   </button>
@@ -1058,11 +1058,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "SURGE"
                         ? "bg-[#FEF3C7] border-[#F59E0B] text-[#D97706]"
-                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
+                        : "bg-[#F2EADA] border-[#1F3D2B]/20 text-[#1F3D2B] hover:bg-[#E8DCC4]"
                     }`}
                   >
                     ● AMBER SURGE
-                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/70 mt-0.5">
                       Critical trauma & cardiac only
                     </span>
                   </button>
@@ -1073,11 +1073,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "DIVERT"
                         ? "bg-[#FFDAD6] border-[#BA1A1A] text-[#93000A]"
-                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
+                        : "bg-[#F2EADA] border-[#1F3D2B]/20 text-[#1F3D2B] hover:bg-[#E8DCC4]"
                     }`}
                   >
                     ● RED DIVERSION
-                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/70 mt-0.5">
                       Reroute to secondary facility
                     </span>
                   </button>
@@ -1123,27 +1123,27 @@ export default function HospitalConsole() {
               {/* Complete Vitals telemetry block */}
               {selectedAlert.vitals && (
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Heart Rate</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#BA1A1A]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-white/10">
+                    <span className="text-[10px] text-[#E8DCC4]/70 uppercase block font-bold">Heart Rate</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#F87171]">
                       {selectedAlert.vitals.heart_rate} <span className="text-xs font-normal">bpm</span>
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Blood Pressure</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#1F3D2B]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-white/10">
+                    <span className="text-[10px] text-[#E8DCC4]/70 uppercase block font-bold">Blood Pressure</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#E8DCC4]">
                       {selectedAlert.vitals.blood_pressure}
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Oxygen Sat (SpO2)</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#10B981]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-white/10">
+                    <span className="text-[10px] text-[#E8DCC4]/70 uppercase block font-bold">Oxygen Sat (SpO2)</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#4ADE80]">
                       {selectedAlert.vitals.spo2_pct}%
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
-                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Glasgow Coma</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#1F3D2B]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-white/10">
+                    <span className="text-[10px] text-[#E8DCC4]/70 uppercase block font-bold">Glasgow Coma</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#E8DCC4]">
                       {selectedAlert.vitals.gcs} / 15
                     </span>
                   </div>
@@ -1151,15 +1151,15 @@ export default function HospitalConsole() {
               )}
 
               {/* Clinical AI Guidance with Required Disclaimer */}
-              <div className="p-4 rounded-xl bg-[#5B21B6]/60 border border-[#5B21B6]/30 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
+              <div className="p-4 rounded-xl bg-[#5B21B6] border border-[#5B21B6]/40 space-y-2 text-white shadow-sm">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
                   <span>AI Clinical Decision Support Assessment</span>
                 </div>
-                <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
+                <p className="text-xs text-white/95 font-medium leading-relaxed">
                   Patient presents with acute ischemic indicators. Rapid Door-to-Balloon target &lt; 90 min recommended. Continuous telemetry streaming through NIVARAN gateway.
                 </p>
-                <div className="pt-2 border-t border-[#5B21B6]/20 text-[10px] text-[#1F3D2B]/65 italic">
+                <div className="pt-2 border-t border-white/20 text-[10px] text-white/80 italic">
                   <strong>Clinical Decision Support Disclaimer:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                 </div>
               </div>

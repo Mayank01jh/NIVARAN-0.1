@@ -194,30 +194,30 @@ export default function AmbulanceCrewTerminal() {
                 <span className="w-2 h-2 rounded-full bg-white"></span>
                 PRIORITY: CODE RED CRITICAL
               </span>
-              <span className="bg-white/10 text-white text-xs font-bold px-2 py-1 rounded uppercase">
+              <span className="bg-[#0B0B0C] text-white text-xs font-bold px-2.5 py-1 rounded uppercase">
                 STEMI ALERT
               </span>
             </div>
 
-            <span className="font-mono text-xs text-white/60">INCIDENT: #{incidentId}</span>
+            <span className="font-mono text-xs text-[#0B0B0C]/70">INCIDENT: #{incidentId}</span>
           </div>
 
           {/* Dual Patient & Scene Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-white/5 space-y-2">
-              <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider block">
+            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-[#0B0B0C]/10 space-y-2">
+              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block">
                 Patient Identification
               </span>
               <div className="flex items-baseline gap-2">
-                <span className="font-headline text-xl font-extrabold text-white">{patientName}</span>
+                <span className="font-headline text-xl font-extrabold text-[#0B0B0C]">{patientName}</span>
                 <span className="text-xs font-mono text-[#00652C] font-bold">({patientAgeGender})</span>
               </div>
-              <span className="text-[11px] font-bold text-[#FF6B5B] uppercase block">Chief Complaint:</span>
-              <p className="text-xs text-white/90 leading-relaxed font-medium">{chiefComplaint}</p>
+              <span className="text-[11px] font-bold text-[#BA1A1A] uppercase block">Chief Complaint:</span>
+              <p className="text-xs text-[#0B0B0C]/90 leading-relaxed font-medium">{chiefComplaint}</p>
             </div>
 
-            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-white/5 space-y-2">
-              <span className="text-[10px] font-bold text-white/50 uppercase tracking-wider block">
+            <div className="bg-[#F4F6F9] p-4 rounded-xl border border-[#0B0B0C]/10 space-y-2">
+              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block">
                 Scene & Route Destination
               </span>
               <div className="flex items-start gap-2">
@@ -225,17 +225,17 @@ export default function AmbulanceCrewTerminal() {
                   location_on
                 </span>
                 <div>
-                  <span className="font-headline text-base font-bold text-white block leading-tight">
+                  <span className="font-headline text-base font-bold text-[#0B0B0C] block leading-tight">
                     {sceneAddress}
                   </span>
-                  <span className="text-[11px] text-white/50 mt-1 block">
-                    Assigned Receiving Hospital: <strong>{destinationHospital}</strong>
+                  <span className="text-[11px] text-[#0B0B0C]/70 mt-1 block">
+                    Assigned Receiving Hospital: <strong className="text-[#0B0B0C]">{destinationHospital}</strong>
                   </span>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-[#0B0B0C]/12 flex items-center justify-between">
-                <span className="text-xs text-white/60">Target ETA to Scene:</span>
+                <span className="text-xs text-[#0B0B0C]/70">Target ETA to Scene:</span>
                 <span className="font-headline text-xl font-extrabold text-[#00652C] font-mono">
                   {formatEta(etaSec)}
                 </span>
@@ -244,26 +244,26 @@ export default function AmbulanceCrewTerminal() {
           </div>
 
           {/* In-Cab Vitals Strip */}
-          <div className="bg-white p-3 rounded-xl border border-white/5 grid grid-cols-5 gap-2 text-xs">
+          <div className="bg-[#F4F6F9] p-3 rounded-xl border border-[#0B0B0C]/10 grid grid-cols-5 gap-2 text-xs">
             <div className="text-center">
-              <span className="text-[10px] text-white/40 block">PULSE</span>
-              <span className="font-mono font-extrabold text-base text-[#FF6B5B]">{vitals.hr} bpm</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">PULSE</span>
+              <span className="font-mono font-extrabold text-base text-[#BA1A1A]">{vitals.hr} bpm</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-white/40 block">BP</span>
-              <span className="font-mono font-extrabold text-base text-white">{vitals.bp}</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">BP</span>
+              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.bp}</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-white/40 block">SPO2</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">SPO2</span>
               <span className="font-mono font-extrabold text-base text-[#00652C]">{vitals.spo2}%</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-white/40 block">RESP</span>
-              <span className="font-mono font-extrabold text-base text-white">{vitals.rr} /m</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">RESP</span>
+              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.rr} /m</span>
             </div>
             <div className="text-center">
-              <span className="text-[10px] text-white/40 block">GCS</span>
-              <span className="font-mono font-extrabold text-base text-white">{vitals.gcs} / 15</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 block font-bold">GCS</span>
+              <span className="font-mono font-extrabold text-base text-[#0B0B0C]">{vitals.gcs} / 15</span>
             </div>
           </div>
         </div>
@@ -275,7 +275,7 @@ export default function AmbulanceCrewTerminal() {
             <button
               disabled={safeDrivingLockout}
               onClick={() => transitionTo("EN_ROUTE", "EN_ROUTE")}
-              className="w-full py-5 rounded-2xl bg-[#00652C] hover:bg-[#004D20] text-[#000000] font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+              className="w-full py-5 rounded-2xl bg-[#00652C] hover:bg-[#004D20] text-white font-headline text-lg sm:text-xl font-extrabold tracking-tight uppercase shadow-2xl active:scale-98 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[32px]">check_circle</span>
               <span>1. ACKNOWLEDGE DISPATCH &amp; START ROUTE</span>
@@ -334,13 +334,13 @@ export default function AmbulanceCrewTerminal() {
           {currentStep === "STANDBY" && (
             <div className="bg-white p-6 rounded-2xl border border-[#0B0B0C]/12 text-center space-y-3">
               <span className="material-symbols-outlined text-[48px] text-[#00652C]">verified</span>
-              <h3 className="font-headline text-xl font-extrabold text-white">Ambulance Unit {registration} Ready</h3>
-              <p className="text-xs text-white/60">
+              <h3 className="font-headline text-xl font-extrabold text-[#0B0B0C]">Ambulance Unit {registration} Ready</h3>
+              <p className="text-xs text-[#0B0B0C]/70">
                 Unit returned to AVAILABLE status in Delhi Central CAD pool. Standing by for next dispatch alert.
               </p>
               <button
                 onClick={() => setCurrentStep("DISPATCHED")}
-                className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white mt-2"
+                className="px-5 py-2.5 rounded-xl bg-[#00652C] hover:bg-[#004D20] text-xs font-bold text-white mt-2 shadow transition-all active:scale-95"
               >
                 Simulate New Incoming Dispatch Alert
               </button>

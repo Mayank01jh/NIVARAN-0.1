@@ -498,7 +498,7 @@ export default function CitizenApp() {
                   Immediate Response
                 </span>
               </div>
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              <div className="grid grid-cols-2 gap-2 pb-1">
                 {(
                   [
                     { id: "Critical", label: "Critical", sub: "Cardiac · Stroke · Trauma", color: "#B91C1C", dot: "bg-white animate-pulse" },
@@ -515,16 +515,16 @@ export default function CitizenApp() {
                         setSelectedSeverity(sev.id);
                         triggerHaptic(20);
                       }}
-                      className={`flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-full transition-all text-left ${
+                      className={`flex items-center gap-2 px-3 py-2 rounded-2xl transition-all text-left ${
                         isSelected
-                          ? "bg-[#B91C1C] text-white shadow-md shadow-[#B91C1C]/30 scale-[1.02]"
-                          : "bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#F4EDE0]"
+                          ? "bg-[#B91C1C] text-white shadow-md shadow-[#B91C1C]/30 scale-[1.01]"
+                          : "bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#EDE5D6]"
                       }`}
                     >
-                      <span className={`w-2 h-2 rounded-full ${isSelected ? "bg-white" : sev.dot}`}></span>
-                      <div className="flex flex-col">
+                      <span className={`w-2 h-2 rounded-full shrink-0 ${isSelected ? "bg-white" : sev.dot}`}></span>
+                      <div className="flex flex-col min-w-0">
                         <span className="text-xs font-bold leading-tight">{sev.label}</span>
-                        <span className={`text-[10px] leading-tight ${isSelected ? "text-white/90" : "text-[#14213D]/65"}`}>
+                        <span className={`text-[10px] leading-tight truncate ${isSelected ? "text-white/90" : "text-[#14213D]/65"}`}>
                           {sev.sub}
                         </span>
                       </div>
