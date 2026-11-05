@@ -1,0 +1,81 @@
+/* ======================================================
+   NIVARAN Hospital ED Command — Clinical Precision Operations
+   Design System: Forest Green (#1F3D2B) + Sand Beige (#E8DCC4, #F0EDE9) + Electric Purple (#8B5CF6)
+   Derived from official Google Stitch designs: clinical_precision_operations
+   ====================================================== */
+
+:root {
+  --surface: #fcf9f4;
+  --surface-dim: #dcdad5;
+  --surface-bright: #fcf9f4;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f3ee;
+  --surface-container: #f0ede9;
+  --surface-container-high: #ebe8e3;
+  --surface-container-highest: #e5e2dd;
+  
+  --on-surface: #1c1c19;
+  --on-surface-variant: #424843;
+  
+  --primary: #082717;
+  --primary-container: #1f3d2b;
+  --on-primary-container: #87a890;
+  --primary-fixed: #c8ebd1;
+  --on-primary-fixed: #022111;
+  
+  --secondary: #6b38d4;
+  --secondary-container: #8455ef;
+  --secondary-fixed: #e9ddff;
+  --on-secondary-fixed-variant: #5516be;
+  
+  --surface-tint: #466551;
+  --mint-emerald: #10b981;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --border: #e2dcd5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Material Symbols Icon Configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+}
+
+h1, h2, h3, h4, .font-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ba1a1a","tertiary":"#381a00","on-error":"#ffffff","surface-tint":"#466551","tertiary-container":"#572c00","primary":"#082717","outline":"#727972","on-primary-container":"#87a890","on-primary-fixed":"#022111","primary-fixed":"#c8ebd1","surface-bright":"#fcf9f4","inverse-surface":"#31302d","background":"#fcf9f4","outline-variant":"#c2c8c1","error-container":"#ffdad6","secondary-fixed":"#e9ddff","on-secondary":"#ffffff","on-primary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed-dim":"#ffb77d","surface":"#fcf9f4","surface-dim":"#dcdad5","surface-container":"#f0ede9","inverse-on-surface":"#f3f0eb","on-secondary-fixed-variant":"#5516be","on-surface":"#1c1c19","secondary":"#6b38d4","secondary-fixed-dim":"#d0bcff","surface-container-low":"#f6f3ee","surface-container-high":"#ebe8e3","secondary-container":"#8455ef","on-tertiary-fixed-variant":"#6e3900","on-error-container":"#93000a","tertiary-fixed":"#ffdcc3","inverse-primary":"#accfb6","surface-container-highest":"#e5e2dd","surface-container-lowest":"#ffffff","surface-variant":"#e5e2dd","on-secondary-container":"#fffbff","on-tertiary-container":"#ed861e","on-primary-fixed-variant":"#2f4d3a","on-surface-variant":"#424843","on-secondary-fixed":"#23005c","primary-container":"#1f3d2b","on-background":"#1c1c19","primary-fixed-dim":"#accfb6","on-tertiary-fixed":"#2f1500"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","margin-desktop":"1.5rem","gutter-desktop":"1.25rem","margin":"1rem","space-xl":"1.75rem","space-xs":"0.25rem","space-lg":"1.25rem","space-md":"0.75rem","gutter":"1rem"},"fontFamily":{"title-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"label-lg":["Inter"],"metric-display":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"]},"fontSize":{"title-md":["16px",{"lineHeight":"22px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"600"}],"metric-display":["32px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}]}}}}</script></head><body class="bg-surface text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex items-center justify-between px-margin-desktop"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-primary-fixed text-[20px]">emergency</span></div><div class="flex flex-col"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">NIVARAN</span><span class="font-label-md text-label-md bg-secondary-fixed text-on-secondary-fixed-variant px-space-xs rounded uppercase">ED-COMMAND</span></div><span class="font-label-md text-label-md text-on-surface-variant">AIIMS Trauma Centre — Central Emergency Dept</span></div></div><div class="h-6 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded bg-surface-container"><span class="w-2 h-2 rounded-full bg-surface-tint animate-pulse"></span><span class="font-label-md text-label-md text-on-surface-variant uppercase">Acceptance Status:</span><span class="font-label-md text-label-md text-primary font-bold">NORMAL / ACTIVE</span></div></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg"><a class="px-space-md py-space-xs text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="inbound-casualty-radar" href="#">Inbound Casualty Radar</a><a class="px-space-md py-space-xs text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="hospital-capacity-and-beds" href="#">Hospital Capacity &amp; Beds</a><a class="px-space-md py-space-xs text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors" data-path="pre-arrival-telemetry" href="#">Pre-Arrival Telemetry</a><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary font-bold rounded-lg" data-path="paramedic-coordination" href="#">Paramedic Coordination</a></nav><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">e911_emergency</span><span class="font-label-lg text-label-lg uppercase tracking-wide">Mass Casualty Alert</span></button><div class="h-6 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface">Dr. S. Nair</span><span class="font-label-md text-label-md text-on-surface-variant">Triage Chief · Duty Lead</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside class="fixed left-0 top-16 bottom-0 w-64 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex flex-col justify-between p-space-md"><div class="flex flex-col gap-space-lg"><div><div class="px-space-sm mb-space-xs font-label-md text-label-md text-on-surface-variant uppercase">Operational Units</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="inbound-casualty-radar" href="#"><span class="material-symbols-outlined text-[20px]">radar</span><span class="font-label-lg text-label-lg">Casualty Radar</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="hospital-capacity-and-beds" href="#"><span class="material-symbols-outlined text-[20px]">hotel</span><span class="font-label-lg text-label-lg">Bed Availability</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pre-arrival-telemetry" href="#"><span class="material-symbols-outlined text-[20px]">monitor_heart</span><span class="font-label-lg text-label-lg">Vital Telemetry</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-space-sm transition-colors bg-primary-container text-on-primary font-bold rounded-lg" data-path="paramedic-coordination" href="#"><span class="material-symbols-outlined text-[20px]">airport_shuttle</span><span class="font-label-lg text-label-lg">Ambulance Fleet</span></a></nav></div><div><div class="px-space-sm mb-space-xs font-label-md text-label-md text-on-surface-variant uppercase">Clinical Registry</div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="triage-intake-board" href="#"><span class="material-symbols-outlined text-[20px]">assignment_late</span><span class="font-label-lg text-label-lg">Triage Board</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="trauma-bay-allocation" href="#"><span class="material-symbols-outlined text-[20px]">meeting_room</span><span class="font-label-lg text-label-lg">Trauma Bays</span></a><a class="flex items-center gap-space-sm px-space-sm py-space-sm rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="blood-bank-and-diagnostics" href="#"><span class="material-symbols-outlined text-[20px]">bloodtype</span><span class="font-label-lg text-label-lg">Blood Bank &amp; Labs</span></a></nav></div></div><div class="p-space-sm bg-surface-container rounded flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-md text-label-md text-on-surface-variant uppercase">Network Link</span><span class="font-label-md text-label-md text-surface-tint font-bold">AIIMS-LAN-01</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Encrypted Clinical Stream 24/7</span></div></aside><div class="pl-64"><main class="w-full pt-16 bg-surface px-margin-desktop"><div class="flex flex-col w-full pb-space-xl">
+<!-- Operational Sub-Header & Real-Time Connection Bar -->
+<div class="w-full bg-surface-container-lowest p-space-md shadow-sm mb-space-md flex flex-wrap items-center justify-between gap-space-md rounded-xl">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-3 h-3 rounded-full bg-secondary animate-ping"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tele-Medical Link 01</span>
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-space-xs">
+            Unit DL-01-AMB-1081 
+            <span class="text-xs bg-secondary-fixed text-on-secondary-fixed-variant px-space-xs py-0.5 rounded font-label-md">CATS ADVANCED LIFE SUPPORT</span>
+</span>
+</div>
+</div>
+<div class="hidden md:flex h-8 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-space-md">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase block">Patient</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">Aarav Sharma, 52M</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase block">Chief Impression</span>
+<span class="font-title-md text-title-md text-error font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+            Inferior STEMI / Cardiogenic Shock Threat
+          </span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase block">ETA AIIMS Bay 1</span>
+<span class="font-title-md text-title-md text-secondary font-bold">06 MIN (Green Corridor)</span>
+</div>
+</div>
+</div>
+<!-- Active Doctor Identification & Session Timestamp -->
+<div class="flex items-center gap-space-md">
+<div class="bg-surface-container-low px-space-md py-space-xs rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-surface-tint text-[20px]">medical_services</span>
+<div class="flex flex-col text-right">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Consultant On Air</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Dr. S. Nair (Trauma &amp; EM)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs bg-primary-container text-on-primary px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed animate-pulse">fiber_manual_record</span>
+<span class="font-label-md text-label-md tracking-wider">REC: 00:08:42</span>
+</div>
+</div>
+</div>
+<!-- Main Multi-Pane Command Grid -->
+<div class="grid grid-cols-12 gap-gutter-desktop w-full items-start">
+<!-- LEFT 7 COLS: Live Video Stream & Live Telemetry Dock -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<!-- Video Consultation Viewport with Telemetry Overlay -->
+<div class="relative w-full aspect-video bg-inverse-surface rounded-xl overflow-hidden shadow-md flex flex-col justify-between">
+<!-- Video Stream Background Image -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Interior of an emergency ambulance with clean clinical lighting. An emergency medical technician wearing teal medical scrubs and gloves tends carefully to a monitored patient. In the background, life support equipment, an IV drip stand, and digital vital sign screens glow softly against the vehicle interior with focused, serious lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD187nb_HZSDxSjqLlb7cAvgQLyrCE8qCr1rQ45VNiH68vlMq_gjxqtjnQ5KaRK1HOrwaRBckr-_AuvwyC24gUjCeDDL6W3Camsh2PDC40G1aHh7PFjpF2C2oI1FdBUX8N55Nv0fFDnjAE17XdADRjhDuqVotEBH7pz4BYjQysmcfYxn5irEESCW1R2byGKKBtnAd-6-mIOUD-6mq-5R_mwJIidWpAmfYm21yx2Nimd')">
+</div>
+<!-- Ambient Video Scrim Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-primary/80 pointer-events-none"></div>
+<!-- Upper Video HUD: Signal Quality & Link Metrics -->
+<div class="relative z-10 p-space-md flex items-center justify-between text-on-primary">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center gap-1 bg-surface-container-lowest/20 backdrop-blur-md px-space-sm py-0.5 rounded text-white font-label-md">
+<span class="material-symbols-outlined text-[14px] text-surface-tint">signal_cellular_alt</span>
+              5G NR · 48ms LATENCY
+            </span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-space-sm py-0.5 rounded text-white font-label-md">
+              ENCRYPTED TLS 1.3
+            </span>
+</div>
+<div class="flex items-center gap-space-xs bg-error/90 text-on-error px-space-sm py-0.5 rounded shadow font-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">sensors</span>
+            LIVE PARAMEDIC CAM
+          </div>
+</div>
+<!-- Doctor Picture-in-Picture ER Feedback Window -->
+<div class="absolute right-space-md bottom-24 z-20 w-36 sm:w-44 aspect-video rounded-lg overflow-hidden shadow-xl bg-surface-container-highest">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up over-the-shoulder portrait of male ER physician Dr. S. Nair wearing green medical surgical scrubs and headset with microphone, speaking calmly into a trauma center workstation display in a brightly lit trauma command room." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCh9jcr3KTzlZ4G7Xl_QT7EVC_P_msuL95uWDJ3LWf1AYVOTRMbUPDJEHan_pzHcJnSGa3G31Rnp0vRZlAcxMjEvan1jLPuF8kQ2F5btBGWxxszgD0Zyqve5HIzYsKlmcQCWwVyM_QAWRokxQOGaVKyJZQ-4cJY7_n4avp4wyduMs94QhrF8EpJH1pNPn3pM6oyLyprw4NBsDwuz-EjKwmqDuIaRfbRM1LgO_ncAc6W')">
+</div>
+<div class="absolute bottom-0 inset-x-0 bg-primary/80 backdrop-blur-xs px-1.5 py-0.5 flex items-center justify-between">
+<span class="font-label-md text-white text-[10px]">AIIMS ER · DR. NAIR</span>
+<span class="material-symbols-outlined text-[12px] text-primary-fixed">mic</span>
+</div>
+</div>
+<!-- Real-Time Vital Telemetry HUD Matrix (Overlaid at bottom of stream) -->
+<div class="relative z-10 p-space-md bg-gradient-to-t from-primary via-primary/95 to-transparent text-white pt-space-xl">
+<div class="grid grid-cols-4 gap-space-sm">
+<!-- HR Box -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-lg p-space-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-outline-variant uppercase">HR (BPM)</span>
+<span class="material-symbols-outlined text-error text-[16px] animate-pulse">favorite</span>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="font-metric-display text-metric-display text-error font-bold leading-none">118</span>
+<span class="font-label-md text-error-container text-xs">TACHY</span>
+</div>
+<!-- Mini Sparkline inline SVG -->
+<svg class="w-full h-4 text-error" fill="none" viewbox="0 0 100 20">
+<path d="M0 10 L20 10 L25 2 L30 18 L35 10 L45 10 L50 4 L55 17 L60 10 L80 10 L85 0 L90 19 L95 10 L100 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+</svg>
+</div>
+<!-- NIBP Box -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-lg p-space-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-outline-variant uppercase">NIBP (mmHg)</span>
+<span class="material-symbols-outlined text-tertiary-fixed text-[16px]">speed</span>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="font-metric-display text-metric-display text-tertiary-fixed font-bold leading-none">88/56</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-[10px] text-tertiary-fixed-dim">
+<span>MAP: 66 mmHg</span>
+<span class="text-tertiary-fixed font-semibold">HYPOTENSIVE</span>
+</div>
+</div>
+<!-- SpO2 Box -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-lg p-space-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-outline-variant uppercase">SpO2 (%)</span>
+<span class="material-symbols-outlined text-secondary-fixed text-[16px]">air</span>
+</div>
+<div class="flex items-baseline gap-1 my-0.5">
+<span class="font-metric-display text-metric-display text-white font-bold leading-none">93</span>
+<span class="font-label-md text-secondary-fixed text-xs">ON 4L O2</span>
+</div>
+<div class="w-full bg-surface-container/30 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed h-full w-[93%]"></div>
+</div>
+</div>
+<!-- ECG Rhythm Box -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-lg p-space-xs flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-outline-variant uppercase">12-LEAD ST</span>
+<span class="material-symbols-outlined text-error text-[16px]">ecg_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-error-container font-bold">+2.4mm ELEV</span>
+<span class="font-label-md text-[10px] text-outline-variant">LEADS II, III, aVF</span>
+</div>
+<span class="font-label-md text-[9px] bg-error-container text-on-error-container px-1 py-0.5 rounded text-center font-bold">INF STEMI</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tele-Medical Operational Control Bar -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<!-- Mute Audio -->
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-toggle-mic" type="button">
+<span class="material-symbols-outlined text-[18px]" id="mic-icon">mic</span>
+<span class="font-label-lg text-label-lg" id="mic-text">Mute Mic</span>
+</button>
+<!-- Record Audio Directive -->
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-toggle-rec" type="button">
+<span class="material-symbols-outlined text-[18px] text-error">graphic_eq</span>
+<span class="font-label-lg text-label-lg">Record Audio</span>
+</button>
+<!-- Capture Snapshot -->
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors" id="btn-snapshot" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">camera_alt</span>
+<span class="font-label-lg text-label-lg">Capture Snapshot</span>
+</button>
+</div>
+<!-- End Session Button -->
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">call_end</span>
+<span class="font-label-lg text-label-lg">End Consult</span>
+</button>
+</div>
+<!-- Rapid Medical Directives Input Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<span class="font-title-md text-title-md text-primary font-bold">Two-Way Rapid Medical Order Input</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Direct VHF &amp; Tele-Data Pipeline</span>
+</div>
+<!-- Pre-Set Clinical Directives Quick Chips -->
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase block mb-space-xs">Standard Emergency Protocols</span>
+<div class="flex flex-wrap gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-error-container text-on-error-container font-label-md text-label-md hover:bg-error hover:text-on-error transition-colors flex items-center gap-1" onclick="insertOrderText('Hold Nitrates completely (Inferior Wall STEMI precaution).')" type="button">
+<span class="material-symbols-outlined text-[14px]">block</span>
+              Hold Nitrates
+            </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1" onclick="insertOrderText('Start 500ml Normal Saline wide-open bolus under pressure bag.')" type="button">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+              Start 500ml Saline Bolus
+            </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1" onclick="insertOrderText('Prepare RSI medications: Etomidate 20mg, Rocuronium 100mg. Have suction ready.')" type="button">
+<span class="material-symbols-outlined text-[14px]">pulmonology</span>
+              Prep Intubation
+            </button>
+<button class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface hover:bg-primary-container hover:text-on-primary font-label-md text-label-md transition-colors flex items-center gap-1" onclick="insertOrderText('Establish second wide-bore IV access (18G or 16G) in left forearm.')" type="button">
+<span class="material-symbols-outlined text-[14px]">vaccines</span>
+              Confirm IV Patency
+            </button>
+<button class="px-space-sm py-1 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-colors flex items-center gap-1" onclick="insertOrderText('ER Coordinator paged Dr. Mehra (Cath Lab Lead). Cath Lab 2 prepped and awaiting direct transfer.')" type="button">
+<span class="material-symbols-outlined text-[14px]">notification_important</span>
+              Page Interventional Cardio
+            </button>
+</div>
+</div>
+<!-- Custom Order Typing and Broadcast Bar -->
+<form class="flex flex-col gap-space-sm" id="order-form" onsubmit="handleSendOrder(event)">
+<div class="relative">
+<textarea class="w-full bg-surface-container-low text-on-surface p-space-sm text-body-md font-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all resize-none" id="order-input" placeholder="Type urgent directive to inbound paramedic crew..." rows="2"></textarea>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span class="font-label-md text-label-md">Physician Credential: MC-DEL-29402 Verified</span>
+</div>
+<button class="bg-secondary text-on-secondary hover:bg-secondary-container transition-colors px-space-lg py-space-xs rounded-lg flex items-center gap-space-xs shadow-md" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span class="font-label-lg text-label-lg font-bold">Send Order</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- RIGHT 5 COLS: Real-Time Order Stream & Radio Channels -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<!-- Radio Channel Fleet Status Module -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">radio</span>
+<span class="font-title-md text-title-md text-primary font-bold">Inbound Fleet Radio Channels</span>
+</div>
+<span class="font-label-md text-label-md bg-surface-container px-space-xs py-0.5 rounded text-on-surface-variant font-bold">CH-09 AIIMS EMS</span>
+</div>
+<!-- Fleet Status Rows -->
+<div class="flex flex-col gap-space-xs">
+<!-- Unit 1081 (Active) -->
+<div class="p-space-sm rounded-lg bg-secondary-fixed/30 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[18px] animate-pulse">headset_mic</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">Unit DL-01-AMB-1081</span>
+<span class="font-label-md text-label-md text-secondary font-semibold uppercase">Active Voice Bridge · Direct</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md bg-secondary text-on-secondary px-space-xs py-0.5 rounded font-bold uppercase">LIVE</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Signal 99%</span>
+</div>
+</div>
+<!-- Unit 4412 (Standby) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">radio_button_checked</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Unit DL-02-AMB-4412</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Standby · En Route Outer Ring</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md bg-surface-container-highest text-on-surface-variant px-space-xs py-0.5 rounded font-bold uppercase">STANDBY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ping: 100%</span>
+</div>
+</div>
+<!-- Unit 9102 (Standby Stream) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">monitor_heart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Unit HR-55-AMB-9102</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Telemetry Streaming · Polytrauma</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-md text-label-md bg-surface-container-highest text-on-surface-variant px-space-xs py-0.5 rounded font-bold uppercase">STANDBY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ETA: 19m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Real-Time Clinical Order & Prescription Broadcast Log -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+<span class="font-title-md text-title-md text-primary font-bold">Clinical Directive Broadcast Log</span>
+</div>
+<span class="font-label-md text-label-md text-surface-tint flex items-center gap-1 font-bold">
+<span class="w-2 h-2 rounded-full bg-surface-tint"></span>
+            SYNCED WITH MED-RECORDS
+          </span>
+</div>
+<!-- Sequential Chronological Audit Feed -->
+<div class="flex flex-col gap-space-sm overflow-y-auto max-h-[460px] pr-1" id="order-log-stream">
+<!-- Event 1 (Latest Dr. Directive) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">clinical_notes</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Dr. S. Nair (Consultant Trauma)</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">11:44:12 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+              Instructed EMT: Prepare Dopamine or Norepinephrine infusion if MAP drops below 60 mmHg. Avoid Nitroglycerin.
+            </p>
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container/40 p-space-xs rounded">
+<span class="font-label-md text-label-md text-surface-tint font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+                Acknowledged by Paramedic Ramesh
+              </span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Voice &amp; Terminal ACK</span>
+</div>
+</div>
+<!-- Event 2 (Paramedic Report & ECG confirmation) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-surface-tint text-[16px]">ecg</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">EMT Ramesh (Lead Paramedic)</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">11:43:05 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+              12-lead ECG transmitted. Inferior STEMI confirmed. Patient given Aspirin 325mg chewable.
+            </p>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md bg-primary-container text-on-primary px-space-xs py-0.5 rounded font-medium">ECG-FILE: #REC-8841.PDF</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Delivered via AIIMS-Cloud</span>
+</div>
+</div>
+<!-- Event 3 (Initial Fleet Dispatch & Corridor Notification) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">local_shipping</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Unit DL-01-AMB-1081</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">11:41:20 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Patient extricated and loaded into ambulance. Proceeding via Barakhamba Road green corridor.
+            </p>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">traffic</span>
+              Delhi Traffic Police Unit 4 notified for signal prioritization
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container for UI Feedback -->
+<div class="fixed bottom-6 right-6 bg-primary text-on-primary px-space-md py-space-sm rounded-lg shadow-xl flex items-center gap-space-sm transition-all transform translate-y-24 opacity-0 pointer-events-none z-50" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-label-lg text-label-lg" id="toast-message">Directive transmitted.</span>
+</div>
+</div>
+<script>
+  // Insert quick protocol chip text into directive input
+  function insertOrderText(text) {
+    const input = document.getElementById('order-input');
+    input.value = text;
+    input.focus();
+  }
+
+  // Handle Medical Order transmission
+  function handleSendOrder(e) {
+    e.preventDefault();
+    const input = document.getElementById('order-input');
+    const orderText = input.value.trim();
+    if (!orderText) return;
+
+    // Current Time formatting
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+
+    // Append new item to broadcast log
+    const stream = document.getElementById('order-log-stream');
+    const newEntry = document.createElement('div');
+    newEntry.className = "p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs transition-all";
+    newEntry.innerHTML = `
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-secondary text-[16px]">clinical_notes</span>
+          <span class="font-label-lg text-label-lg text-primary font-bold">Dr. S. Nair (Consultant Trauma)</span>
+        </div>
+        <span class="font-label-md text-label-md text-on-surface-variant">${timeString}</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface font-medium">
+        ${escapeHtml(orderText)}
+      </p>
+      <div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container/40 p-space-xs rounded">
+        <span class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px] animate-spin">refresh</span>
+          Awaiting Crew Readback
+        </span>
+        <span class="font-label-md text-label-md text-on-surface-variant uppercase">SENT VIA VHF / DATA</span>
+      </div>
+    `;
+
+    stream.insertBefore(newEntry, stream.firstChild);
+    input.value = '';
+
+    showToast("Order transmitted and logged to EHR.", "outgoing_mail");
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+  }
+
+  // Toast feedback helper
+  function showToast(message, icon = 'check_circle') {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toast-message');
+    const toastIcon = document.getElementById('toast-icon');
+
+    toastMsg.textContent = message;
+    toastIcon.textContent = icon;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 3200);
+  }
+
+  // Microphone toggle button
+  const micBtn = document.getElementById('btn-toggle-mic');
+  let isMuted = false;
+  micBtn.addEventListener('click', () => {
+    isMuted = !isMuted;
+    const micIcon = document.getElementById('mic-icon');
+    const micText = document.getElementById('mic-text');
+    if (isMuted) {
+      micIcon.textContent = 'mic_off';
+      micIcon.classList.add('text-error');
+      micText.textContent = 'Unmute Mic';
+      showToast('ER Microphone Muted', 'mic_off');
+    } else {
+      micIcon.textContent = 'mic';
+      micIcon.classList.remove('text-error');
+      micText.textContent = 'Mute Mic';
+      showToast('ER Microphone Active', 'mic');
+    }
+  });
+
+  // Telemetry snapshot button
+  const snapshotBtn = document.getElementById('btn-snapshot');
+  snapshotBtn.addEventListener('click', () => {
+    showToast('Telemetry & Vitals snapshot archived to record.', 'photo_camera');
+  });
+
+  // Protocol audio toggle
+  const recBtn = document.getElementById('btn-toggle-rec');
+  recBtn.addEventListener('click', () => {
+    showToast('Telemetry voice track segment stamped.', 'audio_file');
+  });
+</script></main></div></body></html>

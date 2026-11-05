@@ -1,0 +1,82 @@
+/* ======================================================
+   NIVARAN CAD Command — Tactical Operations White
+   Design System: Midnight Black (#0B0B0C, #0B1C30) + Pure White (#FFFFFF) + Lime Green (#C6F432, #ACF847)
+   Derived from official Google Stitch designs: tactical_operations_white
+   ====================================================== */
+
+:root {
+  --surface: #f8f9ff;
+  --surface-dim: #cbdbf5;
+  --surface-bright: #f8f9ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-container-high: #dce9ff;
+  --surface-container-highest: #d3e4fe;
+  
+  --on-surface: #0b1c30;
+  --on-surface-variant: #3f493f;
+  
+  --primary: #00652c;
+  --primary-container: #15803d;
+  --on-primary-container: #d3ffd5;
+  
+  --secondary: #416900;
+  --secondary-container: #acf847;
+  --secondary-fixed: #acf847;
+  --lime-accent: #c6f432;
+  
+  --midnight-black: #0b0b0c;
+  --pure-white: #ffffff;
+  
+  --tertiary: #4f576d;
+  --tertiary-container: #676f86;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  
+  --border: #becabc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Material Symbols Icon Configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

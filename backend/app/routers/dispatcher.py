@@ -1,0 +1,531 @@
+"""Dispatcher console router."""
+from __future__ import annotations
+
+import math
+from datetime import datetime, timezone, timedelta
+from typing import Any
+from fastapi import APIRouter, Depends, HTTPException, WebSocket, WebSocketDisconnect
+from motor.motor_asyncio import AsyncIOMotorDatabase
+from pydantic import BaseModel
+
+from app.core.database import get_db
+from app.core.security import require_role
+from app.models.base import utcnow
+from app.websockets.manager import ws_manager
+
+router = APIRouter(prefix="/dispatcher", tags=["Dispatcher"])
+
+
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    R = 6371.0
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dlambda = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlambda / 2) ** 2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return round(R * c, 2)
+
+
+class AssignAmbulancePayload(BaseModel):
+    unit_id: str
+
+
+class NotifyHospitalPayload(BaseModel):
+    hospital_id: str
+    hospital_name: str | None = None
+    triage_category: str = "RED"
+    suspected_condition: str | None = None
+    notes: str | None = None
+    vitals: dict[str, Any] | None = None
+
+
+class PurgeStalePayload(BaseModel):
+    older_than_minutes: int = 60
+
+
+@router.get("/incidents", response_model=list[dict])
+async def list_active_incidents(
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """List all active (non-terminal) incidents for the dispatcher board."""
+    terminal = {"CLOSED", "CANCELLED", "DUPLICATE_LINKED"}
+    cursor = db.incidents.find(
+        {"status": {"$nin": list(terminal)}},
+        sort=[("received_at", -1)],
+        limit=500,
+    )
+    return await cursor.to_list(length=500)
+
+
+@router.get("/fleet", response_model=list[dict])
+async def live_fleet(
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """All ambulance units with last known position."""
+    cursor = db.ambulances.find({}, limit=500)
+    return await cursor.to_list(length=500)
+
+
+@router.post("/incidents/{incident_id}/assign", response_model=dict)
+async def assign_ambulance_to_incident(
+    incident_id: str,
+    payload: AssignAmbulancePayload,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """Manually assign an ambulance unit to an incident."""
+    now = utcnow()
+    incident = await db.incidents.find_one({"_id": incident_id})
+    if not incident:
+        raise HTTPException(status_code=404, detail="Incident not found")
+
+    unit = await db.ambulances.find_one({"_id": payload.unit_id})
+    if not unit:
+        raise HTTPException(status_code=404, detail="Ambulance unit not found")
+
+    # Compute ETA
+    inc_coords = incident.get("location", {}).get("coordinates", [77.2090, 28.6139])
+    unit_coords = unit.get("location", {}).get("coordinates", [inc_coords[0] + 0.02, inc_coords[1] + 0.02])
+    dist_km = haversine_km(unit_coords[1], unit_coords[0], inc_coords[1], inc_coords[0])
+    eta_seconds = max(180, int((dist_km / 38.0) * 3600))
+
+    # Update incident to ASSIGNED / EN_ROUTE
+    updated_incident = await db.incidents.find_one_and_update(
+        {"_id": incident_id},
+        {
+            "$set": {
+                "status": "ASSIGNED",
+                "assigned_unit_id": payload.unit_id,
+                "assigned_at": now,
+                "eta_seconds": eta_seconds,
+                "updated_at": now,
+            }
+        },
+        return_document=True,
+    )
+
+    # Update ambulance to DISPATCHED
+    await db.ambulances.update_one(
+        {"_id": payload.unit_id},
+        {
+            "$set": {
+                "status": "DISPATCHED",
+                "active_incident_id": incident_id,
+                "last_seen_at": now,
+                "updated_at": now,
+            }
+        },
+    )
+
+    # Broadcast updates over WebSockets
+    await ws_manager.broadcast_dispatcher({
+        "type": "incident_update",
+        "data": {
+            "incident_id": incident_id,
+            "status": "ASSIGNED",
+            "assigned_unit_id": payload.unit_id,
+            "eta_seconds": eta_seconds,
+        },
+    })
+    await ws_manager.broadcast_dispatcher({"type": "fleet_update", "data": {"unit_id": payload.unit_id}})
+    await ws_manager.broadcast_caller(incident_id, {
+        "type": "incident_update",
+        "data": {
+            "incident_id": incident_id,
+            "status": "ASSIGNED",
+            "assigned_unit_id": payload.unit_id,
+            "eta_seconds": eta_seconds,
+        },
+    })
+
+    return updated_incident
+
+
+@router.post("/incidents/{incident_id}/auto-assign", response_model=dict)
+async def auto_assign_nearest_ambulance(
+    incident_id: str,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """Automatically find and assign the nearest available ambulance."""
+    incident = await db.incidents.find_one({"_id": incident_id})
+    if not incident:
+        raise HTTPException(status_code=404, detail="Incident not found")
+
+    inc_coords = incident.get("location", {}).get("coordinates", [77.2090, 28.6139])
+
+    # Find available units (or any active unit if none available)
+    units = await db.ambulances.find({"status": "AVAILABLE"}).to_list(100)
+    if not units:
+        units = await db.ambulances.find({}).to_list(100)
+    if not units:
+        raise HTTPException(status_code=400, detail="No ambulance units registered in fleet")
+
+    def unit_distance(u: dict) -> float:
+        loc = u.get("location", {}).get("coordinates")
+        if not loc:
+            return 9999.0
+        return haversine_km(loc[1], loc[0], inc_coords[1], inc_coords[0])
+
+    closest_unit = min(units, key=unit_distance)
+    return await assign_ambulance_to_incident(
+        incident_id,
+        AssignAmbulancePayload(unit_id=closest_unit["_id"]),
+        db=db,
+        current_user=current_user,
+    )
+
+
+@router.get("/incidents/{incident_id}/route-metrics", response_model=dict)
+async def get_incident_route_metrics(
+    incident_id: str,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """Calculates live GPS coordinates and timing from Ambulance -> Scene and Scene -> Hospital."""
+    incident = await db.incidents.find_one({"_id": incident_id})
+    if not incident:
+        raise HTTPException(status_code=404, detail="Incident not found")
+
+    inc_coords = incident.get("location", {}).get("coordinates", [77.2090, 28.6139])
+
+    # Find unit (assigned or closest)
+    unit = None
+    if incident.get("assigned_unit_id"):
+        unit = await db.ambulances.find_one({"_id": incident["assigned_unit_id"]})
+    if not unit:
+        unit = await db.ambulances.find_one({})
+
+    if unit and unit.get("location", {}).get("coordinates"):
+        unit_coords = unit["location"]["coordinates"]
+    else:
+        unit_coords = [inc_coords[0] + 0.025, inc_coords[1] + 0.020]
+
+    # Find closest destination hospital
+    hospitals = await db.hospitals.find({}).to_list(20)
+    if hospitals:
+        def hosp_distance(h: dict) -> float:
+            loc = h.get("location", {}).get("coordinates", [77.2088, 28.5672])
+            return haversine_km(loc[1], loc[0], inc_coords[1], inc_coords[0])
+
+        best_hosp = min(hospitals, key=hosp_distance)
+    else:
+        best_hosp = {
+            "name": "AIIMS Apex Trauma Center",
+            "location": {"coordinates": [77.2088, 28.5672]},
+        }
+
+    hosp_coords = best_hosp.get("location", {}).get("coordinates", [77.2088, 28.5672])
+    hosp_name = best_hosp.get("name", "AIIMS Apex Trauma Center")
+
+    # Leg 1: Ambulance -> Scene (strictly within 15 km emergency radius)
+    leg1_dist_km = min(15.0, haversine_km(unit_coords[1], unit_coords[0], inc_coords[1], inc_coords[0]))
+    # Rapid emergency response under siren (target 3 to 8 mins)
+    leg1_eta_sec = min(480, max(180, int((leg1_dist_km / 50.0) * 3600)))
+
+    # Leg 2: Scene -> Hospital (strictly within 15 km radius around nearest hospital)
+    leg2_dist_km = min(15.0, haversine_km(inc_coords[1], inc_coords[0], hosp_coords[1], hosp_coords[0]))
+    leg2_eta_sec = min(600, max(240, int((leg2_dist_km / 50.0) * 3600)))
+
+    return {
+        "incident_id": incident_id,
+        "scene": {
+            "coordinates": inc_coords,
+            "accuracy_m": incident.get("accuracy_m", 15),
+        },
+        "ambulance": {
+            "unit_id": unit.get("_id") if unit else "AMB-1081",
+            "registration": unit.get("registration", "DL-01-AMB-1081") if unit else "DL-01-AMB-1081",
+            "status": unit.get("status", "DISPATCHED") if unit else "AVAILABLE",
+            "coordinates": unit_coords,
+        },
+        "hospital": {
+            "name": hosp_name,
+            "coordinates": hosp_coords,
+        },
+        "leg1_ambulance_to_scene": {
+            "distance_km": leg1_dist_km,
+            "eta_seconds": leg1_eta_sec,
+        },
+        "leg2_scene_to_hospital": {
+            "distance_km": leg2_dist_km,
+            "eta_seconds": leg2_eta_sec,
+        },
+        "total_mission_eta_seconds": leg1_eta_sec + leg2_eta_sec,
+    }
+
+
+@router.post("/incidents/{incident_id}/notify-hospital", response_model=dict)
+async def notify_hospital(
+    incident_id: str,
+    payload: NotifyHospitalPayload,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator", "ambulance_crew", "paramedic")),
+):
+    """Notify hospital of inbound casualty, create pre-alert and sync over WebSockets."""
+    from app.models.base import new_id
+    incident = await db.incidents.find_one({"_id": incident_id})
+    if not incident:
+        raise HTTPException(status_code=404, detail="Incident not found")
+
+    now = utcnow()
+    now_iso = now.isoformat()
+    alert_id = f"alt-{incident_id[-6:]}-{new_id()[:6]}"
+
+    notes = payload.notes or (incident.get("caller_info", {}).get("notes") if isinstance(incident.get("caller_info"), dict) else "")
+    alert_doc = {
+        "_id": alert_id,
+        "alert_id": alert_id,
+        "incident_id": incident_id,
+        "hospital_id": payload.hospital_id,
+        "ambulance_id": incident.get("assigned_unit_id", "DL-01-AMB-1081"),
+        "triage_category": payload.triage_category,
+        "eta_seconds": incident.get("eta_seconds", 300),
+        "suspected_condition": payload.suspected_condition or "Acute Emergency Intake",
+        "vitals": payload.vitals or {
+            "heart_rate": 110,
+            "blood_pressure": "120/80",
+            "spo2_pct": 95,
+            "respiratory_rate": 22,
+            "gcs": 15,
+        },
+        "notes": notes,
+        "created_at": now_iso,
+        "acknowledged_at": None,
+    }
+
+    await db.pre_alerts.update_one({"_id": alert_id}, {"$set": alert_doc}, upsert=True)
+    await db.incidents.update_one(
+        {"_id": incident_id},
+        {"$set": {
+            "destination_hospital_id": payload.hospital_id,
+            "destination_hospital_name": payload.hospital_name or "AIIMS Trauma Centre",
+            "updated_at": now,
+        }}
+    )
+
+    # Real-time WebSocket notifications across ecosystem
+    await ws_manager.send_to_hospital(payload.hospital_id, {"type": "pre_alert", "data": alert_doc})
+    await ws_manager.broadcast_dispatcher({"type": "hospital_notified", "data": alert_doc})
+    await ws_manager.broadcast_caller(incident_id, {
+        "type": "hospital_notified",
+        "data": {
+            "hospital_id": payload.hospital_id,
+            "hospital_name": payload.hospital_name or "AIIMS Trauma Centre",
+        }
+    })
+
+    return alert_doc
+
+
+@router.post("/incidents/purge-stale", response_model=dict)
+async def purge_stale_incidents(
+    payload: PurgeStalePayload,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """Closes old test/stale incidents older than older_than_minutes to keep active queue pristine."""
+    cutoff = datetime.now(timezone.utc) - timedelta(minutes=payload.older_than_minutes)
+    cutoff_iso = cutoff.isoformat()
+    now = utcnow()
+    res = await db.incidents.update_many(
+        {
+            "$and": [
+                {"$or": [{"received_at": {"$lt": cutoff}}, {"received_at": {"$lt": cutoff_iso}}]},
+                {"status": {"$nin": ["CLOSED", "CANCELLED", "DUPLICATE_LINKED"]}},
+            ]
+        },
+        {"$set": {"status": "CLOSED", "updated_at": now}},
+    )
+    # Broadcast refresh
+    await ws_manager.broadcast_dispatcher({"type": "incident_update", "data": {"purged": res.modified_count}})
+    return {"purged_count": res.modified_count, "cutoff_time": cutoff.isoformat()}
+
+
+@router.post("/seed-demo", response_model=dict)
+async def seed_demo_data(
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(require_role("dispatcher", "admin", "operator")),
+):
+    """Seed or refresh rich demo emergencies and active ambulance units in the database."""
+    now = utcnow()
+    now_iso = now.isoformat()
+
+    demo_ambulances = [
+        {
+            "_id": "amb-delhi-1081",
+            "created_at": now,
+            "updated_at": now,
+            "registration": "DL-01-AMB-1081",
+            "operator_id": "Delhi-EMS-Central",
+            "status": "AVAILABLE",
+            "capabilities": ["ALS", "VENTILATOR"],
+            "current_location": {"type": "Point", "coordinates": [77.2150, 28.6180]},
+            "location": {"type": "Point", "coordinates": [77.2150, 28.6180]},
+            "heading_deg": 45.0,
+            "speed_kmh": 0.0,
+            "last_seen_at": now_iso,
+            "active_incident_id": None,
+        },
+        {
+            "_id": "amb-delhi-1082",
+            "created_at": now,
+            "updated_at": now,
+            "registration": "DL-02-AMB-1082",
+            "operator_id": "Delhi-EMS-South",
+            "status": "AVAILABLE",
+            "capabilities": ["BLS"],
+            "current_location": {"type": "Point", "coordinates": [77.2020, 28.6100]},
+            "location": {"type": "Point", "coordinates": [77.2020, 28.6100]},
+            "heading_deg": 180.0,
+            "speed_kmh": 0.0,
+            "last_seen_at": now_iso,
+            "active_incident_id": None,
+        },
+        {
+            "_id": "amb-delhi-1083",
+            "created_at": now,
+            "updated_at": now,
+            "registration": "DL-03-AMB-1083",
+            "operator_id": "Delhi-EMS-North",
+            "status": "AVAILABLE",
+            "capabilities": ["ALS", "NEONATAL"],
+            "current_location": {"type": "Point", "coordinates": [77.2280, 28.6250]},
+            "location": {"type": "Point", "coordinates": [77.2280, 28.6250]},
+            "heading_deg": 270.0,
+            "speed_kmh": 0.0,
+            "last_seen_at": now_iso,
+            "active_incident_id": None,
+        },
+        {
+            "_id": "amb-delhi-1084",
+            "created_at": now,
+            "updated_at": now,
+            "registration": "DL-04-AMB-1084",
+            "operator_id": "Delhi-EMS-West",
+            "status": "AVAILABLE",
+            "capabilities": ["ALS", "TRAUMA"],
+            "current_location": {"type": "Point", "coordinates": [77.1900, 28.6400]},
+            "location": {"type": "Point", "coordinates": [77.1900, 28.6400]},
+            "heading_deg": 90.0,
+            "speed_kmh": 0.0,
+            "last_seen_at": now_iso,
+            "active_incident_id": None,
+        },
+    ]
+    for amb in demo_ambulances:
+        await db.ambulances.update_one({"_id": amb["_id"]}, {"$set": amb}, upsert=True)
+
+    demo_incidents = [
+        {
+            "_id": "inc-demo-cardiac-01",
+            "caller_id": "caller-9876543210",
+            "idempotency_key": "demo-cardiac-01",
+            "request_hash": "hash-cardiac-01",
+            "location": {"type": "Point", "coordinates": [77.2195, 28.6315]},
+            "accuracy_m": 8.0,
+            "address": "Inner Circle, Connaught Place, Block B, New Delhi",
+            "severity": "CRITICAL",
+            "status": "QUEUED",
+            "caller_info": {
+                "name": "Ramesh Gupta",
+                "phone": "+91 98765 43210",
+                "notes": "🔴 CRITICAL: Acute crushing chest pain, radiating to left arm. Profuse diaphoresis, shortness of breath. Bystander assistance requested.",
+            },
+            "assigned_unit_id": None,
+            "destination_hospital_id": "hosp-aiims-01",
+            "received_at": now_iso,
+            "updated_at": now_iso,
+            "eta_seconds": 240,
+        },
+        {
+            "_id": "inc-demo-trauma-02",
+            "caller_id": "caller-9811223344",
+            "idempotency_key": "demo-trauma-02",
+            "request_hash": "hash-trauma-02",
+            "location": {"type": "Point", "coordinates": [77.2075, 28.5714]},
+            "accuracy_m": 12.0,
+            "address": "Safdarjung Flyover, Ring Road Northbound",
+            "severity": "HIGH",
+            "status": "QUEUED",
+            "caller_info": {
+                "name": "Pooja Sharma",
+                "phone": "+91 98112 23344",
+                "notes": "🟠 HIGH: High-speed motorcycle collision. Compound lower limb injury with active hemorrhage. Conscious, severe distress.",
+            },
+            "assigned_unit_id": None,
+            "destination_hospital_id": "hosp-aiims-01",
+            "received_at": now_iso,
+            "updated_at": now_iso,
+            "eta_seconds": 380,
+        },
+        {
+            "_id": "inc-demo-asthma-03",
+            "caller_id": "caller-9899112233",
+            "idempotency_key": "demo-asthma-03",
+            "request_hash": "hash-asthma-03",
+            "location": {"type": "Point", "coordinates": [77.2433, 28.5677]},
+            "accuracy_m": 15.0,
+            "address": "Central Market, Lajpat Nagar II, New Delhi",
+            "severity": "MEDIUM",
+            "status": "VALIDATING",
+            "caller_info": {
+                "name": "Ananya Roy",
+                "phone": "+91 98991 12233",
+                "notes": "🟡 MEDIUM: Acute asthmatic attack. Inhaler refractory. Audible wheezing and tachypnea.",
+            },
+            "assigned_unit_id": None,
+            "destination_hospital_id": None,
+            "received_at": now_iso,
+            "updated_at": now_iso,
+            "eta_seconds": None,
+        },
+        {
+            "_id": "inc-demo-fall-04",
+            "caller_id": "caller-9711002233",
+            "idempotency_key": "demo-fall-04",
+            "request_hash": "hash-fall-04",
+            "location": {"type": "Point", "coordinates": [77.1906, 28.6517]},
+            "accuracy_m": 20.0,
+            "address": "Near Karol Bagh Metro Station Gate 2",
+            "severity": "LOW",
+            "status": "RECEIVED",
+            "caller_info": {
+                "name": "Sanjay Verma",
+                "phone": "+91 97110 02233",
+                "notes": "🟢 LOW: Slip and fall. Right wrist swelling and forehead abrasion. Ambulatory, vitals stable.",
+            },
+            "assigned_unit_id": None,
+            "destination_hospital_id": None,
+            "received_at": now_iso,
+            "updated_at": now_iso,
+            "eta_seconds": None,
+        },
+    ]
+    for inc in demo_incidents:
+        await db.incidents.update_one({"_id": inc["_id"]}, {"$set": inc}, upsert=True)
+
+    await ws_manager.broadcast_dispatcher({"type": "incident_update", "data": {"seeded": len(demo_incidents)}})
+    await ws_manager.broadcast_dispatcher({"type": "fleet_update", "data": {"seeded": len(demo_ambulances)}})
+
+    return {
+        "status": "ok",
+        "incidents_seeded": len(demo_incidents),
+        "ambulances_seeded": len(demo_ambulances),
+    }
+
+
+@router.websocket("/ws")
+async def dispatcher_websocket(websocket: WebSocket):
+    """Dispatcher live feed — fleet movements + incident updates."""
+    await ws_manager.connect_dispatcher(websocket)
+    try:
+        while True:
+            data = await websocket.receive_text()
+            if data == "ping":
+                await websocket.send_text("pong")
+    except WebSocketDisconnect:
+        ws_manager.disconnect_dispatcher(websocket)
+

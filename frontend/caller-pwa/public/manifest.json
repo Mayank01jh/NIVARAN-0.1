@@ -1,0 +1,22 @@
+{
+  "name": "NIVARAN Emergency Response",
+  "short_name": "NIVARAN",
+  "description": "Nivaran Emergency Medical Response Platform by Verve",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/nivaran-icon.jpg", "sizes": "192x192", "type": "image/jpeg" },
+    { "src": "/nivaran-icon.jpg", "sizes": "512x512", "type": "image/jpeg" }
+  ],
+  "categories": ["medical", "health", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Send SOS",
+      "url": "/",
+      "description": "Immediately send SOS"
+    }
+  ]
+}
