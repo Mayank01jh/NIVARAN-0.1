@@ -116,7 +116,37 @@ export default function HospitalConsole() {
     cath_lab_operational: true,
     trauma_team_standby: true,
   });
+  const [bloodBankNormal, setBloodBankNormal] = useState<boolean>(true);
   const [saveSuccess, setSaveSuccess] = useState<boolean>(false);
+
+  // Quick Clinical Readiness Toggles
+  const toggleCathLab = () => {
+    setCapacity((prev) => {
+      const next = { ...prev, cath_lab_operational: !prev.cath_lab_operational };
+      apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
+      return next;
+    });
+  };
+
+  const toggleTraumaTeam = () => {
+    setCapacity((prev) => {
+      const next = { ...prev, trauma_team_standby: !prev.trauma_team_standby };
+      apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
+      return next;
+    });
+  };
+
+  const toggleCtScanner = () => {
+    setCapacity((prev) => {
+      const next = { ...prev, ct_scanner_operational: !prev.ct_scanner_operational };
+      apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
+      return next;
+    });
+  };
+
+  const toggleBloodBank = () => {
+    setBloodBankNormal((prev) => !prev);
+  };
 
   // Poll backend for incoming pre-alerts and incidents
   const loadInboundData = useCallback(async () => {
@@ -486,26 +516,108 @@ export default function HospitalConsole() {
             </div>
 
             <div>
-              <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider block px-2 mb-2">
-                Clinical Readiness
-              </span>
-              <div className="space-y-1.5 px-2 text-xs">
-                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
-                  <span>Cath Lab Status</span>
-                  <span className="font-bold text-[#10B981]">READY</span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
-                  <span>Trauma Team Alpha</span>
-                  <span className="font-bold text-[#10B981]">STANDBY</span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
-                  <span>CT Scanner</span>
-                  <span className="font-bold text-[#10B981]">OPERATIONAL</span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-[#E8DCC4]/80">
-                  <span>Blood Bank (O-Neg)</span>
-                  <span className="font-bold text-[#10B981]">12 UNITS</span>
-                </div>
+              <div className="flex items-center justify-between px-2 mb-2">
+                <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider">
+                  Clinical Readiness
+                </span>
+                <span className="text-[9px] text-[#E8DCC4]/50 font-mono">Click to toggle</span>
+              </div>
+              <div className="space-y-1 text-xs">
+                {/* Cath Lab Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleCathLab}
+                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  title="Click to toggle Cath Lab availability"
+                >
+                  <span className="font-medium group-hover:text-white">Cath Lab Status</span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                      capacity.cath_lab_operational
+                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
+                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        capacity.cath_lab_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
+                      }`}
+                    ></span>
+                    {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
+                  </span>
+                </button>
+
+                {/* Trauma Team Alpha Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleTraumaTeam}
+                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  title="Click to toggle Trauma Team status"
+                >
+                  <span className="font-medium group-hover:text-white">Trauma Team Alpha</span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                      capacity.trauma_team_standby
+                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
+                        : "bg-[#D97706]/20 text-[#FBBF24] border border-[#D97706]/30"
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        capacity.trauma_team_standby ? "bg-[#10B981] animate-pulse" : "bg-[#FBBF24]"
+                      }`}
+                    ></span>
+                    {capacity.trauma_team_standby ? "STANDBY" : "ENGAGED"}
+                  </span>
+                </button>
+
+                {/* CT Scanner Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleCtScanner}
+                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  title="Click to toggle CT Scanner operational status"
+                >
+                  <span className="font-medium group-hover:text-white">CT Scanner</span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                      capacity.ct_scanner_operational
+                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
+                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        capacity.ct_scanner_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
+                      }`}
+                    ></span>
+                    {capacity.ct_scanner_operational ? "OPERATIONAL" : "SERVICE"}
+                  </span>
+                </button>
+
+                {/* Blood Bank Toggle */}
+                <button
+                  type="button"
+                  onClick={toggleBloodBank}
+                  className="w-full flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-[#1F3D2B] transition-all text-[#E8DCC4]/90 active:scale-98 group cursor-pointer"
+                  title="Click to toggle Blood Bank reserve status"
+                >
+                  <span className="font-medium group-hover:text-white">Blood Bank (O-Neg)</span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                      bloodBankNormal
+                        ? "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30"
+                        : "bg-[#BA1A1A]/20 text-[#F87171] border border-[#BA1A1A]/30"
+                    }`}
+                  >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        bloodBankNormal ? "bg-[#10B981]" : "bg-[#F87171] animate-ping"
+                      }`}
+                    ></span>
+                    {bloodBankNormal ? "12 UNITS" : "4 UNITS (LOW)"}
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -631,18 +743,33 @@ export default function HospitalConsole() {
             </div>
 
             {/* Metric 5 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
+            <div 
+              onClick={toggleCathLab}
+              className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1 cursor-pointer hover:border-[#5B21B6] transition-all group"
+              title="Click to toggle Cath Lab Readiness"
+            >
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
-                <span>Cath Lab / OR</span>
+                <span className="group-hover:text-[#5B21B6] transition-colors">Cath Lab / OR</span>
                 <span className="material-symbols-outlined text-[#5B21B6] text-[18px]">medical_services</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">READY</span>
+                <span className={`font-headline text-3xl font-extrabold ${capacity.cath_lab_operational ? "text-[#1F3D2B]" : "text-[#BA1A1A]"}`}>
+                  {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
+                </span>
               </div>
               <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#10B981] h-full rounded-full" style={{ width: "100%" }}></div>
+                <div 
+                  className={`h-full rounded-full transition-all duration-300 ${
+                    capacity.cath_lab_operational ? "bg-[#10B981] w-full" : "bg-[#BA1A1A] w-1/4"
+                  }`}
+                ></div>
               </div>
-              <span className="text-[10px] text-[#10B981] font-bold mt-1.5">Team on Standby</span>
+              <div className="flex items-center justify-between mt-1.5">
+                <span className={`text-[10px] font-bold ${capacity.cath_lab_operational ? "text-[#10B981]" : "text-[#BA1A1A]"}`}>
+                  {capacity.cath_lab_operational ? "Team on Standby" : "Maintenance"}
+                </span>
+                <span className="text-[9px] text-[#1F3D2B]/40 font-mono">Toggle</span>
+              </div>
             </div>
           </div>
 
