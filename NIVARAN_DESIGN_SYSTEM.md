@@ -174,3 +174,4 @@ Built on an 8pt spatial grid with 4pt micro-adjustments:
 - [x] Touch targets minimum 44×44px on mobile citizen portal.
 - [x] Semantic color coding backed by textual indicators (e.g. `CRITICAL` text alongside red color).
 - [x] AI Clinical Decision Support accompanied by mandatory medical disclaimer.
+
