@@ -338,7 +338,7 @@ export default function CitizenApp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9EE] text-[#1E1B14] flex flex-col items-center selection:bg-[#FF6B5B] selection:text-white">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#FFF9EE] text-[#1E1B14] flex flex-col items-center justify-center selection:bg-[#FF6B5B] selection:text-white overscroll-none">
       {/* Toast notification — replaces window.alert() */}
       {toastMessage && (
         <div className="fixed top-4 inset-x-4 z-[100] flex justify-center pointer-events-none">
@@ -351,14 +351,14 @@ export default function CitizenApp() {
 
       {/* Main Container Container (Phone Frame vs Fluid) */}
       <div
-        className={`w-full flex-1 flex flex-col transition-all duration-200 ${
+        className={`w-full flex-1 min-h-0 flex flex-col transition-all duration-200 ${
           viewMode === "phone"
-            ? "max-w-[440px] my-0 sm:my-4 shadow-2xl rounded-none sm:rounded-[36px] overflow-hidden border-0 sm:border-[8px] sm:border-[#14213D] bg-[#FFF9EE]"
-            : "max-w-4xl px-4 py-4"
+            ? "max-w-[440px] h-full sm:h-[94vh] sm:max-h-[880px] sm:my-auto shadow-2xl rounded-none sm:rounded-[36px] overflow-hidden border-0 sm:border-[8px] sm:border-[#14213D] bg-[#FFF9EE]"
+            : "max-w-4xl h-full px-4 py-4"
         }`}
       >
-        {/* App Sticky Header (Stitch Design Specification) */}
-        <header className="sticky top-0 inset-x-0 z-40 bg-[#FFF9EE]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-[#E2D7C5]/50 shadow-sm">
+        {/* App Header (Stitch Design Specification) */}
+        <header className="flex-shrink-0 bg-[#FFF9EE]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-[#E2D7C5]/50 shadow-sm z-30">
           <div className="flex items-center gap-2">
             <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg shadow-sm" />
             <div className="flex flex-col">
@@ -401,7 +401,7 @@ export default function CitizenApp() {
             SCREEN 1: EMERGENCY HOME
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "home" && (
-          <main className="flex-1 flex flex-col p-4 space-y-4 select-none pb-24">
+          <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 select-none overscroll-contain">
             {/* Ambient GPS Lock Pill */}
             <div className="w-full bg-[#FCF9F3] border border-[#E2D7C5] rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -513,6 +513,7 @@ export default function CitizenApp() {
                   onTouchStart={startSosHold}
                   onTouchEnd={cancelSosHold}
                   onTouchCancel={cancelSosHold}
+                  onTouchMove={(e) => e.preventDefault()}
                   className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl cursor-pointer transition-all duration-150 select-none touch-none"
                 >
                   <span className="material-symbols-outlined text-[42px] mb-0.5 leading-none font-bold">
@@ -592,7 +593,7 @@ export default function CitizenApp() {
             SCREEN 2: AI VOICE HOTLINE (Bilingual Hindi/English)
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "hotline" && (
-          <main className="flex-1 flex flex-col p-4 space-y-4 select-none pb-24">
+          <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 select-none overscroll-contain">
             {/* Top Bar: Pulsing Live Audio Status & Language Switch */}
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E6F8F1] text-[#14213D] shadow-sm">
@@ -753,7 +754,7 @@ export default function CitizenApp() {
             SCREEN 3: LIVE AMBULANCE TRACKING
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "tracking" && (
-          <main className="flex-1 flex flex-col p-4 space-y-3.5 select-none pb-24">
+          <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3.5 select-none overscroll-contain">
             {/* Live Telemetry Status Banner */}
             <div className="w-full bg-white border border-[#14213D]/15 rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2 min-w-0">
@@ -799,7 +800,7 @@ export default function CitizenApp() {
               </div>
 
               {/* Moving Ambulance Pin */}
-              <div className="absolute right-16 top-12 flex flex-col items-center animate-bounce">
+              <div className="absolute right-16 top-12 flex flex-col items-center">
                 <div className="w-9 h-9 rounded-full bg-[#FF6B5B] text-white flex items-center justify-center shadow-lg ring-4 ring-[#FF6B5B]/30">
                   <span className="material-symbols-outlined text-[20px]">ambulance</span>
                 </div>
@@ -993,7 +994,7 @@ export default function CitizenApp() {
             SCREEN 4: PROFILE & EMERGENCY CONTACTS
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "settings" && (
-          <main className="flex-1 flex flex-col p-4 space-y-4 select-none pb-24">
+          <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 select-none overscroll-contain">
             <div className="flex items-center justify-between">
               <h2 className="font-headline text-xl font-extrabold text-[#14213D]">Emergency Profile</h2>
               <button
@@ -1127,7 +1128,7 @@ export default function CitizenApp() {
         )}
 
         {/* ── Fixed Bottom Tab Navigation (Mobile Canonical Experience) ── */}
-        <footer className="sticky bottom-0 inset-x-0 bg-[#FFF9EE]/95 backdrop-blur-md border-t border-[#E2D7C5] px-6 py-2 flex items-center justify-around z-40">
+        <footer className="flex-shrink-0 bg-[#FFF9EE]/95 backdrop-blur-md border-t border-[#E2D7C5] px-6 py-2 flex items-center justify-around z-30">
           <button
             onClick={() => setCurrentScreen("home")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${

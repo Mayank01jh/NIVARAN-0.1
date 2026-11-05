@@ -292,9 +292,9 @@ export default function DispatcherConsole() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FF] text-[#0B1C30] flex flex-col font-sans selection:bg-[#ACF847] selection:text-black">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#F8F9FF] text-[#0B1C30] flex flex-col font-sans selection:bg-[#ACF847] selection:text-black">
       {/* ── Fixed Header (Stitch design specification) ────────────────────── */}
-      <header className="fixed top-0 inset-x-0 h-16 bg-white border-b border-[#BECABC]/40 shadow-sm z-50 flex items-center justify-between px-6">
+      <header className="h-16 flex-shrink-0 bg-white border-b border-[#BECABC]/40 shadow-sm z-30 flex items-center justify-between px-6">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-[#00652C] flex items-center justify-center text-white shadow-sm">
@@ -361,9 +361,9 @@ export default function DispatcherConsole() {
       </header>
 
       {/* ── Main Layout: Sidebar + Tactical Operations Board ──────────────── */}
-      <div className="flex flex-1 pt-16">
+      <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Left Navigation Sidebar */}
-        <aside className="w-64 bg-white border-r border-[#BECABC]/40 flex flex-col justify-between p-4 hidden md:flex shrink-0 shadow-sm">
+        <aside className="w-64 bg-white border-r border-[#BECABC]/40 flex flex-col justify-between p-4 hidden md:flex shrink-0 shadow-sm overflow-y-auto">
           <div className="space-y-6">
             <div>
               <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block px-2 mb-2">
@@ -453,9 +453,9 @@ export default function DispatcherConsole() {
         </aside>
 
         {/* ── Center Workspace Body ────────────────────────────────────────── */}
-        <main className="flex-1 p-6 space-y-5 overflow-y-auto">
+        <main className="flex-1 min-h-0 p-5 flex flex-col gap-4 overflow-hidden">
           {/* Operational Metrics Strip & Quick Controls */}
-          <div className="bg-white p-4 rounded-2xl border border-[#BECABC]/40 shadow-sm flex flex-wrap items-center justify-between gap-4">
+          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#BECABC]/40 shadow-sm flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="w-2.5 h-2.5 rounded-full bg-[#ACF847] ring-2 ring-[#00652C]/20"></span>
               <h1 className="font-headline text-lg font-extrabold text-[#0B1C30] tracking-tight uppercase">
@@ -498,11 +498,11 @@ export default function DispatcherConsole() {
           </div>
 
           {/* ── Dual-Pane Split Layout (70% Grid / 30% Live Triage Drawer) ──── */}
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+          <div className="flex-1 min-h-0 grid grid-cols-1 xl:grid-cols-12 gap-5 overflow-hidden">
             {/* Left Pane: Filter Strip & Tactical Incidents Table (8 Cols) */}
-            <div className="xl:col-span-8 space-y-4">
+            <div className="xl:col-span-8 flex flex-col min-h-0 gap-3 overflow-hidden">
               {/* Filter Tabs & Search Bar */}
-              <div className="bg-white p-3 rounded-2xl border border-[#BECABC]/40 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+              <div className="flex-shrink-0 bg-white p-3 rounded-2xl border border-[#BECABC]/40 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
                 <div className="flex items-center gap-1.5 overflow-x-auto">
                   <button
                     onClick={() => setFilterSeverity("ALL")}
@@ -556,9 +556,9 @@ export default function DispatcherConsole() {
               </div>
 
               {/* High-Density Tactical Table Header & Rows */}
-              <div className="bg-white rounded-2xl border border-[#BECABC]/40 shadow-sm overflow-hidden">
+              <div className="flex-1 min-h-0 flex flex-col bg-white rounded-2xl border border-[#BECABC]/40 shadow-sm overflow-hidden">
                 {/* Table Header */}
-                <div className="grid grid-cols-12 px-4 py-2.5 bg-[#EFF4FF] text-[#64748B] font-mono text-[11px] font-bold uppercase tracking-wider select-none border-b border-[#BECABC]/30">
+                <div className="flex-shrink-0 grid grid-cols-12 px-4 py-2.5 bg-[#EFF4FF] text-[#64748B] font-mono text-[11px] font-bold uppercase tracking-wider select-none border-b border-[#BECABC]/30">
                   <div className="col-span-2">INCIDENT #</div>
                   <div className="col-span-3">LOCATION & TRIAGE</div>
                   <div className="col-span-3">EXTRACTED SYMPTOM STATE</div>
@@ -567,7 +567,7 @@ export default function DispatcherConsole() {
                 </div>
 
                 {/* Rows */}
-                <div className="divide-y divide-[#BECABC]/20">
+                <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-[#BECABC]/20">
                   {filteredIncidents.length === 0 ? (
                     <div className="p-8 text-center text-xs text-[#64748B]">
                       No active incidents match this filter.
@@ -712,9 +712,9 @@ export default function DispatcherConsole() {
             </div>
 
             {/* Right Pane: Live Tactical Triage Drawer (4 Cols) */}
-            <div className="xl:col-span-4 space-y-4">
+            <div className="xl:col-span-4 flex flex-col min-h-0 overflow-hidden">
               {selectedIncident ? (
-                <div className="bg-white p-5 rounded-2xl border border-[#BECABC]/40 shadow-sm space-y-4 sticky top-20">
+                <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#BECABC]/40 shadow-sm space-y-4 overflow-y-auto">
                   <div className="flex items-center justify-between pb-3 border-b border-[#BECABC]/30">
                     <div>
                       <span className="text-[10px] font-bold text-[#64748B] uppercase">Tactical Incident Review</span>

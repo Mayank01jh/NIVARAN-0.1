@@ -292,9 +292,9 @@ export default function HospitalConsole() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCF9F4] text-[#1C1C19] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
-      {/* ── Fixed Top Header (Stitch design specification) ────────────────── */}
-      <header className="fixed top-0 inset-x-0 h-16 bg-white border-b border-[#E2DCD5] shadow-sm z-50 flex items-center justify-between px-6">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#FCF9F4] text-[#1C1C19] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
+      {/* ── Header (Stitch design specification) ────────────────── */}
+      <header className="h-16 flex-shrink-0 bg-white border-b border-[#E2DCD5] shadow-sm z-30 flex items-center justify-between px-6">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#1F3D2B] flex items-center justify-center text-white shadow-sm">
@@ -409,9 +409,9 @@ export default function HospitalConsole() {
       </header>
 
       {/* ── Main Layout: Sidebar + Operational Body ───────────────────────── */}
-      <div className="flex flex-1 pt-16">
+      <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Left Operational Sidebar */}
-        <aside className="w-64 bg-[#F6F3EE] border-r border-[#E2DCD5] flex flex-col justify-between p-4 hidden md:flex shrink-0">
+        <aside className="w-64 bg-[#F6F3EE] border-r border-[#E2DCD5] flex flex-col justify-between p-4 hidden md:flex shrink-0 overflow-y-auto">
           <div className="space-y-6">
             <div>
               <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block px-2 mb-2">
@@ -517,9 +517,9 @@ export default function HospitalConsole() {
         </aside>
 
         {/* Operational Workspace Body */}
-        <main className="flex-1 p-6 space-y-6 overflow-y-auto">
+        <main className="flex-1 min-h-0 p-5 flex flex-col gap-4 overflow-hidden">
           {/* Subheader Banner */}
-          <div className="bg-white p-5 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 flex-wrap mb-1">
                 <span className="bg-[#C8EBD1] text-[#022111] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
@@ -643,15 +643,17 @@ export default function HospitalConsole() {
               TAB 1: INBOUND CASUALTY RADAR
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "radar" && (
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+            <div className="flex-1 min-h-0 grid grid-cols-1 xl:grid-cols-12 gap-5 overflow-hidden">
               {/* Left Column: Live Pre-Alert Inbound Queue (7 Cols) */}
-              <div className="xl:col-span-7 space-y-3.5">
-                <div className="flex items-center justify-between px-1">
+              <div className="xl:col-span-7 flex flex-col min-h-0 gap-3 overflow-hidden">
+                <div className="flex-shrink-0 flex items-center justify-between px-1">
                   <span className="font-headline text-sm font-bold text-[#082717]">
                     Live Incoming Pre-Alert Queue ({preAlerts.length})
                   </span>
                   <span className="text-xs text-[#64748B]">Click card to inspect telemetry</span>
                 </div>
+
+                <div className="flex-1 min-h-0 overflow-y-auto space-y-3 pr-1">
 
                 {preAlerts.map((alert) => {
                   const isSelected = selectedAlert?.alert_id === alert.alert_id;
@@ -748,12 +750,13 @@ export default function HospitalConsole() {
                     </div>
                   );
                 })}
+                </div>
               </div>
 
               {/* Right Column: Pre-Arrival Telemetry & Staging Inspector (5 Cols) */}
-              <div className="xl:col-span-5 space-y-4">
+              <div className="xl:col-span-5 flex flex-col min-h-0 overflow-hidden">
                 {selectedAlert ? (
-                  <div className="bg-white p-5 rounded-2xl border border-[#E2DCD5] shadow-sm space-y-4 sticky top-20">
+                  <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#E2DCD5] shadow-sm space-y-4 overflow-y-auto">
                     <div className="flex items-center justify-between pb-3 border-b border-[#E2DCD5]">
                       <div>
                         <span className="text-[10px] font-bold text-[#64748B] uppercase">Case Detail Inspector</span>
@@ -860,7 +863,8 @@ export default function HospitalConsole() {
               TAB 2: HOSPITAL CAPACITY & BED MANAGEMENT
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "capacity" && (
-            <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-3xl space-y-6">
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-3xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#E2DCD5] pb-4">
                 <div>
                   <h2 className="font-headline text-xl font-extrabold text-[#082717]">
@@ -1081,13 +1085,15 @@ export default function HospitalConsole() {
                 Broadcast Capacity Update to Dispatch Network
               </button>
             </div>
+            </div>
           )}
 
           {/* ══════════════════════════════════════════════════════════════════
               TAB 3: PRE-ARRIVAL TELEMETRY
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "telemetry" && selectedAlert && (
-            <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-6">
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-6">
               <div className="flex items-center justify-between border-b border-[#E2DCD5] pb-4">
                 <div>
                   <div className="flex items-center gap-2">
@@ -1161,13 +1167,15 @@ export default function HospitalConsole() {
                 </button>
               </div>
             </div>
+            </div>
           )}
 
           {/* ══════════════════════════════════════════════════════════════════
               TAB 4: PARAMEDIC COORDINATION
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "paramedic" && (
-            <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-4">
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1">
+              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-4">
               <h2 className="font-headline text-xl font-extrabold text-[#082717]">
                 Field Telemetry & Paramedic Direct Bridge
               </h2>
@@ -1203,6 +1211,7 @@ export default function HospitalConsole() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           )}
         </main>

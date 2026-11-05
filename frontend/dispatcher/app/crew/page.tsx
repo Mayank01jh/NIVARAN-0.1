@@ -114,9 +114,9 @@ export default function AmbulanceCrewTerminal() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#ACF847] selection:text-black">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#ACF847] selection:text-black">
       {/* ── Top In-Cab Command Bar (High Contrast Stitch Specification) ───── */}
-      <header className="bg-[#121316] border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
+      <header className="flex-shrink-0 bg-[#121316] border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 bg-[#212328] px-3 py-1.5 rounded-xl border border-white/10">
             <span className="material-symbols-outlined text-[#ACF847] text-[22px]">emergency</span>
@@ -174,7 +174,7 @@ export default function AmbulanceCrewTerminal() {
       </header>
 
       {/* ── Main In-Cab Body ──────────────────────────────────────────────── */}
-      <main className="flex-1 p-4 max-w-5xl mx-auto w-full flex flex-col justify-between space-y-4">
+      <main className="flex-1 min-h-0 overflow-y-auto p-4 max-w-5xl mx-auto w-full flex flex-col justify-between space-y-4">
         {/* Driving Lockout Notice if Active */}
         {safeDrivingLockout && (
           <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 shadow-lg">
