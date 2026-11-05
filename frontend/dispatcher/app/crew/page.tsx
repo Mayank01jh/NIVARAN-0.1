@@ -118,8 +118,8 @@ export default function AmbulanceCrewTerminal() {
       {/* ── Top In-Cab Command Bar (High Contrast Stitch Specification) ───── */}
       <header className="flex-shrink-0 bg-[#121316] border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 bg-[#212328] px-3 py-1.5 rounded-xl border border-white/10">
-            <span className="material-symbols-outlined text-[#C6F432] text-[22px]">emergency</span>
+          <div className="flex items-center gap-2.5 bg-[#212328] px-3 py-1.5 rounded-xl border border-white/10">
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-8 h-8 object-contain rounded-lg bg-white/10 p-0.5" />
             <div className="flex flex-col">
               <span className="font-headline font-extrabold text-sm text-white uppercase tracking-tight">
                 {registration}

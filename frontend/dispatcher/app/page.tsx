@@ -297,9 +297,7 @@ export default function DispatcherConsole() {
       <header className="h-16 flex-shrink-0 bg-[#121316] border-b border-white/10 shadow-md z-30 flex items-center justify-between px-6 text-white">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#C6F432] flex items-center justify-center text-black shadow-sm font-bold">
-              <span className="material-symbols-outlined text-[20px]">e911_emergency</span>
-            </div>
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="font-headline font-extrabold text-white text-lg tracking-tight uppercase leading-none">
@@ -365,6 +363,15 @@ export default function DispatcherConsole() {
         {/* Left Navigation Sidebar */}
         <aside className="w-64 bg-[#121316] border-r border-white/10 flex flex-col justify-between p-4 hidden md:flex shrink-0 shadow-sm overflow-y-auto text-white">
           <div className="space-y-6">
+            <div className="px-2 pt-1 pb-2 border-b border-white/10 flex items-center gap-2.5">
+              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-white/10 p-0.5" />
+              <div className="flex flex-col">
+                <span className="font-headline font-bold text-xs text-white tracking-wider uppercase leading-none">
+                  NIVARAN DISPATCH
+                </span>
+                <span className="text-[10px] text-[#C6F432] font-semibold mt-0.5">Central CAD 112 / 108</span>
+              </div>
+            </div>
             <div>
               <span className="text-[10px] font-bold text-white/65 uppercase tracking-wider block px-2 mb-2">
                 Command Modules

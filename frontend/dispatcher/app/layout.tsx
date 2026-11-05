@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   title: "NIVARAN (निवारण) — Dispatcher CAD Command & Crew Hub",
   description: "Real-time emergency computer-aided dispatch (CAD) console and fleet management.",
   icons: {
-    icon: "/nivaran-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/nivaran-icon.png", type: "image/png" }
+    ],
+    apple: "/nivaran-icon.png",
   },
 };
 

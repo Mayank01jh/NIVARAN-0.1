@@ -297,9 +297,7 @@ export default function HospitalConsole() {
       <header className="h-16 flex-shrink-0 bg-[#1F3D2B] border-b border-[#14281C] shadow-md z-30 flex items-center justify-between px-6 text-[#E8DCC4]">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#1F3D2B] flex items-center justify-center text-white shadow-sm">
-              <span className="material-symbols-outlined text-[24px]">emergency</span>
-            </div>
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="font-headline font-extrabold text-[#E8DCC4] text-lg tracking-tight uppercase leading-none">
@@ -413,6 +411,15 @@ export default function HospitalConsole() {
         {/* Left Operational Sidebar */}
         <aside className="w-64 bg-[#14281C] border-r border-[#1F3D2B]/20 flex flex-col justify-between p-4 hidden md:flex shrink-0 overflow-y-auto">
           <div className="space-y-6">
+            <div className="px-2 pt-1 pb-2 border-b border-[#1F3D2B]/40 flex items-center gap-2.5">
+              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-white/10 p-0.5" />
+              <div className="flex flex-col">
+                <span className="font-headline font-bold text-xs text-[#E8DCC4] tracking-wider uppercase leading-none">
+                  NIVARAN CLINICAL
+                </span>
+                <span className="text-[10px] text-[#8B5CF6] font-semibold mt-0.5">ED Pre-Arrival Network</span>
+              </div>
+            </div>
             <div>
               <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider block px-2 mb-2">
                 Operational Units
@@ -1187,25 +1194,43 @@ export default function HospitalConsole() {
                 {preAlerts.map((alert) => (
                   <div
                     key={alert.alert_id}
-                    className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 flex items-center justify-between gap-4"
+                    className="p-4 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                   >
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-sm text-[#1F3D2B]">{alert.ambulance_id}</span>
                         <span className="text-xs text-[#1F3D2B]/65">· Case #{alert.incident_id}</span>
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#8B5CF6] text-white">
+                          En Route
+                        </span>
                       </div>
-                      <p className="text-xs text-[#1F3D2B]/65 mt-0.5">{alert.suspected_condition}</p>
+                      <p className="text-xs text-[#1F3D2B]/80 font-medium mt-1">{alert.suspected_condition}</p>
+
+                      {/* Physician Quick Directives */}
+                      <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                        <span className="text-[10px] font-bold text-[#1F3D2B]/60 uppercase">Directives:</span>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#1F3D2B]/10 text-[#1F3D2B]">
+                          Trauma Bay 1 Ready
+                        </span>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#1F3D2B]/10 text-[#1F3D2B]">
+                          O-Neg Blood Staged
+                        </span>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-sm font-extrabold text-[#BA1A1A]">
-                        {formatEta(alert.eta_seconds)}
-                      </span>
+                      <div className="text-right">
+                        <span className="text-[10px] text-[#1F3D2B]/65 block">ETA</span>
+                        <span className="font-mono text-sm font-extrabold text-[#BA1A1A]">
+                          {formatEta(alert.eta_seconds)}
+                        </span>
+                      </div>
                       <button
                         onClick={() => handleCompleteHandover(alert)}
-                        className="px-3 py-1.5 rounded-lg bg-[#1F3D2B] text-white text-xs font-bold hover:bg-[#082717] transition-all"
+                        className="px-3.5 py-2 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1"
                       >
-                        Handover
+                        <span className="material-symbols-outlined text-[15px]">how_to_reg</span>
+                        <span>Confirm Handover</span>
                       </button>
                     </div>
                   </div>

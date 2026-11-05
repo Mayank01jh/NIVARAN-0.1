@@ -5,7 +5,11 @@ export const metadata: Metadata = {
   title: "NIVARAN (निवारण) — Hospital ED Command Console",
   description: "Real-time pre-alert reception, triage, and emergency capacity management.",
   icons: {
-    icon: "/nivaran-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/nivaran-icon.png", type: "image/png" }
+    ],
+    apple: "/nivaran-icon.png",
   },
 };
 

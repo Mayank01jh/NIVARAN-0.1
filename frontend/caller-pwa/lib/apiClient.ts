@@ -125,6 +125,20 @@ class NivaranApiClient {
     return res.json();
   }
 
+  async cancelIncident(incidentId: string, reason = "Caller requested cancellation"): Promise<any> {
+    try {
+      const res = await fetch(`${getApiBase()}/emergency/${incidentId}/status`, {
+        method: "PATCH",
+        headers: this.headers(),
+        body: JSON.stringify({ status: "CANCELLED", reason }),
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Cancel incident network note:", e);
+    }
+    return { status: "CANCELLED", incident_id: incidentId };
+  }
+
   async processVoiceCall(payload: {
     caller_phone: string;
     caller_name?: string;

@@ -8,7 +8,11 @@ export const metadata: Metadata = {
   keywords: ["emergency", "ambulance", "SOS", "medical", "help", "Nivaran", "Golden Hour"],
   authors: [{ name: "NIVARAN Emergency Response Network" }],
   icons: {
-    icon: "/nivaran-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/nivaran-icon.png", type: "image/png" }
+    ],
+    apple: "/nivaran-icon.png",
   },
 };
 

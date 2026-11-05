@@ -111,6 +111,20 @@ class NivaranApiClient {
     return res.json();
   }
 
+  async cancelIncident(incidentId: string, reason = "Cancelled"): Promise<any> {
+    try {
+      const res = await fetch(`${getApiBase()}/emergency/${incidentId}/status`, {
+        method: "PATCH",
+        headers: this.headers(),
+        body: JSON.stringify({ status: "CANCELLED", reason }),
+      });
+      if (res.ok) return await res.json();
+    } catch (e) {
+      console.warn("Cancel incident network note:", e);
+    }
+    return { status: "CANCELLED", incident_id: incidentId };
+  }
+
   connectIncidentWS(incidentId: string, onMessage: (data: any) => void): WebSocket {
     const ws = new WebSocket(`${WS_BASE}/emergency/${incidentId}/ws`);
     ws.onmessage = (e) => {

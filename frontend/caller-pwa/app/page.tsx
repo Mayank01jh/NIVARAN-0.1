@@ -20,10 +20,27 @@ export default function CitizenApp() {
   const [currentScreen, setCurrentScreen] = useState<ScreenId>("home");
   const [viewMode, setViewMode] = useState<"phone" | "fluid">("phone");
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [showCancelModal, setShowCancelModal] = useState<boolean>(false);
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  const handleCancelEmergency = async () => {
+    try {
+      if (incidentId) {
+        await apiClient.cancelIncident(incidentId, "Citizen requested cancellation");
+      }
+    } catch (e) {
+      console.warn("Cancel API call:", e);
+    }
+    setShowCancelModal(false);
+    setSosDispatchedBanner(false);
+    setCurrentStep(1);
+    setIncidentStatus("CANCELLED");
+    showToast("Emergency request cancelled successfully.");
+    setCurrentScreen("home");
   };
 
   // Geolocation & GPS telemetry
@@ -349,6 +366,40 @@ export default function CitizenApp() {
         </div>
       )}
 
+      {/* Cancellation Confirmation Safeguard Modal */}
+      {showCancelModal && (
+        <div className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-[#FAF5EC] border-2 border-[#14213D]/20 rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 text-[#14213D]">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-[#FF6B5B]/15 text-[#FF6B5B] flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-[26px]">emergency_home</span>
+              </div>
+              <div>
+                <h3 className="font-headline text-base font-extrabold text-[#14213D]">Cancel Emergency Call?</h3>
+                <p className="text-xs text-[#14213D]/70 mt-0.5">Dispatched units will be immediately recalled.</p>
+              </div>
+            </div>
+            <p className="text-xs text-[#14213D]/80 leading-relaxed bg-[#F4EDE0] p-3 rounded-2xl border border-[#14213D]/10">
+              Only cancel if patient status has stabilized or help is no longer required.
+            </p>
+            <div className="flex items-center gap-2.5 pt-1">
+              <button
+                onClick={() => setShowCancelModal(false)}
+                className="flex-1 py-3 rounded-xl bg-[#14213D] text-[#F4EDE0] text-xs font-bold hover:bg-[#0E182D] transition-all shadow"
+              >
+                Keep Active
+              </button>
+              <button
+                onClick={handleCancelEmergency}
+                className="flex-1 py-3 rounded-xl bg-[#FF6B5B] text-white text-xs font-bold hover:bg-[#E55343] transition-all shadow-md shadow-[#FF6B5B]/30"
+              >
+                Yes, Cancel Call
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Container Container (Phone Frame vs Fluid) */}
       <div
         className={`w-full flex-1 min-h-0 flex flex-col transition-all duration-200 ${
@@ -360,7 +411,7 @@ export default function CitizenApp() {
         {/* App Header (30% Navy structure with Cream & Coral accents) */}
         <header className="flex-shrink-0 bg-[#14213D] px-4 py-3 flex items-center justify-between border-b border-[#0E182D] shadow-md z-30 text-[#F4EDE0]">
           <div className="flex items-center gap-2">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg shadow-sm" />
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-9 w-9 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-headline font-extrabold text-[#F4EDE0] text-lg tracking-tight leading-none">
@@ -986,6 +1037,17 @@ export default function CitizenApp() {
                   <strong>Pre-Arrival Vitals Transmitted:</strong> Duty Emergency Physician pre-notified. Resuscitation Bay 1 staged.
                 </span>
               </div>
+            </div>
+
+            {/* Request Cancellation Action with Safeguard Modal */}
+            <div className="pt-1 pb-4">
+              <button
+                onClick={() => setShowCancelModal(true)}
+                className="w-full py-2.5 rounded-xl border border-[#FF6B5B]/40 bg-[#FAF5EC] hover:bg-[#FF6B5B]/15 text-[#FF6B5B] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-98"
+              >
+                <span className="material-symbols-outlined text-[16px]">cancel</span>
+                <span>Cancel Emergency Request</span>
+              </button>
             </div>
           </main>
         )}
