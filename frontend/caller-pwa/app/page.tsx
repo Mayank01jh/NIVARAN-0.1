@@ -355,7 +355,7 @@ export default function CitizenApp() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#B91C1C] selection:text-white overscroll-none">
+    <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#B91C1C] selection:text-white overscroll-none">
       {/* Toast notification — replaces window.alert() */}
       {toastMessage && (
         <div className="fixed top-4 inset-x-4 z-[100] flex justify-center pointer-events-none">
@@ -411,7 +411,7 @@ export default function CitizenApp() {
         {/* App Header (30% Navy structure with Cream & Coral accents) */}
         <header className="flex-shrink-0 bg-[#14213D] px-4 py-3 flex items-center justify-between border-b border-[#0E182D] shadow-md z-30 text-[#F4EDE0]">
           <div className="flex items-center gap-2">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-9 w-9 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-9 w-9 object-contain rounded-xl shadow-sm bg-[#0E182D] border border-white/20 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-headline font-extrabold text-[#F4EDE0] text-lg tracking-tight leading-none">
@@ -508,6 +508,14 @@ export default function CitizenApp() {
                   ] as const
                 ).map((sev) => {
                   const isSelected = selectedSeverity === sev.id;
+                  const dotClass = isSelected
+                    ? "w-2 h-2 rounded-full shrink-0 bg-white"
+                    : sev.id === "Critical"
+                    ? "w-2 h-2 rounded-full shrink-0 bg-[#B91C1C] animate-pulse"
+                    : sev.id === "High"
+                    ? "w-2 h-2 rounded-full shrink-0 bg-[#B91C1C]"
+                    : "w-2 h-2 rounded-full shrink-0 bg-[#14213D]";
+
                   return (
                     <button
                       key={sev.id}
@@ -515,16 +523,16 @@ export default function CitizenApp() {
                         setSelectedSeverity(sev.id);
                         triggerHaptic(20);
                       }}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-2xl transition-all text-left ${
+                      className={
                         isSelected
-                          ? "bg-[#B91C1C] text-white shadow-md shadow-[#B91C1C]/30 scale-[1.01]"
-                          : "bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#EDE5D6]"
-                      }`}
+                          ? "flex items-center gap-2 px-3 py-2 rounded-2xl transition-all text-left bg-[#B91C1C] text-white shadow-md shadow-[#B91C1C]/30 scale-[1.01]"
+                          : "flex items-center gap-2 px-3 py-2 rounded-2xl transition-all text-left bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#EDE5D6]"
+                      }
                     >
-                      <span className={`w-2 h-2 rounded-full shrink-0 ${isSelected ? "bg-white" : sev.dot}`}></span>
+                      <span className={dotClass}></span>
                       <div className="flex flex-col min-w-0">
                         <span className="text-xs font-bold leading-tight">{sev.label}</span>
-                        <span className={`text-[10px] leading-tight truncate ${isSelected ? "text-white/90" : "text-[#14213D]/65"}`}>
+                        <span className={isSelected ? "text-[10px] leading-tight truncate text-white/90" : "text-[10px] leading-tight truncate text-[#14213D]/65"}>
                           {sev.sub}
                         </span>
                       </div>
@@ -650,8 +658,8 @@ export default function CitizenApp() {
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#14213D]/10 text-[#14213D] shadow-sm">
                 <div className="flex items-end gap-0.5 h-3.5">
                   <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-2"></span>
-                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-3.5" style={{ animationDelay: "150ms" }}></span>
-                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-2.5" style={{ animationDelay: "300ms" }}></span>
+                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-3.5 [animation-delay:150ms]"></span>
+                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-2.5 [animation-delay:300ms]"></span>
                 </div>
                 <span className="text-xs font-bold text-[#14213D]">
                   {isListening ? "Listening Live · बोलिए" : "AI Voice Hotline Ready"}
@@ -704,13 +712,13 @@ export default function CitizenApp() {
             <div className="flex flex-col items-center justify-center py-4 relative">
               {/* Dynamic Sound Spectrum Bars */}
               <div className="flex items-center justify-center gap-1.5 h-10 w-full max-w-[240px] mb-3">
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-4" : "h-2"}`}></div>
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-8" : "h-3"}`}></div>
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
-                <div className={`w-1 rounded-full bg-[#14213D] ${isListening ? "animate-pulse h-6" : "h-2"}`}></div>
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-7" : "h-3"}`}></div>
-                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-3" : "h-2"}`}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-4" : "w-1 rounded-full bg-[#B91C1C] h-2"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-8" : "w-1 rounded-full bg-[#B91C1C] h-3"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-10" : "w-1 rounded-full bg-[#B91C1C] h-4"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#14213D] animate-pulse h-6" : "w-1 rounded-full bg-[#14213D] h-2"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-10" : "w-1 rounded-full bg-[#B91C1C] h-4"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-7" : "w-1 rounded-full bg-[#B91C1C] h-3"}></div>
+                <div className={isListening ? "w-1 rounded-full bg-[#B91C1C] animate-pulse h-3" : "w-1 rounded-full bg-[#B91C1C] h-2"}></div>
               </div>
 
               {/* 88px Tactile Voice Orb */}

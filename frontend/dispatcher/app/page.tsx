@@ -292,12 +292,12 @@ export default function DispatcherConsole() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans selection:bg-[#C6F432] selection:text-[#0B0B0C]">
+    <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans selection:bg-[#C6F432] selection:text-[#0B0B0C]">
       {/* ── Fixed Header (Stitch design specification) ────────────────────── */}
       <header className="h-16 flex-shrink-0 bg-[#121316] border-b border-white/10 shadow-md z-30 flex items-center justify-between px-6 text-white">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-[#181A1F] border border-white/20 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="font-headline font-extrabold text-white text-lg tracking-tight uppercase leading-none">
@@ -313,7 +313,7 @@ export default function DispatcherConsole() {
             </div>
           </div>
 
-          <div className="h-6 w-px bg-white/20 hidden md:block"></div>
+          <div className="h-6 w-px bg-[#262830] hidden md:block"></div>
 
           {/* Telemetry latency strip */}
           <div className="hidden lg:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#181A1F] border border-white/10 text-xs text-white">
@@ -344,7 +344,7 @@ export default function DispatcherConsole() {
             <span>Open In-Cab Crew Terminal</span>
           </Link>
 
-          <div className="h-6 w-px bg-white/20"></div>
+          <div className="h-6 w-px bg-[#262830]"></div>
 
           <div className="flex items-center gap-2">
             <div className="flex flex-col text-right hidden sm:flex">
@@ -364,7 +364,7 @@ export default function DispatcherConsole() {
         <aside className="w-64 bg-[#121316] border-r border-white/10 flex flex-col justify-between p-4 hidden md:flex shrink-0 shadow-sm overflow-y-auto text-white">
           <div className="space-y-6">
             <div className="px-2 pt-1 pb-2 border-b border-white/10 flex items-center gap-2.5">
-              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-white/10 p-0.5" />
+              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-[#181A1F] border border-white/20 p-0.5" />
               <div className="flex flex-col">
                 <span className="font-headline font-bold text-xs text-white tracking-wider uppercase leading-none">
                   NIVARAN DISPATCH
@@ -616,7 +616,7 @@ export default function DispatcherConsole() {
                                 inc.status === "ASSIGNED" || inc.status === "EN_ROUTE"
                                   ? "bg-[#C6F432]/20 text-[#C6F432] border border-[#C6F432]/30"
                                   : inc.status === "ON_SCENE"
-                                  ? "bg-white/10 text-white"
+                                  ? "bg-[#181A1F] text-white border border-white/20"
                                   : "bg-[#D97706]/20 text-[#FBBF24]"
                               }`}
                             >

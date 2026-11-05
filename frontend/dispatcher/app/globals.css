@@ -4,27 +4,48 @@
 
 /* ======================================================
    NIVARAN CAD Command & Crew Hub — Tactical Operations
-   Strict 60:30:10 Design System:
+   Strict 60:30:10 Design System & Token Architecture
    60% Midnight Black (#0B0B0C) | 30% Pure White (#FFFFFF) | 10% Lime Green (#C6F432)
+   Powered by UI/UX Design Pro Skill
    ====================================================== */
 
 :root {
+  /* Primitive Tokens */
   --midnight-60: #0B0B0C;
   --midnight-surface: #121316;
   --midnight-elevated: #181A1F;
-  --midnight-border: rgba(255, 255, 255, 0.1);
+  --midnight-border: rgba(255, 255, 255, 0.10);
+  --midnight-border-subtle: rgba(255, 255, 255, 0.06);
 
   --white-30: #FFFFFF;
-  --white-muted: rgba(255, 255, 255, 0.7);
-  --white-subtle: rgba(255, 255, 255, 0.5);
+  --white-muted: rgba(255, 255, 255, 0.75);
+  --white-subtle: rgba(255, 255, 255, 0.45);
 
   --lime-10: #C6F432;
   --lime-dark: #AEE01E;
   --lime-glow: rgba(198, 244, 50, 0.35);
 
+  /* Semantic Tokens */
+  --color-surface-base: var(--midnight-60);
+  --color-surface-raised: var(--midnight-surface);
+  --color-surface-overlay: var(--midnight-elevated);
+  --color-text-primary: var(--white-30);
+  --color-text-secondary: var(--white-muted);
+  --color-text-muted: var(--white-subtle);
+  --color-border-default: var(--midnight-border);
+  --color-border-focus: var(--lime-10);
+  --color-accent: var(--lime-10);
+
+  /* Typography Scale */
   --font-headline: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Component Radiuses */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
 }
 
 * {
@@ -60,10 +81,35 @@ h1, h2, h3, h4, .font-headline {
   font-family: var(--font-headline);
 }
 
+/* Tabular Numerics for CAD Latency, Timers, GPS & Speeds */
+.font-tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Focus Visible State (WCAG 2.2 AA Compliance) */
+:focus-visible {
+  outline: 2px solid var(--lime-10);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

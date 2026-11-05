@@ -322,12 +322,12 @@ export default function HospitalConsole() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#E8DCC4] text-[#1F3D2B] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
+    <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#E8DCC4] text-[#1F3D2B] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
       {/* ── Header (Stitch design specification) ────────────────── */}
       <header className="h-16 flex-shrink-0 bg-[#1F3D2B] border-b border-[#14281C] shadow-md z-30 flex items-center justify-between px-6 text-[#E8DCC4]">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-white/10 p-0.5" />
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain rounded-xl shadow-sm bg-[#14281C] border border-white/20 p-0.5" />
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="font-headline font-extrabold text-[#E8DCC4] text-lg tracking-tight uppercase leading-none">
@@ -442,7 +442,7 @@ export default function HospitalConsole() {
         <aside className="w-64 bg-[#14281C] border-r border-[#1F3D2B]/20 flex flex-col justify-between p-4 hidden md:flex shrink-0 overflow-y-auto">
           <div className="space-y-6">
             <div className="px-2 pt-1 pb-2 border-b border-[#1F3D2B]/40 flex items-center gap-2.5">
-              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-white/10 p-0.5" />
+              <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg bg-[#1F3D2B] border border-white/20 p-0.5" />
               <div className="flex flex-col">
                 <span className="font-headline font-bold text-xs text-[#E8DCC4] tracking-wider uppercase leading-none">
                   NIVARAN CLINICAL
@@ -466,7 +466,7 @@ export default function HospitalConsole() {
                     <span>Casualty Radar</span>
                   </div>
                   <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#8B5CF6] text-white"
+                    activeTab === "radar" ? "bg-[#14281C] text-white border border-white/20" : "bg-[#8B5CF6] text-white"
                   }`}>
                     {preAlerts.length}
                   </span>
@@ -683,7 +683,7 @@ export default function HospitalConsole() {
                 <span className="text-xs font-bold text-[#8B5CF6] ml-1.5">En Route</span>
               </div>
               <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#8B5CF6] h-full rounded-full" style={{ width: "75%" }}></div>
+                <div className="bg-[#8B5CF6] h-full rounded-full w-3/4"></div>
               </div>
               <span className="text-[10px] text-[#BA1A1A] font-bold mt-1.5">1 ETA &lt; 5m</span>
             </div>
@@ -701,7 +701,7 @@ export default function HospitalConsole() {
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Open / Ready</span>
               </div>
               <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "66%" }}></div>
+                <div className="bg-[#1F3D2B] h-full rounded-full w-2/3"></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Bay 1 & 2 Staged</span>
             </div>
@@ -719,7 +719,7 @@ export default function HospitalConsole() {
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
               <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#10B981] h-full rounded-full" style={{ width: "75%" }}></div>
+                <div className="bg-[#10B981] h-full rounded-full w-3/4"></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Surge reserve: 3</span>
             </div>
@@ -737,7 +737,7 @@ export default function HospitalConsole() {
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
               <div className="w-full bg-[#E8DCC4] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "60%" }}></div>
+                <div className="bg-[#1F3D2B] h-full rounded-full w-3/5"></div>
               </div>
               <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Cap: {capacity.er_beds_total} Total</span>
             </div>
@@ -753,7 +753,7 @@ export default function HospitalConsole() {
                 <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">medical_services</span>
               </div>
               <div className="my-2">
-                <span className={`font-headline text-3xl font-extrabold ${capacity.cath_lab_operational ? "text-[#1F3D2B]" : "text-[#BA1A1A]"}`}>
+                <span className={capacity.cath_lab_operational ? "font-headline text-3xl font-extrabold text-[#1F3D2B]" : "font-headline text-3xl font-extrabold text-[#BA1A1A]"}>
                   {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
                 </span>
               </div>
@@ -765,7 +765,7 @@ export default function HospitalConsole() {
                 ></div>
               </div>
               <div className="flex items-center justify-between mt-1.5">
-                <span className={`text-[10px] font-bold ${capacity.cath_lab_operational ? "text-[#10B981]" : "text-[#BA1A1A]"}`}>
+                <span className={capacity.cath_lab_operational ? "text-[10px] font-bold text-[#10B981]" : "text-[10px] font-bold text-[#BA1A1A]"}>
                   {capacity.cath_lab_operational ? "Team on Standby" : "Maintenance"}
                 </span>
                 <span className="text-[9px] text-[#1F3D2B]/40 font-mono">Toggle</span>

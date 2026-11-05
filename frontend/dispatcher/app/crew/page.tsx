@@ -114,12 +114,12 @@ export default function AmbulanceCrewTerminal() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#C6F432] selection:text-[#0B0B0C]">
+    <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#C6F432] selection:text-[#0B0B0C]">
       {/* ── Top In-Cab Command Bar (60:30:10 Midnight & Lime Specification) ───── */}
       <header className="flex-shrink-0 bg-[#121316] border-b border-white/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2.5 bg-[#181A1F] px-3 py-1.5 rounded-xl border border-white/10">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-8 h-8 object-contain rounded-lg bg-white/10 p-0.5" />
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="w-8 h-8 object-contain rounded-lg bg-[#121316] border border-white/20 p-0.5" />
             <div className="flex flex-col">
               <span className="font-headline font-extrabold text-sm text-white uppercase tracking-tight">
                 {registration}
@@ -144,7 +144,7 @@ export default function AmbulanceCrewTerminal() {
           <button
             onClick={() => setSafeDrivingLockout(!safeDrivingLockout)}
             className={`px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1 transition-all ${
-              safeDrivingLockout ? "bg-[#BA1A1A] text-white ring-2 ring-white/50" : "bg-white/10 text-white/80"
+              safeDrivingLockout ? "bg-[#BA1A1A] text-white ring-2 ring-white/50" : "bg-[#181A1F] text-white/80 border border-white/15"
             }`}
             title="Driver Safety Lockout Mode"
           >
@@ -166,7 +166,7 @@ export default function AmbulanceCrewTerminal() {
           {/* Return to Dispatcher CAD link */}
           <Link
             href="/"
-            className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-all"
+            className="px-3 py-1 rounded-lg bg-[#181A1F] hover:bg-[#22252C] border border-white/15 text-white text-xs font-bold transition-all"
           >
             CAD Console
           </Link>
