@@ -19,6 +19,12 @@ type Severity = "Critical" | "High" | "Medium" | "Low";
 export default function CitizenApp() {
   const [currentScreen, setCurrentScreen] = useState<ScreenId>("home");
   const [viewMode, setViewMode] = useState<"phone" | "fluid">("phone");
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(null), 3000);
+  };
 
   // Geolocation & GPS telemetry
   const [gpsLocked, setGpsLocked] = useState<boolean>(true);
@@ -108,40 +114,63 @@ export default function CitizenApp() {
     return () => clearInterval(interval);
   }, [currentScreen]);
 
-  // WebSocket Live Incident Sync
+  // WebSocket Live Incident Sync with reconnect
   useEffect(() => {
     if (!incidentId) return;
     let ws: WebSocket | null = null;
-    try {
-      ws = apiClient.connectIncidentWS(incidentId, (msg: any) => {
-        if (!msg) return;
-        const data = msg.data || msg;
-        if (data.status) {
-          setIncidentStatus(data.status);
-          if (data.status === "ASSIGNED") setCurrentStep(2);
-          else if (data.status === "EN_ROUTE") setCurrentStep(3);
-          else if (data.status === "ON_SCENE") {
-            setCurrentStep(4);
-            setEtaSeconds(0);
-          } else if (data.status === "TRANSPORTING" || data.status === "AT_HOSPITAL" || data.status === "CLOSED") {
-            setCurrentStep(4);
+    let reconnectAttempts = 0;
+    const maxAttempts = 5;
+    let reconnectTimer: NodeJS.Timeout | null = null;
+    let isMounted = true;
+
+    const connect = () => {
+      try {
+        ws = apiClient.connectIncidentWS(incidentId, (msg: any) => {
+          if (!msg) return;
+          const data = msg.data || msg;
+          if (data.status) {
+            setIncidentStatus(data.status);
+            if (data.status === "ASSIGNED") setCurrentStep(2);
+            else if (data.status === "EN_ROUTE") setCurrentStep(3);
+            else if (data.status === "ON_SCENE") {
+              setCurrentStep(4);
+              setEtaSeconds(0);
+            } else if (data.status === "TRANSPORTING" || data.status === "AT_HOSPITAL" || data.status === "CLOSED") {
+              setCurrentStep(4);
+            }
           }
+          if (data.eta_seconds !== undefined && data.eta_seconds !== null) {
+            setEtaSeconds(Number(data.eta_seconds));
+          }
+          if (data.assigned_unit_id) {
+            setAmbulanceReg(data.assigned_unit_id.toUpperCase());
+          }
+          if (data.hospital_name) {
+            setHospitalName(data.hospital_name);
+            setIsHospitalNotified(true);
+          }
+          reconnectAttempts = 0; // reset on successful message
+        });
+
+        if (ws) {
+          (ws as any).onclose = () => {
+            if (!isMounted) return;
+            if (reconnectAttempts < maxAttempts) {
+              const delay = Math.min(2000 * Math.pow(2, reconnectAttempts), 32000);
+              reconnectAttempts++;
+              reconnectTimer = setTimeout(connect, delay);
+            }
+          };
         }
-        if (data.eta_seconds !== undefined && data.eta_seconds !== null) {
-          setEtaSeconds(Number(data.eta_seconds));
-        }
-        if (data.assigned_unit_id) {
-          setAmbulanceReg(data.assigned_unit_id.toUpperCase());
-        }
-        if (data.hospital_name) {
-          setHospitalName(data.hospital_name);
-          setIsHospitalNotified(true);
-        }
-      });
-    } catch (e) {
-      console.warn("WebSocket caller connect error:", e);
-    }
+      } catch (e) {
+        console.warn("WebSocket caller connect error:", e);
+      }
+    };
+
+    connect();
     return () => {
+      isMounted = false;
+      if (reconnectTimer) clearTimeout(reconnectTimer);
       if (ws) ws.close();
     };
   }, [incidentId]);
@@ -310,63 +339,15 @@ export default function CitizenApp() {
 
   return (
     <div className="min-h-screen bg-[#FFF9EE] text-[#1E1B14] flex flex-col items-center selection:bg-[#FF6B5B] selection:text-white">
-      {/* ── Top Developer & Mode Toolbar ─────────────────────────────── */}
-      <nav className="w-full bg-[#14213D] text-white px-4 py-2 flex items-center justify-between z-50 text-xs shadow-md border-b border-white/10">
-        <div className="flex items-center gap-2">
-          <img src="/nivaran-icon.png" alt="NIVARAN" className="h-5 w-auto object-contain" />
-          <span className="font-extrabold tracking-wider text-sm font-headline">NIVARAN</span>
-          <span className="bg-[#FF6B5B] text-white px-2 py-0.5 rounded-full font-bold uppercase text-[10px] tracking-wider">
-            Citizen PWA
-          </span>
-          <span className="hidden sm:inline text-white/60">· Port 3000</span>
+      {/* Toast notification — replaces window.alert() */}
+      {toastMessage && (
+        <div className="fixed top-4 inset-x-4 z-[100] flex justify-center pointer-events-none">
+          <div className="bg-[#14213D] text-white text-sm font-semibold px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 animate-fade-in">
+            <span className="material-symbols-outlined text-[#10B981] text-[18px]">check_circle</span>
+            {toastMessage}
+          </div>
         </div>
-
-        {/* Rapid Screen Navigation */}
-        <div className="flex items-center gap-1.5">
-          <button
-            onClick={() => setCurrentScreen("home")}
-            className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
-              currentScreen === "home" ? "bg-[#FF6B5B] text-white" : "bg-white/10 text-white/80 hover:bg-white/20"
-            }`}
-          >
-            1. SOS Home
-          </button>
-          <button
-            onClick={() => setCurrentScreen("hotline")}
-            className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
-              currentScreen === "hotline" ? "bg-[#FF6B5B] text-white" : "bg-white/10 text-white/80 hover:bg-white/20"
-            }`}
-          >
-            2. AI Hotline
-          </button>
-          <button
-            onClick={() => setCurrentScreen("tracking")}
-            className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
-              currentScreen === "tracking" ? "bg-[#FF6B5B] text-white" : "bg-white/10 text-white/80 hover:bg-white/20"
-            }`}
-          >
-            3. Live Track
-          </button>
-          <button
-            onClick={() => setCurrentScreen("settings")}
-            className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
-              currentScreen === "settings" ? "bg-[#FF6B5B] text-white" : "bg-white/10 text-white/80 hover:bg-white/20"
-            }`}
-          >
-            4. Profile
-          </button>
-          <button
-            onClick={() => setViewMode(viewMode === "phone" ? "fluid" : "phone")}
-            className="ml-2 px-2 py-1 rounded bg-white/15 text-white/90 hover:bg-white/25 hidden md:inline-flex items-center gap-1"
-            title="Toggle Phone Frame View"
-          >
-            <span className="material-symbols-outlined text-[14px]">
-              {viewMode === "phone" ? "smartphone" : "fit_screen"}
-            </span>
-            <span>{viewMode === "phone" ? "Phone" : "Fluid"}</span>
-          </button>
-        </div>
-      </nav>
+      )}
 
       {/* Main Container Container (Phone Frame vs Fluid) */}
       <div
@@ -504,9 +485,6 @@ export default function CitizenApp() {
 
             {/* ── HERO 1-SECOND PRESS-AND-HOLD SOS BUTTON ────────────────── */}
             <div className="relative w-full flex flex-col items-center justify-center py-4">
-              {/* Concentric Soft Glow Auras */}
-              <div className="absolute w-64 h-64 rounded-full bg-[#FF6B5B]/20 pointer-events-none animate-pulse-glow"></div>
-              <div className="absolute w-52 h-52 rounded-full bg-[#FF6B5B]/15 pointer-events-none"></div>
 
               {/* Tactile SOS Core (220px) */}
               <div className="relative w-[220px] h-[220px] flex items-center justify-center">
@@ -535,7 +513,7 @@ export default function CitizenApp() {
                   onTouchStart={startSosHold}
                   onTouchEnd={cancelSosHold}
                   onTouchCancel={cancelSosHold}
-                  className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-[0_12px_36px_rgba(255,107,91,0.45),0_4px_12px_rgba(20,33,61,0.2)] cursor-pointer transition-all duration-150 select-none touch-none"
+                  className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl cursor-pointer transition-all duration-150 select-none touch-none"
                 >
                   <span className="material-symbols-outlined text-[42px] mb-0.5 leading-none font-bold">
                     emergency
@@ -553,7 +531,7 @@ export default function CitizenApp() {
               {/* Safeguard text */}
               <div className="flex items-center gap-1.5 mt-3 text-[#64748B]">
                 <span className="material-symbols-outlined text-[15px] text-[#10B981]">verified_user</span>
-                <span className="text-xs font-medium">Haptic-shield active · Prevents accidental dispatch</span>
+                <span className="text-xs font-medium">Confirm with 1 second hold</span>
               </div>
             </div>
 
@@ -570,7 +548,7 @@ export default function CitizenApp() {
                       Live 112 CAD
                     </span>
                   </div>
-                  <p className="text-xs text-[#64748B] mt-0.5">Nearest ambulance allocated. Navigating to live telemetry tracking...</p>
+                  <p className="text-xs text-[#64748B] mt-0.5">Help is on the way — nearest ambulance allocated.</p>
                   <div className="flex items-center gap-2 mt-2">
                     <span className="font-headline text-xl text-[#14213D] font-extrabold">04:00</span>
                     <span className="text-xs text-[#64748B]">Estimated Arrival to your GPS lock</span>
@@ -766,7 +744,7 @@ export default function CitizenApp() {
               className="w-full h-13 py-3.5 rounded-2xl bg-[#FF6B5B] hover:bg-[#E55343] text-white font-headline text-base font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-[#FF6B5B]/30 active:scale-98 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">send_time_extension</span>
-              <span>Dispatch Ambulance Now (तुरंत एम्बुलेंस भेजें)</span>
+              <span>Send Help Now · तुरंत सहायता भेजें</span>
             </button>
           </main>
         )}
@@ -906,7 +884,7 @@ export default function CitizenApp() {
                   <span>Call Paramedic</span>
                 </a>
                 <button
-                  onClick={() => alert(`Location pinned at ${address}. Paramedic navigation updated.`)}
+                  onClick={() => showToast(`Gate pin shared — paramedic navigation updated for ${address}.`)}
                   className="h-11 rounded-xl bg-white border border-[#14213D]/20 text-[#14213D] text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all hover:bg-[#F4EDE0]"
                 >
                   <span className="material-symbols-outlined text-[18px]">share_location</span>
@@ -1138,7 +1116,7 @@ export default function CitizenApp() {
 
             <button
               onClick={() => {
-                alert("Emergency profile updated successfully.");
+                showToast("Emergency profile updated successfully.");
                 setCurrentScreen("home");
               }}
               className="w-full py-3 rounded-xl bg-[#14213D] text-white font-bold text-sm shadow hover:bg-[#0E182D] transition-all"
@@ -1152,8 +1130,8 @@ export default function CitizenApp() {
         <footer className="sticky bottom-0 inset-x-0 bg-[#FFF9EE]/95 backdrop-blur-md border-t border-[#E2D7C5] px-6 py-2 flex items-center justify-around z-40">
           <button
             onClick={() => setCurrentScreen("home")}
-            className={`flex flex-col items-center gap-0.5 transition-all ${
-              currentScreen === "home" ? "text-[#FF6B5B] font-bold scale-105" : "text-[#64748B] hover:text-[#14213D]"
+            className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
+              currentScreen === "home" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">crisis_alert</span>
@@ -1162,8 +1140,8 @@ export default function CitizenApp() {
 
           <button
             onClick={() => setCurrentScreen("hotline")}
-            className={`flex flex-col items-center gap-0.5 transition-all ${
-              currentScreen === "hotline" ? "text-[#FF6B5B] font-bold scale-105" : "text-[#64748B] hover:text-[#14213D]"
+            className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
+              currentScreen === "hotline" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">spatial_audio</span>
@@ -1172,8 +1150,8 @@ export default function CitizenApp() {
 
           <button
             onClick={() => setCurrentScreen("tracking")}
-            className={`flex flex-col items-center gap-0.5 transition-all ${
-              currentScreen === "tracking" ? "text-[#FF6B5B] font-bold scale-105" : "text-[#64748B] hover:text-[#14213D]"
+            className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
+              currentScreen === "tracking" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">near_me</span>
@@ -1182,8 +1160,8 @@ export default function CitizenApp() {
 
           <button
             onClick={() => setCurrentScreen("settings")}
-            className={`flex flex-col items-center gap-0.5 transition-all ${
-              currentScreen === "settings" ? "text-[#FF6B5B] font-bold scale-105" : "text-[#64748B] hover:text-[#14213D]"
+            className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
+              currentScreen === "settings" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">tune</span>

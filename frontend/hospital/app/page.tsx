@@ -174,37 +174,64 @@ export default function HospitalConsole() {
     return () => clearInterval(interval);
   }, [loadInboundData]);
 
-  // Real-time WebSocket connection to Hospital Channel
+  // Real-time WebSocket connection to Hospital Channel with reconnect
   useEffect(() => {
     let ws: WebSocket | null = null;
-    try {
-      const getWsBase = () => {
-        if (typeof window !== "undefined") {
-          const host = window.location.hostname;
-          if (host === "localhost" || host === "127.0.0.1") return "ws://localhost:8000/api/v1";
-        }
-        return "wss://nivaran.onrender.com/api/v1";
-      };
+    let reconnectAttempts = 0;
+    const maxAttempts = 5;
+    let reconnectTimer: NodeJS.Timeout | null = null;
+    let pingInterval: NodeJS.Timeout | null = null;
+    let isMounted = true;
 
-      ws = new WebSocket(`${getWsBase()}/hospitals/${selectedHospitalId}/ws`);
-      ws.onmessage = (e) => {
-        try {
-          const msg = JSON.parse(e.data);
-          if (msg.type === "pre_alert" && msg.data) {
-            setPreAlerts((prev) => [msg.data, ...prev.filter((a) => a.alert_id !== msg.data.alert_id)]);
+    const getWsBase = () => {
+      if (typeof window !== "undefined") {
+        const host = window.location.hostname;
+        if (host === "localhost" || host === "127.0.0.1") return "ws://localhost:8000/api/v1";
+      }
+      return "wss://nivaran.onrender.com/api/v1";
+    };
+
+    const connect = () => {
+      try {
+        ws = new WebSocket(`${getWsBase()}/hospitals/${selectedHospitalId}/ws`);
+        ws.onmessage = (e) => {
+          try {
+            const msg = JSON.parse(e.data);
+            if (msg.type === "pre_alert" && msg.data) {
+              setPreAlerts((prev) => [msg.data, ...prev.filter((a) => a.alert_id !== msg.data.alert_id)]);
+            }
+          } catch {}
+          reconnectAttempts = 0;
+        };
+
+        ws.onopen = () => {
+          reconnectAttempts = 0;
+          if (pingInterval) clearInterval(pingInterval);
+          pingInterval = setInterval(() => {
+            if (ws?.readyState === WebSocket.OPEN) ws.send("ping");
+          }, 25000);
+        };
+
+        ws.onclose = () => {
+          if (pingInterval) clearInterval(pingInterval);
+          if (!isMounted) return;
+          if (reconnectAttempts < maxAttempts) {
+            const delay = Math.min(2000 * Math.pow(2, reconnectAttempts), 32000);
+            reconnectAttempts++;
+            reconnectTimer = setTimeout(connect, delay);
           }
-        } catch {}
-      };
-      ws.onopen = () => {
-        const ping = setInterval(() => {
-          if (ws?.readyState === WebSocket.OPEN) ws.send("ping");
-          else clearInterval(ping);
-        }, 25000);
-      };
-    } catch (e) {
-      console.warn("Hospital WS fallback:", e);
-    }
+        };
+      } catch (e) {
+        console.warn("Hospital WS fallback:", e);
+      }
+    };
+
+    connect();
+
     return () => {
+      isMounted = false;
+      if (pingInterval) clearInterval(pingInterval);
+      if (reconnectTimer) clearTimeout(reconnectTimer);
       if (ws) ws.close();
     };
   }, [selectedHospitalId]);
@@ -281,7 +308,6 @@ export default function HospitalConsole() {
                 <span className="bg-[#E9DDFF] text-[#5516BE] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   ED-COMMAND
                 </span>
-                <span className="text-xs text-[#64748B]">· Port 3002</span>
               </div>
               <span className="text-xs text-[#64748B] font-medium leading-none mt-1">
                 {hospitalName} — Trauma Bay Unit

@@ -69,6 +69,7 @@ export default function DispatcherConsole() {
   const [notifiedHospitals, setNotifiedHospitals] = useState<Record<string, boolean>>({});
   const [isSeeding, setIsSeeding] = useState<boolean>(false);
   const [actionSuccess, setActionSuccess] = useState<string | null>(null);
+  const [cancelConfirmId, setCancelConfirmId] = useState<string | null>(null);
 
   // Haversine distance helper
   const calcDistKm = (lat1: number, lon1: number, lat2: number, lon2: number) => {
@@ -108,18 +109,41 @@ export default function DispatcherConsole() {
     return () => clearInterval(interval);
   }, [loadData]);
 
-  // Real-time WebSocket connection to Dispatcher Channel
+  // Real-time WebSocket connection to Dispatcher Channel with reconnect
   useEffect(() => {
     let ws: WebSocket | null = null;
-    try {
-      ws = apiClient.connectDispatcherWS((msg: any) => {
-        if (!msg) return;
-        loadData();
-      });
-    } catch (e) {
-      console.warn("Dispatcher WS error:", e);
-    }
+    let reconnectAttempts = 0;
+    const maxAttempts = 5;
+    let reconnectTimer: NodeJS.Timeout | null = null;
+    let isMounted = true;
+
+    const connect = () => {
+      try {
+        ws = apiClient.connectDispatcherWS((msg: any) => {
+          if (!msg) return;
+          loadData();
+          reconnectAttempts = 0;
+        });
+
+        if (ws) {
+          (ws as any).onclose = () => {
+            if (!isMounted) return;
+            if (reconnectAttempts < maxAttempts) {
+              const delay = Math.min(2000 * Math.pow(2, reconnectAttempts), 32000);
+              reconnectAttempts++;
+              reconnectTimer = setTimeout(connect, delay);
+            }
+          };
+        }
+      } catch (e) {
+        console.warn("Dispatcher WS error:", e);
+      }
+    };
+
+    connect();
     return () => {
+      isMounted = false;
+      if (reconnectTimer) clearTimeout(reconnectTimer);
       if (ws) ws.close();
     };
   }, [loadData]);
@@ -231,7 +255,11 @@ export default function DispatcherConsole() {
   };
 
   const handleCancelIncident = async (incidentId: string) => {
-    if (!confirm("Are you sure you want to cancel this emergency incident?")) return;
+    setCancelConfirmId(incidentId);
+  };
+
+  const confirmCancelIncident = async (incidentId: string) => {
+    setCancelConfirmId(null);
     try {
       await apiClient.updateIncidentStatus(incidentId, "CANCELLED", "Operator cancelled / duplicate");
       loadData();
@@ -278,9 +306,8 @@ export default function DispatcherConsole() {
                   NIVARAN
                 </span>
                 <span className="bg-[#15803D] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
-                  CAD COMMAND v4.8
+                  CAD COMMAND
                 </span>
-                <span className="text-xs text-[#64748B]">· Port 3001</span>
               </div>
               <span className="text-[11px] text-[#64748B] font-medium leading-none mt-1">
                 DELHI NCT 112/108 CENTRAL OPERATIONS NODE
@@ -292,8 +319,8 @@ export default function DispatcherConsole() {
 
           {/* Telemetry latency strip */}
           <div className="hidden lg:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#EFF4FF] border border-[#BECABC]/30 text-xs">
-            <span className="w-2 h-2 rounded-full bg-[#ACF847] ring-2 ring-[#00652C]/30 animate-pulse"></span>
-            <span className="font-mono text-[#0B1C30] font-bold">0.08s LATENCY</span>
+            <span className="w-2 h-2 rounded-full bg-[#ACF847] ring-2 ring-[#00652C]/30"></span>
+            <span className="font-mono text-[#0B1C30] font-bold">LIVE SYNC</span>
             <span className="text-[#BECABC]">|</span>
             <span className="text-[#64748B]">SECTOR: CENTRAL</span>
             <span className="text-[#BECABC]">|</span>
@@ -430,7 +457,7 @@ export default function DispatcherConsole() {
           {/* Operational Metrics Strip & Quick Controls */}
           <div className="bg-white p-4 rounded-2xl border border-[#BECABC]/40 shadow-sm flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ACF847] animate-ping"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ACF847] ring-2 ring-[#00652C]/20"></span>
               <h1 className="font-headline text-lg font-extrabold text-[#0B1C30] tracking-tight uppercase">
                 CAD Computer-Aided Dispatch Queue
               </h1>
@@ -461,8 +488,10 @@ export default function DispatcherConsole() {
 
               <div className="flex items-center gap-2 hidden sm:flex">
                 <div className="text-right">
-                  <span className="text-[10px] font-bold text-[#64748B] uppercase block leading-none">Median Response</span>
-                  <span className="font-mono text-base font-extrabold text-[#00652C]">04m 12s</span>
+                  <span className="text-[10px] font-bold text-[#64748B] uppercase block leading-none">Fleet</span>
+                  <span className="font-mono text-base font-extrabold text-[#00652C]">
+                    {fleet.filter((u) => u.status === "AVAILABLE").length}/{fleet.length} Available
+                  </span>
                 </div>
               </div>
             </div>
@@ -541,7 +570,7 @@ export default function DispatcherConsole() {
                 <div className="divide-y divide-[#BECABC]/20">
                   {filteredIncidents.length === 0 ? (
                     <div className="p-8 text-center text-xs text-[#64748B]">
-                      No active incidents match this filter. Use &quot;Seed Rich Demo Cases&quot; to test.
+                      No active incidents match this filter.
                     </div>
                   ) : (
                     filteredIncidents.map((inc) => {
@@ -627,7 +656,7 @@ export default function DispatcherConsole() {
                                 }}
                                 className="px-2.5 py-1.5 rounded-lg bg-[#ACF847] hover:bg-[#91DB2A] text-[#102000] font-headline text-[10px] font-extrabold uppercase shadow-sm active:scale-95"
                               >
-                                Auto-Dispatch
+                                Dispatch Nearest
                               </button>
                             ) : (
                               <button
@@ -644,16 +673,35 @@ export default function DispatcherConsole() {
                                 {notifiedHospitals[inc._id] ? "Alerted" : "Alert ED"}
                               </button>
                             )}
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleCancelIncident(inc._id);
-                              }}
-                              className="w-7 h-7 rounded-lg text-[#BA1A1A] hover:bg-[#FFDAD6] flex items-center justify-center transition-all"
-                              title="Cancel / Close Incident"
-                            >
-                              <span className="material-symbols-outlined text-[16px]">close</span>
-                            </button>
+                            {cancelConfirmId === inc._id ? (
+                              <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                                <button
+                                  onClick={() => confirmCancelIncident(inc._id)}
+                                  className="px-2 py-1 rounded bg-[#BA1A1A] text-white text-[9px] font-bold uppercase shadow-sm"
+                                  title="Confirm cancellation"
+                                >
+                                  Confirm
+                                </button>
+                                <button
+                                  onClick={() => setCancelConfirmId(null)}
+                                  className="px-2 py-1 rounded bg-[#EFF4FF] text-[#64748B] text-[9px] font-bold uppercase"
+                                  title="Keep incident"
+                                >
+                                  Keep
+                                </button>
+                              </div>
+                            ) : (
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleCancelIncident(inc._id);
+                                }}
+                                className="w-7 h-7 rounded-lg text-[#BA1A1A] hover:bg-[#FFDAD6] flex items-center justify-center transition-all"
+                                title="Cancel / Close Incident"
+                              >
+                                <span className="material-symbols-outlined text-[16px]">close</span>
+                              </button>
+                            )}
                           </div>
                         </div>
                       );
@@ -749,8 +797,9 @@ export default function DispatcherConsole() {
                           <p className="text-[11px] text-[#64748B] mt-1 leading-snug">{unit.reason}</p>
 
                           <div className="mt-2 flex items-center justify-between">
-                            <span className="text-[10px] text-[#00652C] font-semibold">
-                              Match Score: {Math.round(unit.score)}%
+                            <span className="text-[10px] text-[#00652C] font-semibold flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#00652C]"></span>
+                              {idx === 0 ? "Optimal Route Match" : "Sector Alternative"}
                             </span>
                             <button
                               onClick={() => handleAssignUnit(selectedIncident._id, unit._id)}

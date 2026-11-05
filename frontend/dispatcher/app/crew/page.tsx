@@ -125,7 +125,7 @@ export default function AmbulanceCrewTerminal() {
                 {registration}
               </span>
               <span className="text-[10px] text-[#ACF847] font-mono font-bold tracking-wider uppercase">
-                CATS ADVANCED LIFE SUPPORT (ALS)
+                GNCTD ADVANCED LIFE SUPPORT (ALS)
               </span>
             </div>
           </div>
@@ -177,8 +177,8 @@ export default function AmbulanceCrewTerminal() {
       <main className="flex-1 p-4 max-w-5xl mx-auto w-full flex flex-col justify-between space-y-4">
         {/* Driving Lockout Notice if Active */}
         {safeDrivingLockout && (
-          <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 animate-pulse shadow-lg">
-            <span className="material-symbols-outlined text-[32px] text-white">gavel</span>
+          <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 shadow-lg">
+            <span className="material-symbols-outlined text-[32px] text-white">do_not_disturb_on</span>
             <div className="flex flex-col">
               <span className="font-headline font-extrabold text-sm uppercase">Driver Safe-Use Mode Active</span>
               <span className="text-xs text-white/90">Touchscreen controls locked while vehicle is in transit.</span>
@@ -190,7 +190,8 @@ export default function AmbulanceCrewTerminal() {
         <div className="bg-[#181A1F] border border-white/10 rounded-2xl p-5 shadow-xl space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-white/10">
             <div className="flex items-center gap-2">
-              <span className="bg-[#BA1A1A] text-white text-xs font-extrabold px-3 py-1 rounded-md uppercase tracking-wider animate-pulse">
+              <span className="bg-[#BA1A1A] text-white text-xs font-extrabold px-3 py-1 rounded-md uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-white"></span>
                 PRIORITY: CODE RED CRITICAL
               </span>
               <span className="bg-white/10 text-white text-xs font-bold px-2 py-1 rounded uppercase">
@@ -243,7 +244,7 @@ export default function AmbulanceCrewTerminal() {
           </div>
 
           {/* In-Cab Vitals Strip */}
-          <div className="bg-[#121316] p-3 rounded-xl border border-white/5 flex flex-wrap items-center justify-around gap-2 text-xs">
+          <div className="bg-[#121316] p-3 rounded-xl border border-white/5 grid grid-cols-5 gap-2 text-xs">
             <div className="text-center">
               <span className="text-[10px] text-white/40 block">PULSE</span>
               <span className="font-mono font-extrabold text-base text-[#FF6B5B]">{vitals.hr} bpm</span>
@@ -350,3 +351,4 @@ export default function AmbulanceCrewTerminal() {
     </div>
   );
 }
+
