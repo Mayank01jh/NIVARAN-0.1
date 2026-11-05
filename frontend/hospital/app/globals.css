@@ -5,7 +5,7 @@
 /* ======================================================
    NIVARAN Hospital ED Command — Clinical Precision
    Strict 60:30:10 Design System:
-   60% Sand Beige (#E8DCC4) | 30% Forest Green (#1F3D2B) | 10% Electric Purple (#8B5CF6)
+   60% Bright (Sand Beige #E8DCC4) | 30% Dark (Forest Green #1F3D2B) | 10% Dark (Deep Electric Purple #5B21B6)
    ====================================================== */
 
 :root {
@@ -18,9 +18,9 @@
   --forest-green-muted: rgba(31, 61, 43, 0.65);
   --forest-green-border: rgba(31, 61, 43, 0.2);
   
-  --electric-purple-10: #8B5CF6;
-  --electric-purple-dark: #7C3AED;
-  --electric-purple-glow: rgba(139, 92, 246, 0.35);
+  --electric-purple-10: #5B21B6;
+  --electric-purple-dark: #4C1D95;
+  --electric-purple-glow: rgba(91, 33, 182, 0.35);
 
   --font-headline: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

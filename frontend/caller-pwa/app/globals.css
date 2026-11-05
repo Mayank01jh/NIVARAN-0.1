@@ -5,7 +5,7 @@
 /* ======================================================
    NIVARAN Lifeline — Citizen Emergency App
    Strict 60:30:10 Design System:
-   60% Cream (#F4EDE0) | 30% Navy (#14213D) | 10% Coral (#FF6B5B)
+   60% Bright (Warm Cream #F4EDE0) | 30% Dark (Deep Navy #14213D) | 10% Dark (Deep Emergency Red #B91C1C)
    ====================================================== */
 
 :root {
@@ -18,9 +18,9 @@
   --navy-muted: rgba(20, 33, 61, 0.65);
   --navy-border: rgba(20, 33, 61, 0.15);
   
-  --coral-10: #FF6B5B;
-  --coral-pressed: #E55343;
-  --coral-glow: rgba(255, 107, 91, 0.35);
+  --coral-10: #B91C1C;
+  --coral-pressed: #991B1B;
+  --coral-glow: rgba(185, 28, 28, 0.35);
 
   --font-headline: 'Plus Jakarta Sans', sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

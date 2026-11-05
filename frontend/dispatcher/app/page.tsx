@@ -292,7 +292,7 @@ export default function DispatcherConsole() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans selection:bg-[#C6F432] selection:text-black">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#F8F9FA] text-[#0B0B0C] flex flex-col font-sans selection:bg-[#00652C] selection:text-white">
       {/* ── Fixed Header (Stitch design specification) ────────────────────── */}
       <header className="h-16 flex-shrink-0 bg-[#121316] border-b border-white/10 shadow-md z-30 flex items-center justify-between px-6 text-white">
         <div className="flex items-center gap-6">
@@ -303,7 +303,7 @@ export default function DispatcherConsole() {
                 <span className="font-headline font-extrabold text-white text-lg tracking-tight uppercase leading-none">
                   NIVARAN
                 </span>
-                <span className="bg-[#C6F432] text-black text-[10px] font-extrabold px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#00652C] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   CAD COMMAND
                 </span>
               </div>
@@ -317,19 +317,19 @@ export default function DispatcherConsole() {
 
           {/* Telemetry latency strip */}
           <div className="hidden lg:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#181A1F] border border-white/10 text-xs text-white">
-            <span className="w-2 h-2 rounded-full bg-[#C6F432] ring-2 ring-[#C6F432]/30"></span>
+            <span className="w-2 h-2 rounded-full bg-[#00652C] ring-2 ring-[#00652C]/30"></span>
             <span className="font-mono text-white font-bold">LIVE SYNC</span>
             <span className="text-white/30">|</span>
-            <span className="text-white/65">SECTOR: CENTRAL</span>
+            <span className="text-[#0B0B0C]/65">SECTOR: CENTRAL</span>
             <span className="text-white/30">|</span>
-            <span className="text-[#C6F432] font-bold">{fleet.length} AMBULANCES ACTIVE</span>
+            <span className="text-[#00652C] font-bold">{fleet.length} AMBULANCES ACTIVE</span>
           </div>
         </div>
 
         {/* Action Controls & Navigation Link to Ambulance Crew Hub */}
         <div className="flex items-center gap-3">
           {actionSuccess && (
-            <span className="hidden md:inline-flex items-center gap-1 bg-[#C6F432]/20 text-[#C6F432] text-xs font-bold px-3 py-1 rounded-full animate-fade-in shadow-sm">
+            <span className="hidden md:inline-flex items-center gap-1 bg-[#00652C]/20 text-[#00652C] text-xs font-bold px-3 py-1 rounded-full animate-fade-in shadow-sm">
               <span className="material-symbols-outlined text-[14px]">check_circle</span>
               {actionSuccess}
             </span>
@@ -338,7 +338,7 @@ export default function DispatcherConsole() {
           {/* Dedicated Link to In-Cab Ambulance Crew Interface */}
           <Link
             href="/crew"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#000000] font-headline text-xs font-extrabold shadow-sm active:scale-95 transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#00652C] hover:bg-[#004D20] text-white font-headline text-xs font-bold shadow-sm active:scale-95 transition-all"
           >
             <span className="material-symbols-outlined text-[18px]">airline_seat_recline_extra</span>
             <span>Open In-Cab Crew Terminal</span>
@@ -349,9 +349,9 @@ export default function DispatcherConsole() {
           <div className="flex items-center gap-2">
             <div className="flex flex-col text-right hidden sm:flex">
               <span className="text-xs font-bold text-white">R. Sharma</span>
-              <span className="text-[10px] text-white/65 font-mono">CAD-ND-402</span>
+              <span className="text-[10px] text-[#0B0B0C]/65 font-mono">CAD-ND-402</span>
             </div>
-            <div className="w-8 h-8 rounded-full bg-[#C6F432] text-black font-extrabold flex items-center justify-center font-bold text-xs shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-[#00652C] text-white font-bold flex items-center justify-center text-xs shadow-sm">
               RS
             </div>
           </div>
@@ -369,16 +369,16 @@ export default function DispatcherConsole() {
                 <span className="font-headline font-bold text-xs text-white tracking-wider uppercase leading-none">
                   NIVARAN DISPATCH
                 </span>
-                <span className="text-[10px] text-[#C6F432] font-semibold mt-0.5">Central CAD 112 / 108</span>
+                <span className="text-[10px] text-[#00652C] font-semibold mt-0.5">Central CAD 112 / 108</span>
               </div>
             </div>
             <div>
-              <span className="text-[10px] font-bold text-white/65 uppercase tracking-wider block px-2 mb-2">
+              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block px-2 mb-2">
                 Command Modules
               </span>
               <nav className="space-y-1">
                 <button
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold bg-[#181A1F] text-[#C6F432] border-l-4 border-[#C6F432]"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold bg-[#181A1F] text-[#00652C] border-l-4 border-[#00652C]"
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">crisis_alert</span>
@@ -391,13 +391,13 @@ export default function DispatcherConsole() {
 
                 <Link
                   href="/crew"
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-white/80 hover:bg-[#181A1F] transition-all"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-[#0B0B0C]/80 hover:bg-[#181A1F] transition-all"
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">airport_shuttle</span>
                     <span>Ambulance Crew In-Cab</span>
                   </div>
-                  <span className="text-[10px] bg-[#C6F432] text-[#000000] px-1.5 py-0.2 rounded font-bold">
+                  <span className="text-[10px] bg-[#00652C] text-[#000000] px-1.5 py-0.2 rounded font-bold">
                     Terminal
                   </span>
                 </Link>
@@ -405,7 +405,7 @@ export default function DispatcherConsole() {
                 <button
                   onClick={handleSeedDemoData}
                   disabled={isSeeding}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-[#C6F432] bg-[#C6F432]/15 hover:bg-[#C6F432]/20 transition-all mt-2"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-[#00652C] bg-[#00652C]/15 hover:bg-[#00652C]/20 transition-all mt-2"
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">database</span>
@@ -416,7 +416,7 @@ export default function DispatcherConsole() {
 
                 <button
                   onClick={handlePurgeStale}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-white/65 hover:bg-[#181A1F] transition-all"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold text-[#0B0B0C]/70 hover:bg-[#F4F6F9] hover:text-[#0B0B0C] transition-all"
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">clean_hands</span>
@@ -428,7 +428,7 @@ export default function DispatcherConsole() {
 
             {/* Active Fleet Preview */}
             <div className="space-y-2">
-              <span className="text-[10px] font-bold text-white/65 uppercase tracking-wider block px-2">
+              <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase tracking-wider block px-2">
                 Live Fleet Status ({fleet.length})
               </span>
               <div className="space-y-1.5 px-2 text-xs">
@@ -438,7 +438,7 @@ export default function DispatcherConsole() {
                     <span
                       className={`text-[9px] font-bold px-1.5 py-0.2 rounded uppercase ${
                         amb.status === "AVAILABLE"
-                          ? "bg-[#C6F432]/20 text-[#C6F432]"
+                          ? "bg-[#00652C]/20 text-[#00652C]"
                           : "bg-[#FFDAD6] text-[#93000A]"
                       }`}
                     >
@@ -452,30 +452,30 @@ export default function DispatcherConsole() {
 
           <div className="p-3 bg-[#181A1F] rounded-xl border border-white/10 space-y-1">
             <div className="flex items-center justify-between text-[11px]">
-              <span className="font-bold text-white/65 uppercase">Sync Rate</span>
-              <span className="font-mono text-[#C6F432] font-bold">100Hz / 0.08s</span>
+              <span className="font-bold text-[#0B0B0C]/65 uppercase">Sync Rate</span>
+              <span className="font-mono text-[#00652C] font-bold">100Hz / 0.08s</span>
             </div>
-            <span className="text-[10px] text-white/65 block">Encrypted WebSockets Stream</span>
+            <span className="text-[10px] text-[#0B0B0C]/65 block">Encrypted WebSockets Stream</span>
           </div>
         </aside>
 
         {/* ── Center Workspace Body ────────────────────────────────────────── */}
         <main className="flex-1 min-h-0 p-5 flex flex-col gap-4 overflow-hidden">
           {/* Operational Metrics Strip & Quick Controls */}
-          <div className="flex-shrink-0 bg-[#181A1F] p-4 rounded-2xl border border-white/10 shadow-sm flex flex-wrap items-center justify-between gap-4 text-white">
+          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#0B0B0C]/12 shadow-sm flex flex-wrap items-center justify-between gap-4 text-[#0B0B0C]">
             <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#C6F432] ring-2 ring-[#C6F432]/20"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#00652C] ring-2 ring-[#00652C]/20"></span>
               <h1 className="font-headline text-lg font-extrabold text-white tracking-tight uppercase">
                 CAD Computer-Aided Dispatch Queue
               </h1>
-              <span className="text-xs text-white/65">· GNCTD Control Hub</span>
+              <span className="text-xs text-[#0B0B0C]/65">· GNCTD Control Hub</span>
             </div>
 
             {/* Metric Counters */}
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2">
                 <div className="text-right">
-                  <span className="text-[10px] font-bold text-white/65 uppercase block leading-none">Active Calls</span>
+                  <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase block leading-none">Active Calls</span>
                   <span className="font-mono text-base font-extrabold text-white">
                     {incidents.filter((i) => i.status !== "CLOSED" && i.status !== "CANCELLED").length} Active
                   </span>
@@ -485,18 +485,18 @@ export default function DispatcherConsole() {
 
               <div className="flex items-center gap-2">
                 <div className="text-right">
-                  <span className="text-[10px] font-bold text-white/65 uppercase block leading-none">Unassigned</span>
+                  <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase block leading-none">Unassigned</span>
                   <span className="font-mono text-base font-extrabold text-[#BA1A1A]">
                     {incidents.filter((i) => !i.assigned_unit_id && i.status !== "CLOSED").length} Pending
                   </span>
                 </div>
-                <div className="w-1.5 h-7 bg-[#C6F432] rounded-full"></div>
+                <div className="w-1.5 h-7 bg-[#00652C] rounded-full"></div>
               </div>
 
               <div className="flex items-center gap-2 hidden sm:flex">
                 <div className="text-right">
-                  <span className="text-[10px] font-bold text-white/65 uppercase block leading-none">Fleet</span>
-                  <span className="font-mono text-base font-extrabold text-[#C6F432]">
+                  <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase block leading-none">Fleet</span>
+                  <span className="font-mono text-base font-extrabold text-[#00652C]">
                     {fleet.filter((u) => u.status === "AVAILABLE").length}/{fleet.length} Available
                   </span>
                 </div>
@@ -509,7 +509,7 @@ export default function DispatcherConsole() {
             {/* Left Pane: Filter Strip & Tactical Incidents Table (8 Cols) */}
             <div className="xl:col-span-8 flex flex-col min-h-0 gap-3 overflow-hidden">
               {/* Filter Tabs & Search Bar */}
-              <div className="flex-shrink-0 bg-[#181A1F] p-3 rounded-2xl border border-white/10 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-white">
+              <div className="flex-shrink-0 bg-white p-3 rounded-2xl border border-[#0B0B0C]/12 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-[#0B0B0C]">
                 <div className="flex items-center gap-1.5 overflow-x-auto">
                   <button
                     onClick={() => setFilterSeverity("ALL")}
@@ -539,7 +539,7 @@ export default function DispatcherConsole() {
                   <button
                     onClick={() => setFilterSeverity("PENDING")}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                      filterSeverity === "PENDING" ? "bg-[#AEE01E] text-white" : "bg-[#C6F432] text-[#000000]"
+                      filterSeverity === "PENDING" ? "bg-[#AEE01E] text-white" : "bg-[#00652C] text-[#000000]"
                     }`}
                   >
                     UNASSIGNED ({incidents.filter((i) => !i.assigned_unit_id).length})
@@ -548,7 +548,7 @@ export default function DispatcherConsole() {
 
                 <div className="flex items-center gap-2">
                   <div className="relative flex-1 md:w-56">
-                    <span className="material-symbols-outlined absolute left-2.5 top-2 text-white/65 text-[16px]">
+                    <span className="material-symbols-outlined absolute left-2.5 top-2 text-[#0B0B0C]/65 text-[16px]">
                       search
                     </span>
                     <input
@@ -556,16 +556,16 @@ export default function DispatcherConsole() {
                       placeholder="Search CAD# or Street..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[#20232A] border border-white/10 text-xs text-white focus:outline-none focus:border-[#C6F432]"
+                      className="w-full pl-8 pr-3 py-1.5 rounded-xl bg-[#F4F6F9] border border-[#0B0B0C]/15 text-xs text-[#0B0B0C] font-medium focus:outline-none focus:border-[#00652C]"
                     />
                   </div>
                 </div>
               </div>
 
               {/* High-Density Tactical Table Header & Rows */}
-              <div className="flex-1 min-h-0 flex flex-col bg-[#121316] rounded-2xl border border-white/10 shadow-sm overflow-hidden text-white">
+              <div className="flex-1 min-h-0 flex flex-col bg-white rounded-2xl border border-[#0B0B0C]/12 shadow-sm overflow-hidden text-[#0B0B0C]">
                 {/* Table Header */}
-                <div className="flex-shrink-0 grid grid-cols-12 px-4 py-2.5 bg-[#181A1F] text-white/65 font-mono text-[11px] font-bold uppercase tracking-wider select-none border-b border-white/10">
+                <div className="flex-shrink-0 grid grid-cols-12 px-4 py-2.5 bg-[#181A1F] text-[#0B0B0C]/65 font-mono text-[11px] font-bold uppercase tracking-wider select-none border-b border-white/10">
                   <div className="col-span-2">INCIDENT #</div>
                   <div className="col-span-3">LOCATION & TRIAGE</div>
                   <div className="col-span-3">EXTRACTED SYMPTOM STATE</div>
@@ -576,7 +576,7 @@ export default function DispatcherConsole() {
                 {/* Rows */}
                 <div className="flex-1 min-h-0 overflow-y-auto divide-y divide-[#FFFFFF]/20">
                   {filteredIncidents.length === 0 ? (
-                    <div className="p-8 text-center text-xs text-white/65">
+                    <div className="p-8 text-center text-xs text-[#0B0B0C]/65">
                       No active incidents match this filter.
                     </div>
                   ) : (
@@ -590,12 +590,12 @@ export default function DispatcherConsole() {
                           onClick={() => setSelectedIncidentId(inc._id)}
                           className={`grid grid-cols-12 px-4 py-3.5 items-center transition-all cursor-pointer relative ${
                             isSelected
-                              ? "bg-[#181A1F]/80 ring-2 ring-[#C6F432]/30"
-                              : "hover:bg-[#20232A]"
+                              ? "bg-[#E8F5E9]/50 ring-2 ring-[#00652C]/30"
+                              : "hover:bg-[#F4F6F9]"
                           }`}
                         >
                           {/* Active highlight bar */}
-                          {isSelected && <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#C6F432]"></div>}
+                          {isSelected && <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#00652C]"></div>}
 
                           {/* Col 1: ID & Status */}
                           <div className="col-span-2 space-y-1">
@@ -605,7 +605,7 @@ export default function DispatcherConsole() {
                             <span
                               className={`inline-block text-[9px] font-bold px-1.5 py-0.2 rounded uppercase ${
                                 inc.status === "ASSIGNED" || inc.status === "EN_ROUTE"
-                                  ? "bg-[#C6F432]/20 text-[#C6F432]"
+                                  ? "bg-[#00652C]/20 text-[#00652C]"
                                   : inc.status === "ON_SCENE"
                                   ? "bg-[#181A1F] text-white"
                                   : "bg-[#FEF3C7] text-[#D97706]"
@@ -625,14 +625,14 @@ export default function DispatcherConsole() {
                               {inc.severity}
                             </span>
                             <p className="text-xs font-bold text-white truncate">{inc.address || "Active GPS Point"}</p>
-                            <span className="text-[10px] text-white/65 block truncate">
+                            <span className="text-[10px] text-[#0B0B0C]/65 block truncate">
                               Caller: {inc.caller_info?.name || "Emergency Caller"} ({inc.caller_info?.phone || "112"})
                             </span>
                           </div>
 
                           {/* Col 3: Extracted Symptom State */}
                           <div className="col-span-3 pr-2">
-                            <p className="text-xs text-white/80 line-clamp-2 leading-relaxed">
+                            <p className="text-xs text-[#0B0B0C]/80 line-clamp-2 leading-relaxed">
                               {inc.caller_info?.notes || inc.transcript || "Acute medical incident recorded by dispatcher."}
                             </p>
                           </div>
@@ -641,7 +641,7 @@ export default function DispatcherConsole() {
                           <div className="col-span-2 space-y-0.5">
                             {inc.assigned_unit_id ? (
                               <>
-                                <span className="font-headline text-xs font-bold text-[#C6F432] block">
+                                <span className="font-headline text-xs font-bold text-[#00652C] block">
                                   {inc.assigned_unit_id.toUpperCase()}
                                 </span>
                                 <span className="font-mono text-[11px] font-bold text-[#BA1A1A]">
@@ -661,7 +661,7 @@ export default function DispatcherConsole() {
                                   e.stopPropagation();
                                   handleAutoDispatch(inc._id);
                                 }}
-                                className="px-2.5 py-1.5 rounded-lg bg-[#C6F432] hover:bg-[#AEE01E] text-[#000000] font-headline text-[10px] font-extrabold uppercase shadow-sm active:scale-95"
+                                className="px-2.5 py-1.5 rounded-lg bg-[#00652C] hover:bg-[#AEE01E] text-[#000000] font-headline text-[10px] font-extrabold uppercase shadow-sm active:scale-95"
                               >
                                 Dispatch Nearest
                               </button>
@@ -673,8 +673,8 @@ export default function DispatcherConsole() {
                                 }}
                                 className={`px-2 py-1 rounded-lg text-[10px] font-bold uppercase transition-all ${
                                   notifiedHospitals[inc._id]
-                                    ? "bg-[#C6F432]/20 text-[#C6F432]"
-                                    : "bg-[#C6F432] hover:bg-[#AEE01E] text-black"
+                                    ? "bg-[#00652C]/20 text-[#00652C]"
+                                    : "bg-[#00652C] hover:bg-[#AEE01E] text-black"
                                 }`}
                               >
                                 {notifiedHospitals[inc._id] ? "Alerted" : "Alert ED"}
@@ -691,7 +691,7 @@ export default function DispatcherConsole() {
                                 </button>
                                 <button
                                   onClick={() => setCancelConfirmId(null)}
-                                  className="px-2 py-1 rounded bg-[#181A1F] text-white/65 text-[9px] font-bold uppercase"
+                                  className="px-2 py-1 rounded bg-[#181A1F] text-[#0B0B0C]/65 text-[9px] font-bold uppercase"
                                   title="Keep incident"
                                 >
                                   Keep
@@ -721,10 +721,10 @@ export default function DispatcherConsole() {
             {/* Right Pane: Live Tactical Triage Drawer (4 Cols) */}
             <div className="xl:col-span-4 flex flex-col min-h-0 overflow-hidden">
               {selectedIncident ? (
-                <div className="flex-1 min-h-0 bg-[#181A1F] p-5 rounded-2xl border border-white/10 shadow-sm space-y-4 overflow-y-auto text-white">
+                <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#0B0B0C]/12 shadow-sm space-y-4 overflow-y-auto text-[#0B0B0C]">
                   <div className="flex items-center justify-between pb-3 border-b border-white/10">
                     <div>
-                      <span className="text-[10px] font-bold text-white/65 uppercase">Tactical Incident Review</span>
+                      <span className="text-[10px] font-bold text-[#0B0B0C]/65 uppercase">Tactical Incident Review</span>
                       <h3 className="font-headline text-lg font-extrabold text-white">
                         #{selectedIncident._id.slice(-8).toUpperCase()}
                       </h3>
@@ -743,15 +743,15 @@ export default function DispatcherConsole() {
                   {/* Caller & Location metadata */}
                   <div className="p-3 rounded-xl bg-[#181A1F] border border-white/10 space-y-1.5 text-xs">
                     <div className="flex items-center justify-between">
-                      <span className="text-white/65">Caller:</span>
+                      <span className="text-[#0B0B0C]/65">Caller:</span>
                       <strong className="text-white">{selectedIncident.caller_info?.name || "Ramesh Gupta"}</strong>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-white/65">Phone:</span>
+                      <span className="text-[#0B0B0C]/65">Phone:</span>
                       <strong className="text-white font-mono">{selectedIncident.caller_info?.phone || "+91 98765 43210"}</strong>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-white/65">Address:</span>
+                      <span className="text-[#0B0B0C]/65">Address:</span>
                       <strong className="text-white truncate max-w-[200px]">{selectedIncident.address || "Connaught Place"}</strong>
                     </div>
                   </div>
@@ -759,10 +759,10 @@ export default function DispatcherConsole() {
                   {/* Gemini Extracted Clinical Notes */}
                   <div className="space-y-1">
                     <span className="text-xs font-bold text-white flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[15px] text-[#C6F432]">smart_toy</span>
+                      <span className="material-symbols-outlined text-[15px] text-[#00652C]">smart_toy</span>
                       Gemini Clinical AI Triage
                     </span>
-                    <p className="text-xs text-white/80 leading-relaxed bg-[#20232A] p-3 rounded-xl border border-white/10">
+                    <p className="text-xs text-[#0B0B0C]/80 leading-relaxed bg-[#20232A] p-3 rounded-xl border border-white/10">
                       {selectedIncident.caller_info?.notes || "Crushing chest pain radiating to left arm. Profuse diaphoresis."}
                     </p>
                   </div>
@@ -771,10 +771,10 @@ export default function DispatcherConsole() {
                   <div className="space-y-2 pt-2 border-t border-white/10">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[16px] text-[#C6F432]">bolt</span>
+                        <span className="material-symbols-outlined text-[16px] text-[#00652C]">bolt</span>
                         Recommended Units
                       </span>
-                      <span className="text-[10px] text-white/65">Top 3 Matches</span>
+                      <span className="text-[10px] text-[#0B0B0C]/65">Top 3 Matches</span>
                     </div>
 
                     <div className="space-y-2">
@@ -783,7 +783,7 @@ export default function DispatcherConsole() {
                           key={unit._id}
                           className={`p-3 rounded-xl border transition-all ${
                             idx === 0
-                              ? "bg-[#C6F432]/20/30 border-[#C6F432]/40 ring-1 ring-[#C6F432]/20"
+                              ? "bg-[#00652C]/20/30 border-[#00652C]/40 ring-1 ring-[#00652C]/20"
                               : "bg-[#20232A] border-white/10"
                           }`}
                         >
@@ -792,7 +792,7 @@ export default function DispatcherConsole() {
                               <span className="font-headline text-xs font-bold text-white">
                                 {unit.registration}
                               </span>
-                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-[#181A1F] text-[#C6F432] border border-[#C6F432]/20">
+                              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-[#181A1F] text-[#00652C] border border-[#00652C]/20">
                                 {unit.capabilities?.join(" · ") || "ALS"}
                               </span>
                             </div>
@@ -801,16 +801,16 @@ export default function DispatcherConsole() {
                             </span>
                           </div>
 
-                          <p className="text-[11px] text-white/65 mt-1 leading-snug">{unit.reason}</p>
+                          <p className="text-[11px] text-[#0B0B0C]/65 mt-1 leading-snug">{unit.reason}</p>
 
                           <div className="mt-2 flex items-center justify-between">
-                            <span className="text-[10px] text-[#C6F432] font-semibold flex items-center gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#C6F432]"></span>
+                            <span className="text-[10px] text-[#00652C] font-semibold flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#00652C]"></span>
                               {idx === 0 ? "Optimal Route Match" : "Sector Alternative"}
                             </span>
                             <button
                               onClick={() => handleAssignUnit(selectedIncident._id, unit._id)}
-                              className="px-3 py-1 rounded-lg bg-[#C6F432] hover:bg-[#AEE01E] text-black text-[10px] font-bold uppercase transition-all shadow-sm active:scale-95"
+                              className="px-3 py-1 rounded-lg bg-[#00652C] hover:bg-[#AEE01E] text-black text-[10px] font-bold uppercase transition-all shadow-sm active:scale-95"
                             >
                               Dispatch Unit
                             </button>
@@ -829,7 +829,7 @@ export default function DispatcherConsole() {
                     <select
                       value={selectedHospital}
                       onChange={(e) => setSelectedHospital(e.target.value)}
-                      className="w-full p-2.5 rounded-xl bg-[#20232A] border border-white/10 text-xs font-bold text-white focus:outline-none focus:border-[#C6F432]"
+                      className="w-full p-2.5 rounded-xl bg-[#20232A] border border-white/10 text-xs font-bold text-white focus:outline-none focus:border-[#00652C]"
                     >
                       {DEFAULT_HOSPITALS.map((h) => (
                         <option key={h.id} value={h.id}>
@@ -842,7 +842,7 @@ export default function DispatcherConsole() {
                       onClick={() => handleNotifyHospital(selectedIncident)}
                       className={`w-full py-2.5 rounded-xl font-headline text-xs font-bold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-1.5 ${
                         notifiedHospitals[selectedIncident._id]
-                          ? "bg-[#C6F432]/20 text-[#C6F432] border border-[#C6F432]/30"
+                          ? "bg-[#00652C]/20 text-[#00652C] border border-[#00652C]/30"
                           : "bg-[#FFFFFF] hover:bg-black text-white"
                       }`}
                     >
@@ -856,7 +856,7 @@ export default function DispatcherConsole() {
                   </div>
                 </div>
               ) : (
-                <div className="bg-[#181A1F] p-8 rounded-2xl border border-white/10 text-center text-xs text-white/65">
+                <div className="bg-[#181A1F] p-8 rounded-2xl border border-white/10 text-center text-xs text-[#0B0B0C]/65">
                   Select an incident from the CAD queue to view tactical triage and dispatch controls.
                 </div>
               )}

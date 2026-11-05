@@ -355,12 +355,12 @@ export default function CitizenApp() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#FF6B5B] selection:text-white overscroll-none">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#B91C1C] selection:text-white overscroll-none">
       {/* Toast notification — replaces window.alert() */}
       {toastMessage && (
         <div className="fixed top-4 inset-x-4 z-[100] flex justify-center pointer-events-none">
           <div className="bg-[#14213D] text-[#F4EDE0] text-sm font-semibold px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 animate-fade-in border border-[#14213D]/20">
-            <span className="material-symbols-outlined text-[#FF6B5B] text-[18px]">check_circle</span>
+            <span className="material-symbols-outlined text-[#B91C1C] text-[18px]">check_circle</span>
             {toastMessage}
           </div>
         </div>
@@ -371,7 +371,7 @@ export default function CitizenApp() {
         <div className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
           <div className="bg-[#FAF5EC] border-2 border-[#14213D]/20 rounded-3xl max-w-sm w-full p-6 shadow-2xl space-y-4 text-[#14213D]">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-[#FF6B5B]/15 text-[#FF6B5B] flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-[#B91C1C]/15 text-[#B91C1C] flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-[26px]">emergency_home</span>
               </div>
               <div>
@@ -391,7 +391,7 @@ export default function CitizenApp() {
               </button>
               <button
                 onClick={handleCancelEmergency}
-                className="flex-1 py-3 rounded-xl bg-[#FF6B5B] text-white text-xs font-bold hover:bg-[#E55343] transition-all shadow-md shadow-[#FF6B5B]/30"
+                className="flex-1 py-3 rounded-xl bg-[#B91C1C] text-white text-xs font-bold hover:bg-[#991B1B] transition-all shadow-md shadow-[#B91C1C]/30"
               >
                 Yes, Cancel Call
               </button>
@@ -417,7 +417,7 @@ export default function CitizenApp() {
                 <span className="font-headline font-extrabold text-[#F4EDE0] text-lg tracking-tight leading-none">
                   NIVARAN
                 </span>
-                <span className="px-1.5 py-0.5 rounded-full bg-[#FF6B5B] text-white text-[10px] uppercase font-bold tracking-wider">
+                <span className="px-1.5 py-0.5 rounded-full bg-[#B91C1C] text-white text-[10px] uppercase font-bold tracking-wider">
                   Lifeline
                 </span>
               </div>
@@ -433,7 +433,7 @@ export default function CitizenApp() {
           <div className="flex items-center gap-2">
             <a
               href="tel:112"
-              className="h-9 px-3 rounded-full bg-[#FF6B5B] hover:bg-[#E55343] text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all"
+              className="h-9 px-3 rounded-full bg-[#B91C1C] hover:bg-[#991B1B] text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[16px]">call</span>
               <span>112</span>
@@ -457,8 +457,8 @@ export default function CitizenApp() {
             <div className="w-full bg-[#FAF5EC] border border-[#14213D]/15 rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="relative flex items-center justify-center w-6 h-6 flex-shrink-0">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#FF6B5B] opacity-35 animate-ping"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B5B]"></span>
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#B91C1C] opacity-35 animate-ping"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#B91C1C]"></span>
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
@@ -493,7 +493,7 @@ export default function CitizenApp() {
             <div className="flex flex-col space-y-1.5">
               <div className="flex items-center justify-between px-0.5">
                 <span className="text-xs text-[#14213D] font-bold uppercase tracking-wider">Select Triage Urgency</span>
-                <span className="text-xs text-[#FF6B5B] font-bold flex items-center gap-0.5">
+                <span className="text-xs text-[#B91C1C] font-bold flex items-center gap-0.5">
                   <span className="material-symbols-outlined text-[13px]">bolt</span>
                   Immediate Response
                 </span>
@@ -501,8 +501,8 @@ export default function CitizenApp() {
               <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
                 {(
                   [
-                    { id: "Critical", label: "Critical", sub: "Cardiac · Stroke · Trauma", color: "#FF6B5B", dot: "bg-white animate-pulse" },
-                    { id: "High", label: "High", sub: "Severe Bleed · Fractures", color: "#FF6B5B", dot: "bg-[#FF6B5B]" },
+                    { id: "Critical", label: "Critical", sub: "Cardiac · Stroke · Trauma", color: "#B91C1C", dot: "bg-white animate-pulse" },
+                    { id: "High", label: "High", sub: "Severe Bleed · Fractures", color: "#B91C1C", dot: "bg-[#B91C1C]" },
                     { id: "Medium", label: "Medium", sub: "Intense Pain · Fever", color: "#14213D", dot: "bg-[#14213D]" },
                     { id: "Low", label: "Low", sub: "Mild Injury · Transfer", color: "#14213D", dot: "bg-[#14213D]" },
                   ] as const
@@ -517,7 +517,7 @@ export default function CitizenApp() {
                       }}
                       className={`flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-full transition-all text-left ${
                         isSelected
-                          ? "bg-[#FF6B5B] text-white shadow-md shadow-[#FF6B5B]/30 scale-[1.02]"
+                          ? "bg-[#B91C1C] text-white shadow-md shadow-[#B91C1C]/30 scale-[1.02]"
                           : "bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#F4EDE0]"
                       }`}
                     >
@@ -547,7 +547,7 @@ export default function CitizenApp() {
                     cy="110"
                     r="98"
                     fill="none"
-                    stroke="#FF6B5B"
+                    stroke="#B91C1C"
                     strokeWidth="8"
                     strokeLinecap="round"
                     strokeDasharray={2 * Math.PI * 98}
@@ -565,7 +565,7 @@ export default function CitizenApp() {
                   onTouchEnd={cancelSosHold}
                   onTouchCancel={cancelSosHold}
                   onTouchMove={(e) => e.preventDefault()}
-                  className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl ring-8 ring-[#FF6B5B]/25 cursor-pointer transition-all duration-150 select-none touch-none"
+                  className="w-[190px] h-[190px] rounded-full bg-[#B91C1C] hover:bg-[#991B1B] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl ring-8 ring-[#B91C1C]/25 cursor-pointer transition-all duration-150 select-none touch-none"
                 >
                   <span className="material-symbols-outlined text-[42px] mb-0.5 leading-none font-bold">
                     emergency
@@ -589,14 +589,14 @@ export default function CitizenApp() {
 
             {/* Dispatched Notification Overlay */}
             {sosDispatchedBanner && (
-              <div className="w-full bg-[#FAF5EC] rounded-2xl p-4 shadow-lg border border-[#FF6B5B]/40 flex items-start gap-3 animate-fade-in">
-                <div className="w-10 h-10 rounded-full bg-[#FF6B5B]/15 flex items-center justify-center flex-shrink-0 text-[#FF6B5B]">
+              <div className="w-full bg-[#FAF5EC] rounded-2xl p-4 shadow-lg border border-[#B91C1C]/40 flex items-start gap-3 animate-fade-in">
+                <div className="w-10 h-10 rounded-full bg-[#B91C1C]/15 flex items-center justify-center flex-shrink-0 text-[#B91C1C]">
                   <span className="material-symbols-outlined text-[24px]">verified</span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
                     <h3 className="font-headline text-sm font-bold text-[#14213D]">SOS Dispatched Successfully</h3>
-                    <span className="px-2 py-0.5 rounded-full bg-[#FF6B5B] text-white text-[10px] font-bold uppercase">
+                    <span className="px-2 py-0.5 rounded-full bg-[#B91C1C] text-white text-[10px] font-bold uppercase">
                       Live 112 CAD
                     </span>
                   </div>
@@ -613,7 +613,7 @@ export default function CitizenApp() {
             <div className="grid grid-cols-2 gap-3 pt-1">
               <button
                 onClick={() => setCurrentScreen("hotline")}
-                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#FF6B5B] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
+                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#B91C1C] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#14213D] text-[#F4EDE0] flex items-center justify-center shadow-sm">
                   <span className="material-symbols-outlined text-[20px]">mic</span>
@@ -626,9 +626,9 @@ export default function CitizenApp() {
 
               <a
                 href="tel:112"
-                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#FF6B5B] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
+                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#B91C1C] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
               >
-                <div className="w-9 h-9 rounded-xl bg-[#FF6B5B] text-white flex items-center justify-center shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-[#B91C1C] text-white flex items-center justify-center shadow-sm">
                   <span className="material-symbols-outlined text-[20px]">call</span>
                 </div>
                 <div>
@@ -649,9 +649,9 @@ export default function CitizenApp() {
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#14213D]/10 text-[#14213D] shadow-sm">
                 <div className="flex items-end gap-0.5 h-3.5">
-                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-2"></span>
-                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-3.5" style={{ animationDelay: "150ms" }}></span>
-                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-2.5" style={{ animationDelay: "300ms" }}></span>
+                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-2"></span>
+                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-3.5" style={{ animationDelay: "150ms" }}></span>
+                  <span className="w-1 bg-[#B91C1C] rounded-full animate-pulse h-2.5" style={{ animationDelay: "300ms" }}></span>
                 </div>
                 <span className="text-xs font-bold text-[#14213D]">
                   {isListening ? "Listening Live · बोलिए" : "AI Voice Hotline Ready"}
@@ -682,11 +682,11 @@ export default function CitizenApp() {
             {/* Clinical Prompt Card */}
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15">
               <div className="flex items-center justify-between mb-1">
-                <span className="text-[11px] font-bold text-[#FF6B5B] uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-[#B91C1C] uppercase tracking-wider">
                   Instant Medical Dispatch
                 </span>
                 <span className="text-[11px] font-semibold text-[#14213D] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B5B]"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C]"></span>
                   GPS Connected
                 </span>
               </div>
@@ -704,27 +704,27 @@ export default function CitizenApp() {
             <div className="flex flex-col items-center justify-center py-4 relative">
               {/* Dynamic Sound Spectrum Bars */}
               <div className="flex items-center justify-center gap-1.5 h-10 w-full max-w-[240px] mb-3">
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-4" : "h-2"}`}></div>
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-8" : "h-3"}`}></div>
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-4" : "h-2"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-8" : "h-3"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
                 <div className={`w-1 rounded-full bg-[#14213D] ${isListening ? "animate-pulse h-6" : "h-2"}`}></div>
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-7" : "h-3"}`}></div>
-                <div className={`w-1 rounded-full bg-[#FF6B5B] ${isListening ? "animate-pulse h-3" : "h-2"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-10" : "h-4"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-7" : "h-3"}`}></div>
+                <div className={`w-1 rounded-full bg-[#B91C1C] ${isListening ? "animate-pulse h-3" : "h-2"}`}></div>
               </div>
 
               {/* 88px Tactile Voice Orb */}
               <div className="relative flex items-center justify-center my-1">
                 {isListening && (
                   <>
-                    <span className="absolute w-28 h-28 rounded-full bg-[#FF6B5B]/20 animate-ping opacity-75"></span>
-                    <span className="absolute w-24 h-24 rounded-full bg-[#FF6B5B]/30 animate-pulse"></span>
+                    <span className="absolute w-28 h-28 rounded-full bg-[#B91C1C]/20 animate-ping opacity-75"></span>
+                    <span className="absolute w-24 h-24 rounded-full bg-[#B91C1C]/30 animate-pulse"></span>
                   </>
                 )}
                 <button
                   onClick={toggleSpeechRecognition}
                   className={`relative z-10 w-[88px] h-[88px] rounded-full flex items-center justify-center text-white shadow-xl active:scale-95 transition-all ${
-                    isListening ? "bg-[#14213D] ring-4 ring-[#FF6B5B]" : "bg-[#FF6B5B] hover:bg-[#E55343]"
+                    isListening ? "bg-[#14213D] ring-4 ring-[#B91C1C]" : "bg-[#B91C1C] hover:bg-[#991B1B]"
                   }`}
                 >
                   <span className="material-symbols-outlined text-[40px]">
@@ -760,7 +760,7 @@ export default function CitizenApp() {
             <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[#14213D] flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[16px] text-[#FF6B5B]">verified</span>
+                  <span className="material-symbols-outlined text-[16px] text-[#B91C1C]">verified</span>
                   AI Clinical Extractions (पहचाने गए लक्षण)
                 </span>
                 <span className="text-[10px] text-[#14213D]/65">Automated Triage</span>
@@ -772,7 +772,7 @@ export default function CitizenApp() {
                     key={idx}
                     className={`px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
                       idx === 0
-                        ? "bg-[#FF6B5B] text-white"
+                        ? "bg-[#B91C1C] text-white"
                         : "bg-[#F4EDE0] text-[#14213D] border border-[#14213D]/15"
                     }`}
                   >
@@ -793,7 +793,7 @@ export default function CitizenApp() {
             {/* Instant Send Help Action */}
             <button
               onClick={dispatchVoiceHotline}
-              className="w-full h-13 py-3.5 rounded-2xl bg-[#FF6B5B] hover:bg-[#E55343] text-white font-headline text-base font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-[#FF6B5B]/30 active:scale-98 transition-all"
+              className="w-full h-13 py-3.5 rounded-2xl bg-[#B91C1C] hover:bg-[#991B1B] text-white font-headline text-base font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-[#B91C1C]/30 active:scale-98 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">send_time_extension</span>
               <span>Send Help Now · तुरंत सहायता भेजें</span>
@@ -810,15 +810,15 @@ export default function CitizenApp() {
             <div className="w-full bg-white border border-[#14213D]/15 rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2 min-w-0">
                 <span className="relative flex h-3 w-3 flex-shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B5B] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FF6B5B]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B91C1C] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#B91C1C]"></span>
                 </span>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-extrabold text-[#14213D] uppercase tracking-tight">
                       Live CAD Dispatch
                     </span>
-                    <span className="bg-[#FF6B5B]/15 text-[#AE3026] text-[10px] font-bold px-1.5 rounded uppercase">
+                    <span className="bg-[#B91C1C]/15 text-[#AE3026] text-[10px] font-bold px-1.5 rounded uppercase">
                       Code Red
                     </span>
                   </div>
@@ -838,7 +838,7 @@ export default function CitizenApp() {
               <div className="absolute inset-0 bg-[#E8E0D0] flex items-center justify-center">
                 <svg className="w-full h-full opacity-60" viewBox="0 0 400 200">
                   <path d="M 30,100 Q 150,40 280,110 T 370,80" fill="none" stroke="#FFFFFF" strokeWidth="12" />
-                  <path d="M 30,100 Q 150,40 280,110 T 370,80" fill="none" stroke="#FF6B5B" strokeWidth="4" strokeDasharray="6,4" />
+                  <path d="M 30,100 Q 150,40 280,110 T 370,80" fill="none" stroke="#B91C1C" strokeWidth="4" strokeDasharray="6,4" />
                 </svg>
               </div>
 
@@ -852,10 +852,10 @@ export default function CitizenApp() {
 
               {/* Moving Ambulance Pin */}
               <div className="absolute right-16 top-12 flex flex-col items-center">
-                <div className="w-9 h-9 rounded-full bg-[#FF6B5B] text-white flex items-center justify-center shadow-lg ring-4 ring-[#FF6B5B]/30">
+                <div className="w-9 h-9 rounded-full bg-[#B91C1C] text-white flex items-center justify-center shadow-lg ring-4 ring-[#B91C1C]/30">
                   <span className="material-symbols-outlined text-[20px]">ambulance</span>
                 </div>
-                <span className="bg-[#FF6B5B] text-white px-1.5 rounded text-[10px] font-bold shadow mt-0.5">
+                <span className="bg-[#B91C1C] text-white px-1.5 rounded text-[10px] font-bold shadow mt-0.5">
                   1.2 km away
                 </span>
               </div>
@@ -878,17 +878,17 @@ export default function CitizenApp() {
                     Estimated Arrival Time
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="font-headline text-4xl text-[#FF6B5B] font-extrabold tracking-tight">
+                    <span className="font-headline text-4xl text-[#B91C1C] font-extrabold tracking-tight">
                       {Math.ceil(etaSeconds / 60)}
                     </span>
-                    <span className="font-headline text-lg text-[#FF6B5B] font-bold uppercase">MIN</span>
+                    <span className="font-headline text-lg text-[#B91C1C] font-bold uppercase">MIN</span>
                     <span className="text-xs text-[#14213D]/65 ml-1">({etaSeconds}s)</span>
                   </div>
                   <span className="text-xs text-[#14213D]/65 mt-0.5">Direct Traffic Priority Clearance</span>
                 </div>
 
                 <div className="flex flex-col items-end gap-1">
-                  <div className="px-2.5 py-1 bg-[#FF6B5B]/15 border border-[#FF6B5B]/30 rounded-full flex items-center gap-1 text-[#AE3026] text-xs font-bold">
+                  <div className="px-2.5 py-1 bg-[#B91C1C]/15 border border-[#B91C1C]/30 rounded-full flex items-center gap-1 text-[#AE3026] text-xs font-bold">
                     <span className="material-symbols-outlined text-[14px] animate-pulse">volume_up</span>
                     <span>Siren Active</span>
                   </div>
@@ -930,7 +930,7 @@ export default function CitizenApp() {
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <a
                   href="tel:9876543210"
-                  className="h-11 rounded-xl bg-[#FF6B5B] hover:bg-[#E55343] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all"
+                  className="h-11 rounded-xl bg-[#B91C1C] hover:bg-[#991B1B] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md active:scale-95 transition-all"
                 >
                   <span className="material-symbols-outlined text-[18px]">phone_in_talk</span>
                   <span>Call Paramedic</span>
@@ -958,7 +958,7 @@ export default function CitizenApp() {
 
                 {/* Step 1 */}
                 <div className="flex items-start gap-3 relative z-10">
-                  <div className="w-5 h-5 rounded-full bg-[#FF6B5B] text-white flex items-center justify-center text-[12px] shadow-sm mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-[#B91C1C] text-white flex items-center justify-center text-[12px] shadow-sm mt-0.5">
                     ✓
                   </div>
                   <div className="flex flex-col">
@@ -970,7 +970,7 @@ export default function CitizenApp() {
                 {/* Step 2 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 2 ? "bg-[#FF6B5B] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
+                    currentStep >= 2 ? "bg-[#B91C1C] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 2 ? "✓" : "2"}
                   </div>
@@ -983,7 +983,7 @@ export default function CitizenApp() {
                 {/* Step 3 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 3 ? "bg-[#FF6B5B] text-white ring-2 ring-[#FF6B5B]/30" : "bg-[#F4EDE0] text-[#14213D]/65"
+                    currentStep >= 3 ? "bg-[#B91C1C] text-white ring-2 ring-[#B91C1C]/30" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 3 ? "●" : "3"}
                   </div>
@@ -991,7 +991,7 @@ export default function CitizenApp() {
                     <div className="flex items-center gap-1.5">
                       <span className="text-xs font-bold text-[#14213D]">3. On The Way</span>
                       {currentStep === 3 && (
-                        <span className="bg-[#FF6B5B] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">
+                        <span className="bg-[#B91C1C] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">
                           In Transit
                         </span>
                       )}
@@ -1003,7 +1003,7 @@ export default function CitizenApp() {
                 {/* Step 4 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 4 ? "bg-[#FF6B5B] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
+                    currentStep >= 4 ? "bg-[#B91C1C] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 4 ? "✓" : "4"}
                   </div>
@@ -1043,7 +1043,7 @@ export default function CitizenApp() {
             <div className="pt-1 pb-4">
               <button
                 onClick={() => setShowCancelModal(true)}
-                className="w-full py-2.5 rounded-xl border border-[#FF6B5B]/40 bg-[#FAF5EC] hover:bg-[#FF6B5B]/15 text-[#FF6B5B] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-98"
+                className="w-full py-2.5 rounded-xl border border-[#B91C1C]/40 bg-[#FAF5EC] hover:bg-[#B91C1C]/15 text-[#B91C1C] text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-98"
               >
                 <span className="material-symbols-outlined text-[16px]">cancel</span>
                 <span>Cancel Emergency Request</span>
@@ -1061,7 +1061,7 @@ export default function CitizenApp() {
               <h2 className="font-headline text-xl font-extrabold text-[#14213D]">Emergency Profile</h2>
               <button
                 onClick={() => setCurrentScreen("home")}
-                className="text-xs text-[#FF6B5B] font-bold flex items-center gap-0.5"
+                className="text-xs text-[#B91C1C] font-bold flex items-center gap-0.5"
               >
                 <span className="material-symbols-outlined text-[16px]">arrow_back</span>
                 Back to SOS
@@ -1078,7 +1078,7 @@ export default function CitizenApp() {
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   />
                 </div>
                 <div>
@@ -1087,7 +1087,7 @@ export default function CitizenApp() {
                     type="text"
                     value={userPhone}
                     onChange={(e) => setUserPhone(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   />
                 </div>
                 <div>
@@ -1095,7 +1095,7 @@ export default function CitizenApp() {
                   <select
                     value={bloodGroup}
                     onChange={(e) => setBloodGroup(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   >
                     <option>O Positive</option>
                     <option>O Negative</option>
@@ -1112,7 +1112,7 @@ export default function CitizenApp() {
                   <select
                     value={hotlineLang}
                     onChange={(e) => setHotlineLang(e.target.value as "en" | "hi")}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   >
                     <option value="hi">हिन्दी (Hindi)</option>
                     <option value="en">English (Indian)</option>
@@ -1136,7 +1136,7 @@ export default function CitizenApp() {
                     type="text"
                     value={emergencyContact.name}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, name: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   />
                 </div>
                 <div>
@@ -1145,7 +1145,7 @@ export default function CitizenApp() {
                     type="text"
                     value={emergencyContact.relation}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, relation: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -1154,7 +1154,7 @@ export default function CitizenApp() {
                     type="text"
                     value={emergencyContact.phone}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, phone: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#B91C1C]"
                   />
                 </div>
               </div>
@@ -1194,7 +1194,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("home")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "home" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
+              currentScreen === "home" ? "text-[#B91C1C] font-bold border-t-2 border-[#B91C1C] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">crisis_alert</span>
@@ -1204,7 +1204,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("hotline")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "hotline" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
+              currentScreen === "hotline" ? "text-[#B91C1C] font-bold border-t-2 border-[#B91C1C] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">spatial_audio</span>
@@ -1214,7 +1214,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("tracking")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "tracking" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
+              currentScreen === "tracking" ? "text-[#B91C1C] font-bold border-t-2 border-[#B91C1C] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">near_me</span>
@@ -1224,7 +1224,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("settings")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "settings" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
+              currentScreen === "settings" ? "text-[#B91C1C] font-bold border-t-2 border-[#B91C1C] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">tune</span>

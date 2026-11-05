@@ -303,7 +303,7 @@ export default function HospitalConsole() {
                 <span className="font-headline font-extrabold text-[#E8DCC4] text-lg tracking-tight uppercase leading-none">
                   NIVARAN
                 </span>
-                <span className="bg-[#8B5CF6] text-[#FFFFFF] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#5B21B6] text-[#FFFFFF] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   ED-COMMAND
                 </span>
               </div>
@@ -341,7 +341,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("radar")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "radar"
-                ? "bg-[#8B5CF6] text-white shadow-sm"
+                ? "bg-[#5B21B6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -351,7 +351,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("capacity")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "capacity"
-                ? "bg-[#8B5CF6] text-white shadow-sm"
+                ? "bg-[#5B21B6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -361,7 +361,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("telemetry")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "telemetry"
-                ? "bg-[#8B5CF6] text-white shadow-sm"
+                ? "bg-[#5B21B6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -371,7 +371,7 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("paramedic")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "paramedic"
-                ? "bg-[#8B5CF6] text-white shadow-sm"
+                ? "bg-[#5B21B6] text-white shadow-sm"
                 : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
@@ -399,7 +399,7 @@ export default function HospitalConsole() {
               <span className="text-xs font-bold text-[#E8DCC4]">Dr. S. Nair</span>
               <span className="text-[10px] text-[#E8DCC4]/70">Triage Chief · Duty Lead</span>
             </div>
-            <div className="w-8 h-8 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-[#5B21B6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
               SN
             </div>
           </div>
@@ -417,7 +417,7 @@ export default function HospitalConsole() {
                 <span className="font-headline font-bold text-xs text-[#E8DCC4] tracking-wider uppercase leading-none">
                   NIVARAN CLINICAL
                 </span>
-                <span className="text-[10px] text-[#8B5CF6] font-semibold mt-0.5">ED Pre-Arrival Network</span>
+                <span className="text-[10px] text-[#5B21B6] font-semibold mt-0.5">ED Pre-Arrival Network</span>
               </div>
             </div>
             <div>
@@ -428,7 +428,7 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("radar")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "radar" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "radar" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -436,7 +436,7 @@ export default function HospitalConsole() {
                     <span>Casualty Radar</span>
                   </div>
                   <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#8B5CF6] text-white"
+                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#5B21B6] text-white"
                   }`}>
                     {preAlerts.length}
                   </span>
@@ -445,7 +445,7 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("capacity")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "capacity" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "capacity" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -460,20 +460,20 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("telemetry")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "telemetry" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "telemetry" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">monitor_heart</span>
                     <span>Vital Telemetry</span>
                   </div>
-                  <span className="text-[10px] text-[#8B5CF6] font-bold">Live AI</span>
+                  <span className="text-[10px] text-[#5B21B6] font-bold">Live AI</span>
                 </button>
 
                 <button
                   onClick={() => setActiveTab("paramedic")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "paramedic" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
+                    activeTab === "paramedic" ? "bg-[#5B21B6] text-white shadow-md shadow-[#5B21B6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -562,16 +562,16 @@ export default function HospitalConsole() {
             <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Inbound Transports</span>
-                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">ambulance</span>
+                <span className="material-symbols-outlined text-[#5B21B6] text-[18px]">ambulance</span>
               </div>
               <div className="my-2">
                 <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   {preAlerts.length < 10 ? `0${preAlerts.length}` : preAlerts.length}
                 </span>
-                <span className="text-xs font-bold text-[#8B5CF6] ml-1.5">En Route</span>
+                <span className="text-xs font-bold text-[#5B21B6] ml-1.5">En Route</span>
               </div>
               <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#8B5CF6] h-full rounded-full" style={{ width: "75%" }}></div>
+                <div className="bg-[#5B21B6] h-full rounded-full" style={{ width: "75%" }}></div>
               </div>
               <span className="text-[10px] text-[#BA1A1A] font-bold mt-1.5">1 ETA &lt; 5m</span>
             </div>
@@ -634,7 +634,7 @@ export default function HospitalConsole() {
             <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
               <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Cath Lab / OR</span>
-                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">medical_services</span>
+                <span className="material-symbols-outlined text-[#5B21B6] text-[18px]">medical_services</span>
               </div>
               <div className="my-2">
                 <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">READY</span>
@@ -749,7 +749,7 @@ export default function HospitalConsole() {
                           <span className="text-[#1F3D2B]/65">
                             GCS: <strong className="text-[#1F3D2B]">{alert.vitals.gcs}/15</strong>
                           </span>
-                          <span className="ml-auto text-[11px] text-[#8B5CF6] font-bold">
+                          <span className="ml-auto text-[11px] text-[#5B21B6] font-bold">
                             Cath Lab Standby
                           </span>
                         </div>
@@ -807,7 +807,7 @@ export default function HospitalConsole() {
                     )}
 
                     {/* AI Clinical Triage Summary (With Mandatory Disclaimer) */}
-                    <div className="p-3.5 rounded-xl bg-[#8B5CF6]/50 border border-[#8B5CF6]/30 space-y-2">
+                    <div className="p-3.5 rounded-xl bg-[#5B21B6]/50 border border-[#5B21B6]/30 space-y-2">
                       <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
                         <span className="material-symbols-outlined text-[16px]">smart_toy</span>
                         <span>AI Clinical Triage Summary</span>
@@ -815,7 +815,7 @@ export default function HospitalConsole() {
                       <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
                         {selectedAlert.notes}
                       </p>
-                      <div className="pt-2 border-t border-[#8B5CF6]/20 text-[10px] text-[#1F3D2B]/65 italic">
+                      <div className="pt-2 border-t border-[#5B21B6]/20 text-[10px] text-[#1F3D2B]/65 italic">
                         <strong>Clinical Decision Support:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                       </div>
                     </div>
@@ -1151,7 +1151,7 @@ export default function HospitalConsole() {
               )}
 
               {/* Clinical AI Guidance with Required Disclaimer */}
-              <div className="p-4 rounded-xl bg-[#8B5CF6]/60 border border-[#8B5CF6]/30 space-y-2">
+              <div className="p-4 rounded-xl bg-[#5B21B6]/60 border border-[#5B21B6]/30 space-y-2">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
                   <span>AI Clinical Decision Support Assessment</span>
@@ -1159,7 +1159,7 @@ export default function HospitalConsole() {
                 <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
                   Patient presents with acute ischemic indicators. Rapid Door-to-Balloon target &lt; 90 min recommended. Continuous telemetry streaming through NIVARAN gateway.
                 </p>
-                <div className="pt-2 border-t border-[#8B5CF6]/20 text-[10px] text-[#1F3D2B]/65 italic">
+                <div className="pt-2 border-t border-[#5B21B6]/20 text-[10px] text-[#1F3D2B]/65 italic">
                   <strong>Clinical Decision Support Disclaimer:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                 </div>
               </div>
@@ -1200,7 +1200,7 @@ export default function HospitalConsole() {
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-sm text-[#1F3D2B]">{alert.ambulance_id}</span>
                         <span className="text-xs text-[#1F3D2B]/65">· Case #{alert.incident_id}</span>
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#8B5CF6] text-white">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#5B21B6] text-white">
                           En Route
                         </span>
                       </div>
@@ -1227,7 +1227,7 @@ export default function HospitalConsole() {
                       </div>
                       <button
                         onClick={() => handleCompleteHandover(alert)}
-                        className="px-3.5 py-2 rounded-xl bg-[#8B5CF6] hover:bg-[#7C3AED] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1"
+                        className="px-3.5 py-2 rounded-xl bg-[#5B21B6] hover:bg-[#4C1D95] text-white text-xs font-bold transition-all shadow-sm active:scale-95 flex items-center gap-1"
                       >
                         <span className="material-symbols-outlined text-[15px]">how_to_reg</span>
                         <span>Confirm Handover</span>

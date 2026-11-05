@@ -14,17 +14,20 @@ const config: Config = {
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
-        midnight: {
+        bright: {
+          DEFAULT: "#FFFFFF",
+          surface: "#F8F9FA",
+          card: "#FFFFFF",
+        },
+        dark: {
           DEFAULT: "#0B0B0C",
           surface: "#121316",
-          card: "#181A1F",
-          elevated: "#20232A",
+          elevated: "#181A1F",
         },
-        white: "#FFFFFF",
-        lime: {
-          DEFAULT: "#C6F432",
-          dark: "#AEE01E",
-          glow: "rgba(198, 244, 50, 0.35)",
+        tactical: {
+          DEFAULT: "#00652C",
+          dark: "#004D20",
+          light: "#E8F5E9",
         },
       },
     },

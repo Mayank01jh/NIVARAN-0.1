@@ -26,9 +26,9 @@ const config: Config = {
           border: "rgba(20, 33, 61, 0.15)",
         },
         coral: {
-          DEFAULT: "#FF6B5B",
-          pressed: "#E55343",
-          glow: "rgba(255, 107, 91, 0.35)",
+          DEFAULT: "#B91C1C",
+          pressed: "#991B1B",
+          glow: "rgba(185, 28, 28, 0.35)",
         },
       },
     },
