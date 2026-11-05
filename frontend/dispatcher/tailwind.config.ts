@@ -14,9 +14,18 @@ const config: Config = {
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
-        lime: "#C6F432",
-        "cad-black": "#0B0B0C",
-        "cad-green": "#00652C",
+        midnight: {
+          DEFAULT: "#0B0B0C",
+          surface: "#121316",
+          card: "#181A1F",
+          elevated: "#20232A",
+        },
+        white: "#FFFFFF",
+        lime: {
+          DEFAULT: "#C6F432",
+          dark: "#AEE01E",
+          glow: "rgba(198, 244, 50, 0.35)",
+        },
       },
     },
   },
@@ -24,4 +33,3 @@ const config: Config = {
 };
 
 export default config;
-

@@ -14,9 +14,22 @@ const config: Config = {
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
-        forest: "#1F3D2B",
-        sand: "#E8DCC4",
-        purple: "#8B5CF6",
+        sand: {
+          DEFAULT: "#E8DCC4",
+          surface: "#F2EADA",
+          high: "#DDD0B5",
+        },
+        forest: {
+          DEFAULT: "#1F3D2B",
+          surface: "#14281C",
+          muted: "rgba(31, 61, 43, 0.65)",
+          border: "rgba(31, 61, 43, 0.2)",
+        },
+        purple: {
+          DEFAULT: "#8B5CF6",
+          dark: "#7C3AED",
+          glow: "rgba(139, 92, 246, 0.35)",
+        },
       },
     },
   },
@@ -24,4 +37,3 @@ const config: Config = {
 };
 
 export default config;
-

@@ -3,42 +3,27 @@
 @tailwind utilities;
 
 /* ======================================================
-   NIVARAN Lifeline — Citizen Emergency App Design System
-   Palette: Deep Navy (#14213D) + Warm Cream (#F4EDE0, #FFF9EE) + Emergency Coral (#FF6B5B)
-   Derived from official Google Stitch designs: nivaran_lifeline
+   NIVARAN Lifeline — Citizen Emergency App
+   Strict 60:30:10 Design System:
+   60% Cream (#F4EDE0) | 30% Navy (#14213D) | 10% Coral (#FF6B5B)
    ====================================================== */
 
 :root {
-  --surface: #fff9ee;
-  --surface-dim: #e0d9cd;
-  --surface-bright: #fff9ee;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #faf3e6;
-  --surface-container: #f4ede0;
-  --surface-container-high: #eee7db;
-  --surface-container-highest: #e9e2d5;
-  --on-surface: #1e1b14;
-  --on-surface-variant: #45464d;
+  --cream-60: #F4EDE0;
+  --cream-surface: #FAF5EC;
+  --cream-surface-high: #EDE5D6;
   
-  --deep-navy: #14213d;
-  --deep-navy-surface: #0e182d;
-  --warm-cream: #f4ede0;
-  --warm-cream-elevated: #fcf9f3;
-  --pure-white: #ffffff;
+  --navy-30: #14213D;
+  --navy-surface: #0E182D;
+  --navy-muted: rgba(20, 33, 61, 0.65);
+  --navy-border: rgba(20, 33, 61, 0.15);
+  
+  --coral-10: #FF6B5B;
+  --coral-pressed: #E55343;
+  --coral-glow: rgba(255, 107, 91, 0.35);
 
-  --emergency-coral: #ff6b5b;
-  --emergency-coral-pressed: #e55343;
-  --emergency-coral-glow: rgba(255, 107, 91, 0.28);
-
-  --mint-emerald: #10b981;
-  --mint-surface: #e6f8f1;
-  --warning-amber: #f59e0b;
-  --warning-surface: #fef3c7;
-
-  --slate-text: #1f2937;
-  --slate-muted: #64748b;
-  --border-subtle: #e2d7c5;
-  --border-strong: #cfc0a8;
+  --font-headline: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * {
@@ -50,10 +35,10 @@
 
 html, body {
   width: 100%;
-  min-height: 100%;
-  background-color: var(--surface);
-  color: var(--on-surface);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100%;
+  background-color: var(--cream-60);
+  color: var(--navy-30);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -74,18 +59,8 @@ html, body {
   -webkit-font-feature-settings: 'liga';
 }
 
-/* Headings font */
 h1, h2, h3, h4, .font-headline {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-/* Utility Helpers */
-.pt-safe {
-  padding-top: max(env(safe-area-inset-top, 0px), 8px);
-}
-
-.pb-safe {
-  padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  font-family: var(--font-headline);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -102,8 +77,8 @@ h1, h2, h3, h4, .font-headline {
     opacity: 0.7;
   }
   50% {
-    transform: scale(1.15);
-    opacity: 0.3;
+    transform: scale(1.12);
+    opacity: 0.35;
   }
 }
 

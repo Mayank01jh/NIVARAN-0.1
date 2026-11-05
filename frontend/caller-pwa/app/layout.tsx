@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="h-full bg-[#FFF9EE] text-[#1E1B14] antialiased">{children}</body>
+      <body className="h-full bg-[#F4EDE0] text-[#14213D] antialiased">{children}</body>
     </html>
   );
 }

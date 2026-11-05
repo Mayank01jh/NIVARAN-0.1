@@ -338,12 +338,12 @@ export default function CitizenApp() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#FFF9EE] text-[#1E1B14] flex flex-col items-center justify-center selection:bg-[#FF6B5B] selection:text-white overscroll-none">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#FF6B5B] selection:text-white overscroll-none">
       {/* Toast notification — replaces window.alert() */}
       {toastMessage && (
         <div className="fixed top-4 inset-x-4 z-[100] flex justify-center pointer-events-none">
-          <div className="bg-[#14213D] text-white text-sm font-semibold px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 animate-fade-in">
-            <span className="material-symbols-outlined text-[#10B981] text-[18px]">check_circle</span>
+          <div className="bg-[#14213D] text-[#F4EDE0] text-sm font-semibold px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 animate-fade-in border border-[#14213D]/20">
+            <span className="material-symbols-outlined text-[#FF6B5B] text-[18px]">check_circle</span>
             {toastMessage}
           </div>
         </div>
@@ -353,24 +353,24 @@ export default function CitizenApp() {
       <div
         className={`w-full flex-1 min-h-0 flex flex-col transition-all duration-200 ${
           viewMode === "phone"
-            ? "max-w-[440px] h-full sm:h-[94vh] sm:max-h-[880px] sm:my-auto shadow-2xl rounded-none sm:rounded-[36px] overflow-hidden border-0 sm:border-[8px] sm:border-[#14213D] bg-[#FFF9EE]"
-            : "max-w-4xl h-full px-4 py-4"
+            ? "max-w-[440px] h-full sm:h-[94vh] sm:max-h-[880px] sm:my-auto shadow-2xl rounded-none sm:rounded-[36px] overflow-hidden border-0 sm:border-[8px] sm:border-[#14213D] bg-[#F4EDE0]"
+            : "max-w-4xl h-full px-4 py-4 bg-[#F4EDE0]"
         }`}
       >
-        {/* App Header (Stitch Design Specification) */}
-        <header className="flex-shrink-0 bg-[#FFF9EE]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-[#E2D7C5]/50 shadow-sm z-30">
+        {/* App Header (30% Navy structure with Cream & Coral accents) */}
+        <header className="flex-shrink-0 bg-[#14213D] px-4 py-3 flex items-center justify-between border-b border-[#0E182D] shadow-md z-30 text-[#F4EDE0]">
           <div className="flex items-center gap-2">
             <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-lg shadow-sm" />
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="font-headline font-extrabold text-[#14213D] text-lg tracking-tight leading-none">
+                <span className="font-headline font-extrabold text-[#F4EDE0] text-lg tracking-tight leading-none">
                   NIVARAN
                 </span>
-                <span className="px-1.5 py-0.5 rounded-full bg-[#FF6B5B]/15 text-[#AE3026] text-[10px] uppercase font-bold tracking-wider">
+                <span className="px-1.5 py-0.5 rounded-full bg-[#FF6B5B] text-white text-[10px] uppercase font-bold tracking-wider">
                   Lifeline
                 </span>
               </div>
-              <span className="text-[11px] text-[#64748B] font-medium leading-none mt-0.5">
+              <span className="text-[11px] text-[#F4EDE0]/70 font-medium leading-none mt-0.5">
                 {currentScreen === "home" && "Citizen SOS"}
                 {currentScreen === "hotline" && "Bilingual AI Triage"}
                 {currentScreen === "tracking" && "Live CAD Telemetry"}
@@ -389,7 +389,7 @@ export default function CitizenApp() {
             </a>
             <button
               onClick={() => setCurrentScreen("settings")}
-              className="w-9 h-9 rounded-full bg-[#F4EDE0] text-[#14213D] flex items-center justify-center hover:bg-[#EEE7DB] transition-all"
+              className="w-9 h-9 rounded-full bg-[#14213D]/60 border border-[#F4EDE0]/20 text-[#F4EDE0] flex items-center justify-center hover:bg-[#F4EDE0]/10 transition-all"
               title="Profile & Settings"
             >
               <span className="material-symbols-outlined text-[18px]">person</span>
@@ -402,20 +402,20 @@ export default function CitizenApp() {
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "home" && (
           <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 select-none overscroll-contain">
-            {/* Ambient GPS Lock Pill */}
-            <div className="w-full bg-[#FCF9F3] border border-[#E2D7C5] rounded-2xl p-3 shadow-sm flex items-center justify-between">
+            {/* Ambient GPS Lock Pill (60% Cream base, 30% Navy border/type, Coral ping) */}
+            <div className="w-full bg-[#FAF5EC] border border-[#14213D]/15 rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2.5 min-w-0">
                 <div className="relative flex items-center justify-center w-6 h-6 flex-shrink-0">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-30 animate-ping"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#FF6B5B] opacity-35 animate-ping"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B5B]"></span>
                 </div>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-xs text-[#14213D] font-bold uppercase tracking-wider">GPS Locked</span>
-                    <span className="text-[#64748B] text-xs">·</span>
-                    <span className="text-xs text-[#10B981] font-semibold">Accurate to {accuracyMeters}m</span>
+                    <span className="text-[#14213D]/40 text-xs">·</span>
+                    <span className="text-xs text-[#14213D] font-semibold">Accurate to {accuracyMeters}m</span>
                   </div>
-                  <p className="text-xs text-[#1F2937] font-medium truncate mt-0.5">{address}</p>
+                  <p className="text-xs text-[#14213D]/80 font-medium truncate mt-0.5">{address}</p>
                 </div>
               </div>
               <button
@@ -423,7 +423,7 @@ export default function CitizenApp() {
                   setAccuracyMeters(6);
                   triggerHaptic(20);
                 }}
-                className="w-8 h-8 rounded-full bg-[#F4EDE0] text-[#14213D] flex items-center justify-center hover:bg-[#EEE7DB] active:scale-90 transition-transform flex-shrink-0"
+                className="w-8 h-8 rounded-full bg-[#F4EDE0] text-[#14213D] flex items-center justify-center hover:bg-[#14213D]/10 active:scale-90 transition-transform flex-shrink-0"
                 title="Recalibrate GPS"
               >
                 <span className="material-symbols-outlined text-[16px]">my_location</span>
@@ -435,7 +435,7 @@ export default function CitizenApp() {
               <h1 className="font-headline text-2xl text-[#14213D] font-extrabold tracking-tight">
                 How can we help you?
               </h1>
-              <p className="text-sm text-[#64748B] font-medium">आपकी क्या सहायता कर सकते हैं?</p>
+              <p className="text-sm text-[#14213D]/70 font-medium">आपकी क्या सहायता कर सकते हैं?</p>
             </div>
 
             {/* Severity Selector (Stitch horizontal pills) */}
@@ -451,9 +451,9 @@ export default function CitizenApp() {
                 {(
                   [
                     { id: "Critical", label: "Critical", sub: "Cardiac · Stroke · Trauma", color: "#FF6B5B", dot: "bg-white animate-pulse" },
-                    { id: "High", label: "High", sub: "Severe Bleed · Fractures", color: "#F59E0B", dot: "bg-[#F59E0B]" },
-                    { id: "Medium", label: "Medium", sub: "Intense Pain · Fever", color: "#525E7D", dot: "bg-[#525E7D]" },
-                    { id: "Low", label: "Low", sub: "Mild Injury · Transfer", color: "#10B981", dot: "bg-[#10B981]" },
+                    { id: "High", label: "High", sub: "Severe Bleed · Fractures", color: "#FF6B5B", dot: "bg-[#FF6B5B]" },
+                    { id: "Medium", label: "Medium", sub: "Intense Pain · Fever", color: "#14213D", dot: "bg-[#14213D]" },
+                    { id: "Low", label: "Low", sub: "Mild Injury · Transfer", color: "#14213D", dot: "bg-[#14213D]" },
                   ] as const
                 ).map((sev) => {
                   const isSelected = selectedSeverity === sev.id;
@@ -467,13 +467,13 @@ export default function CitizenApp() {
                       className={`flex-shrink-0 flex items-center gap-2 px-3.5 py-2.5 rounded-full transition-all text-left ${
                         isSelected
                           ? "bg-[#FF6B5B] text-white shadow-md shadow-[#FF6B5B]/30 scale-[1.02]"
-                          : "bg-[#FCF9F3] text-[#14213D] border border-[#E2D7C5] hover:bg-[#F4EDE0]"
+                          : "bg-[#FAF5EC] text-[#14213D] border border-[#14213D]/15 hover:bg-[#F4EDE0]"
                       }`}
                     >
                       <span className={`w-2 h-2 rounded-full ${isSelected ? "bg-white" : sev.dot}`}></span>
                       <div className="flex flex-col">
                         <span className="text-xs font-bold leading-tight">{sev.label}</span>
-                        <span className={`text-[10px] leading-tight ${isSelected ? "text-white/90" : "text-[#64748B]"}`}>
+                        <span className={`text-[10px] leading-tight ${isSelected ? "text-white/90" : "text-[#14213D]/65"}`}>
                           {sev.sub}
                         </span>
                       </div>
@@ -483,21 +483,21 @@ export default function CitizenApp() {
               </div>
             </div>
 
-            {/* ── HERO 1-SECOND PRESS-AND-HOLD SOS BUTTON ────────────────── */}
+            {/* ── HERO 1-SECOND PRESS-AND-HOLD SOS BUTTON (10% Coral focus) ── */}
             <div className="relative w-full flex flex-col items-center justify-center py-4">
 
               {/* Tactile SOS Core (220px) */}
               <div className="relative w-[220px] h-[220px] flex items-center justify-center">
                 {/* Dynamic SVG Circular Progress Ring */}
                 <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 220 220">
-                  <circle cx="110" cy="110" r="98" fill="none" stroke="#14213D" strokeOpacity="0.12" strokeWidth="6" />
+                  <circle cx="110" cy="110" r="98" fill="none" stroke="#14213D" strokeOpacity="0.15" strokeWidth="6" />
                   <circle
                     cx="110"
                     cy="110"
                     r="98"
                     fill="none"
-                    stroke="#14213D"
-                    strokeWidth="7"
+                    stroke="#FF6B5B"
+                    strokeWidth="8"
                     strokeLinecap="round"
                     strokeDasharray={2 * Math.PI * 98}
                     strokeDashoffset={2 * Math.PI * 98 * (1 - sosProgress / 100)}
@@ -514,7 +514,7 @@ export default function CitizenApp() {
                   onTouchEnd={cancelSosHold}
                   onTouchCancel={cancelSosHold}
                   onTouchMove={(e) => e.preventDefault()}
-                  className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl cursor-pointer transition-all duration-150 select-none touch-none"
+                  className="w-[190px] h-[190px] rounded-full bg-[#FF6B5B] hover:bg-[#E55343] active:scale-95 text-white flex flex-col items-center justify-center shadow-2xl ring-8 ring-[#FF6B5B]/25 cursor-pointer transition-all duration-150 select-none touch-none"
                 >
                   <span className="material-symbols-outlined text-[42px] mb-0.5 leading-none font-bold">
                     emergency
@@ -530,16 +530,16 @@ export default function CitizenApp() {
               </div>
 
               {/* Safeguard text */}
-              <div className="flex items-center gap-1.5 mt-3 text-[#64748B]">
-                <span className="material-symbols-outlined text-[15px] text-[#10B981]">verified_user</span>
+              <div className="flex items-center gap-1.5 mt-3 text-[#14213D]/70">
+                <span className="material-symbols-outlined text-[15px] text-[#14213D]">verified_user</span>
                 <span className="text-xs font-medium">Confirm with 1 second hold</span>
               </div>
             </div>
 
             {/* Dispatched Notification Overlay */}
             {sosDispatchedBanner && (
-              <div className="w-full bg-white rounded-2xl p-4 shadow-lg border border-[#10B981]/30 flex items-start gap-3 animate-fade-in">
-                <div className="w-10 h-10 rounded-full bg-[#E6F8F1] flex items-center justify-center flex-shrink-0 text-[#10B981]">
+              <div className="w-full bg-[#FAF5EC] rounded-2xl p-4 shadow-lg border border-[#FF6B5B]/40 flex items-start gap-3 animate-fade-in">
+                <div className="w-10 h-10 rounded-full bg-[#FF6B5B]/15 flex items-center justify-center flex-shrink-0 text-[#FF6B5B]">
                   <span className="material-symbols-outlined text-[24px]">verified</span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -549,10 +549,10 @@ export default function CitizenApp() {
                       Live 112 CAD
                     </span>
                   </div>
-                  <p className="text-xs text-[#64748B] mt-0.5">Help is on the way — nearest ambulance allocated.</p>
+                  <p className="text-xs text-[#14213D]/70 mt-0.5">Help is on the way — nearest ambulance allocated.</p>
                   <div className="flex items-center gap-2 mt-2">
                     <span className="font-headline text-xl text-[#14213D] font-extrabold">04:00</span>
-                    <span className="text-xs text-[#64748B]">Estimated Arrival to your GPS lock</span>
+                    <span className="text-xs text-[#14213D]/65">Estimated Arrival to your GPS lock</span>
                   </div>
                 </div>
               </div>
@@ -562,27 +562,27 @@ export default function CitizenApp() {
             <div className="grid grid-cols-2 gap-3 pt-1">
               <button
                 onClick={() => setCurrentScreen("hotline")}
-                className="bg-[#FCF9F3] border border-[#E2D7C5] hover:border-[#FF6B5B]/50 rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
+                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#FF6B5B] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
               >
-                <div className="w-9 h-9 rounded-xl bg-[#14213D] text-white flex items-center justify-center shadow-sm">
+                <div className="w-9 h-9 rounded-xl bg-[#14213D] text-[#F4EDE0] flex items-center justify-center shadow-sm">
                   <span className="material-symbols-outlined text-[20px]">mic</span>
                 </div>
                 <div>
                   <h4 className="font-headline text-sm font-bold text-[#14213D] leading-tight">AI Voice Hotline</h4>
-                  <p className="text-[11px] text-[#64748B] mt-0.5">Hindi / English voice triage</p>
+                  <p className="text-[11px] text-[#14213D]/65 mt-0.5">Hindi / English voice triage</p>
                 </div>
               </button>
 
               <a
                 href="tel:112"
-                className="bg-[#FCF9F3] border border-[#E2D7C5] hover:border-[#FF6B5B]/50 rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
+                className="bg-[#FAF5EC] border border-[#14213D]/15 hover:border-[#FF6B5B] rounded-2xl p-3.5 text-left flex flex-col justify-between shadow-sm active:scale-98 transition-all min-h-[115px]"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#FF6B5B] text-white flex items-center justify-center shadow-sm">
                   <span className="material-symbols-outlined text-[20px]">call</span>
                 </div>
                 <div>
                   <h4 className="font-headline text-sm font-bold text-[#14213D] leading-tight">Call 112 Directly</h4>
-                  <p className="text-[11px] text-[#64748B] mt-0.5">National Police & EMS</p>
+                  <p className="text-[11px] text-[#14213D]/65 mt-0.5">National Police & EMS</p>
                 </div>
               </a>
             </div>
@@ -596,11 +596,11 @@ export default function CitizenApp() {
           <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 select-none overscroll-contain">
             {/* Top Bar: Pulsing Live Audio Status & Language Switch */}
             <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#E6F8F1] text-[#14213D] shadow-sm">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#14213D]/10 text-[#14213D] shadow-sm">
                 <div className="flex items-end gap-0.5 h-3.5">
-                  <span className="w-1 bg-[#10B981] rounded-full animate-pulse h-2"></span>
-                  <span className="w-1 bg-[#10B981] rounded-full animate-pulse h-3.5" style={{ animationDelay: "150ms" }}></span>
-                  <span className="w-1 bg-[#10B981] rounded-full animate-pulse h-2.5" style={{ animationDelay: "300ms" }}></span>
+                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-2"></span>
+                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-3.5" style={{ animationDelay: "150ms" }}></span>
+                  <span className="w-1 bg-[#FF6B5B] rounded-full animate-pulse h-2.5" style={{ animationDelay: "300ms" }}></span>
                 </div>
                 <span className="text-xs font-bold text-[#14213D]">
                   {isListening ? "Listening Live · बोलिए" : "AI Voice Hotline Ready"}
@@ -608,11 +608,11 @@ export default function CitizenApp() {
               </div>
 
               {/* Bilingual Pill */}
-              <div className="flex items-center bg-[#EEE7DB] p-0.5 rounded-full">
+              <div className="flex items-center bg-[#FAF5EC] p-0.5 rounded-full">
                 <button
                   onClick={() => setHotlineLang("en")}
                   className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                    hotlineLang === "en" ? "bg-[#14213D] text-white shadow-sm" : "text-[#64748B]"
+                    hotlineLang === "en" ? "bg-[#14213D] text-white shadow-sm" : "text-[#14213D]/65"
                   }`}
                 >
                   English
@@ -620,7 +620,7 @@ export default function CitizenApp() {
                 <button
                   onClick={() => setHotlineLang("hi")}
                   className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-                    hotlineLang === "hi" ? "bg-[#14213D] text-white shadow-sm" : "text-[#64748B]"
+                    hotlineLang === "hi" ? "bg-[#14213D] text-white shadow-sm" : "text-[#14213D]/65"
                   }`}
                 >
                   हिन्दी
@@ -629,20 +629,20 @@ export default function CitizenApp() {
             </div>
 
             {/* Clinical Prompt Card */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5]">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-[11px] font-bold text-[#FF6B5B] uppercase tracking-wider">
                   Instant Medical Dispatch
                 </span>
-                <span className="text-[11px] font-semibold text-[#10B981] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                <span className="text-[11px] font-semibold text-[#14213D] flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B5B]"></span>
                   GPS Connected
                 </span>
               </div>
               <h2 className="font-headline text-xl font-extrabold text-[#14213D] tracking-tight">
                 {hotlineLang === "hi" ? "क्या आपातकाल है? बेझिझक बोलें।" : "What is the emergency? Speak naturally."}
               </h2>
-              <p className="text-xs text-[#64748B] mt-1">
+              <p className="text-xs text-[#14213D]/65 mt-1">
                 {hotlineLang === "hi"
                   ? "Gemini AI लक्षणों को पहचान कर तुरंत निकटतम एम्बुलेंस को अलर्ट कर देगा।"
                   : "Gemini AI analyzes clinical symptoms and dispatches the nearest ambulance unit automatically."}
@@ -688,13 +688,13 @@ export default function CitizenApp() {
             </div>
 
             {/* Live Speech Transcription Box */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5]">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-bold text-[#14213D] flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[16px] text-[#14213D]">graphic_eq</span>
                   Live Speech Transcription
                 </span>
-                <span className="text-[10px] bg-[#E6F8F1] text-[#10B981] font-bold px-2 py-0.5 rounded-full">
+                <span className="text-[10px] bg-[#14213D]/10 text-[#14213D] font-bold px-2 py-0.5 rounded-full">
                   AI Active
                 </span>
               </div>
@@ -706,13 +706,13 @@ export default function CitizenApp() {
             </div>
 
             {/* Understood So Far: Extracted Clinical Tags */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-3">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[#14213D] flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[16px] text-[#FF6B5B]">verified</span>
                   AI Clinical Extractions (पहचाने गए लक्षण)
                 </span>
-                <span className="text-[10px] text-[#64748B]">Automated Triage</span>
+                <span className="text-[10px] text-[#14213D]/65">Automated Triage</span>
               </div>
 
               <div className="flex flex-wrap gap-1.5">
@@ -722,7 +722,7 @@ export default function CitizenApp() {
                     className={`px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
                       idx === 0
                         ? "bg-[#FF6B5B] text-white"
-                        : "bg-[#F4EDE0] text-[#14213D] border border-[#E2D7C5]"
+                        : "bg-[#F4EDE0] text-[#14213D] border border-[#14213D]/15"
                     }`}
                   >
                     {tag}
@@ -730,12 +730,12 @@ export default function CitizenApp() {
                 ))}
               </div>
 
-              <div className="pt-2 border-t border-[#E2D7C5]/60 flex items-center justify-between text-xs text-[#64748B]">
+              <div className="pt-2 border-t border-[#14213D]/15/60 flex items-center justify-between text-xs text-[#14213D]/65">
                 <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[14px] text-[#10B981]">location_on</span>
+                  <span className="material-symbols-outlined text-[14px] text-[#14213D]">location_on</span>
                   {address}
                 </span>
-                <span className="font-semibold text-[#10B981]">GPS Attached</span>
+                <span className="font-semibold text-[#14213D]">GPS Attached</span>
               </div>
             </div>
 
@@ -771,18 +771,18 @@ export default function CitizenApp() {
                       Code Red
                     </span>
                   </div>
-                  <span className="text-[11px] text-[#64748B] truncate">Telemetry stream verified · 100Hz sync</span>
+                  <span className="text-[11px] text-[#14213D]/65 truncate">Telemetry stream verified · 100Hz sync</span>
                 </div>
               </div>
 
-              <div className="bg-[#E6F8F1] border border-[#10B981]/30 px-2 py-0.5 rounded-full text-[#10B981] text-xs font-bold flex items-center gap-1">
+              <div className="bg-[#14213D]/10 border border-[#14213D]/20 px-2 py-0.5 rounded-full text-[#14213D] text-xs font-bold flex items-center gap-1">
                 <span className="material-symbols-outlined text-[13px]">satellite_alt</span>
                 <span>Active</span>
               </div>
             </div>
 
             {/* Interactive Route Map Simulation Container */}
-            <div className="relative w-full h-48 rounded-2xl overflow-hidden shadow-sm border border-[#14213D]/15 bg-[#FCF9F3]">
+            <div className="relative w-full h-48 rounded-2xl overflow-hidden shadow-sm border border-[#14213D]/15 bg-[#FAF5EC]">
               {/* Map Canvas Background Mock */}
               <div className="absolute inset-0 bg-[#E8E0D0] flex items-center justify-center">
                 <svg className="w-full h-full opacity-60" viewBox="0 0 400 200">
@@ -812,10 +812,10 @@ export default function CitizenApp() {
               {/* Map Footer Route Banner */}
               <div className="absolute bottom-2 inset-x-2 bg-white/95 backdrop-blur-sm border border-[#14213D]/10 rounded-xl px-3 py-1.5 flex items-center justify-between text-xs text-[#14213D]">
                 <div className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[15px] text-[#10B981]">traffic</span>
+                  <span className="material-symbols-outlined text-[15px] text-[#14213D]">traffic</span>
                   <span className="font-semibold text-xs truncate max-w-[200px]">Green Corridor Active · Sansad Marg</span>
                 </div>
-                <span className="font-mono text-[#10B981] font-bold text-xs">48 km/h</span>
+                <span className="font-mono text-[#14213D] font-bold text-xs">48 km/h</span>
               </div>
             </div>
 
@@ -823,7 +823,7 @@ export default function CitizenApp() {
             <div className="w-full bg-white border border-[#14213D]/15 rounded-2xl p-4 shadow-sm flex flex-col space-y-3">
               <div className="flex items-end justify-between">
                 <div className="flex flex-col">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#14213D]/65">
                     Estimated Arrival Time
                   </span>
                   <div className="flex items-baseline gap-1 mt-0.5">
@@ -831,9 +831,9 @@ export default function CitizenApp() {
                       {Math.ceil(etaSeconds / 60)}
                     </span>
                     <span className="font-headline text-lg text-[#FF6B5B] font-bold uppercase">MIN</span>
-                    <span className="text-xs text-[#64748B] ml-1">({etaSeconds}s)</span>
+                    <span className="text-xs text-[#14213D]/65 ml-1">({etaSeconds}s)</span>
                   </div>
-                  <span className="text-xs text-[#64748B] mt-0.5">Direct Traffic Priority Clearance</span>
+                  <span className="text-xs text-[#14213D]/65 mt-0.5">Direct Traffic Priority Clearance</span>
                 </div>
 
                 <div className="flex flex-col items-end gap-1">
@@ -841,7 +841,7 @@ export default function CitizenApp() {
                     <span className="material-symbols-outlined text-[14px] animate-pulse">volume_up</span>
                     <span>Siren Active</span>
                   </div>
-                  <span className="text-[11px] text-[#64748B]">Updated just now</span>
+                  <span className="text-[11px] text-[#14213D]/65">Updated just now</span>
                 </div>
               </div>
 
@@ -855,20 +855,20 @@ export default function CitizenApp() {
                     <div className="flex flex-col">
                       <div className="flex items-center gap-1.5">
                         <span className="font-headline text-sm font-bold text-[#14213D]">{ambulanceReg}</span>
-                        <span className="bg-[#E6F8F1] border border-[#10B981]/30 text-[#10B981] text-[9px] uppercase font-bold px-1.5 py-0.5 rounded">
+                        <span className="bg-[#14213D]/10 border border-[#14213D]/20 text-[#14213D] text-[9px] uppercase font-bold px-1.5 py-0.5 rounded">
                           ALS Validated
                         </span>
                       </div>
-                      <span className="text-[11px] text-[#64748B]">Ventilator + Defibrillator Equipped</span>
+                      <span className="text-[11px] text-[#14213D]/65">Ventilator + Defibrillator Equipped</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="pt-2 flex items-center justify-between text-xs border-t border-[#14213D]/10">
-                  <span className="text-[#64748B]">
+                  <span className="text-[#14213D]/65">
                     Lead EMT: <strong className="text-[#14213D] font-bold">{crewLead}</strong> · 2 Medics
                   </span>
-                  <span className="text-[#10B981] font-bold flex items-center gap-0.5">
+                  <span className="text-[#14213D] font-bold flex items-center gap-0.5">
                     <span className="material-symbols-outlined text-[13px]">verified</span>
                     BLS Certified
                   </span>
@@ -895,10 +895,10 @@ export default function CitizenApp() {
             </div>
 
             {/* 4-Stage Progress Stepper */}
-            <div className="w-full bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-3">
+            <div className="w-full bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="font-headline text-sm font-bold text-[#14213D]">Dispatch Progress</span>
-                <span className="text-xs text-[#64748B] font-mono">#{incidentId}</span>
+                <span className="text-xs text-[#14213D]/65 font-mono">#{incidentId}</span>
               </div>
 
               <div className="flex flex-col space-y-3 relative pl-2">
@@ -907,32 +907,32 @@ export default function CitizenApp() {
 
                 {/* Step 1 */}
                 <div className="flex items-start gap-3 relative z-10">
-                  <div className="w-5 h-5 rounded-full bg-[#10B981] text-white flex items-center justify-center text-[12px] shadow-sm mt-0.5">
+                  <div className="w-5 h-5 rounded-full bg-[#FF6B5B] text-white flex items-center justify-center text-[12px] shadow-sm mt-0.5">
                     ✓
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-[#14213D]">1. Request Received</span>
-                    <span className="text-[11px] text-[#64748B]">Emergency call logged into Delhi CAD network</span>
+                    <span className="text-[11px] text-[#14213D]/65">Emergency call logged into Delhi CAD network</span>
                   </div>
                 </div>
 
                 {/* Step 2 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 2 ? "bg-[#10B981] text-white" : "bg-[#F4EDE0] text-[#64748B]"
+                    currentStep >= 2 ? "bg-[#FF6B5B] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 2 ? "✓" : "2"}
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-[#14213D]">2. Ambulance Dispatched</span>
-                    <span className="text-[11px] text-[#64748B]">Unit allocated from Connaught Place Base Hub 4</span>
+                    <span className="text-[11px] text-[#14213D]/65">Unit allocated from Connaught Place Base Hub 4</span>
                   </div>
                 </div>
 
                 {/* Step 3 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 3 ? "bg-[#FF6B5B] text-white ring-2 ring-[#FF6B5B]/30" : "bg-[#F4EDE0] text-[#64748B]"
+                    currentStep >= 3 ? "bg-[#FF6B5B] text-white ring-2 ring-[#FF6B5B]/30" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 3 ? "●" : "3"}
                   </div>
@@ -945,41 +945,41 @@ export default function CitizenApp() {
                         </span>
                       )}
                     </div>
-                    <span className="text-[11px] text-[#64748B]">Traversing Outer Circle; clear corridor active</span>
+                    <span className="text-[11px] text-[#14213D]/65">Traversing Outer Circle; clear corridor active</span>
                   </div>
                 </div>
 
                 {/* Step 4 */}
                 <div className="flex items-start gap-3 relative z-10">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[12px] shadow-sm mt-0.5 ${
-                    currentStep >= 4 ? "bg-[#10B981] text-white" : "bg-[#F4EDE0] text-[#64748B]"
+                    currentStep >= 4 ? "bg-[#FF6B5B] text-white" : "bg-[#F4EDE0] text-[#14213D]/65"
                   }`}>
                     {currentStep >= 4 ? "✓" : "4"}
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs font-bold text-[#14213D]">4. Arrived at Scene</span>
-                    <span className="text-[11px] text-[#64748B]">Medics establish curbside contact</span>
+                    <span className="text-[11px] text-[#14213D]/65">Medics establish curbside contact</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Receiving Hospital Pre-Arrival Readiness Card */}
-            <div className="w-full bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-2">
+            <div className="w-full bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#14213D]">
-                  <span className="material-symbols-outlined text-[18px] text-[#10B981]">domain_verification</span>
+                  <span className="material-symbols-outlined text-[18px] text-[#14213D]">domain_verification</span>
                   <span>Designated Facility</span>
                 </div>
-                <span className="bg-[#E6F8F1] text-[#10B981] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                <span className="bg-[#14213D]/10 text-[#14213D] text-[10px] font-bold px-2 py-0.5 rounded-full">
                   Trauma Ready
                 </span>
               </div>
               <h4 className="font-headline text-sm font-bold text-[#14213D]">{hospitalName}</h4>
-              <p className="text-[11px] text-[#64748B]">Ring Road, Safdarjung Enclave · Distance: 5.8 km</p>
+              <p className="text-[11px] text-[#14213D]/65">Ring Road, Safdarjung Enclave · Distance: 5.8 km</p>
 
-              <div className="bg-[#FCF9F3] rounded-xl p-2.5 text-xs text-[#1F2937] flex items-start gap-2">
-                <span className="material-symbols-outlined text-[16px] text-[#10B981] flex-shrink-0 mt-0.5">
+              <div className="bg-[#FAF5EC] rounded-xl p-2.5 text-xs text-[#14213D] flex items-start gap-2">
+                <span className="material-symbols-outlined text-[16px] text-[#14213D] flex-shrink-0 mt-0.5">
                   check_circle
                 </span>
                 <span>
@@ -1007,33 +1007,33 @@ export default function CitizenApp() {
             </div>
 
             {/* User Identity Card */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-3">
-              <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Your Details</span>
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-3">
+              <span className="text-xs font-bold text-[#14213D]/65 uppercase tracking-wider">Your Details</span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Full Name</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Full Name</label>
                   <input
                     type="text"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Phone Number</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Phone Number</label>
                   <input
                     type="text"
                     value={userPhone}
                     onChange={(e) => setUserPhone(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Blood Group</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Blood Group</label>
                   <select
                     value={bloodGroup}
                     onChange={(e) => setBloodGroup(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   >
                     <option>O Positive</option>
                     <option>O Negative</option>
@@ -1046,11 +1046,11 @@ export default function CitizenApp() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Language Preference</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Language Preference</label>
                   <select
                     value={hotlineLang}
                     onChange={(e) => setHotlineLang(e.target.value as "en" | "hi")}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   >
                     <option value="hi">हिन्दी (Hindi)</option>
                     <option value="en">English (Indian)</option>
@@ -1060,58 +1060,58 @@ export default function CitizenApp() {
             </div>
 
             {/* Emergency Contacts */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-3">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">Primary Emergency Contact</span>
-                <span className="text-[10px] bg-[#E6F8F1] text-[#10B981] font-bold px-2 py-0.5 rounded-full">
+                <span className="text-xs font-bold text-[#14213D]/65 uppercase tracking-wider">Primary Emergency Contact</span>
+                <span className="text-[10px] bg-[#14213D]/10 text-[#14213D] font-bold px-2 py-0.5 rounded-full">
                   Auto-Notified on SOS
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Contact Name</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Contact Name</label>
                   <input
                     type="text"
                     value={emergencyContact.name}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, name: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] text-[#64748B] block mb-1">Relation</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Relation</label>
                   <input
                     type="text"
                     value={emergencyContact.relation}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, relation: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="text-[11px] text-[#64748B] block mb-1">Contact Phone</label>
+                  <label className="text-[11px] text-[#14213D]/65 block mb-1">Contact Phone</label>
                   <input
                     type="text"
                     value={emergencyContact.phone}
                     onChange={(e) => setEmergencyContact({ ...emergencyContact, phone: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-[#FCF9F3] border border-[#E2D7C5] text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
+                    className="w-full px-3 py-2 rounded-xl bg-[#FAF5EC] border border-[#14213D]/15 text-sm text-[#14213D] font-semibold focus:outline-none focus:border-[#FF6B5B]"
                   />
                 </div>
               </div>
             </div>
 
             {/* Permissions & Safeguards */}
-            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#E2D7C5] space-y-2">
-              <span className="text-xs font-bold text-[#64748B] uppercase tracking-wider">System Permissions</span>
-              <div className="flex items-center justify-between py-1.5 border-b border-[#E2D7C5]/40 text-xs">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#14213D]/15 space-y-2">
+              <span className="text-xs font-bold text-[#14213D]/65 uppercase tracking-wider">System Permissions</span>
+              <div className="flex items-center justify-between py-1.5 border-b border-[#14213D]/15/40 text-xs">
                 <span className="text-[#14213D] font-medium">Location Services (GPS)</span>
-                <span className="text-[#10B981] font-bold">Enabled · High Precision</span>
+                <span className="text-[#14213D] font-bold">Enabled · High Precision</span>
               </div>
-              <div className="flex items-center justify-between py-1.5 border-b border-[#E2D7C5]/40 text-xs">
+              <div className="flex items-center justify-between py-1.5 border-b border-[#14213D]/15/40 text-xs">
                 <span className="text-[#14213D] font-medium">Microphone for AI Hotline</span>
-                <span className="text-[#10B981] font-bold">Granted</span>
+                <span className="text-[#14213D] font-bold">Granted</span>
               </div>
               <div className="flex items-center justify-between py-1.5 text-xs">
                 <span className="text-[#14213D] font-medium">Emergency Broadcast Push</span>
-                <span className="text-[#10B981] font-bold">Active</span>
+                <span className="text-[#14213D] font-bold">Active</span>
               </div>
             </div>
 
@@ -1127,12 +1127,12 @@ export default function CitizenApp() {
           </main>
         )}
 
-        {/* ── Fixed Bottom Tab Navigation (Mobile Canonical Experience) ── */}
-        <footer className="flex-shrink-0 bg-[#FFF9EE]/95 backdrop-blur-md border-t border-[#E2D7C5] px-6 py-2 flex items-center justify-around z-30">
+        {/* ── Fixed Bottom Tab Navigation (30% Navy structure with Coral 10% active highlights) ── */}
+        <footer className="flex-shrink-0 bg-[#14213D] border-t border-[#0E182D] px-6 py-2 flex items-center justify-around z-30 text-[#F4EDE0]/70">
           <button
             onClick={() => setCurrentScreen("home")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "home" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
+              currentScreen === "home" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">crisis_alert</span>
@@ -1142,7 +1142,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("hotline")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "hotline" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
+              currentScreen === "hotline" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">spatial_audio</span>
@@ -1152,7 +1152,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("tracking")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "tracking" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
+              currentScreen === "tracking" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">near_me</span>
@@ -1162,7 +1162,7 @@ export default function CitizenApp() {
           <button
             onClick={() => setCurrentScreen("settings")}
             className={`flex flex-col items-center gap-0.5 transition-all pt-1 ${
-              currentScreen === "settings" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#64748B] hover:text-[#14213D] border-t-2 border-transparent -mt-px"
+              currentScreen === "settings" ? "text-[#FF6B5B] font-bold border-t-2 border-[#FF6B5B] -mt-px" : "text-[#F4EDE0]/60 hover:text-[#F4EDE0] border-t-2 border-transparent -mt-px"
             }`}
           >
             <span className="material-symbols-outlined text-[24px]">tune</span>

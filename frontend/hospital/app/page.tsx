@@ -292,9 +292,9 @@ export default function HospitalConsole() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden bg-[#FCF9F4] text-[#1C1C19] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
+    <div className="h-screen max-h-screen overflow-hidden bg-[#E8DCC4] text-[#1F3D2B] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
       {/* ── Header (Stitch design specification) ────────────────── */}
-      <header className="h-16 flex-shrink-0 bg-white border-b border-[#E2DCD5] shadow-sm z-30 flex items-center justify-between px-6">
+      <header className="h-16 flex-shrink-0 bg-[#1F3D2B] border-b border-[#14281C] shadow-md z-30 flex items-center justify-between px-6 text-[#E8DCC4]">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#1F3D2B] flex items-center justify-center text-white shadow-sm">
@@ -302,14 +302,14 @@ export default function HospitalConsole() {
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
-                <span className="font-headline font-extrabold text-[#082717] text-lg tracking-tight uppercase leading-none">
+                <span className="font-headline font-extrabold text-[#E8DCC4] text-lg tracking-tight uppercase leading-none">
                   NIVARAN
                 </span>
-                <span className="bg-[#E9DDFF] text-[#5516BE] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                <span className="bg-[#8B5CF6] text-[#FFFFFF] text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   ED-COMMAND
                 </span>
               </div>
-              <span className="text-xs text-[#64748B] font-medium leading-none mt-1">
+              <span className="text-xs text-[#E8DCC4]/70 font-medium leading-none mt-1">
                 {hospitalName} — Trauma Bay Unit
               </span>
             </div>
@@ -318,7 +318,7 @@ export default function HospitalConsole() {
           <div className="h-6 w-px bg-[#E2DCD5] hidden md:block"></div>
 
           {/* Acceptance Status Badge */}
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F0EDE9] border border-[#E2DCD5]">
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#14281C] border border-[#1F3D2B]">
             <span
               className={`w-2 h-2 rounded-full animate-pulse ${
                 acceptanceStatus === "NORMAL"
@@ -328,8 +328,8 @@ export default function HospitalConsole() {
                   : "bg-[#BA1A1A]"
               }`}
             ></span>
-            <span className="text-[11px] font-bold text-[#64748B] uppercase">Intake Status:</span>
-            <span className="text-xs font-bold text-[#082717]">
+            <span className="text-[11px] font-bold text-[#E8DCC4]/70 uppercase">Intake Status:</span>
+            <span className="text-xs font-bold text-[#E8DCC4]">
               {acceptanceStatus === "NORMAL" && "NORMAL / ACTIVE"}
               {acceptanceStatus === "SURGE" && "AMBER SURGE (CRITICAL ONLY)"}
               {acceptanceStatus === "DIVERT" && "RED DIVERSION ACTIVE"}
@@ -343,8 +343,8 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("radar")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "radar"
-                ? "bg-[#1F3D2B] text-white shadow-sm"
-                : "text-[#424843] hover:text-[#082717] hover:bg-[#F0EDE9]"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
+                : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
             Inbound Casualty Radar ({preAlerts.length})
@@ -353,8 +353,8 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("capacity")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "capacity"
-                ? "bg-[#1F3D2B] text-white shadow-sm"
-                : "text-[#424843] hover:text-[#082717] hover:bg-[#F0EDE9]"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
+                : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
             Hospital Capacity & Beds
@@ -363,8 +363,8 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("telemetry")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "telemetry"
-                ? "bg-[#1F3D2B] text-white shadow-sm"
-                : "text-[#424843] hover:text-[#082717] hover:bg-[#F0EDE9]"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
+                : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
             Pre-Arrival Telemetry
@@ -373,8 +373,8 @@ export default function HospitalConsole() {
             onClick={() => setActiveTab("paramedic")}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all ${
               activeTab === "paramedic"
-                ? "bg-[#1F3D2B] text-white shadow-sm"
-                : "text-[#424843] hover:text-[#082717] hover:bg-[#F0EDE9]"
+                ? "bg-[#8B5CF6] text-white shadow-sm"
+                : "text-[#E8DCC4]/70 hover:text-[#E8DCC4] hover:bg-[#14281C]"
             }`}
           >
             Paramedic Coordination
@@ -398,10 +398,10 @@ export default function HospitalConsole() {
 
           <div className="flex items-center gap-2.5">
             <div className="flex flex-col text-right hidden sm:flex">
-              <span className="text-xs font-bold text-[#082717]">Dr. S. Nair</span>
-              <span className="text-[10px] text-[#64748B]">Triage Chief · Duty Lead</span>
+              <span className="text-xs font-bold text-[#E8DCC4]">Dr. S. Nair</span>
+              <span className="text-[10px] text-[#E8DCC4]/70">Triage Chief · Duty Lead</span>
             </div>
-            <div className="w-8 h-8 rounded-full bg-[#1F3D2B] text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
               SN
             </div>
           </div>
@@ -411,17 +411,17 @@ export default function HospitalConsole() {
       {/* ── Main Layout: Sidebar + Operational Body ───────────────────────── */}
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Left Operational Sidebar */}
-        <aside className="w-64 bg-[#F6F3EE] border-r border-[#E2DCD5] flex flex-col justify-between p-4 hidden md:flex shrink-0 overflow-y-auto">
+        <aside className="w-64 bg-[#14281C] border-r border-[#1F3D2B]/20 flex flex-col justify-between p-4 hidden md:flex shrink-0 overflow-y-auto">
           <div className="space-y-6">
             <div>
-              <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block px-2 mb-2">
+              <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider block px-2 mb-2">
                 Operational Units
               </span>
               <nav className="space-y-1">
                 <button
                   onClick={() => setActiveTab("radar")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "radar" ? "bg-[#1F3D2B] text-white shadow-sm" : "text-[#424843] hover:bg-[#EBE8E3]"
+                    activeTab === "radar" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -429,7 +429,7 @@ export default function HospitalConsole() {
                     <span>Casualty Radar</span>
                   </div>
                   <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#8455EF] text-white"
+                    activeTab === "radar" ? "bg-white/20 text-white" : "bg-[#8B5CF6] text-white"
                   }`}>
                     {preAlerts.length}
                   </span>
@@ -438,7 +438,7 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("capacity")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "capacity" ? "bg-[#1F3D2B] text-white shadow-sm" : "text-[#424843] hover:bg-[#EBE8E3]"
+                    activeTab === "capacity" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -453,49 +453,49 @@ export default function HospitalConsole() {
                 <button
                   onClick={() => setActiveTab("telemetry")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "telemetry" ? "bg-[#1F3D2B] text-white shadow-sm" : "text-[#424843] hover:bg-[#EBE8E3]"
+                    activeTab === "telemetry" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">monitor_heart</span>
                     <span>Vital Telemetry</span>
                   </div>
-                  <span className="text-[10px] text-[#8455EF] font-bold">Live AI</span>
+                  <span className="text-[10px] text-[#8B5CF6] font-bold">Live AI</span>
                 </button>
 
                 <button
                   onClick={() => setActiveTab("paramedic")}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                    activeTab === "paramedic" ? "bg-[#1F3D2B] text-white shadow-sm" : "text-[#424843] hover:bg-[#EBE8E3]"
+                    activeTab === "paramedic" ? "bg-[#8B5CF6] text-white shadow-md shadow-[#8B5CF6]/30" : "text-[#E8DCC4]/75 hover:bg-[#1F3D2B] hover:text-[#E8DCC4]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[18px]">airport_shuttle</span>
                     <span>Ambulance Fleet</span>
                   </div>
-                  <span className="text-[10px] text-[#64748B]">4 Units</span>
+                  <span className="text-[10px] text-[#1F3D2B]/65">4 Units</span>
                 </button>
               </nav>
             </div>
 
             <div>
-              <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block px-2 mb-2">
+              <span className="text-[10px] font-bold text-[#E8DCC4]/60 uppercase tracking-wider block px-2 mb-2">
                 Clinical Readiness
               </span>
               <div className="space-y-1.5 px-2 text-xs">
-                <div className="flex items-center justify-between py-1 text-[#424843]">
+                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
                   <span>Cath Lab Status</span>
                   <span className="font-bold text-[#10B981]">READY</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#424843]">
+                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
                   <span>Trauma Team Alpha</span>
                   <span className="font-bold text-[#10B981]">STANDBY</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#424843]">
+                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
                   <span>CT Scanner</span>
                   <span className="font-bold text-[#10B981]">OPERATIONAL</span>
                 </div>
-                <div className="flex items-center justify-between py-1 text-[#424843]">
+                <div className="flex items-center justify-between py-1 text-[#1F3D2B]/80">
                   <span>Blood Bank (O-Neg)</span>
                   <span className="font-bold text-[#10B981]">12 UNITS</span>
                 </div>
@@ -504,35 +504,35 @@ export default function HospitalConsole() {
           </div>
 
           {/* Network Link pill */}
-          <div className="p-3 bg-[#F0EDE9] rounded-xl border border-[#E2DCD5] space-y-1">
+          <div className="p-3 bg-[#F2EADA] rounded-xl border border-[#1F3D2B]/20 space-y-1">
             <div className="flex items-center justify-between text-[11px]">
-              <span className="font-bold text-[#64748B] uppercase">Network Link</span>
+              <span className="font-bold text-[#1F3D2B]/65 uppercase">Network Link</span>
               <span className="text-[#10B981] font-bold flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
                 AIIMS-ED-01
               </span>
             </div>
-            <span className="text-[10px] text-[#64748B] block">Encrypted Clinical Bridge · 24/7</span>
+            <span className="text-[10px] text-[#1F3D2B]/65 block">Encrypted Clinical Bridge · 24/7</span>
           </div>
         </aside>
 
         {/* Operational Workspace Body */}
         <main className="flex-1 min-h-0 p-5 flex flex-col gap-4 overflow-hidden">
           {/* Subheader Banner */}
-          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex-shrink-0 bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 flex-wrap mb-1">
                 <span className="bg-[#C8EBD1] text-[#022111] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
                   COMMAND HUB · LEVEL-1 DISPATCH
                 </span>
-                <span className="text-xs text-[#64748B]">NODE: AIIMS-ND-TC-ER01</span>
-                <span className="text-[#64748B]">·</span>
+                <span className="text-xs text-[#1F3D2B]/65">NODE: AIIMS-ND-TC-ER01</span>
+                <span className="text-[#1F3D2B]/65">·</span>
                 <span className="text-xs text-[#10B981] font-semibold">SYNCHRONIZED WITH CAD 112/108</span>
               </div>
-              <h1 className="font-headline text-2xl font-extrabold text-[#082717] tracking-tight">
+              <h1 className="font-headline text-2xl font-extrabold text-[#1F3D2B] tracking-tight">
                 {hospitalName} — Emergency Medicine Department
               </h1>
-              <p className="text-xs text-[#64748B] mt-0.5">
+              <p className="text-xs text-[#1F3D2B]/65 mt-0.5">
                 Real-time acute intake registry, paramedic telemetry bridge, and rapid trauma bay allocation matrix.
               </p>
             </div>
@@ -540,7 +540,7 @@ export default function HospitalConsole() {
             <div className="flex items-center gap-3">
               <button
                 onClick={loadInboundData}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F0EDE9] hover:bg-[#EBE8E3] text-[#082717] text-xs font-bold transition-all shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F2EADA] hover:bg-[#1F3D2B] text-[#1F3D2B] text-xs font-bold transition-all shadow-sm"
                 title="Refresh Live Data"
               >
                 <span className="material-symbols-outlined text-[16px]">sync</span>
@@ -552,87 +552,87 @@ export default function HospitalConsole() {
           {/* 5-Column Operational Metrics Grid (Stitch design specification) */}
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3.5">
             {/* Metric 1 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#64748B] uppercase">
+            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Inbound Transports</span>
-                <span className="material-symbols-outlined text-[#8455EF] text-[18px]">ambulance</span>
+                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">ambulance</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#082717]">
+                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   {preAlerts.length < 10 ? `0${preAlerts.length}` : preAlerts.length}
                 </span>
-                <span className="text-xs font-bold text-[#8455EF] ml-1.5">En Route</span>
+                <span className="text-xs font-bold text-[#8B5CF6] ml-1.5">En Route</span>
               </div>
-              <div className="w-full bg-[#F0EDE9] h-1.5 rounded-full overflow-hidden">
-                <div className="bg-[#8455EF] h-full rounded-full" style={{ width: "75%" }}></div>
+              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
+                <div className="bg-[#8B5CF6] h-full rounded-full" style={{ width: "75%" }}></div>
               </div>
               <span className="text-[10px] text-[#BA1A1A] font-bold mt-1.5">1 ETA &lt; 5m</span>
             </div>
 
             {/* Metric 2 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#64748B] uppercase">
+            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Trauma Bays</span>
                 <span className="material-symbols-outlined text-[#1F3D2B] text-[18px]">meeting_room</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#082717]">
+                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   0{capacity.trauma_bays_available}
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Open / Ready</span>
               </div>
-              <div className="w-full bg-[#F0EDE9] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "66%" }}></div>
               </div>
-              <span className="text-[10px] text-[#64748B] mt-1.5">Bay 1 & 2 Staged</span>
+              <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Bay 1 & 2 Staged</span>
             </div>
 
             {/* Metric 3 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#64748B] uppercase">
+            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>ICU Capacity</span>
                 <span className="material-symbols-outlined text-[#10B981] text-[18px]">vital_signs</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#082717]">
+                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   0{capacity.icu_beds_available}
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
-              <div className="w-full bg-[#F0EDE9] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#10B981] h-full rounded-full" style={{ width: "75%" }}></div>
               </div>
-              <span className="text-[10px] text-[#64748B] mt-1.5">Surge reserve: 3</span>
+              <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Surge reserve: 3</span>
             </div>
 
             {/* Metric 4 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#64748B] uppercase">
+            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between">
+              <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>General Acute ER</span>
-                <span className="material-symbols-outlined text-[#64748B] text-[18px]">single_bed</span>
+                <span className="material-symbols-outlined text-[#1F3D2B]/65 text-[18px]">single_bed</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#082717]">
+                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">
                   {capacity.er_beds_available}
                 </span>
                 <span className="text-xs font-bold text-[#10B981] ml-1.5">Available</span>
               </div>
-              <div className="w-full bg-[#F0EDE9] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#1F3D2B] h-full rounded-full" style={{ width: "60%" }}></div>
               </div>
-              <span className="text-[10px] text-[#64748B] mt-1.5">Cap: {capacity.er_beds_total} Total</span>
+              <span className="text-[10px] text-[#1F3D2B]/65 mt-1.5">Cap: {capacity.er_beds_total} Total</span>
             </div>
 
             {/* Metric 5 */}
-            <div className="bg-white p-4 rounded-2xl border border-[#E2DCD5] shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
-              <div className="flex items-center justify-between text-[11px] font-bold text-[#64748B] uppercase">
+            <div className="bg-white p-4 rounded-2xl border border-[#1F3D2B]/20 shadow-sm flex flex-col justify-between col-span-2 sm:col-span-1">
+              <div className="flex items-center justify-between text-[11px] font-bold text-[#1F3D2B]/65 uppercase">
                 <span>Cath Lab / OR</span>
-                <span className="material-symbols-outlined text-[#8455EF] text-[18px]">medical_services</span>
+                <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">medical_services</span>
               </div>
               <div className="my-2">
-                <span className="font-headline text-3xl font-extrabold text-[#082717]">READY</span>
+                <span className="font-headline text-3xl font-extrabold text-[#1F3D2B]">READY</span>
               </div>
-              <div className="w-full bg-[#F0EDE9] h-1.5 rounded-full overflow-hidden">
+              <div className="w-full bg-[#F2EADA] h-1.5 rounded-full overflow-hidden">
                 <div className="bg-[#10B981] h-full rounded-full" style={{ width: "100%" }}></div>
               </div>
               <span className="text-[10px] text-[#10B981] font-bold mt-1.5">Team on Standby</span>
@@ -647,10 +647,10 @@ export default function HospitalConsole() {
               {/* Left Column: Live Pre-Alert Inbound Queue (7 Cols) */}
               <div className="xl:col-span-7 flex flex-col min-h-0 gap-3 overflow-hidden">
                 <div className="flex-shrink-0 flex items-center justify-between px-1">
-                  <span className="font-headline text-sm font-bold text-[#082717]">
+                  <span className="font-headline text-sm font-bold text-[#1F3D2B]">
                     Live Incoming Pre-Alert Queue ({preAlerts.length})
                   </span>
-                  <span className="text-xs text-[#64748B]">Click card to inspect telemetry</span>
+                  <span className="text-xs text-[#1F3D2B]/65">Click card to inspect telemetry</span>
                 </div>
 
                 <div className="flex-1 min-h-0 overflow-y-auto space-y-3 pr-1">
@@ -667,7 +667,7 @@ export default function HospitalConsole() {
                       className={`p-4 rounded-2xl border transition-all cursor-pointer relative ${
                         isSelected
                           ? "bg-white border-[#1F3D2B] shadow-md ring-2 ring-[#1F3D2B]/10"
-                          : "bg-white border-[#E2DCD5] hover:border-[#1F3D2B]/40 shadow-sm"
+                          : "bg-white border-[#1F3D2B]/20 hover:border-[#1F3D2B]/40 shadow-sm"
                       }`}
                     >
                       {/* Priority left indicator bar */}
@@ -680,7 +680,7 @@ export default function HospitalConsole() {
                       <div className="flex items-start justify-between gap-3 pl-2">
                         <div className="space-y-1">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-mono text-xs font-bold text-[#082717]">
+                            <span className="font-mono text-xs font-bold text-[#1F3D2B]">
                               #{alert.alert_id}
                             </span>
                             <span
@@ -690,20 +690,20 @@ export default function HospitalConsole() {
                             >
                               {alert.triage_category} PRIORITY
                             </span>
-                            <span className="text-xs text-[#64748B]">· {alert.ambulance_id}</span>
+                            <span className="text-xs text-[#1F3D2B]/65">· {alert.ambulance_id}</span>
                           </div>
 
-                          <h3 className="font-headline text-base font-extrabold text-[#082717]">
+                          <h3 className="font-headline text-base font-extrabold text-[#1F3D2B]">
                             {alert.suspected_condition}
                           </h3>
 
-                          <p className="text-xs text-[#64748B] line-clamp-1">{alert.notes}</p>
+                          <p className="text-xs text-[#1F3D2B]/65 line-clamp-1">{alert.notes}</p>
                         </div>
 
                         {/* ETA Badge */}
                         <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                          <div className="px-2.5 py-1 rounded-xl bg-[#F0EDE9] border border-[#E2DCD5] text-right">
-                            <span className="text-[10px] font-bold text-[#64748B] uppercase block leading-none">ETA</span>
+                          <div className="px-2.5 py-1 rounded-xl bg-[#F2EADA] border border-[#1F3D2B]/20 text-right">
+                            <span className="text-[10px] font-bold text-[#1F3D2B]/65 uppercase block leading-none">ETA</span>
                             <span className="font-headline text-base font-extrabold text-[#BA1A1A] leading-tight">
                               {formatEta(alert.eta_seconds)}
                             </span>
@@ -729,20 +729,20 @@ export default function HospitalConsole() {
 
                       {/* Vitals Quick Strip */}
                       {alert.vitals && (
-                        <div className="mt-3 pt-2.5 border-t border-[#E2DCD5]/60 flex items-center gap-4 text-xs pl-2">
-                          <span className="text-[#64748B]">
-                            HR: <strong className="text-[#082717]">{alert.vitals.heart_rate} bpm</strong>
+                        <div className="mt-3 pt-2.5 border-t border-[#1F3D2B]/20/60 flex items-center gap-4 text-xs pl-2">
+                          <span className="text-[#1F3D2B]/65">
+                            HR: <strong className="text-[#1F3D2B]">{alert.vitals.heart_rate} bpm</strong>
                           </span>
-                          <span className="text-[#64748B]">
-                            BP: <strong className="text-[#082717]">{alert.vitals.blood_pressure}</strong>
+                          <span className="text-[#1F3D2B]/65">
+                            BP: <strong className="text-[#1F3D2B]">{alert.vitals.blood_pressure}</strong>
                           </span>
-                          <span className="text-[#64748B]">
-                            SpO2: <strong className="text-[#082717]">{alert.vitals.spo2_pct}%</strong>
+                          <span className="text-[#1F3D2B]/65">
+                            SpO2: <strong className="text-[#1F3D2B]">{alert.vitals.spo2_pct}%</strong>
                           </span>
-                          <span className="text-[#64748B]">
-                            GCS: <strong className="text-[#082717]">{alert.vitals.gcs}/15</strong>
+                          <span className="text-[#1F3D2B]/65">
+                            GCS: <strong className="text-[#1F3D2B]">{alert.vitals.gcs}/15</strong>
                           </span>
-                          <span className="ml-auto text-[11px] text-[#8455EF] font-bold">
+                          <span className="ml-auto text-[11px] text-[#8B5CF6] font-bold">
                             Cath Lab Standby
                           </span>
                         </div>
@@ -756,11 +756,11 @@ export default function HospitalConsole() {
               {/* Right Column: Pre-Arrival Telemetry & Staging Inspector (5 Cols) */}
               <div className="xl:col-span-5 flex flex-col min-h-0 overflow-hidden">
                 {selectedAlert ? (
-                  <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#E2DCD5] shadow-sm space-y-4 overflow-y-auto">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#E2DCD5]">
+                  <div className="flex-1 min-h-0 bg-white p-5 rounded-2xl border border-[#1F3D2B]/20 shadow-sm space-y-4 overflow-y-auto">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#1F3D2B]/20">
                       <div>
-                        <span className="text-[10px] font-bold text-[#64748B] uppercase">Case Detail Inspector</span>
-                        <h3 className="font-headline text-lg font-extrabold text-[#082717]">
+                        <span className="text-[10px] font-bold text-[#1F3D2B]/65 uppercase">Case Detail Inspector</span>
+                        <h3 className="font-headline text-lg font-extrabold text-[#1F3D2B]">
                           #{selectedAlert.incident_id}
                         </h3>
                       </div>
@@ -772,27 +772,27 @@ export default function HospitalConsole() {
                     {/* Vitals Grid */}
                     {selectedAlert.vitals && (
                       <div className="grid grid-cols-2 gap-2.5">
-                        <div className="p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                          <span className="text-[10px] text-[#64748B] block">Heart Rate</span>
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                          <span className="text-[10px] text-[#1F3D2B]/65 block">Heart Rate</span>
                           <span className="font-headline text-xl font-extrabold text-[#BA1A1A]">
                             {selectedAlert.vitals.heart_rate} <span className="text-xs font-normal">BPM</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                          <span className="text-[10px] text-[#64748B] block">Blood Pressure</span>
-                          <span className="font-headline text-xl font-extrabold text-[#082717]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                          <span className="text-[10px] text-[#1F3D2B]/65 block">Blood Pressure</span>
+                          <span className="font-headline text-xl font-extrabold text-[#1F3D2B]">
                             {selectedAlert.vitals.blood_pressure} <span className="text-xs font-normal">mmHg</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                          <span className="text-[10px] text-[#64748B] block">Pulse Oximetry (SpO2)</span>
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                          <span className="text-[10px] text-[#1F3D2B]/65 block">Pulse Oximetry (SpO2)</span>
                           <span className="font-headline text-xl font-extrabold text-[#10B981]">
                             {selectedAlert.vitals.spo2_pct}% <span className="text-xs font-normal">Room air</span>
                           </span>
                         </div>
-                        <div className="p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                          <span className="text-[10px] text-[#64748B] block">Glasgow Coma Scale</span>
-                          <span className="font-headline text-xl font-extrabold text-[#082717]">
+                        <div className="p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                          <span className="text-[10px] text-[#1F3D2B]/65 block">Glasgow Coma Scale</span>
+                          <span className="font-headline text-xl font-extrabold text-[#1F3D2B]">
                             {selectedAlert.vitals.gcs} / 15
                           </span>
                         </div>
@@ -800,24 +800,24 @@ export default function HospitalConsole() {
                     )}
 
                     {/* AI Clinical Triage Summary (With Mandatory Disclaimer) */}
-                    <div className="p-3.5 rounded-xl bg-[#E9DDFF]/50 border border-[#8455EF]/30 space-y-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#5516BE]">
+                    <div className="p-3.5 rounded-xl bg-[#8B5CF6]/50 border border-[#8B5CF6]/30 space-y-2">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
                         <span className="material-symbols-outlined text-[16px]">smart_toy</span>
                         <span>AI Clinical Triage Summary</span>
                       </div>
-                      <p className="text-xs text-[#1C1C19] font-medium leading-relaxed">
+                      <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
                         {selectedAlert.notes}
                       </p>
-                      <div className="pt-2 border-t border-[#8455EF]/20 text-[10px] text-[#64748B] italic">
+                      <div className="pt-2 border-t border-[#8B5CF6]/20 text-[10px] text-[#1F3D2B]/65 italic">
                         <strong>Clinical Decision Support:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                       </div>
                     </div>
 
                     {/* Trauma Staging Checklist */}
                     <div className="space-y-2">
-                      <span className="text-xs font-bold text-[#082717] block">Facility Preparation Checklist</span>
+                      <span className="text-xs font-bold text-[#1F3D2B] block">Facility Preparation Checklist</span>
                       <div className="space-y-1.5 text-xs">
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#F6F3EE] cursor-pointer">
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
                           <input
                             type="checkbox"
                             checked={stagedBays[selectedAlert.alert_id] || false}
@@ -826,15 +826,15 @@ export default function HospitalConsole() {
                             }
                             className="rounded text-[#1F3D2B] focus:ring-[#1F3D2B]"
                           />
-                          <span className="font-semibold text-[#082717]">Trauma Resuscitation Bay 1 Staged</span>
+                          <span className="font-semibold text-[#1F3D2B]">Trauma Resuscitation Bay 1 Staged</span>
                         </label>
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#F6F3EE] cursor-pointer">
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
                           <input type="checkbox" defaultChecked className="rounded text-[#1F3D2B]" />
-                          <span className="font-semibold text-[#082717]">Cath Lab Team Activated</span>
+                          <span className="font-semibold text-[#1F3D2B]">Cath Lab Team Activated</span>
                         </label>
-                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#F6F3EE] cursor-pointer">
+                        <label className="flex items-center gap-2 p-2 rounded-lg bg-[#14281C] cursor-pointer">
                           <input type="checkbox" defaultChecked className="rounded text-[#1F3D2B]" />
-                          <span className="font-semibold text-[#082717]">Type O-Negative Blood Crossmatched</span>
+                          <span className="font-semibold text-[#1F3D2B]">Type O-Negative Blood Crossmatched</span>
                         </label>
                       </div>
                     </div>
@@ -851,7 +851,7 @@ export default function HospitalConsole() {
                     </div>
                   </div>
                 ) : (
-                  <div className="bg-white p-8 rounded-2xl border border-[#E2DCD5] text-center text-[#64748B] text-xs">
+                  <div className="bg-white p-8 rounded-2xl border border-[#1F3D2B]/20 text-center text-[#1F3D2B]/65 text-xs">
                     Select an inbound casualty from the queue to inspect full telemetry.
                   </div>
                 )}
@@ -864,13 +864,13 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "capacity" && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-3xl space-y-6">
-              <div className="flex items-center justify-between border-b border-[#E2DCD5] pb-4">
+              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-3xl space-y-6">
+              <div className="flex items-center justify-between border-b border-[#1F3D2B]/20 pb-4">
                 <div>
-                  <h2 className="font-headline text-xl font-extrabold text-[#082717]">
+                  <h2 className="font-headline text-xl font-extrabold text-[#1F3D2B]">
                     Emergency Department Capacity & Resource Editor
                   </h2>
-                  <p className="text-xs text-[#64748B] mt-0.5">
+                  <p className="text-xs text-[#1F3D2B]/65 mt-0.5">
                     Changes sync in real time to the Dispatcher CAD and ambulance routing engine.
                   </p>
                 </div>
@@ -884,101 +884,101 @@ export default function HospitalConsole() {
 
               {/* Beds Numbers Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] space-y-2">
-                  <span className="text-xs font-bold text-[#082717]">General Acute ER Beds</span>
+                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                  <span className="text-xs font-bold text-[#1F3D2B]">General Acute ER Beds</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Available</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Available</label>
                       <input
                         type="number"
                         value={capacity.er_beds_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Total Beds</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total Beds</label>
                       <input
                         type="number"
                         value={capacity.er_beds_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, er_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] space-y-2">
-                  <span className="text-xs font-bold text-[#082717]">Critical ICU Beds</span>
+                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                  <span className="text-xs font-bold text-[#1F3D2B]">Critical ICU Beds</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Available</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Available</label>
                       <input
                         type="number"
                         value={capacity.icu_beds_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Total ICU</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total ICU</label>
                       <input
                         type="number"
                         value={capacity.icu_beds_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, icu_beds_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] space-y-2">
-                  <span className="text-xs font-bold text-[#082717]">Trauma Resuscitation Bays</span>
+                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                  <span className="text-xs font-bold text-[#1F3D2B]">Trauma Resuscitation Bays</span>
                   <div className="flex items-center gap-3">
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Open Bays</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Open Bays</label>
                       <input
                         type="number"
                         value={capacity.trauma_bays_available}
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_available: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] text-[#64748B] block">Total Bays</label>
+                      <label className="text-[10px] text-[#1F3D2B]/65 block">Total Bays</label>
                       <input
                         type="number"
                         value={capacity.trauma_bays_total}
                         onChange={(e) =>
                           setCapacity({ ...capacity, trauma_bays_total: Number(e.target.value) })
                         }
-                        className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                        className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] space-y-2">
-                  <span className="text-xs font-bold text-[#082717]">Emergency Operating Theatres</span>
+                <div className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 space-y-2">
+                  <span className="text-xs font-bold text-[#1F3D2B]">Emergency Operating Theatres</span>
                   <div>
-                    <label className="text-[10px] text-[#64748B] block">Open Theatres</label>
+                    <label className="text-[10px] text-[#1F3D2B]/65 block">Open Theatres</label>
                     <input
                       type="number"
                       value={capacity.or_available}
                       onChange={(e) =>
                         setCapacity({ ...capacity, or_available: Number(e.target.value) })
                       }
-                      className="w-20 px-2 py-1 rounded border border-[#E2DCD5] font-bold text-sm"
+                      className="w-20 px-2 py-1 rounded border border-[#1F3D2B]/20 font-bold text-sm"
                     />
                   </div>
                 </div>
@@ -986,9 +986,9 @@ export default function HospitalConsole() {
 
               {/* Critical Diagnostics & Teams Toggles */}
               <div className="space-y-3">
-                <span className="text-xs font-bold text-[#082717] block">Critical Facility Readiness</span>
+                <span className="text-xs font-bold text-[#1F3D2B] block">Critical Facility Readiness</span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.ct_scanner_operational}
@@ -997,10 +997,10 @@ export default function HospitalConsole() {
                       }
                       className="rounded text-[#1F3D2B]"
                     />
-                    <span className="text-xs font-bold text-[#082717]">CT Scanner Active</span>
+                    <span className="text-xs font-bold text-[#1F3D2B]">CT Scanner Active</span>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.cath_lab_operational}
@@ -1009,10 +1009,10 @@ export default function HospitalConsole() {
                       }
                       className="rounded text-[#1F3D2B]"
                     />
-                    <span className="text-xs font-bold text-[#082717]">Cath Lab Ready</span>
+                    <span className="text-xs font-bold text-[#1F3D2B]">Cath Lab Ready</span>
                   </label>
 
-                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] cursor-pointer">
+                  <label className="flex items-center gap-2.5 p-3 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={capacity.trauma_team_standby}
@@ -1021,14 +1021,14 @@ export default function HospitalConsole() {
                       }
                       className="rounded text-[#1F3D2B]"
                     />
-                    <span className="text-xs font-bold text-[#082717]">Trauma Team Standby</span>
+                    <span className="text-xs font-bold text-[#1F3D2B]">Trauma Team Standby</span>
                   </label>
                 </div>
               </div>
 
               {/* Diversion Mode Selector */}
               <div className="space-y-2">
-                <span className="text-xs font-bold text-[#082717] block">Hospital Intake & Diversion Policy</span>
+                <span className="text-xs font-bold text-[#1F3D2B] block">Hospital Intake & Diversion Policy</span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <button
                     type="button"
@@ -1036,11 +1036,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "NORMAL"
                         ? "bg-[#C8EBD1] border-[#10B981] text-[#022111]"
-                        : "bg-[#F6F3EE] border-[#E2DCD5] text-[#424843]"
+                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
                     }`}
                   >
                     ● NORMAL (Open)
-                    <span className="block text-[10px] font-normal text-[#64748B] mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
                       Accepting all casualties
                     </span>
                   </button>
@@ -1051,11 +1051,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "SURGE"
                         ? "bg-[#FEF3C7] border-[#F59E0B] text-[#D97706]"
-                        : "bg-[#F6F3EE] border-[#E2DCD5] text-[#424843]"
+                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
                     }`}
                   >
                     ● AMBER SURGE
-                    <span className="block text-[10px] font-normal text-[#64748B] mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
                       Critical trauma & cardiac only
                     </span>
                   </button>
@@ -1066,11 +1066,11 @@ export default function HospitalConsole() {
                     className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
                       acceptanceStatus === "DIVERT"
                         ? "bg-[#FFDAD6] border-[#BA1A1A] text-[#93000A]"
-                        : "bg-[#F6F3EE] border-[#E2DCD5] text-[#424843]"
+                        : "bg-[#14281C] border-[#1F3D2B]/20 text-[#1F3D2B]/80"
                     }`}
                   >
                     ● RED DIVERSION
-                    <span className="block text-[10px] font-normal text-[#64748B] mt-0.5">
+                    <span className="block text-[10px] font-normal text-[#1F3D2B]/65 mt-0.5">
                       Reroute to secondary facility
                     </span>
                   </button>
@@ -1093,50 +1093,50 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "telemetry" && selectedAlert && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-6">
-              <div className="flex items-center justify-between border-b border-[#E2DCD5] pb-4">
+              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-6">
+              <div className="flex items-center justify-between border-b border-[#1F3D2B]/20 pb-4">
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="bg-[#BA1A1A] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                       {selectedAlert.triage_category} PRIORITY
                     </span>
-                    <span className="text-xs text-[#64748B]">Case ID: #{selectedAlert.incident_id}</span>
+                    <span className="text-xs text-[#1F3D2B]/65">Case ID: #{selectedAlert.incident_id}</span>
                   </div>
-                  <h2 className="font-headline text-2xl font-extrabold text-[#082717] mt-1">
+                  <h2 className="font-headline text-2xl font-extrabold text-[#1F3D2B] mt-1">
                     {selectedAlert.suspected_condition}
                   </h2>
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] text-[#64748B] block uppercase">Ambulance Unit</span>
-                  <span className="font-headline text-lg font-bold text-[#082717]">{selectedAlert.ambulance_id}</span>
+                  <span className="text-[10px] text-[#1F3D2B]/65 block uppercase">Ambulance Unit</span>
+                  <span className="font-headline text-lg font-bold text-[#1F3D2B]">{selectedAlert.ambulance_id}</span>
                 </div>
               </div>
 
               {/* Complete Vitals telemetry block */}
               {selectedAlert.vitals && (
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="p-3.5 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                    <span className="text-[10px] text-[#64748B] uppercase block">Heart Rate</span>
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Heart Rate</span>
                     <span className="font-headline text-2xl font-extrabold text-[#BA1A1A]">
                       {selectedAlert.vitals.heart_rate} <span className="text-xs font-normal">bpm</span>
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                    <span className="text-[10px] text-[#64748B] uppercase block">Blood Pressure</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#082717]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Blood Pressure</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#1F3D2B]">
                       {selectedAlert.vitals.blood_pressure}
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                    <span className="text-[10px] text-[#64748B] uppercase block">Oxygen Sat (SpO2)</span>
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Oxygen Sat (SpO2)</span>
                     <span className="font-headline text-2xl font-extrabold text-[#10B981]">
                       {selectedAlert.vitals.spo2_pct}%
                     </span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5]">
-                    <span className="text-[10px] text-[#64748B] uppercase block">Glasgow Coma</span>
-                    <span className="font-headline text-2xl font-extrabold text-[#082717]">
+                  <div className="p-3.5 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20">
+                    <span className="text-[10px] text-[#1F3D2B]/65 uppercase block">Glasgow Coma</span>
+                    <span className="font-headline text-2xl font-extrabold text-[#1F3D2B]">
                       {selectedAlert.vitals.gcs} / 15
                     </span>
                   </div>
@@ -1144,15 +1144,15 @@ export default function HospitalConsole() {
               )}
 
               {/* Clinical AI Guidance with Required Disclaimer */}
-              <div className="p-4 rounded-xl bg-[#E9DDFF]/60 border border-[#8455EF]/30 space-y-2">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#5516BE]">
+              <div className="p-4 rounded-xl bg-[#8B5CF6]/60 border border-[#8B5CF6]/30 space-y-2">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#FFFFFF]">
                   <span className="material-symbols-outlined text-[18px]">verified</span>
                   <span>AI Clinical Decision Support Assessment</span>
                 </div>
-                <p className="text-xs text-[#082717] font-medium leading-relaxed">
+                <p className="text-xs text-[#1F3D2B] font-medium leading-relaxed">
                   Patient presents with acute ischemic indicators. Rapid Door-to-Balloon target &lt; 90 min recommended. Continuous telemetry streaming through NIVARAN gateway.
                 </p>
-                <div className="pt-2 border-t border-[#8455EF]/20 text-[10px] text-[#64748B] italic">
+                <div className="pt-2 border-t border-[#8B5CF6]/20 text-[10px] text-[#1F3D2B]/65 italic">
                   <strong>Clinical Decision Support Disclaimer:</strong> AI-generated triage insights to assist emergency physicians. Not a substitute for professional clinical judgment.
                 </div>
               </div>
@@ -1175,11 +1175,11 @@ export default function HospitalConsole() {
           ══════════════════════════════════════════════════════════════════ */}
           {activeTab === "paramedic" && (
             <div className="flex-1 min-h-0 overflow-y-auto pr-1">
-              <div className="bg-white p-6 rounded-2xl border border-[#E2DCD5] shadow-sm max-w-4xl space-y-4">
-              <h2 className="font-headline text-xl font-extrabold text-[#082717]">
+              <div className="bg-white p-6 rounded-2xl border border-[#1F3D2B]/20 shadow-sm max-w-4xl space-y-4">
+              <h2 className="font-headline text-xl font-extrabold text-[#1F3D2B]">
                 Field Telemetry & Paramedic Direct Bridge
               </h2>
-              <p className="text-xs text-[#64748B]">
+              <p className="text-xs text-[#1F3D2B]/65">
                 Real-time communication and ETA synchronisation with incoming ambulance crews.
               </p>
 
@@ -1187,14 +1187,14 @@ export default function HospitalConsole() {
                 {preAlerts.map((alert) => (
                   <div
                     key={alert.alert_id}
-                    className="p-4 rounded-xl bg-[#F6F3EE] border border-[#E2DCD5] flex items-center justify-between gap-4"
+                    className="p-4 rounded-xl bg-[#14281C] border border-[#1F3D2B]/20 flex items-center justify-between gap-4"
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm text-[#082717]">{alert.ambulance_id}</span>
-                        <span className="text-xs text-[#64748B]">· Case #{alert.incident_id}</span>
+                        <span className="font-bold text-sm text-[#1F3D2B]">{alert.ambulance_id}</span>
+                        <span className="text-xs text-[#1F3D2B]/65">· Case #{alert.incident_id}</span>
                       </div>
-                      <p className="text-xs text-[#64748B] mt-0.5">{alert.suspected_condition}</p>
+                      <p className="text-xs text-[#1F3D2B]/65 mt-0.5">{alert.suspected_condition}</p>
                     </div>
 
                     <div className="flex items-center gap-3">
