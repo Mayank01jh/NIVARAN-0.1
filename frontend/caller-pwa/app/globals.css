@@ -111,19 +111,49 @@ h1, h2, h3, h4, .font-headline {
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.35;
-  }
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.12); opacity: 0.35; }
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 2.5s infinite ease-in-out;
 }
+
+/* ── Login page custom animations ── */
+@keyframes ring {
+  0%   { transform: scale(0.45); opacity: 0.9; }
+  100% { transform: scale(1.25); opacity: 0;   }
+}
+.animate-ring {
+  animation: ring 3s ease-out infinite;
+  position: absolute; inset: 0;
+}
+
+@keyframes ecg {
+  0%       { stroke-dashoffset: 1; }
+  70%, 100% { stroke-dashoffset: 0; }
+}
+.animate-ecg {
+  animation: ecg 3s linear infinite;
+}
+
+@keyframes shake {
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+.animate-shake { animation: shake 0.4s; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-fade-in { animation: fade-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+.animate-draw         { animation: draw 0.7s 0.1s forwards; }
+.animate-draw-delayed { animation: draw 0.7s 0.7s forwards; }
 
 /* Reduced Motion Safety */
 @media (prefers-reduced-motion: reduce) {

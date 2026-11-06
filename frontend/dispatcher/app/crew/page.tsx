@@ -174,7 +174,7 @@ export default function AmbulanceCrewTerminal() {
       </header>
 
       {/* ── Main In-Cab Body ──────────────────────────────────────────────── */}
-      <main className="flex-1 min-h-0 overflow-y-auto p-4 max-w-5xl mx-auto w-full flex flex-col justify-between space-y-4">
+      <main className="flex-1 min-h-0 overflow-y-auto p-4 max-w-5xl mx-auto w-full flex flex-col gap-4">
         {/* Driving Lockout Notice if Active */}
         {safeDrivingLockout && (
           <div className="bg-[#BA1A1A] p-4 rounded-2xl flex items-center gap-3 shadow-lg text-white">
@@ -268,8 +268,75 @@ export default function AmbulanceCrewTerminal() {
           </div>
         </div>
 
+        {/* ── Mission Progress Timeline ─────────────────────────────────────── */}
+        <div className="bg-[#121316] border border-white/10 rounded-2xl p-4 shadow-lg">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest">Mission Progress</span>
+            <span className="text-[10px] font-mono text-[#C6F432] font-bold uppercase">{currentStep.replace("_", " ")}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            {(["DISPATCHED", "EN_ROUTE", "ON_SCENE", "TRANSPORTING", "AT_HOSPITAL", "HANDOVER_COMPLETE"] as CrewStep[]).map((step, idx) => {
+              const steps: CrewStep[] = ["DISPATCHED", "EN_ROUTE", "ON_SCENE", "TRANSPORTING", "AT_HOSPITAL", "HANDOVER_COMPLETE"];
+              const currentIdx = steps.indexOf(currentStep);
+              const isDone = idx < currentIdx;
+              const isActive = step === currentStep;
+              const labels = ["Dispatch", "En Route", "On Scene", "Transport", "At Hospital", "Handover"];
+              const icons = ["directions_car", "near_me", "location_on", "accessible", "local_hospital", "task_alt"];
+              return (
+                <div key={step} className="flex items-center flex-1">
+                  <div className="flex flex-col items-center gap-1 flex-1">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                      isDone ? "bg-[#C6F432]/20 border border-[#C6F432]/50" :
+                      isActive ? "bg-[#C6F432] shadow-lg shadow-[#C6F432]/30" :
+                      "bg-[#181A1F] border border-white/10"
+                    }`}>
+                      <span className={`material-symbols-outlined text-[14px] ${
+                        isDone ? "text-[#C6F432]" : isActive ? "text-[#0B0B0C]" : "text-white/30"
+                      }`}>{isDone ? "check" : icons[idx]}</span>
+                    </div>
+                    <span className={`text-[9px] font-bold text-center leading-tight ${
+                      isActive ? "text-[#C6F432]" : isDone ? "text-white/50" : "text-white/25"
+                    }`}>{labels[idx]}</span>
+                  </div>
+                  {idx < 5 && (
+                    <div className={`h-0.5 flex-1 mx-1 rounded-full transition-all ${
+                      isDone ? "bg-[#C6F432]/40" : "bg-white/10"
+                    }`} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Crew Quick-Reference Panel ────────────────────────────────────── */}
+        {currentStep !== "STANDBY" && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="bg-[#121316] border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+              <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Protocol</span>
+              <span className="text-[11px] font-bold text-[#C6F432]">STEMI — ACS</span>
+              <span className="text-[9px] text-white/60">Cath Lab Alert Active</span>
+            </div>
+            <div className="bg-[#121316] border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+              <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Receiving</span>
+              <span className="text-[11px] font-bold text-white truncate">{destinationHospital}</span>
+              <span className="text-[9px] text-[#C6F432] font-mono">Trauma Bay 1</span>
+            </div>
+            <div className="bg-[#121316] border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+              <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider">Drugs Given</span>
+              <span className="text-[11px] font-bold text-white">Aspirin 325mg</span>
+              <span className="text-[9px] text-white/60">Heparin 5000U IV</span>
+            </div>
+            <div className="bg-[#121316] border border-white/10 rounded-xl p-3 flex flex-col gap-1">
+              <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider">12-Lead ECG</span>
+              <span className="text-[11px] font-bold text-[#F87171]">ST Elevation</span>
+              <span className="text-[9px] text-white/60">V2–V5 · Anterior</span>
+            </div>
+          </div>
+        )}
+
         {/* ── Giant In-Cab Tactical Action Buttons (Sequential Life-Cycle) ──── */}
-        <div className="space-y-3 pt-2">
+        <div className="space-y-3">
           {/* Step 1: DISPATCHED -> ACKNOWLEDGE */}
           {currentStep === "DISPATCHED" && (
             <button

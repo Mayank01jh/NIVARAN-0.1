@@ -122,7 +122,8 @@ export default function HospitalConsole() {
   // Quick Clinical Readiness Toggles
   const toggleCathLab = () => {
     setCapacity((prev) => {
-      const next = { ...prev, cath_lab_operational: !prev.cath_lab_operational };
+      const nextVal = !prev.cath_lab_operational;
+      const next = { ...prev, cath_lab_operational: nextVal };
       apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
       return next;
     });
@@ -130,7 +131,8 @@ export default function HospitalConsole() {
 
   const toggleTraumaTeam = () => {
     setCapacity((prev) => {
-      const next = { ...prev, trauma_team_standby: !prev.trauma_team_standby };
+      const nextVal = !prev.trauma_team_standby;
+      const next = { ...prev, trauma_team_standby: nextVal };
       apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
       return next;
     });
@@ -138,7 +140,8 @@ export default function HospitalConsole() {
 
   const toggleCtScanner = () => {
     setCapacity((prev) => {
-      const next = { ...prev, ct_scanner_operational: !prev.ct_scanner_operational };
+      const nextVal = !prev.ct_scanner_operational;
+      const next = { ...prev, ct_scanner_operational: nextVal };
       apiClient.updateCapacity(selectedHospitalId, next).catch(() => {});
       return next;
     });
@@ -518,17 +521,19 @@ export default function HospitalConsole() {
             <div>
               <div className="flex items-center justify-between px-2 mb-2.5">
                 <span className="text-[10px] font-extrabold text-[#E8DCC4] uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
+                  <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shadow-sm shadow-[#8B5CF6]/50"></span>
                   Clinical Readiness
                 </span>
-                <span className="text-[9px] text-[#E8DCC4]/90 font-mono bg-[#1F3D2B] px-1.5 py-0.5 rounded border border-white/10">Interactive</span>
+                <span className="text-[9px] text-[#C6F432] font-mono bg-[#14281C] px-2 py-0.5 rounded border border-[#C6F432]/30 font-bold uppercase tracking-wider">
+                  Live Toggle
+                </span>
               </div>
               <div className="space-y-2 text-xs">
                 {/* Cath Lab Toggle */}
                 <button
                   type="button"
                   onClick={toggleCathLab}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1D3625] hover:bg-[#254530] border border-white/20 hover:border-[#8B5CF6] transition-all text-white active:scale-95 group cursor-pointer shadow-md text-left"
                   title="Click to toggle Cath Lab availability"
                   role="switch"
                   aria-checked={capacity.cath_lab_operational}
@@ -540,8 +545,8 @@ export default function HospitalConsole() {
                     <span
                       className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                         capacity.cath_lab_operational
-                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
-                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/50"
+                          : "bg-[#BA1A1A]/30 text-[#FCA5A5] border border-[#BA1A1A]/50"
                       }`}
                     >
                       <span
@@ -552,11 +557,11 @@ export default function HospitalConsole() {
                       {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
                     </span>
                     <div
-                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                      className={`w-8 h-4.5 rounded-full p-0.5 transition-colors flex items-center shadow-inner ${
                         capacity.cath_lab_operational ? "bg-[#10B981] justify-end" : "bg-white/20 justify-start"
                       }`}
                     >
-                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                      <div className="w-3.5 h-3.5 rounded-full bg-white shadow-md"></div>
                     </div>
                   </div>
                 </button>
@@ -565,7 +570,7 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleTraumaTeam}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1D3625] hover:bg-[#254530] border border-white/20 hover:border-[#8B5CF6] transition-all text-white active:scale-95 group cursor-pointer shadow-md text-left"
                   title="Click to toggle Trauma Team status"
                   role="switch"
                   aria-checked={capacity.trauma_team_standby}
@@ -577,8 +582,8 @@ export default function HospitalConsole() {
                     <span
                       className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                         capacity.trauma_team_standby
-                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
-                          : "bg-[#D97706]/25 text-[#FBBF24] border border-[#D97706]/40"
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/50"
+                          : "bg-[#D97706]/30 text-[#FCD34D] border border-[#D97706]/50"
                       }`}
                     >
                       <span
@@ -589,11 +594,11 @@ export default function HospitalConsole() {
                       {capacity.trauma_team_standby ? "STANDBY" : "ENGAGED"}
                     </span>
                     <div
-                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                      className={`w-8 h-4.5 rounded-full p-0.5 transition-colors flex items-center shadow-inner ${
                         capacity.trauma_team_standby ? "bg-[#10B981] justify-end" : "bg-[#D97706] justify-start"
                       }`}
                     >
-                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                      <div className="w-3.5 h-3.5 rounded-full bg-white shadow-md"></div>
                     </div>
                   </div>
                 </button>
@@ -602,7 +607,7 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleCtScanner}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1D3625] hover:bg-[#254530] border border-white/20 hover:border-[#8B5CF6] transition-all text-white active:scale-95 group cursor-pointer shadow-md text-left"
                   title="Click to toggle CT Scanner operational status"
                   role="switch"
                   aria-checked={capacity.ct_scanner_operational}
@@ -614,8 +619,8 @@ export default function HospitalConsole() {
                     <span
                       className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                         capacity.ct_scanner_operational
-                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
-                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/50"
+                          : "bg-[#BA1A1A]/30 text-[#FCA5A5] border border-[#BA1A1A]/50"
                       }`}
                     >
                       <span
@@ -626,11 +631,11 @@ export default function HospitalConsole() {
                       {capacity.ct_scanner_operational ? "OPERATIONAL" : "SERVICE"}
                     </span>
                     <div
-                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                      className={`w-8 h-4.5 rounded-full p-0.5 transition-colors flex items-center shadow-inner ${
                         capacity.ct_scanner_operational ? "bg-[#10B981] justify-end" : "bg-white/20 justify-start"
                       }`}
                     >
-                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                      <div className="w-3.5 h-3.5 rounded-full bg-white shadow-md"></div>
                     </div>
                   </div>
                 </button>
@@ -639,7 +644,7 @@ export default function HospitalConsole() {
                 <button
                   type="button"
                   onClick={toggleBloodBank}
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1D3625] hover:bg-[#254530] border border-white/20 hover:border-[#8B5CF6] transition-all text-white active:scale-95 group cursor-pointer shadow-md text-left"
                   title="Click to toggle Blood Bank reserve status"
                   role="switch"
                   aria-checked={bloodBankNormal}
@@ -651,8 +656,8 @@ export default function HospitalConsole() {
                     <span
                       className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
                         bloodBankNormal
-                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
-                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/50"
+                          : "bg-[#BA1A1A]/30 text-[#FCA5A5] border border-[#BA1A1A]/50"
                       }`}
                     >
                       <span
@@ -663,11 +668,11 @@ export default function HospitalConsole() {
                       {bloodBankNormal ? "12 UNITS" : "4 UNITS (LOW)"}
                     </span>
                     <div
-                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                      className={`w-8 h-4.5 rounded-full p-0.5 transition-colors flex items-center shadow-inner ${
                         bloodBankNormal ? "bg-[#10B981] justify-end" : "bg-[#BA1A1A] justify-start"
                       }`}
                     >
-                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                      <div className="w-3.5 h-3.5 rounded-full bg-white shadow-md"></div>
                     </div>
                   </div>
                 </button>
