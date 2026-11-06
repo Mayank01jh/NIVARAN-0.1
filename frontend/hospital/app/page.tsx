@@ -11,6 +11,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { apiClient, type PreAlertData } from "../lib/apiClient";
 
 type ActiveTab = "radar" | "capacity" | "telemetry" | "paramedic";
@@ -91,6 +92,35 @@ const INITIAL_PRE_ALERTS: PreAlertData[] = [
 ];
 
 export default function HospitalConsole() {
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_hospital_session");
+      if (!s) {
+        router.replace("/login");
+        return;
+      }
+      const parsed = JSON.parse(s);
+      if (parsed && parsed.authenticated) {
+        setIsAuthenticated(true);
+      } else {
+        router.replace("/login");
+      }
+    } catch {
+      router.replace("/login");
+    }
+  }, [router]);
+
+  const handleSignOut = () => {
+    try {
+      localStorage.removeItem("nivaran_hospital_session");
+      document.cookie = "nivaran_hospital_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } catch {}
+    router.replace("/login");
+  };
+
   const [activeTab, setActiveTab] = useState<ActiveTab>("radar");
   const [selectedHospitalId, setSelectedHospitalId] = useState<string>("hosp-aiims-01");
   const [hospitalName, setHospitalName] = useState<string>("AIIMS Apex Trauma Center");
@@ -324,6 +354,19 @@ export default function HospitalConsole() {
     return `${m}m ${s < 10 ? "0" : ""}${s}s`;
   };
 
+  if (isAuthenticated === null) {
+    return (
+      <div className="h-[100dvh] w-screen bg-[#E8DCC4] text-[#1F3D2B] flex flex-col items-center justify-center p-6 font-sans select-none">
+        <div className="w-16 h-16 rounded-2xl bg-[#1F3D2B] flex items-center justify-center mb-4 shadow-xl border border-white/20 p-2">
+          <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="w-8 h-8 rounded-full border-2 border-[#1F3D2B]/20 border-t-[#8B5CF6] animate-spin mb-3"></div>
+        <p className="font-headline font-bold text-sm text-[#1F3D2B]">Verifying Clinical Credentials...</p>
+        <p className="text-xs text-[#1F3D2B]/70 mt-1">NIVARAN Emergency Medicine Network</p>
+      </div>
+    );
+  }
+
   return (
     <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#E8DCC4] text-[#1F3D2B] flex flex-col font-sans selection:bg-[#1F3D2B] selection:text-white">
       {/* ── Header (Stitch design specification) ────────────────── */}
@@ -435,6 +478,14 @@ export default function HospitalConsole() {
             <div className="w-8 h-8 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center font-bold text-xs shadow-sm">
               SN
             </div>
+            <button
+              onClick={handleSignOut}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#14281C] hover:bg-[#BA1A1A] text-[#E8DCC4] hover:text-white border border-white/10 text-xs font-bold transition-all shadow-sm"
+              title="Sign Out of Hospital Console"
+            >
+              <span className="material-symbols-outlined text-[16px]">logout</span>
+              <span className="hidden sm:inline">Sign Out</span>
+            </button>
           </div>
         </div>
       </header>

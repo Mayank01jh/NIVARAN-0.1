@@ -229,6 +229,19 @@ export default function HospitalLoginPage() {
   const [lockedUntil, setLockedUntil] = useState(0);
   const [lockMsg, setLockMsg] = useState("");
 
+  // Redirect if already authenticated
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_hospital_session");
+      if (s) {
+        const parsed = JSON.parse(s);
+        if (parsed.authenticated) {
+          router.replace("/");
+        }
+      }
+    } catch {}
+  }, [router]);
+
   useEffect(() => {
     if (!lockedUntil) return;
     const t = setInterval(() => {
@@ -493,7 +506,20 @@ export default function HospitalLoginPage() {
                 Casualty radar is live for {facilityId}.
               </p>
               <button
-                onClick={() => router.push("/")}
+                onClick={() => {
+                  const sessionData = {
+                    facilityId: facilityId || "AIIMS-ED-01",
+                    staffId: staffId || "REG-9941",
+                    role: "Duty Lead / Triage Chief",
+                    authenticated: true,
+                    loginTime: new Date().toISOString(),
+                  };
+                  try {
+                    localStorage.setItem("nivaran_hospital_session", JSON.stringify(sessionData));
+                    document.cookie = "nivaran_hospital_session=1; path=/; max-age=86400";
+                  } catch {}
+                  router.push("/");
+                }}
                 className="w-full py-3.5 rounded-xl bg-[#8B5CF6] hover:bg-[#7c3aed] text-white font-headline font-bold text-base transition-all active:scale-95"
               >
                 Open ED command

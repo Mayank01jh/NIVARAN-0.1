@@ -173,6 +173,23 @@ export default function DispatcherLoginPage() {
   const [lockedUntil, setLockedUntil] = useState(0);
   const [lockMsg, setLockMsg] = useState("");
 
+  // Redirect if already authenticated
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_dispatcher_session");
+      if (s) {
+        const parsed = JSON.parse(s);
+        if (parsed.authenticated) {
+          if (parsed.role === "CREW") {
+            router.replace("/crew");
+          } else {
+            router.replace("/");
+          }
+        }
+      }
+    } catch {}
+  }, [router]);
+
   useEffect(() => {
     if (!lockedUntil) return;
     const t = setInterval(() => {
@@ -384,10 +401,27 @@ export default function DispatcherLoginPage() {
                 {unit} is online and receiving dispatch.
               </p>
               <button
-                onClick={() => router.push("/")}
+                onClick={() => {
+                  const isCrew = unit.startsWith("DL-");
+                  const sessionData = {
+                    unitId: unit,
+                    role: isCrew ? "CREW" : "DISPATCHER",
+                    authenticated: true,
+                    loginTime: new Date().toISOString(),
+                  };
+                  try {
+                    localStorage.setItem("nivaran_dispatcher_session", JSON.stringify(sessionData));
+                    document.cookie = "nivaran_dispatcher_session=1; path=/; max-age=86400";
+                  } catch {}
+                  if (isCrew) {
+                    router.push("/crew");
+                  } else {
+                    router.push("/");
+                  }
+                }}
                 className="w-full py-3.5 rounded-xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline font-extrabold text-base transition-all active:scale-95"
               >
-                Open crew terminal
+                {unit.startsWith("DL-") ? "Open In-Cab Crew Terminal" : "Open CAD Command Console"}
               </button>
               <Note>
                 Session expires after 15 minutes of inactivity. This is a

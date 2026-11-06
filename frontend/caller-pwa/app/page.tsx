@@ -11,12 +11,42 @@
  */
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { apiClient } from "@/lib/apiClient";
 
 type ScreenId = "home" | "hotline" | "tracking" | "settings";
 type Severity = "Critical" | "High" | "Medium" | "Low";
 
 export default function CitizenApp() {
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_citizen_session");
+      if (!s) {
+        router.replace("/login");
+        return;
+      }
+      const parsed = JSON.parse(s);
+      if (parsed && parsed.authenticated) {
+        setIsAuthenticated(true);
+      } else {
+        router.replace("/login");
+      }
+    } catch {
+      router.replace("/login");
+    }
+  }, [router]);
+
+  const handleSignOut = () => {
+    try {
+      localStorage.removeItem("nivaran_citizen_session");
+      document.cookie = "nivaran_citizen_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } catch {}
+    router.replace("/login");
+  };
+
   const [currentScreen, setCurrentScreen] = useState<ScreenId>("home");
   const [viewMode, setViewMode] = useState<"phone" | "fluid">("phone");
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -354,6 +384,19 @@ export default function CitizenApp() {
     setCurrentScreen("tracking");
   };
 
+  if (isAuthenticated === null) {
+    return (
+      <div className="h-[100dvh] w-screen bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center p-6 font-sans select-none">
+        <div className="w-16 h-16 rounded-2xl bg-[#14213D] flex items-center justify-center mb-4 shadow-xl border border-white/20 p-2">
+          <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="w-8 h-8 rounded-full border-2 border-[#14213D]/20 border-t-[#B91C1C] animate-spin mb-3"></div>
+        <p className="font-headline font-bold text-sm text-[#14213D]">Verifying Citizen Credentials...</p>
+        <p className="text-xs text-[#14213D]/60 mt-1">NIVARAN Lifeline Security Bridge</p>
+      </div>
+    );
+  }
+
   return (
     <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#F4EDE0] text-[#14213D] flex flex-col items-center justify-center selection:bg-[#B91C1C] selection:text-white overscroll-none">
       {/* Toast notification — replaces window.alert() */}
@@ -444,6 +487,14 @@ export default function CitizenApp() {
               title="Profile & Settings"
             >
               <span className="material-symbols-outlined text-[18px]">person</span>
+            </button>
+            <button
+              onClick={handleSignOut}
+              className="h-9 px-2.5 rounded-full bg-[#14213D]/80 border border-[#F4EDE0]/20 text-[#F4EDE0]/90 hover:bg-[#B91C1C] hover:text-white flex items-center gap-1 text-xs font-bold transition-all"
+              title="Sign Out of Citizen Lifeline"
+            >
+              <span className="material-symbols-outlined text-[16px]">logout</span>
+              <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
         </header>

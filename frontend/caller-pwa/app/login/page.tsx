@@ -287,6 +287,19 @@ export default function CitizenLoginPage() {
   }, [view]);
 
   // lock countdown
+  // Redirect if already authenticated
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_citizen_session");
+      if (s) {
+        const parsed = JSON.parse(s);
+        if (parsed.authenticated) {
+          router.replace("/");
+        }
+      }
+    } catch {}
+  }, [router]);
+
   useEffect(() => {
     if (!lockedUntil) return;
     const t = setInterval(() => {
@@ -646,7 +659,21 @@ export default function CitizenLoginPage() {
               }
               sub="Your SOS button is ready."
               btnLabel="Open SOS home"
-              onContinue={() => router.push("/")}
+              onContinue={() => {
+                const sessionData = {
+                  phone: phone || "9810123456",
+                  name: name || (mode === "register" ? "Registered Citizen" : "Verified Citizen"),
+                  emergencyContact: ec || "",
+                  bloodGroup: blood,
+                  authenticated: true,
+                  loginTime: new Date().toISOString(),
+                };
+                try {
+                  localStorage.setItem("nivaran_citizen_session", JSON.stringify(sessionData));
+                  document.cookie = "nivaran_citizen_session=1; path=/; max-age=86400";
+                } catch {}
+                router.push("/");
+              }}
             />
           )}
         </section>

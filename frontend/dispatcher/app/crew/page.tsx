@@ -20,6 +20,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { apiClient } from "@/lib/apiClient";
 
 type CrewStep =
@@ -33,6 +34,38 @@ type CrewStep =
   | "HANDOVER_COMPLETE";
 
 export default function AmbulanceCrewTerminal() {
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    try {
+      const s = localStorage.getItem("nivaran_dispatcher_session");
+      if (!s) {
+        router.replace("/login");
+        return;
+      }
+      const parsed = JSON.parse(s);
+      if (parsed && parsed.authenticated) {
+        setIsAuthenticated(true);
+        if (parsed.unitId && parsed.unitId.startsWith("DL-")) {
+          setRegistration(parsed.unitId);
+        }
+      } else {
+        router.replace("/login");
+      }
+    } catch {
+      router.replace("/login");
+    }
+  }, [router]);
+
+  const handleSignOut = () => {
+    try {
+      localStorage.removeItem("nivaran_dispatcher_session");
+      document.cookie = "nivaran_dispatcher_session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    } catch {}
+    router.replace("/login");
+  };
+
   const [currentStep, setCurrentStep] = useState<CrewStep>("DISPATCHED");
   const [unitId, setUnitId] = useState<string>("amb-delhi-1081");
   const [registration, setRegistration] = useState<string>("DL-01-AMB-1081");
@@ -113,6 +146,19 @@ export default function AmbulanceCrewTerminal() {
     return `${m}m ${s < 10 ? "0" : ""}${s}s`;
   };
 
+  if (isAuthenticated === null) {
+    return (
+      <div className="h-[100dvh] w-screen bg-[#0B0B0C] text-white flex flex-col items-center justify-center p-6 font-sans select-none">
+        <div className="w-16 h-16 rounded-2xl bg-[#121316] flex items-center justify-center mb-4 shadow-xl border border-white/20 p-2">
+          <img src="/nivaran-icon.png" alt="NIVARAN" className="w-10 h-10 object-contain" />
+        </div>
+        <div className="w-8 h-8 rounded-full border-2 border-white/20 border-t-[#C6F432] animate-spin mb-3"></div>
+        <p className="font-headline font-bold text-sm text-white">Verifying Ambulance Terminal Binding...</p>
+        <p className="text-xs text-white/50 mt-1">GNCTD Advanced Life Support Fleet</p>
+      </div>
+    );
+  }
+
   return (
     <div className="h-[100dvh] max-h-[100dvh] overflow-hidden bg-[#0B0B0C] text-white flex flex-col font-sans select-none selection:bg-[#C6F432] selection:text-[#0B0B0C]">
       {/* ── Top In-Cab Command Bar (60:30:10 Midnight & Lime Specification) ───── */}
@@ -170,6 +216,16 @@ export default function AmbulanceCrewTerminal() {
           >
             CAD Console
           </Link>
+
+          {/* Sign Out */}
+          <button
+            onClick={handleSignOut}
+            className="px-3 py-1 rounded-lg bg-[#181A1F] hover:bg-[#BA1A1A] border border-white/15 text-white/80 hover:text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm"
+            title="Sign out of In-Cab Terminal"
+          >
+            <span className="material-symbols-outlined text-[16px]">logout</span>
+            <span className="hidden sm:inline">Sign Out</span>
+          </button>
         </div>
       </header>
 
