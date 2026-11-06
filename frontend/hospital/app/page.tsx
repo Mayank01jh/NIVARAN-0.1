@@ -516,107 +516,160 @@ export default function HospitalConsole() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between px-2 mb-2">
-                <span className="text-[10px] font-bold text-[#E8DCC4] uppercase tracking-wider">
+              <div className="flex items-center justify-between px-2 mb-2.5">
+                <span className="text-[10px] font-extrabold text-[#E8DCC4] uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
                   Clinical Readiness
                 </span>
-                <span className="text-[9px] text-[#E8DCC4]/80 font-mono">Click to toggle</span>
+                <span className="text-[9px] text-[#E8DCC4]/90 font-mono bg-[#1F3D2B] px-1.5 py-0.5 rounded border border-white/10">Interactive</span>
               </div>
-              <div className="space-y-1.5 text-xs">
+              <div className="space-y-2 text-xs">
                 {/* Cath Lab Toggle */}
                 <button
                   type="button"
                   onClick={toggleCathLab}
-                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
                   title="Click to toggle Cath Lab availability"
+                  role="switch"
+                  aria-checked={capacity.cath_lab_operational}
                 >
-                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Cath Lab Status</span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
-                      capacity.cath_lab_operational
-                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
-                    }`}
-                  >
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        capacity.cath_lab_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
-                      }`}
-                    ></span>
-                    {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
+                  <span className="font-bold text-white text-xs group-hover:text-[#E8DCC4] transition-colors">
+                    Cath Lab Status
                   </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                        capacity.cath_lab_operational
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
+                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                      }`}
+                    >
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          capacity.cath_lab_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
+                        }`}
+                      ></span>
+                      {capacity.cath_lab_operational ? "READY" : "OFFLINE"}
+                    </span>
+                    <div
+                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                        capacity.cath_lab_operational ? "bg-[#10B981] justify-end" : "bg-white/20 justify-start"
+                      }`}
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                    </div>
+                  </div>
                 </button>
 
                 {/* Trauma Team Alpha Toggle */}
                 <button
                   type="button"
                   onClick={toggleTraumaTeam}
-                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
                   title="Click to toggle Trauma Team status"
+                  role="switch"
+                  aria-checked={capacity.trauma_team_standby}
                 >
-                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Trauma Team Alpha</span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
-                      capacity.trauma_team_standby
-                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#D97706]/25 text-[#FBBF24] border border-[#D97706]/40"
-                    }`}
-                  >
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        capacity.trauma_team_standby ? "bg-[#10B981] animate-pulse" : "bg-[#FBBF24]"
-                      }`}
-                    ></span>
-                    {capacity.trauma_team_standby ? "STANDBY" : "ENGAGED"}
+                  <span className="font-bold text-white text-xs group-hover:text-[#E8DCC4] transition-colors">
+                    Trauma Team Alpha
                   </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                        capacity.trauma_team_standby
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
+                          : "bg-[#D97706]/25 text-[#FBBF24] border border-[#D97706]/40"
+                      }`}
+                    >
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          capacity.trauma_team_standby ? "bg-[#10B981] animate-pulse" : "bg-[#FBBF24]"
+                        }`}
+                      ></span>
+                      {capacity.trauma_team_standby ? "STANDBY" : "ENGAGED"}
+                    </span>
+                    <div
+                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                        capacity.trauma_team_standby ? "bg-[#10B981] justify-end" : "bg-[#D97706] justify-start"
+                      }`}
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                    </div>
+                  </div>
                 </button>
 
                 {/* CT Scanner Toggle */}
                 <button
                   type="button"
                   onClick={toggleCtScanner}
-                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
                   title="Click to toggle CT Scanner operational status"
+                  role="switch"
+                  aria-checked={capacity.ct_scanner_operational}
                 >
-                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">CT Scanner</span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
-                      capacity.ct_scanner_operational
-                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
-                    }`}
-                  >
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        capacity.ct_scanner_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
-                      }`}
-                    ></span>
-                    {capacity.ct_scanner_operational ? "OPERATIONAL" : "SERVICE"}
+                  <span className="font-bold text-white text-xs group-hover:text-[#E8DCC4] transition-colors">
+                    CT Scanner
                   </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                        capacity.ct_scanner_operational
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
+                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                      }`}
+                    >
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          capacity.ct_scanner_operational ? "bg-[#10B981] animate-pulse" : "bg-[#F87171]"
+                        }`}
+                      ></span>
+                      {capacity.ct_scanner_operational ? "OPERATIONAL" : "SERVICE"}
+                    </span>
+                    <div
+                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                        capacity.ct_scanner_operational ? "bg-[#10B981] justify-end" : "bg-white/20 justify-start"
+                      }`}
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                    </div>
+                  </div>
                 </button>
 
                 {/* Blood Bank Toggle */}
                 <button
                   type="button"
                   onClick={toggleBloodBank}
-                  className="w-full flex items-center justify-between py-2 px-2.5 rounded-lg bg-[#1F3D2B]/80 hover:bg-[#1F3D2B] border border-white/10 transition-all text-[#E8DCC4] active:scale-98 group cursor-pointer"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl bg-[#1F3D2B] hover:bg-[#284E37] border border-white/15 hover:border-[#8B5CF6]/50 transition-all text-white active:scale-95 group cursor-pointer shadow-sm text-left"
                   title="Click to toggle Blood Bank reserve status"
+                  role="switch"
+                  aria-checked={bloodBankNormal}
                 >
-                  <span className="font-semibold text-[#E8DCC4] group-hover:text-white">Blood Bank (O-Neg)</span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
-                      bloodBankNormal
-                        ? "bg-[#10B981]/25 text-[#10B981] border border-[#10B981]/40"
-                        : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
-                    }`}
-                  >
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        bloodBankNormal ? "bg-[#10B981]" : "bg-[#F87171] animate-ping"
-                      }`}
-                    ></span>
-                    {bloodBankNormal ? "12 UNITS" : "4 UNITS (LOW)"}
+                  <span className="font-bold text-white text-xs group-hover:text-[#E8DCC4] transition-colors">
+                    Blood Bank (O-Neg)
                   </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className={`px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase flex items-center gap-1 transition-all ${
+                        bloodBankNormal
+                          ? "bg-[#10B981]/25 text-[#34D399] border border-[#10B981]/40"
+                          : "bg-[#BA1A1A]/25 text-[#F87171] border border-[#BA1A1A]/40"
+                      }`}
+                    >
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full ${
+                          bloodBankNormal ? "bg-[#10B981]" : "bg-[#F87171] animate-ping"
+                        }`}
+                      ></span>
+                      {bloodBankNormal ? "12 UNITS" : "4 UNITS (LOW)"}
+                    </span>
+                    <div
+                      className={`w-7 h-4 rounded-full p-0.5 transition-colors flex items-center ${
+                        bloodBankNormal ? "bg-[#10B981] justify-end" : "bg-[#BA1A1A] justify-start"
+                      }`}
+                    >
+                      <div className="w-3 h-3 rounded-full bg-white shadow"></div>
+                    </div>
+                  </div>
                 </button>
               </div>
             </div>
