@@ -42,7 +42,7 @@ async def analyze_speech_with_gemini(transcript: str) -> dict[str, Any]:
         try:
             import google.generativeai as genai
             genai.configure(api_key=api_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             response = await model.generate_content_async(TRIAGE_PROMPT + f'"{transcript}"')
             text = response.text.strip()
             # Extract JSON block if wrapped in markdown
@@ -63,7 +63,7 @@ async def transcribe_and_triage_audio(audio_bytes: bytes, mime_type: str = "audi
         try:
             import google.generativeai as genai
             genai.configure(api_key=api_key)
-            model = genai.GenerativeModel("gemini-1.5-flash")
+            model = genai.GenerativeModel("gemini-2.5-flash")
             audio_part = {
                 "mime_type": mime_type,
                 "data": audio_bytes,
