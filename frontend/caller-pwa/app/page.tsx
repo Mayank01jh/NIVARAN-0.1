@@ -452,19 +452,19 @@ export default function CitizenApp() {
         }`}
       >
         {/* App Header (30% Navy structure with Cream & Coral accents) */}
-        <header className="flex-shrink-0 bg-[#14213D] px-4 py-3 flex items-center justify-between border-b border-[#0E182D] shadow-md z-30 text-[#F4EDE0]">
-          <div className="flex items-center gap-2">
-            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-9 w-9 object-contain rounded-xl shadow-sm bg-[#0E182D] border border-white/20 p-0.5" />
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-headline font-extrabold text-[#F4EDE0] text-lg tracking-tight leading-none">
+        <header className="flex-shrink-0 bg-[#14213D] px-3.5 py-2.5 flex items-center justify-between border-b border-[#0E182D] shadow-md z-30 text-[#F4EDE0]">
+          <div className="flex items-center gap-2 min-w-0 pr-2">
+            <img src="/nivaran-icon.png" alt="NIVARAN" className="h-8 w-8 object-contain rounded-xl shadow-sm bg-[#0E182D] border border-white/20 p-0.5 shrink-0" />
+            <div className="flex flex-col min-w-0">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <span className="font-headline font-extrabold text-[#F4EDE0] text-base tracking-tight leading-none truncate">
                   NIVARAN
                 </span>
-                <span className="px-1.5 py-0.5 rounded-full bg-[#B91C1C] text-white text-[10px] uppercase font-bold tracking-wider">
+                <span className="px-1.5 py-0.5 rounded-full bg-[#FF6B5B] text-white text-[9px] uppercase font-bold tracking-wider shrink-0 leading-none">
                   Lifeline
                 </span>
               </div>
-              <span className="text-[11px] text-[#F4EDE0]/70 font-medium leading-none mt-0.5">
+              <span className="text-[10px] text-[#F4EDE0]/70 font-medium leading-none mt-1 truncate">
                 {currentScreen === "home" && "Citizen SOS"}
                 {currentScreen === "hotline" && "Bilingual AI Triage"}
                 {currentScreen === "tracking" && "Live CAD Telemetry"}
@@ -473,28 +473,29 @@ export default function CitizenApp() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 shrink-0">
             <a
               href="tel:112"
-              className="h-9 px-3 rounded-full bg-[#B91C1C] hover:bg-[#991B1B] text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all"
+              className="h-8 px-2.5 rounded-full bg-[#FF6B5B] hover:bg-[#e85a4a] text-white text-xs font-bold flex items-center gap-1 shadow-md active:scale-95 transition-all shrink-0"
+              title="Emergency Call 112"
             >
-              <span className="material-symbols-outlined text-[16px]">call</span>
-              <span>112</span>
+              <span className="material-symbols-outlined text-[15px]">call</span>
+              <span className="font-mono">112</span>
             </a>
             <button
               onClick={() => setCurrentScreen("settings")}
-              className="w-9 h-9 rounded-full bg-[#14213D]/60 border border-[#F4EDE0]/20 text-[#F4EDE0] flex items-center justify-center hover:bg-[#F4EDE0]/10 transition-all"
+              className="w-8 h-8 rounded-full bg-[#14213D] border border-[#F4EDE0]/20 text-[#F4EDE0] flex items-center justify-center hover:bg-[#F4EDE0]/10 transition-all shrink-0"
               title="Profile & Settings"
             >
-              <span className="material-symbols-outlined text-[18px]">person</span>
+              <span className="material-symbols-outlined text-[17px]">person</span>
             </button>
             <button
               onClick={handleSignOut}
-              className="h-9 px-2.5 rounded-full bg-[#14213D]/80 border border-[#F4EDE0]/20 text-[#F4EDE0]/90 hover:bg-[#B91C1C] hover:text-white flex items-center gap-1 text-xs font-bold transition-all"
+              className="h-8 w-8 md:w-auto md:px-2.5 rounded-full bg-[#14213D] border border-[#F4EDE0]/20 text-[#F4EDE0]/90 hover:bg-[#BA1A1A] hover:text-white flex items-center justify-center gap-1 text-xs font-bold transition-all shrink-0"
               title="Sign Out of Citizen Lifeline"
             >
-              <span className="material-symbols-outlined text-[16px]">logout</span>
-              <span className="hidden sm:inline">Logout</span>
+              <span className="material-symbols-outlined text-[15px]">logout</span>
+              <span className="hidden md:inline">Logout</span>
             </button>
           </div>
         </header>
