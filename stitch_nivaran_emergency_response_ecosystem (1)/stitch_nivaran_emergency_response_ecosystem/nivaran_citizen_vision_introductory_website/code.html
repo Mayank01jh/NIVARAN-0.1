@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#2a1800", "tertiary": "#130900", "primary": "#000a24", "surface-bright": "#fff9ee", "surface-container-highest": "#e9e2d5", "surface-variant": "#e9e2d5", "on-primary-fixed": "#0d1b36", "on-background": "#1e1b14", "tertiary-fixed": "#ffddb6", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-container-lowest": "#ffffff", "on-tertiary-fixed-variant": "#5c421e", "error": "#ba1a1a", "outline": "#75777e", "secondary-fixed": "#ffdad5", "inverse-primary": "#b9c6ea", "secondary": "#ae3026", "primary-container": "#14213d", "surface": "#fff9ee", "primary-fixed-dim": "#b9c6ea", "outline-variant": "#c5c6ce", "inverse-on-surface": "#f7f0e3", "on-secondary-fixed-variant": "#8c1712", "background": "#fff9ee", "on-primary-fixed-variant": "#3a4664", "surface-tint": "#525e7d", "on-secondary-container": "#690003", "inverse-surface": "#333028", "on-surface-variant": "#45464d", "on-primary": "#ffffff", "on-secondary": "#ffffff", "on-surface": "#1e1b14", "secondary-container": "#fc6959", "on-primary-container": "#7c89aa", "on-tertiary-container": "#a58359", "on-error": "#ffffff", "secondary-fixed-dim": "#ffb4aa", "surface-dim": "#e0d9cd", "primary-fixed": "#d9e2ff", "tertiary-container": "#321d00", "surface-container": "#f4ede0", "on-secondary-fixed": "#410001", "tertiary-fixed-dim": "#e7c092", "on-tertiary": "#ffffff", "surface-container-low": "#faf3e6", "surface-container-high": "#eee7db" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "3rem", "gutter-lg": "2.5rem", "space-xs": "0.25rem", "gutter-sm": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem", "margin-sm": "1.25rem", "gutter": "1.5rem", "margin-lg": "5rem", "space-xl": "2.5rem" }, "fontFamily": { "title-md": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ], "headline-md": [ "Playfair Display" ], "body-md": [ "Plus Jakarta Sans" ], "label-lg": [ "Plus Jakarta Sans" ], "headline-lg": [ "Playfair Display" ], "label-sm": [ "Plus Jakarta Sans" ], "display-lg": [ "Playfair Display" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "label-md": [ "Plus Jakarta Sans" ], "title-lg": [ "Plus Jakarta Sans" ], "display-lg-mobile": [ "Playfair Display" ] }, "fontSize": { "title-md": [ "16px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-lg-mobile": [ "28px", { "lineHeight": "36px", "fontWeight": "600" } ], "headline-sm": [ "22px", { "lineHeight": "30px", "fontWeight": "600" } ], "headline-md": [ "28px", { "lineHeight": "36px", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "headline-lg": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" } ], "display-lg": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "title-lg": [ "20px", { "lineHeight": "28px", "fontWeight": "600" } ], "display-lg-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(20,33,61,0.04)]"><div class="h-20 max-w-7xl mx-auto px-margin-sm lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-surface shadow-sm"><span class="material-symbols-outlined text-[22px] text-surface-container-low">shield_with_heart</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">NIVARAN</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold mt-0.5">National Trauma Continuum</span></div></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-primary-container text-surface-container-lowest font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-sm transition-colors bg-primary-container text-surface-container-lowest font-semibold rounded-lg" data-path="home" href="#">Home</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="our-vision" href="#">Our Vision</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="how-it-works" href="#">How It Works</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="features" href="#">Features</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="ecosystem" href="#">Ecosystem</a><a class="px-space-md py-space-sm font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors rounded-lg" data-path="faq" href="#">FAQ</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center px-space-lg py-space-sm bg-secondary-container hover:bg-secondary text-on-secondary font-label-lg text-label-lg font-semibold rounded-lg shadow-sm transition-all transform hover:-translate-y-0.5" href="http://localhost:3000/login">Open Citizen Portal</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- HERO SECTION -->
+<section class="relative w-full bg-surface-container py-space-xl lg:py-margin-lg overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Left Column: Editorial Headline & Actions -->
+<div class="lg:col-span-7 space-y-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-highest">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">National Golden Hour Protocol</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary leading-[1.08] tracking-tight">
+            When Every Second Matters, <span class="text-secondary italic font-display-lg font-normal">NIVARAN</span> Responds.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+            Unifying citizens in critical moments with algorithmic dispatchers, field paramedics, and receiving trauma hospitals into an unbroken continuum of care.
+          </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="bg-primary text-surface-container hover:bg-primary-container px-8 py-4 rounded-full font-title-md text-title-md shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-3" href="http://localhost:3000/login">
+<span>Open Citizen Portal</span>
+<svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</a>
+<a class="px-8 py-4 rounded-full font-title-md text-title-md text-primary bg-surface-container-highest hover:bg-surface-dim transition-all" href="#vision">
+              Explore Our Vision
+            </a>
+</div>
+<!-- Micro-telemetry Status Bar -->
+<div class="pt-space-md grid grid-cols-3 gap-gutter-sm max-w-lg">
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Active Carrier Latency</span>
+<p class="font-title-md text-title-md text-primary mt-0.5">&lt; 380ms</p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">CAD Dispatch Sync</span>
+<p class="font-title-md text-title-md text-secondary mt-0.5">Instantaneous</p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Pre-Arrival Feed</span>
+<p class="font-title-md text-title-md text-primary mt-0.5">Bi-Directional</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Connected Emergency Response Graphic -->
+<div class="lg:col-span-5 relative">
+<div class="relative bg-surface-container-lowest rounded-2xl p-space-lg shadow-xl overflow-hidden">
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">emergency</span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary tracking-wider">Live Continuum Matrix</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-bold">SOVEREIGN NETWORK</span>
+</div>
+<!-- Graphic Pipeline Flow -->
+<div class="space-y-space-md relative">
+<!-- Connector Track (Background Line) -->
+<div class="absolute left-6 top-8 bottom-8 w-0.5 bg-surface-container-highest z-0"></div>
+<!-- Node 1: Citizen SOS -->
+<div class="relative z-10 flex items-start gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="w-12 h-12 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[24px]">touch_app</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-primary">Citizen SOS Beacon</h4>
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-highest rounded-full text-on-surface-variant font-bold">1-SEC HOLD</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-frequency sub-second GPS vector broadcast. Zero login or credential obstacle.</p>
+</div>
+</div>
+<!-- Node 2: Algorithmic Dispatch -->
+<div class="relative z-10 flex items-start gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="w-12 h-12 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[24px]">hub</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-primary">Haversine CAD Router</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time corridor optimization and automated nearest advanced life support match.</p>
+</div>
+</div>
+<!-- Node 3: Paramedic Telemetry -->
+<div class="relative z-10 flex items-start gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="w-12 h-12 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[24px]">ambulance</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-primary">En-Route Mobile ICU</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time green-wave coordination &amp; continuous on-board clinical data uplink.</p>
+</div>
+</div>
+<!-- Node 4: Hospital Trauma Suite -->
+<div class="relative z-10 flex items-start gap-space-md bg-surface-container-low p-space-md rounded-xl">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-surface-container-lowest flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[24px]">local_hospital</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-primary">Trauma ER Readiness</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pre-arrival 12-lead ECG telemetry pre-activates surgical theater and blood bank.</p>
+</div>
+</div>
+</div>
+<!-- Ambient Pulse Card -->
+<div class="mt-space-md pt-space-md bg-surface-container-highest rounded-xl p-space-sm flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Continuous Telemetry Bridge</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">100% Deterministic Sync</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- EDITORIAL IMAGE STRIP: HUMAN TRIAGE IN ACTION -->
+<section class="w-full bg-surface py-space-lg">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="relative h-64 rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Emergency medical technicians in a state-of-the-art mobile ambulance preparing critical life-support equipment. Deep navy uniforms, soft warm ambient lighting, clinical precision, realistic documentary style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtNXp_MgBLB4-ZVFlB1oIqb9110t5uXb0jQ791en4a73LsxeiqUT94OgfWE84E5xnVUCGXxWTGz2tXFbTqV7Ws4Po0Xwm6Jdq92JS16jADjvcjSONTnt-zKYXmGxqtYaaxF1bmGPN9nOhAU8przaOUFmr140U1o6ddcJSwG2DTj96JnrPBNRjy8upV2BPcFxrg4wJBz5yErRxbjKIMjHr0_YlM5GYtd4lsQzRoCLiR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex items-end p-space-md">
+<span class="font-title-md text-title-md text-surface-container-lowest">Sub-Second Dispatch Field</span>
+</div>
+</div>
+<div class="relative h-64 rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Centralized emergency operations command center with dispatchers analyzing multiple high-resolution multi-monitor maps. Warm editorial aesthetic with Navy and Cream palette accents and soft amber glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLYhGZRFqC--HSBJY5xGnKcC9rhOQgd-JzwGosLpWd5pmLoB2ZN249NeJl30LY4OAOQ7FT3ZypxY5GmLceW_qJyf5NEPcB1Huzk8jGenamxIa-i56aJgJQzRbkDF60QrvWdCGE95LITMtFnHxJHxpN0jPfcaVS2kqCRRb6JaNeUEcg3v3QSRZFXNrK7zDz9N6oLvdhlt_KEIgj6L1BsbvmaQ6iLTlnBJkFP6sJQzoe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex items-end p-space-md">
+<span class="font-title-md text-title-md text-surface-container-lowest">CAD Telemetry Router</span>
+</div>
+</div>
+<div class="relative h-64 rounded-xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="Trauma surgery team in hospital operating room prepared in advance with diagnostic tablets displaying vital statistics. High key lighting, clean architectural space, serene medical authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHxZSzt0k_33touXJld2eQCpuMi8mrHjTY2rYVs4rOKX1NQDArQ6eIBSS5qsyRKgHTVNZL692zd-HH20Hf3ViEE38BwaywH3L3-01ZljmYemseEro1l1ySmky9DTpU1mIzxNUX6dwCvZyZsofvCJgIvbZR1Q9BSRaEK_3J48CjC6XTPu1KThp7qecjPmM4-gFDwCvPBp28ebWd51PUsl5W-fU7a5oP7mIQIlU6fJXU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex items-end p-space-md">
+<span class="font-title-md text-title-md text-surface-container-lowest">Trauma Bay Pre-Arrival Activation</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OUR VISION SECTION (#vision) -->
+<section class="w-full bg-surface-container-low py-space-xl lg:py-margin-lg" id="vision">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin space-y-space-xl">
+<div class="max-w-3xl space-y-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-0.5 bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase font-bold text-primary tracking-widest">Architectural Purpose</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-primary">
+          Transforming pre-hospital emergency care across India’s <span class="text-secondary italic">Golden Hour</span> through zero-latency synchronization.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Conventional emergency response fails not from lack of medical skill, but from communication gaps between panicked callers, distant dispatchers, and uninformed hospital triage bays. NIVARAN replaces fragmented friction with unified certainty.
+        </p>
+</div>
+<!-- The Three Fragmented Realities Solved -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg pt-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[26px]">pin_drop</span>
+</div>
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Friction 01 Resolved</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">The Location Articulation Friction</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              In severe shock, victims cannot identify milestones or spell local street names. NIVARAN eliminates landmark descriptions via ambient sub-second carrier and GPS locks that pinpoint coordinates with meter-level accuracy.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md bg-surface-container-highest/30 rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold">Eliminated: Landmark Guesswork</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[26px]">alt_route</span>
+</div>
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Friction 02 Resolved</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Manual Dispatch Bottlenecks</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Traditional telephonic handoffs take upwards of five minutes. Algorithmic unit matching utilizes real-time road topology, historical congestion patterns, and live capability matrices to deploy the ideal vehicle in seconds.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md bg-surface-container-highest/30 rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold">Eliminated: Manual Operator Calling</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+<span class="material-symbols-outlined text-[26px]">vital_signs</span>
+</div>
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Friction 03 Resolved</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Hospital Information Vacuum</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Trauma surgical suites often only learn patient conditions upon ambulance arrival. NIVARAN streams live vitals, incident telemetry, and ETA countdowns directly to the receiving team to prime the cath lab before wheel-in.
+            </p>
+</div>
+<div class="pt-space-lg mt-space-md bg-surface-container-highest/30 rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold">Eliminated: ER Surprise Arrivals</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW NIVARAN WORKS: 4-STAGE VISUAL JOURNEY -->
+<section class="w-full bg-surface-container py-space-xl lg:py-margin-lg">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin space-y-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="space-y-space-xs max-w-xl">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-widest">Deterministic Architecture</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-primary">The 4-Stage Continuum</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          A synchronized pathway executed simultaneously across mobile endpoints, cloud dispatch engines, emergency fleets, and hospital trauma boards.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Stage 01 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-display-lg text-display-lg text-surface-container-highest font-bold leading-none select-none">01</span>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">touch_app</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-lg text-title-lg text-primary">SOS Inception</h4>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">1-Sec Hold &amp; AI Voice</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            The citizen initiates an SOS via a 1-second continuous hold (preventing pocket dials) or initiates hands-free Hindi/English speech intake with instant intent recognition.
+          </p>
+</div>
+<!-- Stage 02 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-display-lg text-display-lg text-surface-container-highest font-bold leading-none select-none">02</span>
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-lg text-title-lg text-primary">CAD Verification</h4>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Geofence Telemetry</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Dispatcher CAD console ingests verified device coordinates, runs haversine distance matching, and isolates the nearest qualified Advanced Life Support vehicle.
+          </p>
+</div>
+<!-- Stage 03 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-display-lg text-display-lg text-surface-container-highest font-bold leading-none select-none">03</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">navigation</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-lg text-title-lg text-primary">Green-Wave En-Route</h4>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Live Vitals Streaming</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Ambulance rolls with traffic-clearing turn-by-turn navigation. En-route paramedics stream SpO2, blood pressure, and triage tags directly via onboard cellular uplink.
+          </p>
+</div>
+<!-- Stage 04 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm space-y-space-md relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-display-lg text-display-lg text-surface-container-highest font-bold leading-none select-none">04</span>
+<div class="w-10 h-10 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<h4 class="font-title-lg text-title-lg text-primary">Trauma Suite Primed</h4>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Zero Transfer Delay</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Receiving surgical team verifies incoming 12-lead ECG, blood group demand, and burns/trauma classification. Cath lab prepared before patient passes the hospital threshold.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- KEY FEATURES GRID -->
+<section class="w-full bg-surface py-space-xl lg:py-margin-lg">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin space-y-space-xl">
+<div class="text-center max-w-2xl mx-auto space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-widest">Built for Calm Authority</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-primary">Critical Features Engineered for Zero Frustration</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          In high-adrenaline situations, software complexity costs lives. NIVARAN enforces simplicity through rigorous cognitive load optimization.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">timer_10_alt_1</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">One-Touch Emergency Assistance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Proprietary 1-second press-and-hold trigger. Provides tactile and haptic reassurance while eradicating false-positive pocket activations entirely.
+            </p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">my_location</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">GPS-Based Ambient Sharing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Zero manual typing required. Cellular trilateration combined with device satellite fix delivers latitude and longitude instantly to the CAD screen.
+            </p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">radar</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">Live Ambulance Tracking</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Transparent minute-by-minute countdown with driver name, vehicle registration number, and live map view keeps the caller centered and informed.
+            </p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">sync_saved_locally</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">Emergency Status Updates</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Discrete visual phases: “Dispatched”, “En Route”, “On Scene”, “Transit to Hospital”, keeping family members constantly updated.
+            </p>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">record_voice_over</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">Voice-Assisted Bilingual Intake</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Ambient clinical entity extraction parses symptoms in Hindi and English simultaneously, generating immediate clinical triage notes for incoming paramedics.
+            </p>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="bg-surface-container-low rounded-2xl p-space-xl shadow-sm hover:shadow-md transition-all duration-300 space-y-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[26px]">translate</span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-primary">Multilingual Accessibility</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Engineered to operate reliably across India’s diverse linguistic landscape, ensuring emergency medical support is never gated behind language comprehension.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONNECTED EMERGENCY ECOSYSTEM INTERACTIVE DIAGRAM -->
+<section class="w-full bg-primary py-space-xl lg:py-margin-lg text-surface-container-lowest overflow-hidden">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin space-y-space-xl">
+<div class="max-w-3xl space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary-container tracking-widest">Network Topology</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-surface-container-lowest">
+          The Bidirectional Emergency Ecosystem
+        </h2>
+<p class="font-body-lg text-body-lg text-on-primary-container">
+          Explore how telemetry, patient directives, and operational clearance flows continuously between all four nodes of the continuum in real-time.
+        </p>
+</div>
+<!-- Interactive Ecosystem Container -->
+<div class="bg-primary-container rounded-3xl p-space-lg lg:p-space-xl shadow-2xl relative">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-gutter relative z-10">
+<!-- Node 1: Citizen Beacon -->
+<div class="ecosystem-node bg-surface-container-lowest text-primary p-space-lg rounded-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-200" onclick="showNodeDetails('citizen')">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="material-symbols-outlined text-secondary text-[32px]">cell_tower</span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary">Citizen Terminal</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct SOS trigger, live beacon broadcast, and audio dispatch guidance.</p>
+<div class="mt-space-md pt-space-xs text-secondary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>View Data Flow</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Node 2: CAD Command Center -->
+<div class="ecosystem-node bg-surface-container-lowest text-primary p-space-lg rounded-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-200" onclick="showNodeDetails('dispatch')">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">desktop_windows</span>
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary">CAD Command</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Incident triangulation, algorithmic fleet dispatch, and city green-wave clearing.</p>
+<div class="mt-space-md pt-space-xs text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>View Data Flow</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Node 3: Paramedic Fleet -->
+<div class="ecosystem-node bg-surface-container-lowest text-primary p-space-lg rounded-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-200" onclick="showNodeDetails('ambulance')">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="material-symbols-outlined text-secondary text-[32px]">directions_car</span>
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary">Paramedic Fleet</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Live GPS turnaround, mobile telemetry entry, and continuous voice channel.</p>
+<div class="mt-space-md pt-space-xs text-secondary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>View Data Flow</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Node 4: Hospital Trauma ER -->
+<div class="ecosystem-node bg-surface-container-lowest text-primary p-space-lg rounded-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-200" onclick="showNodeDetails('hospital')">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">domain</span>
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary">Trauma Center</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Pre-arrival vital monitoring, automated bed reservation, and surgical team alert.</p>
+<div class="mt-space-md pt-space-xs text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span>View Data Flow</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Detail Dynamic Panel -->
+<div class="mt-space-lg bg-surface-container-lowest text-primary p-space-lg rounded-2xl shadow-lg" id="ecosystem-details">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary" id="detail-tag">CLICK ANY NODE ABOVE TO INSPECT TELEMETRY SPECIFICATION</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-1" id="detail-title">Unified Data Stream: Citizen to Emergency Care</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1" id="detail-desc">
+                Select any node in the diagram to inspect its inbound and outbound transmission protocols, encryption layers, and expected response times.
+              </p>
+</div>
+<div class="shrink-0 flex items-center gap-space-sm bg-surface-container p-space-sm rounded-xl">
+<span class="material-symbols-outlined text-secondary text-[24px]">security</span>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold block text-primary">AES-256 Transit</span>
+<span class="text-xs text-on-surface-variant">Zero Raw Data Leak</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRUST, RELIABILITY & STANDARDS SECTION -->
+<section class="w-full bg-surface-container py-space-xl lg:py-margin-lg">
+<div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<div class="lg:col-span-5 space-y-space-md">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-widest">Sovereign Standards</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-primary">Uncompromising Trust &amp; Reliability</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Emergency systems cannot rely on vanity metrics or optimistic up-times. NIVARAN enforces absolute protocol compliance, verifiable encryption standards, and zero artificial login roadblocks.
+          </p>
+<div class="space-y-space-sm pt-space-xs">
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">verified_user</span>
+<div>
+<h4 class="font-title-md text-title-md text-primary">Zero-Login Emergency Access</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Any citizen can trigger SOS without prior registration, password recovery, or profile setups.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<span class="material-symbols-outlined text-primary text-[22px] mt-0.5">lock</span>
+<div>
+<h4 class="font-title-md text-title-md text-primary">AES-256 Encrypted In-Transit</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Patient clinical records and live video/voice interactions are encrypted end-to-end to protect medical privacy.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">published_with_changes</span>
+<div>
+<h4 class="font-title-md text-title-md text-primary">Verifiable Clinical Compliance</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Audited in alignment with standard Indian triage and disaster relief communication guidelines.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest rounded-3xl p-space-xl shadow-lg space-y-space-lg">
+<h3 class="font-headline-sm text-headline-sm text-primary">Emergency Triage Compliance Matrix</h3>
+<div class="space-y-space-md">
+<!-- Parameter 1 -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm uppercase font-bold">
+<span class="text-primary">Cadence: SOS Trigger to CAD Receive</span>
+<span class="text-secondary">&lt; 1.2 Seconds</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full w-[96%]"></div>
+</div>
+</div>
+<!-- Parameter 2 -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm uppercase font-bold">
+<span class="text-primary">Cadence: Carrier Trilateration Precision</span>
+<span class="text-primary">99.4% Sub-5m Range</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full w-[92%]"></div>
+</div>
+</div>
+<!-- Parameter 3 -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm uppercase font-bold">
+<span class="text-primary">Cadence: Pre-Arrival ER Vital Telemetry</span>
+<span class="text-secondary">Continuous Stream (500ms intervals)</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-2 rounded-full w-[98%]"></div>
+</div>
+</div>
+<!-- Parameter 4 -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm uppercase font-bold">
+<span class="text-primary">Cadence: Infrastructure Resilience</span>
+<span class="text-primary">Geo-Redundant Cloud Nodes</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full w-[100%]"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-sm bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Independent clinical audit &amp; security testing verified quarterly.</span>
+<span class="material-symbols-outlined text-secondary text-[24px]">gavel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FREQUENTLY ASKED QUESTIONS (FAQ) -->
+<section class="w-full bg-surface py-space-xl lg:py-margin-lg">
+<div class="max-w-4xl mx-auto px-margin-sm lg:px-margin space-y-space-xl">
+<div class="text-center space-y-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-widest">Public Information</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-primary">Frequently Asked Questions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Clear answers regarding citizen privacy, operational mechanisms, and emergency procedures.
+        </p>
+</div>
+<div class="space-y-space-md">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden transition-all shadow-sm">
+<button class="w-full text-left p-space-lg flex justify-between items-center gap-space-md focus:outline-none" onclick="toggleFaq('faq-1')">
+<span class="font-title-lg text-title-lg text-primary">Do I need an account or login to call for help?</span>
+<span class="material-symbols-outlined text-primary text-[24px] transition-transform duration-200" id="faq-icon-faq-1">expand_more</span>
+</button>
+<div class="hidden px-space-lg pb-space-lg text-on-surface-variant font-body-md text-body-md leading-relaxed border-t-0" id="faq-content-faq-1">
+            No. NIVARAN enforces a strict zero-login emergency policy. During an emergency, seconds are precious and cannot be wasted remembering passwords, verifying SMS OTPs, or filling profiles. Simply trigger the SOS button or use the bilingual voice prompt, and our system immediately extracts your coordinates and routes to CAD.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden transition-all shadow-sm">
+<button class="w-full text-left p-space-lg flex justify-between items-center gap-space-md focus:outline-none" onclick="toggleFaq('faq-2')">
+<span class="font-title-lg text-title-lg text-primary">How does the 1-second hold prevent accidental triggers?</span>
+<span class="material-symbols-outlined text-primary text-[24px] transition-transform duration-200" id="faq-icon-faq-2">expand_more</span>
+</button>
+<div class="hidden px-space-lg pb-space-lg text-on-surface-variant font-body-md text-body-md leading-relaxed" id="faq-content-faq-2">
+            Pocket dials and accidental screen taps cause immense strain on public dispatchers. NIVARAN uses a continuous 1-second physical or screen hold combined with animated haptic confirmation. If your finger lifts prior to 1.0 second, the trigger immediately cancels.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden transition-all shadow-sm">
+<button class="w-full text-left p-space-lg flex justify-between items-center gap-space-md focus:outline-none" onclick="toggleFaq('faq-3')">
+<span class="font-title-lg text-title-lg text-primary">Does NIVARAN work without an internet connection?</span>
+<span class="material-symbols-outlined text-primary text-[24px] transition-transform duration-200" id="faq-icon-faq-3">expand_more</span>
+</button>
+<div class="hidden px-space-lg pb-space-lg text-on-surface-variant font-body-md text-body-md leading-relaxed" id="faq-content-faq-3">
+            Yes. When high-bandwidth cellular mobile data is unavailable, the NIVARAN engine falls back to an automated SMS payload and zero-latency cellular tower signaling. This ensures your exact coordinates and identity hash reach the central dispatch hub even on 2G edge networks.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden transition-all shadow-sm">
+<button class="w-full text-left p-space-lg flex justify-between items-center gap-space-md focus:outline-none" onclick="toggleFaq('faq-4')">
+<span class="font-title-lg text-title-lg text-primary">How are regional receiving hospitals notified?</span>
+<span class="material-symbols-outlined text-primary text-[24px] transition-transform duration-200" id="faq-icon-faq-4">expand_more</span>
+</button>
+<div class="hidden px-space-lg pb-space-lg text-on-surface-variant font-body-md text-body-md leading-relaxed" id="faq-content-faq-4">
+            As soon as an ambulance accepts a dispatched case, the NIVARAN network identifies the nearest accredited trauma center capable of handling the patient’s specific injuries (e.g. burn units, stroke cath labs). The hospital ER board sounds a soft pre-alert alarm and begins displaying live vitals from the field.
+          </div>
+</div>
+<!-- FAQ 5 -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden transition-all shadow-sm">
+<button class="w-full text-left p-space-lg flex justify-between items-center gap-space-md focus:outline-none" onclick="toggleFaq('faq-5')">
+<span class="font-title-lg text-title-lg text-primary">Is my health and personal data shared with private parties?</span>
+<span class="material-symbols-outlined text-primary text-[24px] transition-transform duration-200" id="faq-icon-faq-5">expand_more</span>
+</button>
+<div class="hidden px-space-lg pb-space-lg text-on-surface-variant font-body-md text-body-md leading-relaxed" id="faq-content-faq-5">
+            Under no circumstances. NIVARAN operates strictly under sovereign national public health and clinical privacy directives. Emergency telemetry is transmitted solely to the active dispatched paramedic crew and the verified receiving hospital ER. All session tokens are purged following successful case handover.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL HIGH-IMPACT CTA SECTION -->
+<section class="w-full bg-surface-container-high py-space-xl lg:py-margin-lg">
+<div class="max-w-5xl mx-auto px-margin-sm lg:px-margin text-center space-y-space-lg">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Zero Barriers • Pure Readiness</span>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary tracking-tight">
+        Help Is Closer Than You Think.
+      </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+        No downloads required, no registration walls in distress. Experience the future of public emergency response and secure your family's health registry today.
+      </p>
+<div class="pt-space-md">
+<a class="bg-primary text-surface-container hover:bg-secondary hover:text-surface-container-lowest px-10 py-5 rounded-full font-title-lg text-title-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-4" href="http://localhost:3000/login">
+<span>Access Citizen Portal</span>
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-lg pt-space-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-[18px]">verified</span> Instant Access</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-[18px]">lock</span> Encrypted Transit</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary text-[18px]">shield</span> Nationwide Continuum</span>
+</div>
+</div>
+</section>
+</div>
+<script>
+  function toggleFaq(id) {
+    const content = document.getElementById('faq-content-' + id);
+    const icon = document.getElementById('faq-icon-' + id);
+    if (!content) return;
+    
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  function showNodeDetails(node) {
+    const title = document.getElementById('detail-title');
+    const desc = document.getElementById('detail-desc');
+    const tag = document.getElementById('detail-tag');
+
+    const details = {
+      citizen: {
+        tag: 'NODE 01: CITIZEN TERMINAL TELEMETRY',
+        title: 'Instant Coordinate Generation & Audio Channel',
+        desc: 'Citizen terminal transmits GPS latitude/longitude (accurate to 3.2m), altitude, battery level, and cellular carrier ID over a lightweight UDP packet. A 1-way voice link initiates automatically with bilingual natural language recognition.'
+      },
+      dispatch: {
+        tag: 'NODE 02: COMPUTER-AIDED DISPATCH (CAD)',
+        title: 'Algorithmic Fleet Router & Route Optimizer',
+        desc: 'Dispatcher CAD receives incident data in under 400ms. Algorithmic unit matching cross-references traffic heatmaps, hospital readiness ratings, and available life-support credentials to assign the optimal ambulance vehicle.'
+      },
+      ambulance: {
+        tag: 'NODE 03: PARAMEDIC FLEET VECTOR',
+        title: 'En-Route Green Wave & Mobile Vital Uplink',
+        desc: 'Ambulance terminal displays traffic-synchronized navigation with dynamic intersection green-lighting where implemented. Paramedics stream on-board ECG, heart rate, blood pressure, and triage priority directly to hospital servers.'
+      },
+      hospital: {
+        tag: 'NODE 04: TRAUMA CENTER RECEPTION',
+        title: 'Pre-Arrival Readiness & Surgical Pre-Activation',
+        desc: 'Receiving Trauma bay receives complete incident background, real-time ETA countdown, and streaming vitals. Operating theater, blood transfusion supplies, and neuro/cardio surgical staff are assembled before the ambulance wheels arrive.'
+      }
+    };
+
+    if (details[node]) {
+      tag.innerText = details[node].tag;
+      title.innerText = details[node].title;
+      desc.innerText = details[node].desc;
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-high text-on-surface"><div class="max-w-7xl mx-auto px-margin-sm lg:px-margin py-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-margin-sm"><div class="lg:col-span-5 space-y-space-md"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-surface"><span class="material-symbols-outlined text-[18px] text-surface-container-low">shield_with_heart</span></div><span class="font-headline-sm text-headline-sm text-primary font-bold">NIVARAN</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">A centralized, dignified digital health initiative engineered to ensure coordinated trauma response, continuum surveillance, and sovereign citizen healthcare readiness nationwide.</p><div class="p-space-md rounded-xl bg-surface-container-low"><div class="flex items-start gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span><div class="space-y-space-xs"><p class="font-label-sm text-label-sm uppercase font-bold text-primary">Statutory Emergency Protocol</p><p class="font-body-sm text-body-sm text-on-surface-variant">NIVARAN serves as an emergency care orchestration system. For instantaneous ambulance dispatch or acute triage in progress, dial national crisis lines immediately.</p></div></div></div></div><div class="lg:col-span-3 space-y-space-sm"><h4 class="font-title-md text-title-md text-primary">Vision Navigation</h4><ul class="space-y-space-xs"><li data-active-classes="text-secondary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="our-vision" href="#">National Mandate &amp; Charter</a></li><li data-active-classes="text-secondary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">Continuum Protocol</a></li><li data-active-classes="text-secondary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="features" href="#">Diagnostic Architecture</a></li><li data-active-classes="text-secondary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ecosystem" href="#">Clinical Vision Network</a></li><li data-active-classes="text-secondary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">Citizen Registry FAQ</a></li></ul></div><div class="lg:col-span-4 space-y-space-sm"><h4 class="font-title-md text-title-md text-primary">Citizen Access Portals</h4><ul class="space-y-space-xs"><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="http://localhost:3000/login">Citizen Health Dossier Login</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="ecosystem" href="#">Regional Trauma Center Network</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">Accredited Practitioner Gateway</a></li><li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="#">National Clinical Advisory Council</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><p>© 2025 NIVARAN Healthcare Initiative. Sovereign Vision Infrastructure. All rights reserved.</p><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" data-path="home" href="#">Privacy Charter</a><a class="hover:text-on-surface transition-colors" data-path="home" href="#">Institutional Governance</a><a class="hover:text-on-surface transition-colors" data-path="home" href="#">Accessibility Standards</a></div></div></div></footer></body></html>

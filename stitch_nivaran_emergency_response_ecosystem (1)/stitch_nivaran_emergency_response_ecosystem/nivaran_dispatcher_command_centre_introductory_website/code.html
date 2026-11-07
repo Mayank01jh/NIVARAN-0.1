@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container": "#e5eeff", "secondary": "#416900", "secondary-fixed": "#acf847", "inverse-primary": "#79db8d", "on-surface": "#0b1c30", "error": "#ba1a1a", "surface-dim": "#cbdbf5", "on-error": "#ffffff", "on-primary": "#ffffff", "error-container": "#ffdad6", "tertiary-container": "#676f86", "surface": "#f8f9ff", "on-primary-container": "#d3ffd5", "surface-container-low": "#eff4ff", "surface-variant": "#d3e4fe", "on-secondary-fixed": "#102000", "tertiary-fixed-dim": "#bec6e0", "inverse-surface": "#213145", "surface-tint": "#006d30", "outline": "#6f7a6e", "surface-container-high": "#dce9ff", "on-background": "#0b1c30", "primary": "#00652c", "on-surface-variant": "#3f493f", "on-tertiary-container": "#f2f3ff", "on-tertiary": "#ffffff", "outline-variant": "#becabc", "secondary-container": "#acf847", "on-secondary-fixed-variant": "#304f00", "primary-fixed-dim": "#79db8d", "primary-container": "#15803d", "surface-container-lowest": "#ffffff", "tertiary-fixed": "#dae2fd", "secondary-fixed-dim": "#91db2a", "inverse-on-surface": "#eaf1ff", "surface-bright": "#f8f9ff", "on-secondary": "#ffffff", "tertiary": "#4f576d", "primary-fixed": "#95f8a7", "background": "#f8f9ff", "on-error-container": "#93000a", "on-secondary-container": "#457000", "on-tertiary-fixed": "#131b2e", "on-primary-fixed-variant": "#005323", "surface-container-highest": "#d3e4fe", "on-primary-fixed": "#00210a", "on-tertiary-fixed-variant": "#3f465c" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xl": "1.5rem", "space-md": "0.75rem", "gutter": "0.75rem", "space-lg": "1rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "label-ui": [ "Plus Jakarta Sans" ], "body-lg": [ "Plus Jakarta Sans" ], "headline-xl-mobile": [ "Plus Jakarta Sans" ], "label-data-sm": [ "JetBrains Mono" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "label-data-lg": [ "JetBrains Mono" ], "label-data-md": [ "JetBrains Mono" ], "body-md": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "headline-xl": [ "Plus Jakarta Sans" ] }, "fontSize": { "label-ui": [ "11px", { "lineHeight": "14px", "fontWeight": "700" } ], "body-lg": [ "15px", { "lineHeight": "22px", "fontWeight": "500" } ], "headline-xl-mobile": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "label-data-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "headline-md": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "label-data-lg": [ "14px", { "lineHeight": "18px", "fontWeight": "600" } ], "label-data-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "body-md": [ "13px", { "lineHeight": "18px", "fontWeight": "400" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "fontWeight": "700" } ], "headline-xl": [ "32px", { "lineHeight": "40px", "fontWeight": "700" } ] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-xl flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="px-space-sm py-space-xs bg-inverse-surface rounded"><span class="font-label-data-lg text-label-data-lg text-secondary-fixed tracking-wider uppercase">NIVARAN</span></div><span class="font-label-ui text-label-ui text-on-surface tracking-widest uppercase">CAD DISPATCH</span></div><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary-container/20 rounded border border-secondary-container"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="font-label-data-sm text-label-data-sm text-on-secondary-container uppercase tracking-tight">OP-READY // ACTIVE</span></div></div><nav class="hidden xl:flex items-center gap-space-sm" data-active-classes="bg-surface-container-high text-on-surface font-bold rounded"><a aria-current="page" class="px-space-md py-space-xs uppercase tracking-wider transition-colors bg-surface-container-high text-on-surface font-bold rounded" data-path="overview" href="#">Overview</a><a class="px-space-md py-space-xs rounded font-label-ui text-label-ui uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="role-and-operations" href="#">Role &amp; Operations</a><a class="px-space-md py-space-xs rounded font-label-ui text-label-ui uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="capabilities" href="#">Capabilities</a><a class="px-space-md py-space-xs rounded font-label-ui text-label-ui uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="workflow" href="#">Workflow</a><a class="px-space-md py-space-xs rounded font-label-ui text-label-ui uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="network" href="#">Network</a><a class="px-space-md py-space-xs rounded font-label-ui text-label-ui uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="faq" href="#">FAQ</a></nav><div class="flex items-center gap-space-md"><a class="px-space-lg py-space-sm bg-secondary-fixed text-on-secondary-fixed font-label-ui text-label-ui tracking-wider uppercase rounded hover:bg-secondary-fixed-dim hover:text-on-secondary-fixed transition-colors flex items-center gap-space-xs shadow-[0_2px_6px_rgba(0,0,0,0.06)]" href="http://localhost:3001/login"><span class="material-symbols-outlined text-[16px]">terminal</span><span>Enter Command Centre</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]"><div class="flex flex-col w-full text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- HERO COMMAND MODULE -->
+<section class="relative w-full overflow-hidden bg-inverse-surface text-inverse-on-surface pt-12 pb-20 shadow-xl">
+<!-- Grid Overlay Decoration -->
+<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, #dce9ff 1px, transparent 0); background-size: 28px 28px;"></div>
+<div class="absolute -top-32 right-10 w-96 h-96 bg-secondary-fixed/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-space-xl relative z-10">
+<!-- Sector Breadcrumb / Status Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-space-md mb-8">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-highest/20 rounded shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+<span class="font-label-data-sm text-label-data-sm text-secondary-fixed tracking-wider uppercase">SECTOR_ALPHA // DISPATCH GRID ACTIVE</span>
+</div>
+<div class="flex items-center gap-space-lg font-label-data-sm text-label-data-sm text-surface-variant">
+<span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary-fixed">satellite_alt</span> GNSS CARRIER SYNC: LOCK 12-SAT</span>
+<span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary-fixed">bolt</span> LATENCY: 34ms</span>
+</div>
+</div>
+<!-- Hero Header & Value Proposition -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+<div class="lg:col-span-7 space-y-6">
+<div class="font-label-ui text-label-ui uppercase tracking-widest text-secondary-fixed flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">sensors</span> TACTICAL EMERGENCY OPERATING SYSTEM
+          </div>
+<h1 class="font-headline-xl text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            One Command Centre. <br/>
+<span class="text-secondary-fixed">Every Emergency Connected.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-xl">
+            Coordinate critical incidents, dynamically deploy Advanced Life Support vectors, and synchronize level-1 trauma suites via a unified, zero-latency computer-aided dispatch framework.
+          </p>
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary-fixed-dim px-8 py-4 rounded font-label-ui text-base tracking-wider uppercase shadow-lg transition-all inline-flex items-center gap-3" href="http://localhost:3001/login">
+<span>Enter Command Centre</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="bg-surface-container-highest/15 hover:bg-surface-container-highest/30 text-white px-8 py-4 rounded font-label-ui text-base tracking-wider uppercase transition-all inline-flex items-center gap-2" href="#workflow">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+<span>Explore CAD Architecture</span>
+</a>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-6 max-w-lg">
+<div class="p-3 bg-surface-container-highest/10 rounded">
+<div class="font-label-data-lg text-secondary-fixed font-bold text-lg">&lt; 150 ms</div>
+<div class="font-label-data-sm text-surface-variant uppercase text-[10px]">SOS Ingestion</div>
+</div>
+<div class="p-3 bg-surface-container-highest/10 rounded">
+<div class="font-label-data-lg text-secondary-fixed font-bold text-lg">99.999%</div>
+<div class="font-label-data-sm text-surface-variant uppercase text-[10px]">Failover Uptime</div>
+</div>
+<div class="p-3 bg-surface-container-highest/10 rounded">
+<div class="font-label-data-lg text-secondary-fixed font-bold text-lg">18 / 26</div>
+<div class="font-label-data-sm text-surface-variant uppercase text-[10px]">Active Units Free</div>
+</div>
+</div>
+</div>
+<!-- Mission Control Interactive Visual Mockup -->
+<div class="lg:col-span-5 relative">
+<div class="bg-on-surface rounded shadow-2xl p-4 space-y-4">
+<!-- Terminal Header -->
+<div class="flex items-center justify-between pb-3 bg-surface-container-highest/10 -m-4 p-4 mb-1">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-fixed-dim inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-fixed inline-block"></span>
+<span class="font-label-data-sm text-label-data-sm text-white tracking-widest ml-2 uppercase">GIS_MATRIX // LIVE VECTOR MONITOR</span>
+</div>
+<span class="font-label-data-sm text-[10px] text-secondary-fixed px-2 py-0.5 bg-secondary-fixed/15 rounded">AUTO_REFRESH: 1Hz</span>
+</div>
+<!-- Simulated Tactical Map Screen -->
+<div class="relative w-full h-80 bg-surface-container-highest/10 rounded overflow-hidden p-3 flex flex-col justify-between">
+<!-- Radar Sweep Ring Background -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
+<div class="w-72 h-72 rounded-full shadow-[0_0_80px_rgba(172,248,71,0.2)]"></div>
+<div class="w-48 h-48 rounded-full shadow-[0_0_40px_rgba(172,248,71,0.3)] absolute"></div>
+<div class="w-24 h-24 rounded-full shadow-[0_0_20px_rgba(172,248,71,0.4)] absolute"></div>
+</div>
+<!-- Top Telemetry Pill -->
+<div class="relative z-10 flex items-center justify-between text-[11px] font-label-data-sm text-white/90">
+<span class="bg-surface-container-highest/40 px-2 py-1 rounded">VECTOR-ZONE: CENTRAL METRO</span>
+<span class="text-secondary-fixed font-bold">14 DISPATCHES RESOLVED (LAST 1H)</span>
+</div>
+<!-- Dynamic Incident Nodes Overlay -->
+<div class="relative z-10 my-auto grid grid-cols-2 gap-3">
+<!-- Incident Pin 1: STEMI -->
+<div class="p-2.5 bg-error-container/90 text-on-error-container rounded shadow-md flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-error shrink-0 animate-pulse">crisis_alert</span>
+<div class="space-y-0.5">
+<div class="font-label-data-sm font-bold text-[10px] text-error uppercase">P1 // STEMI CODE BLACK</div>
+<div class="font-body-sm text-[11px] text-on-surface">UNIT-04 ALS ARRIVING IN 2m 14s</div>
+</div>
+</div>
+<!-- Incident Pin 2: Multi-Vehicle Collision -->
+<div class="p-2.5 bg-surface-container-highest/80 text-white rounded shadow-md flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed shrink-0">car_crash</span>
+<div class="space-y-0.5">
+<div class="font-label-data-sm font-bold text-[10px] text-secondary-fixed uppercase">P2 // HIGHWAY COLLISION</div>
+<div class="font-body-sm text-[11px] text-surface-variant">TRAUMA CTR #02 PRE-WARNED</div>
+</div>
+</div>
+</div>
+<!-- Map Overlay Bottom Ticker -->
+<div class="relative z-10 bg-surface-container-highest/60 backdrop-blur rounded p-2 flex items-center justify-between font-label-data-sm text-[10px]">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="text-white">AMB-09 (ALS) // TRAJECTORY: 68 KM/H</span>
+</div>
+<span class="text-secondary-fixed font-bold">GREEN WAVE SYNC: ENABLED</span>
+</div>
+</div>
+<!-- Fleet Telemetry Status Tray -->
+<div class="grid grid-cols-3 gap-2 text-center pt-1 font-label-data-sm">
+<div class="bg-surface-container-highest/20 p-2 rounded">
+<div class="text-[10px] text-surface-variant uppercase">ALS UNITS</div>
+<div class="text-secondary-fixed font-bold text-sm">11 ON PATROL</div>
+</div>
+<div class="bg-surface-container-highest/20 p-2 rounded">
+<div class="text-[10px] text-surface-variant uppercase">BLS UNITS</div>
+<div class="text-white font-bold text-sm">07 STAGED</div>
+</div>
+<div class="bg-surface-container-highest/20 p-2 rounded">
+<div class="text-[10px] text-surface-variant uppercase">HOSPITAL BAYS</div>
+<div class="text-secondary-fixed font-bold text-sm">94% TELEMETRY</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OPERATOR ROLE & DISPATCH FOUNDATION -->
+<section class="w-full py-20 bg-surface" id="role-and-operations">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Text Pillar -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">support_agent</span>
+<span class="font-label-ui text-label-ui text-on-surface uppercase tracking-wider">The Dispatcher's Pivotal Mandate</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl font-black text-on-surface tracking-tight">
+            The Nerve Center Linking Panic to Critical Clinical Care.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            In mass-casualty events or acute cardiac arrests, seconds compound exponentially. NIVARAN transforms the dispatch operative from a phone-relay clerk into a tactical emergency controller equipped with dynamic telemetry, live road-network intelligence, and trauma-suite clearance.
+          </p>
+<div class="space-y-4 pt-2">
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded shadow-sm hover:shadow transition-shadow">
+<div class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">phone_in_talk</span>
+</div>
+<div>
+<h3 class="font-headline-md text-base font-bold text-on-surface">Instantaneous Citizen Ingestion</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Incoming multi-channel SOS geofences automatically populate caller vitals, pinpoint locations, and structured caller transcripts before voice pick-up completes.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded shadow-sm hover:shadow transition-shadow">
+<div class="w-10 h-10 rounded bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">route</span>
+</div>
+<div>
+<h3 class="font-headline-md text-base font-bold text-on-surface">Cognitive Routing &amp; Crew Orchestration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Eliminates manual radio interrogation. Dispatchers review sub-second OSRM vector calculations and deploy appropriate crew certifications in one physical keystroke.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded shadow-sm hover:shadow transition-shadow">
+<div class="w-10 h-10 rounded bg-inverse-surface text-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">local_hospital</span>
+</div>
+<div>
+<h3 class="font-headline-md text-base font-bold text-on-surface">Synchronous Trauma Bay Handshake</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pre-warns triage nurses and cath-lab leads. Pre-hospital telemetry flows straight into hospital ER dashboards prior to ambulance arrival at the bay.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Visual Operational Console Card -->
+<div class="lg:col-span-6 space-y-4">
+<div class="bg-surface-container-lowest rounded shadow-lg p-6 space-y-6">
+<div class="flex items-center justify-between pb-4 bg-surface-container-low -mx-6 -mt-6 p-6 rounded-t">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">OPERATOR PROFILE: CONSOLE_STATION_07</span>
+</div>
+<span class="font-label-data-sm text-label-data-sm text-secondary px-2 py-1 bg-surface-container rounded font-bold">STATE: ON-DESK // SHIFT D</span>
+</div>
+<!-- Operator Metrics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded space-y-1">
+<span class="font-label-data-sm text-label-data-sm text-on-surface-variant uppercase">Mean Assignment Time</span>
+<div class="font-label-data-lg text-2xl font-bold text-secondary">19.4 sec</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Target threshold &lt; 30 sec</span>
+</div>
+<div class="p-4 bg-surface-container rounded space-y-1">
+<span class="font-label-data-sm text-label-data-sm text-on-surface-variant uppercase">Current Queue Load</span>
+<div class="font-label-data-lg text-2xl font-bold text-on-surface">0 PENDING</div>
+<span class="font-body-sm text-[11px] text-secondary font-bold">Zero latency backlog</span>
+</div>
+</div>
+<!-- Operational Protocol Ticker -->
+<div class="p-4 bg-surface-container-high rounded space-y-2">
+<div class="flex items-center justify-between font-label-data-sm text-label-data-sm">
+<span class="text-on-surface font-bold uppercase">Recent Action Sequence</span>
+<span class="text-on-surface-variant">12:04:42 UTC</span>
+</div>
+<div class="font-label-data-sm text-[12px] text-on-surface-variant space-y-1">
+<div class="flex justify-between"><span>[INGEST] 108 Emergency Call</span><span class="text-secondary font-bold">VERIFIED</span></div>
+<div class="flex justify-between"><span>[ALLOC] ALS Squad 14 -&gt; Site B</span><span class="text-secondary font-bold">TONED-OUT</span></div>
+<div class="flex justify-between"><span>[SIGNAL] Corridors Green-Wave</span><span class="text-secondary font-bold">LOCKED</span></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-2">
+<span class="font-label-data-sm">APCO / NENA ANSI Triage Standards</span>
+<span class="font-label-data-sm text-secondary font-bold">PROTOCOL READY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMMAND CENTRE CAPABILITIES (TACTICAL GRID) -->
+<section class="w-full py-20 bg-surface-container-low" id="capabilities">
+<div class="max-w-7xl mx-auto px-space-xl">
+<!-- Section Header -->
+<div class="max-w-3xl mb-14 space-y-3">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-highest rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Integrated CAD Suite</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl font-black text-on-surface tracking-tight">
+          Nine Core Pillars of Mission-Critical Operations
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Built for zero-failure public safety operations. Each capability functions autonomously and synchronizes instantaneously across the state-wide emergency fabric.
+        </p>
+</div>
+<!-- 3x3 Tactical Capabilities Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 1 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">hub</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-01 // INGESTION</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Centralized Incident Monitoring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time telemetry aggregation across telephonic SOS, emergency citizen apps, automatic crash sensors, and regional panic relays.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>&lt;150ms Ingestion Latency</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 2 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">view_timeline</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-02 // QUEUE ENGINE</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Dynamic Priority Queue</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Auto-sorting incident hopper governed by clinical triage markers, respiratory distress levels, and traumatic arrest indicators.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>Deterministic Triaging</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 3 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">satellite_alt</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-03 // GEOSPATIAL</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">GNSS Fleet Telemetry</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuous sub-meter position streams from vehicle in-cab terminals, monitoring velocity, fuel levels, and current crew operational readiness.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>High-Precision Kinematics</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 4 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">alt_route</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-04 // INTELLIGENCE</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Dynamic Unit Reassignment</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Intelligent redirection of staging units if higher-tier P1 cardiac emergencies erupt in adjacent sectors while en-route to minor calls.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>Dynamic Sector Optimization</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 5 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">medical_services</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-05 // MATCHING</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Algorithmic ALS / BLS Matching</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Automatically matches pediatric, cardiac, or neuro trauma events to ambulances certified with appropriate medical payloads and licensed staff.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>Protocol-Level Matching</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 6 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">domain_add</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-06 // RECEIVING</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Hospital Trauma Bay Selection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Live telemetry query into receiving facility capacity: cath-lab availability, CT scanner uptime, ICU bed readiness, and divert status.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>Direct Diversion Avoidance</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 7 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">traffic</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-07 // CORRIDORS</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Green Wave Signal Interlock</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time interface with municipal ITS traffic signaling engines to clear intersection vectors ahead of high-speed code-3 convoys.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>ITS Traffic Preemption</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 8 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-08 // TRIAGE</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Deterministic Severity Matrix</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Four-tier categorical grading (P1 Critical, P2 Urgent, P3 Standard, P4 Non-Emergency) with dispatcher mechanical override guarantees.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>P1 - P4 Stratification</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+<!-- 9 -->
+<div class="p-6 bg-surface-container-lowest rounded shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div class="font-label-data-sm text-[10px] text-on-surface-variant uppercase tracking-wider">CAP-09 // COMPLIANCE</div>
+<h3 class="font-headline-md text-lg font-bold text-on-surface">Immutable Incident Audit Log</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Cryptographically signed, microsecond-stamped logs of all audio transmissions, dispatcher mouse clicks, crew status ACKs, and clinical outcomes.</p>
+</div>
+<div class="pt-6 font-label-data-sm text-xs text-secondary font-bold uppercase flex items-center gap-1">
+<span>Legal Forensic Defense</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OPERATIONAL WORKFLOW (VISUAL STEPPER) -->
+<section class="w-full py-20 bg-inverse-surface text-inverse-on-surface relative overflow-hidden" id="workflow">
+<div class="max-w-7xl mx-auto px-space-xl relative z-10">
+<div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-highest/20 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">linear_scale</span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-secondary-fixed">Continuous Response Lifecycle</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl font-black text-white tracking-tight">
+          From First Distress Signal to Trauma Handshake
+        </h2>
+<p class="font-body-lg text-body-lg text-surface-variant">
+          Deterministic 6-phase automation flow designed to minimize cognitive delays and compress dispatch intervals under 45 seconds.
+        </p>
+</div>
+<!-- Stepper Columns -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">01</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">&lt; 150ms Ingestion</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Incoming SOS Signal</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            Geofence carrier triangulation ingests caller coordinates, identity verification, and medical tags before the call-taker picks up the telephonic audio bridge.
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span>Accurate to ±4.2m GNSS Radius</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">02</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">Triage Automation</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Incident Verification</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            Real-time speech-to-text NLP parses chief complaints (chest pain, severe hemorrhage, unconsciousness) and sets initial priority category (P1 - P4).
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span>NLP Keyword Parsing &amp; ICD-10 Tag</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">03</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">Vector Match</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Unit Recommendation</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            OSRM road topology matrix evaluates active units, calculating dynamic travel time with live congested street variables rather than simple straight-line distance.
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">directions_car</span>
+<span>Multi-Factor Road Distance Matrix</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">04</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">Instant Sync</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Crew Toneout &amp; Assignment</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            A single dispatcher keystroke executes radio tones, pushes encrypted turn-by-turn routes to the vehicle console, and activates the in-cab telemetry uplink.
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">touch_app</span>
+<span>One-Tap Digital Mobile Dispatch</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">05</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">ER Handshake</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Hospital Pre-Alert</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            The destination emergency room receives live ETA count-downs, pre-hospital 12-lead ECG telemetry, and clinical notes, booking trauma bays ahead of arrival.
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">local_hospital</span>
+<span>Trauma Bay Locked &amp; Prepared</span>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="bg-surface-container-highest/10 rounded p-6 space-y-4 hover:bg-surface-container-highest/15 transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-data-lg text-2xl font-black text-secondary-fixed">06</span>
+<span class="px-2 py-0.5 bg-surface-container-highest/30 text-surface-variant font-label-data-sm text-[10px] rounded uppercase">Audit Logged</span>
+</div>
+<h3 class="font-headline-md text-lg font-bold text-white">Incident Closure</h3>
+<p class="font-body-sm text-surface-variant leading-relaxed">
+            Geofenced ambulance curb-side entry triggers triage sign-off, returns unit to "Cleaning/Available" status, and writes an encrypted immutable record into the audit archive.
+          </p>
+<div class="p-3 bg-surface-container-highest/20 rounded font-label-data-sm text-[11px] text-secondary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+<span>Cryptographic Log Archival</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONNECTED TOPOLOGY ARCHITECTURE -->
+<section class="w-full py-20 bg-surface" id="network">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Visual Architecture Topology -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded shadow-lg p-6 space-y-6">
+<div class="flex items-center justify-between border-b border-surface-container pb-4">
+<div class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">EVENT MESH ARCHITECTURE</div>
+<span class="font-label-data-sm text-[11px] text-secondary px-2 py-1 bg-surface-container rounded font-bold">WEBSOCKET BUS: ONLINE</span>
+</div>
+<!-- Topology Diagram -->
+<div class="space-y-4">
+<!-- Node 1: Citizen SOS -->
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</span>
+<div>
+<div class="font-label-data-md text-on-surface font-bold">Citizen Emergency Interface</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">PWA / SMS / Telephony Ingestion</div>
+</div>
+</div>
+<span class="font-label-data-sm text-[10px] text-secondary font-bold">TLS 1.3 / E.164</span>
+</div>
+<!-- Central Bridge Arrow -->
+<div class="flex justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">south</span>
+</div>
+<!-- Central Engine: CAD Core -->
+<div class="p-4 bg-inverse-surface text-inverse-on-surface rounded shadow-md space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-data-lg text-secondary-fixed font-bold">NIVARAN DISPATCH BUS</span>
+</div>
+<span class="font-label-data-sm text-[10px] text-surface-variant">ZERO-QUEUE CLUSTER</span>
+</div>
+<div class="font-body-sm text-surface-variant text-[12px]">
+                Low-Latency In-Memory Event Streaming Broker • Automated Vector Allocation • GIS Engine
+              </div>
+</div>
+<!-- Split Arrows -->
+<div class="grid grid-cols-2 text-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">south_west</span>
+<span class="material-symbols-outlined text-[20px]">south_east</span>
+</div>
+<!-- Peripheral Nodes -->
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-surface-container-low rounded">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">airport_shuttle</span>
+<span class="font-label-data-sm font-bold text-on-surface">Fleet MDT Console</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Active turn-by-turn guidance and vitals relay.</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">local_hospital</span>
+<span class="font-label-data-sm font-bold text-on-surface">Trauma Hub View</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Live ER pre-triage and inbound bed booking.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Text Pillar -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">lan</span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Topology &amp; Connectivity</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl font-black text-on-surface tracking-tight">
+            Resilient WebSocket Event Mesh with Millisecond Determinism
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            The platform abandons fragile legacy polling architectures. Every dispatch state modification, patient vital change, and ambulance coordinate update is broadcast across an event mesh, guaranteeing all actors see identical ground truth concurrently.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<div class="p-4 bg-surface-container rounded space-y-1">
+<div class="font-headline-md text-base font-bold text-on-surface">Cellular-Degraded Cache</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vehicle consoles store and execute routing actions offline even when passing through dead cellular zones.</p>
+</div>
+<div class="p-4 bg-surface-container rounded space-y-1">
+<div class="font-headline-md text-base font-bold text-on-surface">Air-Gapped Disaster Failover</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Local CAD nodes switch over to localized on-premise clusters if external cloud links are interrupted.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OPERATIONAL RELIABILITY & RESILIENCE -->
+<section class="w-full py-16 bg-surface-container-high">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="p-5 bg-surface-container-lowest rounded shadow-sm space-y-2">
+<span class="material-symbols-outlined text-[24px] text-secondary">security</span>
+<div class="font-headline-md text-xl font-bold text-on-surface">FIPS 140-2</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">End-to-end cryptographic encryption for patient medical telemetry and audio streams.</p>
+</div>
+<div class="p-5 bg-surface-container-lowest rounded shadow-sm space-y-2">
+<span class="material-symbols-outlined text-[24px] text-secondary">speed</span>
+<div class="font-headline-md text-xl font-bold text-on-surface">&lt; 35ms Latency</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sub-second socket transmission from dispatch keypress to vehicle siren activation.</p>
+</div>
+<div class="p-5 bg-surface-container-lowest rounded shadow-sm space-y-2">
+<span class="material-symbols-outlined text-[24px] text-secondary">dns</span>
+<div class="font-headline-md text-xl font-bold text-on-surface">Active-Active</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Redundant dual-zone cloud failover preventing single points of catastrophic failure.</p>
+</div>
+<div class="p-5 bg-surface-container-lowest rounded shadow-sm space-y-2">
+<span class="material-symbols-outlined text-[24px] text-secondary">policy</span>
+<div class="font-headline-md text-xl font-bold text-on-surface">NENA/APCO</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standardized CAD interchange protocols compliant with national public-safety criteria.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+<section class="w-full py-20 bg-surface" id="faq">
+<div class="max-w-4xl mx-auto px-space-xl">
+<div class="text-center mb-14 space-y-3">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-high rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">help_outline</span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-on-surface">Operational Clarifications</span>
+</div>
+<h2 class="font-headline-xl text-3xl sm:text-4xl font-black text-on-surface tracking-tight">
+          Dispatch Protocols &amp; System Governance
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Detailed answers regarding algorithmic decision-making, automated failovers, and dispatcher human authority.
+        </p>
+</div>
+<!-- Accordion List with Vanilla JS Toggle -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="faq-item bg-surface-container-low rounded overflow-hidden shadow-sm">
+<button class="faq-toggle w-full p-5 text-left flex items-center justify-between gap-4 font-headline-md text-base font-bold text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span>How does algorithmic unit matching function in practice?</span>
+<span class="material-symbols-outlined text-[20px] text-secondary transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 text-on-surface-variant font-body-md text-body-md border-t border-surface-container-high pt-3">
+            NIVARAN uses a multi-variable engine that analyzes real-time road distances, current traffic choke points, and specific crew credentials (e.g., Critical Care Paramedic vs. EMT-Basic) alongside onboard equipment (ventilators, ECMO, pediatric kits). The CAD generates the most optimal unit recommendation, leaving the dispatcher with full authority to confirm or override with a single tap.
+          </div>
+</div>
+<!-- Item 2 -->
+<div class="faq-item bg-surface-container-low rounded overflow-hidden shadow-sm">
+<button class="faq-toggle w-full p-5 text-left flex items-center justify-between gap-4 font-headline-md text-base font-bold text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span>How does the Green Wave traffic signal interlock work?</span>
+<span class="material-symbols-outlined text-[20px] text-secondary transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 text-on-surface-variant font-body-md text-body-md border-t border-surface-container-high pt-3">
+            The platform interfaces directly with municipal Intelligent Transportation Systems (ITS). When a unit is assigned to a P1 critical code, NIVARAN broadcasts a forward-looking trajectory vector. Traffic lights along the ambulance’s upcoming path cycle through green intervals 45 seconds prior to arrival, reducing intersection collision risks.
+          </div>
+</div>
+<!-- Item 3 -->
+<div class="faq-item bg-surface-container-low rounded overflow-hidden shadow-sm">
+<button class="faq-toggle w-full p-5 text-left flex items-center justify-between gap-4 font-headline-md text-base font-bold text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span>What happens during network degradation or cellular blackouts?</span>
+<span class="material-symbols-outlined text-[20px] text-secondary transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 text-on-surface-variant font-body-md text-body-md border-t border-surface-container-high pt-3">
+            In-cab terminals and CAD consoles cache mission critical vectors locally in indexed offline databases. If cellular coverage drops, terminals buffer telemetry and continue providing offline GPS route guidance. Audio bridges instantly fallback to secondary VHF/APCO P25 radio channels with automated telemetry reconstruction once connectivity resumes.
+          </div>
+</div>
+<!-- Item 4 -->
+<div class="faq-item bg-surface-container-low rounded overflow-hidden shadow-sm">
+<button class="faq-toggle w-full p-5 text-left flex items-center justify-between gap-4 font-headline-md text-base font-bold text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span>Can dispatchers override automated priority categorizations?</span>
+<span class="material-symbols-outlined text-[20px] text-secondary transform transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 text-on-surface-variant font-body-md text-body-md border-t border-surface-container-high pt-3">
+            Yes. Human clinical judgment is paramount. Dispatchers can manually upgrade or downgrade any incident priority tier with a mandatory single-key classification reason. Every override is preserved in the cryptographically signed incident audit log for subsequent quality assurance review.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL TACTICAL CTA BANNER -->
+<section class="w-full py-24 bg-inverse-surface text-inverse-on-surface relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(to right, #acf847 1px, transparent 1px), linear-gradient(to bottom, #acf847 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="max-w-4xl mx-auto px-space-xl relative z-10 text-center space-y-6">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-highest/20 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">shield</span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-secondary-fixed">RESTRICTED DISPATCH TERMINAL ACCESS</span>
+</div>
+<h2 class="font-headline-xl text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+        Stay in Control When Every Second Counts.
+      </h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-xl mx-auto">
+        Authorized operational access for regional dispatch controllers, command duty officers, and sector triage directors.
+      </p>
+<div class="pt-6">
+<a class="bg-secondary-fixed text-on-secondary-fixed hover:bg-white px-10 py-5 rounded font-headline-md text-base sm:text-lg font-black shadow-[0_0_35px_rgba(172,248,71,0.35)] transition-all duration-300 inline-flex items-center gap-3" href="http://localhost:3001/login">
+<span>Access Dispatcher Login</span>
+<span class="material-symbols-outlined text-[22px]">login</span>
+</a>
+</div>
+<div class="pt-8 flex flex-wrap items-center justify-center gap-6 font-label-data-sm text-surface-variant text-xs">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed"></span> GATEWAY: PORT 3001 READY</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed"></span> 2FA HARDWARE TOKEN SUPPORTED</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-fixed"></span> APCO-COMPLIANT WORKSTATION</span>
+</div>
+</div>
+</section>
+<!-- Accordion Client Script -->
+<script>
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.material-symbols-outlined');
+        const isHidden = content.classList.contains('hidden');
+        
+        // Close all other accordions for clean single-view
+        document.querySelectorAll('.faq-content').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.faq-toggle .material-symbols-outlined').forEach(i => i.classList.remove('rotate-180'));
+        
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.03)]"><div class="w-full px-space-xl py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl mb-space-xl"><div class="space-y-space-sm"><div class="flex items-center gap-space-xs"><span class="font-label-data-lg text-label-data-lg text-on-surface tracking-wider uppercase font-bold">NIVARAN // CAD</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">High-velocity computer aided dispatch workstation for mission-critical telemetry, GIS situational matrices, and clinical rapid response.</p><div class="pt-space-xs"><span class="font-label-data-sm text-label-data-sm text-secondary px-space-xs py-space-xs bg-surface-container rounded">GATEWAY: CAD-LOCAL-3001</span></div></div><div class="space-y-space-xs"><h4 class="font-label-ui text-label-ui uppercase text-on-surface tracking-wider mb-space-sm">Operations</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-on-surface transition-colors" data-path="overview" href="#">Overview</a></li><li><a class="hover:text-on-surface transition-colors" data-path="role-and-operations" href="#">Role &amp; Operations</a></li><li><a class="hover:text-on-surface transition-colors" data-path="capabilities" href="#">Tactical Capabilities</a></li></ul></div><div class="space-y-space-xs"><h4 class="font-label-ui text-label-ui uppercase text-on-surface tracking-wider mb-space-sm">Architecture</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-on-surface transition-colors" data-path="workflow" href="#">Triage &amp; Dispatch Workflow</a></li><li><a class="hover:text-on-surface transition-colors" data-path="network" href="#">Fleet Telemetry Grid</a></li><li><a class="hover:text-on-surface transition-colors" data-path="faq" href="#">Dispatch Protocol FAQ</a></li></ul></div><div class="space-y-space-xs"><h4 class="font-label-ui text-label-ui uppercase text-on-surface tracking-wider mb-space-sm">Terminal Link</h4><div class="p-space-sm bg-surface-container-low rounded space-y-space-xs"><div class="flex items-center justify-between font-label-data-sm text-label-data-sm text-on-surface-variant"><span>SYS_PORT</span><span class="text-on-surface font-semibold">:3001</span></div><div class="flex items-center justify-between font-label-data-sm text-label-data-sm text-on-surface-variant"><span>HEARTBEAT</span><span class="text-secondary font-semibold">SYNCHRONIZED</span></div><a class="mt-space-xs inline-flex items-center justify-center w-full py-space-xs px-space-sm bg-inverse-surface text-secondary-fixed font-label-ui text-label-ui uppercase rounded hover:bg-on-surface hover:text-secondary-fixed transition-colors" href="http://localhost:3001/login">Direct Gateway Auth</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-label-data-sm text-label-data-sm text-on-surface-variant"><div class="flex items-center gap-space-md"><span>SEC-ID: CAD-OPS-LEVEL4</span><span>PROTOCOL: APCO/NENA COMPLIANT</span></div><div>© NIVARAN EMERGENCY TELEMETRY &amp; DISPATCH SYSTEMS. ALL RIGHTS RESERVED.</div></div></div></footer></body></html>

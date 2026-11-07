@@ -10,6 +10,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 /* ─── types ─── */
@@ -378,9 +379,18 @@ export default function CitizenLoginPage() {
         <span className="font-headline font-extrabold text-lg text-[#14213D] tracking-tight uppercase">
           NIVARAN
         </span>
-        <span className="ml-auto text-xs text-[#14213D]/50 font-mono">
-          Citizen Emergency
-        </span>
+        <div className="ml-auto flex items-center gap-4">
+          <Link
+            href="/intro"
+            className="text-xs font-bold text-[#FF6B5B] hover:text-[#e85a4a] transition-colors flex items-center gap-1 bg-[#14213D]/5 px-2.5 py-1 rounded-lg border border-[#14213D]/10"
+          >
+            <span>Explore Platform &amp; Vision</span>
+            <span className="text-[12px]">↗</span>
+          </Link>
+          <span className="text-xs text-[#14213D]/50 font-mono hidden sm:inline">
+            Citizen Emergency
+          </span>
+        </div>
       </header>
 
       {/* ── Layout ── */}
@@ -664,7 +674,7 @@ export default function CitizenLoginPage() {
                   phone: phone || "9810123456",
                   name: name || (mode === "register" ? "Registered Citizen" : "Verified Citizen"),
                   emergencyContact: ec || "",
-                  bloodGroup: blood,
+                  bloodGroup: bg,
                   authenticated: true,
                   loginTime: new Date().toISOString(),
                 };

@@ -13,6 +13,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 /* ─── types ─── */
@@ -243,9 +244,18 @@ export default function DispatcherLoginPage() {
         <span className="font-headline font-extrabold text-lg text-white tracking-tight uppercase">
           NIVARAN CAD
         </span>
-        <span className="ml-auto text-xs text-white/40 font-mono">
-          Dispatch Command Centre
-        </span>
+        <div className="ml-auto flex items-center gap-4">
+          <Link
+            href="/intro"
+            className="text-xs font-bold text-[#C6F432] hover:text-[#d7fa61] transition-colors flex items-center gap-1 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10"
+          >
+            <span>CAD Architecture &amp; Vision</span>
+            <span className="text-[12px]">↗</span>
+          </Link>
+          <span className="text-xs text-white/40 font-mono hidden sm:inline">
+            Dispatch Command Centre
+          </span>
+        </div>
       </header>
 
       {/* Layout */}

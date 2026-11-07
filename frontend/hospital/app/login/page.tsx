@@ -11,6 +11,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 /* ─── types ─── */
@@ -305,9 +306,18 @@ export default function HospitalLoginPage() {
         <span className="font-headline font-extrabold text-lg text-[#1F3D2B] tracking-tight uppercase">
           NIVARAN Clinical
         </span>
-        <span className="ml-auto text-xs text-[#1F3D2B]/50 font-mono">
-          ED Pre-Arrival Network
-        </span>
+        <div className="ml-auto flex items-center gap-4">
+          <Link
+            href="/intro"
+            className="text-xs font-bold text-[#8B5CF6] hover:text-[#9c71fa] transition-colors flex items-center gap-1 bg-[#1F3D2B]/10 px-2.5 py-1 rounded-lg border border-[#1F3D2B]/15"
+          >
+            <span>Hospital Platform Vision</span>
+            <span className="text-[12px]">↗</span>
+          </Link>
+          <span className="text-xs text-[#1F3D2B]/50 font-mono hidden sm:inline">
+            ED Pre-Arrival Network
+          </span>
+        </div>
       </header>
 
       {/* Layout */}

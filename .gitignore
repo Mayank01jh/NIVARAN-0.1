@@ -37,7 +37,9 @@ ENV/
 *.swp
 *.swo
 
-# OS
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 .DS_Store
 Thumbs.db
 
