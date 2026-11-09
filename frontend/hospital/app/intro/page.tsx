@@ -1023,12 +1023,12 @@ export default function HospitalIntroductoryWebsite() {
               <span className="text-xs font-bold text-[#082717] uppercase tracking-wider">Cross-Portal Ecosystem</span>
               <ul className="flex flex-col gap-2 text-xs text-[#424843]">
                 <li>
-                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="http://localhost:3000/intro">
+                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="https://nivaran-citizen.vercel.app/intro">
                     Citizen Vision Website ↗
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="http://localhost:3001/intro">
+                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="https://nivaran-dispatcher.vercel.app/intro">
                     Dispatcher CAD Website ↗
                   </a>
                 </li>

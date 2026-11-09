@@ -9,7 +9,7 @@
  * - 30% Navy: #14213D
  * - 10% Coral: #FF6B5B
  *
- * Primary CTA: Open Citizen Portal -> http://localhost:3000/login
+ * Primary CTA: Open Citizen Portal -> /login
  */
 
 import React, { useState } from "react";
@@ -128,14 +128,14 @@ export default function CitizenIntroWebsite() {
           <div className="flex items-center gap-3">
             {/* Primary CTA */}
             <Link
-              href="http://localhost:3000/login"
+              href="/login"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-[#AE3026] hover:bg-[#8C1712] text-white text-xs font-bold rounded-xl shadow-sm transition-all transform hover:-translate-y-0.5 active:scale-95"
             >
               Open Citizen Portal
             </Link>
 
             <Link
-              href="http://localhost:3000/login"
+              href="/login"
               className="w-9 h-9 rounded-full bg-[#14213D] flex items-center justify-center text-white shadow-sm hover:bg-[#000A24] transition-colors"
               title="Citizen Sign In"
             >
@@ -171,7 +171,7 @@ export default function CitizenIntroWebsite() {
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <Link
-                    href="http://localhost:3000/login"
+                    href="/login"
                     className="bg-[#000A24] hover:bg-[#14213D] text-[#F4EDE0] px-8 py-4 rounded-full font-headline text-base font-bold shadow-xl hover:shadow-2xl transition-all inline-flex items-center gap-3 transform hover:-translate-y-0.5"
                   >
                     <span>Open Citizen Portal</span>
@@ -709,28 +709,28 @@ export default function CitizenIntroWebsite() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Link
-                href="http://localhost:3000/login"
+                href="/login"
                 className="px-8 py-4 rounded-full bg-[#AE3026] hover:bg-[#8C1712] text-white font-headline text-base font-bold shadow-xl hover:shadow-2xl transition-all inline-flex items-center gap-3 transform hover:-translate-y-0.5 active:scale-95"
               >
                 <span>Open Citizen Portal</span>
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
               </Link>
 
-              <Link
-                href="http://localhost:3001/login"
+              <a
+                href="https://nivaran-dispatcher.vercel.app/login"
                 className="px-6 py-4 rounded-full bg-[#14213D] hover:bg-[#000A24] text-white font-headline text-sm font-bold shadow-md transition-all inline-flex items-center gap-2"
               >
                 <span className="material-symbols-outlined text-[#C6F432] text-[18px]">terminal</span>
                 <span>Enter CAD Command Centre</span>
-              </Link>
+              </a>
 
-              <Link
-                href="http://localhost:3002/login"
+              <a
+                href="https://nivaran-hospital.vercel.app/login"
                 className="px-6 py-4 rounded-full bg-[#1F3D2B] hover:bg-[#14281C] text-white font-headline text-sm font-bold shadow-md transition-all inline-flex items-center gap-2"
               >
                 <span className="material-symbols-outlined text-[#8B5CF6] text-[18px]">domain</span>
                 <span>Access Hospital Console</span>
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -778,9 +778,9 @@ export default function CitizenIntroWebsite() {
                 Ecosystem Portals
               </h4>
               <ul className="space-y-1.5 text-xs text-[#45464D]">
-                <li><Link href="http://localhost:3000/login" className="hover:text-[#AE3026] font-semibold transition-colors">Citizen Emergency Portal (:3000)</Link></li>
-                <li><Link href="http://localhost:3001/login" className="hover:text-[#000A24] font-semibold transition-colors">Dispatcher CAD Command Centre (:3001)</Link></li>
-                <li><Link href="http://localhost:3002/login" className="hover:text-[#1F3D2B] font-semibold transition-colors">Hospital Emergency Console (:3002)</Link></li>
+                <li><Link href="/login" className="hover:text-[#AE3026] font-semibold transition-colors">Citizen Emergency Portal</Link></li>
+                <li><a href="https://nivaran-dispatcher.vercel.app/login" className="hover:text-[#000A24] font-semibold transition-colors">Dispatcher CAD Command Centre ↗</a></li>
+                <li><a href="https://nivaran-hospital.vercel.app/login" className="hover:text-[#1F3D2B] font-semibold transition-colors">Hospital Emergency Console ↗</a></li>
               </ul>
             </div>
           </div>

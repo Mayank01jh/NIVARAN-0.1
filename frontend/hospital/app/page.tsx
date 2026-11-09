@@ -247,11 +247,12 @@ export default function HospitalConsole() {
     let isMounted = true;
 
     const getWsBase = () => {
+      if (process.env.NEXT_PUBLIC_WS_URL) return process.env.NEXT_PUBLIC_WS_URL;
       if (typeof window !== "undefined") {
         const host = window.location.hostname;
         if (host === "localhost" || host === "127.0.0.1") return "ws://localhost:8000/api/v1";
       }
-      return "wss://nivaran.onrender.com/api/v1";
+      return "wss://nivaran-backend.onrender.com/api/v1";
     };
 
     const connect = () => {

@@ -9,7 +9,7 @@
  * - 30% Pure White: #FFFFFF
  * - 10% Lime Green: #C6F432
  *
- * Primary CTA: Enter Command Centre -> http://localhost:3001/login
+ * Primary CTA: Enter Command Centre -> /login
  */
 
 import React, { useState } from "react";
@@ -87,7 +87,7 @@ export default function DispatcherIntroWebsite() {
           <div className="flex items-center gap-3">
             {/* Primary CTA */}
             <Link
-              href="http://localhost:3001/login"
+              href="/login"
               className="px-4 py-2 bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-xs font-extrabold uppercase tracking-wider rounded-xl transition-all flex items-center gap-1.5 shadow-md active:scale-95"
             >
               <span className="material-symbols-outlined text-[16px]">terminal</span>
@@ -95,7 +95,7 @@ export default function DispatcherIntroWebsite() {
             </Link>
 
             <Link
-              href="http://localhost:3001/login"
+              href="/login"
               className="w-8 h-8 rounded-full bg-[#181A1F] border border-white/10 flex items-center justify-center text-[#C6F432] hover:bg-white/10 transition-colors"
               title="CAD Desk Sign In"
             >
@@ -158,7 +158,7 @@ export default function DispatcherIntroWebsite() {
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <Link
-                    href="http://localhost:3001/login"
+                    href="/login"
                     className="bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] px-8 py-4 rounded-xl font-headline text-sm font-extrabold uppercase tracking-wider shadow-xl transition-all inline-flex items-center gap-3 transform hover:-translate-y-0.5 active:scale-95"
                   >
                     <span>Enter Command Centre</span>
@@ -466,26 +466,26 @@ export default function DispatcherIntroWebsite() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Link
-                href="http://localhost:3001/login"
+                href="/login"
                 className="px-8 py-4 rounded-xl bg-[#C6F432] hover:bg-[#AEE01E] text-[#0B0B0C] font-headline text-sm font-extrabold uppercase tracking-wider shadow-xl transition-all inline-flex items-center gap-2 transform hover:-translate-y-0.5 active:scale-95"
               >
                 <span className="material-symbols-outlined text-[20px]">terminal</span>
                 <span>Enter Command Centre</span>
               </Link>
 
-              <Link
-                href="http://localhost:3000/login"
+              <a
+                href="https://nivaran-citizen.vercel.app/login"
                 className="px-6 py-4 rounded-xl bg-[#181A1F] hover:bg-[#22252C] text-white font-headline text-xs font-bold uppercase tracking-wider border border-white/10 transition-all inline-flex items-center gap-2"
               >
-                <span>Citizen Portal (:3000)</span>
-              </Link>
+                <span>Citizen Portal ↗</span>
+              </a>
 
-              <Link
-                href="http://localhost:3002/login"
+              <a
+                href="https://nivaran-hospital.vercel.app/login"
                 className="px-6 py-4 rounded-xl bg-[#181A1F] hover:bg-[#22252C] text-white font-headline text-xs font-bold uppercase tracking-wider border border-white/10 transition-all inline-flex items-center gap-2"
               >
-                <span>Hospital Console (:3002)</span>
-              </Link>
+                <span>Hospital Console ↗</span>
+              </a>
             </div>
           </div>
         </section>
@@ -540,7 +540,7 @@ export default function DispatcherIntroWebsite() {
                   <span className="text-[#C6F432] font-bold">SYNCHRONIZED</span>
                 </div>
                 <Link
-                  href="http://localhost:3001/login"
+                  href="/login"
                   className="w-full py-2 bg-[#0B0B0C] hover:bg-black text-[#C6F432] font-mono text-[11px] font-bold uppercase rounded-lg border border-[#C6F432]/30 flex items-center justify-center transition-all"
                 >
                   Direct Gateway Auth

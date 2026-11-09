@@ -130,7 +130,7 @@ export default function HospitalIntroductoryWebsite() {
           {/* Action CTAs */}
           <div className="flex items-center gap-3 shrink-0">
             <a
-              href="http://localhost:3002/login"
+              href="https://nivaran-hospital.vercel.app/login"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#6B38D4] hover:bg-[#8455EF] text-white font-bold text-xs uppercase tracking-wide transition-all shadow-md shadow-[#6B38D4]/25 hover:scale-[1.02] active:scale-95"
             >
               <span className="material-symbols-outlined text-[18px]">terminal</span>
@@ -169,7 +169,7 @@ export default function HospitalIntroductoryWebsite() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
-                  href="http://localhost:3002/login"
+                  href="https://nivaran-hospital.vercel.app/login"
                   className="bg-[#082717] hover:bg-[#1F3D2B] text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl transition-all inline-flex items-center gap-3 group active:scale-95"
                 >
                   <span>Access Hospital Console</span>
@@ -321,7 +321,7 @@ export default function HospitalIntroductoryWebsite() {
 
                 {/* Quick Link into App */}
                 <a
-                  href="http://localhost:3002/login"
+                  href="https://nivaran-hospital.vercel.app/login"
                   className="w-full py-3 rounded-xl bg-[#082717] hover:bg-[#1F3D2B] text-white text-center text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md"
                 >
                   <span className="material-symbols-outlined text-[16px]">login</span>
@@ -947,7 +947,7 @@ export default function HospitalIntroductoryWebsite() {
 
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <a
-                href="http://localhost:3002/login"
+                href="https://nivaran-hospital.vercel.app/login"
                 className="bg-white text-[#082717] hover:bg-[#8455EF] hover:text-white px-10 py-5 rounded-2xl font-bold text-base shadow-2xl transition-all duration-300 inline-flex items-center gap-3 group active:scale-95"
               >
                 <span>Enter Hospital Console</span>
@@ -1015,12 +1015,12 @@ export default function HospitalIntroductoryWebsite() {
                   </Link>
                 </li>
                 <li>
-                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="http://localhost:3001/intro">
+                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1" href="https://nivaran-dispatcher.vercel.app/intro">
                     Dispatcher CAD Website ↗
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1 font-bold text-[#6B38D4]" href="http://localhost:3002/login">
+                  <a className="hover:text-[#082717] transition-colors flex items-center gap-1 font-bold text-[#6B38D4]" href="https://nivaran-hospital.vercel.app/login">
                     Hospital Staff Sign-In ↗
                   </a>
                 </li>

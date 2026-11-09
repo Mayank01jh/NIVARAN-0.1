@@ -9,7 +9,7 @@ function getApiBase(): string {
       return "http://localhost:8000/api/v1";
     }
   }
-  return "https://nivaran.onrender.com/api/v1";
+  return "https://nivaran-backend.onrender.com/api/v1";
 }
 
 function getWsBase(): string {
@@ -20,7 +20,7 @@ function getWsBase(): string {
       return "ws://localhost:8000/api/v1";
     }
   }
-  return "wss://nivaran.onrender.com/api/v1";
+  return "wss://nivaran-backend.onrender.com/api/v1";
 }
 
 const API_BASE = getApiBase();
