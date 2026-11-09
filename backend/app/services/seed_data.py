@@ -586,3 +586,4 @@ async def seed_emergency_network(db: AsyncIOMotorDatabase, force: bool = False) 
         "incidents_seeded": len(DELHI_INCIDENTS),
         "pre_alerts_seeded": len(DELHI_PRE_ALERTS),
     }
+

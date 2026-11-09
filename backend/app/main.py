@@ -28,8 +28,8 @@ from typing import Any
 
 import structlog
 try:
-    from arq import create_pool
-    from arq.connections import RedisSettings
+    from arq import create_pool  # type: ignore
+    from arq.connections import RedisSettings  # type: ignore
 except ImportError:
     create_pool = None
     RedisSettings = None
