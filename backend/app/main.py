@@ -59,6 +59,12 @@ async def lifespan(app: FastAPI):
     try:
         await connect_db()
         logger.info("MongoDB connected")
+        try:
+            from app.services.seed_data import seed_emergency_network
+            from app.core.database import get_db
+            await seed_emergency_network(get_db())
+        except Exception as seed_err:
+            logger.warning("Auto-seeding skipped", error=str(seed_err))
     except Exception as e:
         logger.warning("MongoDB not reached (running in offline/dev mode)", error=str(e))
 

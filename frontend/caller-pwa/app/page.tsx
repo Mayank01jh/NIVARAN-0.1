@@ -31,6 +31,15 @@ export default function CitizenApp() {
       const parsed = JSON.parse(s);
       if (parsed && parsed.authenticated) {
         setIsAuthenticated(true);
+        if (parsed.name) setUserName(parsed.name);
+        if (parsed.phone) setUserPhone(parsed.phone);
+        if (parsed.bloodGroup && parsed.bloodGroup !== "Unknown") setBloodGroup(parsed.bloodGroup);
+        if (parsed.emergencyContact) {
+          setEmergencyContact((prev) => ({
+            ...prev,
+            phone: parsed.emergencyContact,
+          }));
+        }
       } else {
         router.replace("/login");
       }
@@ -866,6 +875,38 @@ export default function CitizenApp() {
         ══════════════════════════════════════════════════════════════════ */}
         {currentScreen === "tracking" && (
           <main className="flex-1 min-h-0 overflow-y-auto p-4 space-y-3.5 select-none overscroll-contain">
+            {incidentStatus === "CANCELLED" ? (
+              <div className="w-full bg-white border border-[#14213D]/15 rounded-3xl p-6 shadow-sm flex flex-col items-center justify-center text-center space-y-4 my-auto mt-8">
+                <div className="w-16 h-16 rounded-full bg-[#14213D]/10 text-[#14213D] flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[32px]">shield_check</span>
+                </div>
+                <div>
+                  <h3 className="font-headline text-lg font-extrabold text-[#14213D]">Standby Mode Ready</h3>
+                  <p className="text-xs text-[#14213D]/70 max-w-xs mt-1 leading-relaxed">
+                    No active emergency ambulance is dispatched to your location. Press SOS on the home screen if you require urgent care.
+                  </p>
+                </div>
+                <div className="flex gap-2 w-full pt-2">
+                  <button
+                    onClick={() => setCurrentScreen("home")}
+                    className="flex-1 py-3 rounded-xl bg-[#14213D] text-[#F4EDE0] text-xs font-bold shadow hover:bg-[#0E182D] transition-all"
+                  >
+                    Return to Home
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIncidentStatus("EN_ROUTE");
+                      setEtaSeconds(240);
+                      setCurrentStep(3);
+                    }}
+                    className="flex-1 py-3 rounded-xl bg-[#B91C1C] text-white text-xs font-bold shadow hover:bg-[#991B1B] transition-all"
+                  >
+                    Live Demo Track
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <>
             {/* Live Telemetry Status Banner */}
             <div className="w-full bg-white border border-[#14213D]/15 rounded-2xl p-3 shadow-sm flex items-center justify-between">
               <div className="flex items-center gap-2 min-w-0">
@@ -1109,6 +1150,8 @@ export default function CitizenApp() {
                 <span>Cancel Emergency Request</span>
               </button>
             </div>
+            </>
+            )}
           </main>
         )}
 

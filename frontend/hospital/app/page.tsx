@@ -16,6 +16,17 @@ import { apiClient, type PreAlertData } from "../lib/apiClient";
 
 type ActiveTab = "radar" | "capacity" | "telemetry" | "paramedic";
 
+const HOSPITAL_FACILITIES = [
+  { id: "hosp-aiims-01", name: "AIIMS Apex Trauma Center" },
+  { id: "hosp-safdarjung-02", name: "Safdarjung Hospital Emergency" },
+  { id: "hosp-apollo", name: "Indraprastha Apollo Hospital" },
+  { id: "hosp-max", name: "Max Super Speciality Hospital (Saket)" },
+  { id: "hosp-rml-05", name: "Dr. Ram Manohar Lohia (RML) Hospital" },
+  { id: "hosp-gangaram-06", name: "Sir Ganga Ram Hospital" },
+  { id: "hosp-lnjp-07", name: "Lok Nayak Jai Prakash (LNJP) Hospital" },
+  { id: "hosp-fortis", name: "Fortis Escorts Heart Institute" },
+];
+
 const INITIAL_PRE_ALERTS: PreAlertData[] = [
   {
     alert_id: "ALT-1081-STEMI",
@@ -237,6 +248,31 @@ export default function HospitalConsole() {
     return () => clearInterval(interval);
   }, [loadInboundData]);
 
+  // Sync capacity when hospital selection changes
+  useEffect(() => {
+    let isSubscribed = true;
+    apiClient.getHospital(selectedHospitalId).then((h) => {
+      if (h && h.capacity && isSubscribed) {
+        setCapacity((prev) => ({
+          ...prev,
+          er_beds_total: h.capacity.acute_total ?? prev.er_beds_total,
+          er_beds_available: h.capacity.acute_available ?? prev.er_beds_available,
+          icu_beds_total: h.capacity.icu_total ?? prev.icu_beds_total,
+          icu_beds_available: h.capacity.icu_available ?? prev.icu_beds_available,
+          trauma_bays_total: h.capacity.trauma_bays_total ?? prev.trauma_bays_total,
+          trauma_bays_available: h.capacity.trauma_bays_available ?? prev.trauma_bays_available,
+          cath_lab_operational: h.capacity.cath_lab_operational ?? prev.cath_lab_operational,
+          ct_scanner_operational: h.capacity.ct_scanner_operational ?? prev.ct_scanner_operational,
+          trauma_team_standby: h.capacity.trauma_team_standby ?? prev.trauma_team_standby,
+        }));
+        if (h.capacity.diversion_status) {
+          setAcceptanceStatus(h.capacity.diversion_status as any);
+        }
+      }
+    }).catch(() => {});
+    return () => { isSubscribed = false; };
+  }, [selectedHospitalId]);
+
   // Real-time WebSocket connection to Hospital Channel with reconnect
   useEffect(() => {
     let ws: WebSocket | null = null;
@@ -384,9 +420,26 @@ export default function HospitalConsole() {
                   ED-COMMAND
                 </span>
               </div>
-              <span className="text-xs text-[#E8DCC4]/70 font-medium leading-none mt-1">
-                {hospitalName} — Trauma Bay Unit
-              </span>
+              <div className="flex items-center gap-2 mt-1">
+                <select
+                  value={selectedHospitalId}
+                  onChange={(e) => {
+                    const newId = e.target.value;
+                    setSelectedHospitalId(newId);
+                    const found = HOSPITAL_FACILITIES.find((h) => h.id === newId);
+                    if (found) setHospitalName(found.name);
+                  }}
+                  className="bg-[#14281C] text-[#E8DCC4] text-xs font-bold px-2 py-1 rounded border border-[#1F3D2B] focus:outline-none focus:border-[#8B5CF6] transition-colors cursor-pointer"
+                  title="Switch Receiving Trauma Facility"
+                >
+                  {HOSPITAL_FACILITIES.map((h) => (
+                    <option key={h.id} value={h.id} className="bg-[#0B150F] text-[#E8DCC4]">
+                      {h.name}
+                    </option>
+                  ))}
+                </select>
+                <span className="text-[10px] font-mono text-[#8B5CF6] uppercase hidden sm:inline">• Live Grid</span>
+              </div>
             </div>
           </div>
 

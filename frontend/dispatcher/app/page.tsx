@@ -54,10 +54,14 @@ interface HospitalOption {
 }
 
 const DEFAULT_HOSPITALS: HospitalOption[] = [
-  { id: "hosp-aiims-01", name: "AIIMS Apex Trauma Center", beds_available: 4, trauma_ready: true },
-  { id: "hosp-safdarjung-02", name: "Safdarjung Emergency Hospital", beds_available: 2, trauma_ready: true },
-  { id: "hosp-apollo", name: "Indraprastha Apollo Hospital", beds_available: 6, trauma_ready: true },
-  { id: "hosp-max", name: "Max Super Speciality Hospital (Saket)", beds_available: 3, trauma_ready: false },
+  { id: "hosp-aiims-01", name: "AIIMS Apex Trauma Center", beds_available: 6, trauma_ready: true },
+  { id: "hosp-safdarjung-02", name: "Safdarjung Emergency Hospital", beds_available: 4, trauma_ready: true },
+  { id: "hosp-apollo", name: "Indraprastha Apollo Hospital", beds_available: 8, trauma_ready: true },
+  { id: "hosp-max", name: "Max Super Speciality Hospital (Saket)", beds_available: 5, trauma_ready: true },
+  { id: "hosp-rml-05", name: "Dr. Ram Manohar Lohia (RML) Hospital", beds_available: 5, trauma_ready: true },
+  { id: "hosp-gangaram-06", name: "Sir Ganga Ram Hospital", beds_available: 5, trauma_ready: true },
+  { id: "hosp-lnjp-07", name: "Lok Nayak Jai Prakash (LNJP) Hospital", beds_available: 5, trauma_ready: true },
+  { id: "hosp-fortis", name: "Fortis Escorts Heart Institute", beds_available: 5, trauma_ready: true },
 ];
 
 export default function DispatcherConsole() {

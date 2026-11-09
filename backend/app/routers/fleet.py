@@ -59,6 +59,13 @@ async def list_ambulances(
         query["status"] = status_filter.value
     cursor = db.ambulances.find(query, limit=200)
     units = await cursor.to_list(length=200)
+    if not units:
+        try:
+            from app.services.seed_data import seed_emergency_network
+            await seed_emergency_network(db)
+            units = await db.ambulances.find(query, limit=200).to_list(length=200)
+        except Exception:
+            pass
     return units
 
 

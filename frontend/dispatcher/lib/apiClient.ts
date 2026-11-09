@@ -369,11 +369,20 @@ class NivaranApiClient {
   async listHospitals(): Promise<any[]> {
     try {
       const res = await fetch(`${getApiBase()}/hospitals/`, { headers: this.headers() });
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) return data;
+      }
     } catch {}
     return [
-      { id: "hosp-aiims", name: "AIIMS Trauma Centre", beds_available: 4 },
-      { id: "hosp-safdarjung", name: "Safdarjung Emergency", beds_available: 2 },
+      { id: "hosp-aiims-01", name: "AIIMS Apex Trauma Center", beds_available: 6, trauma_ready: true },
+      { id: "hosp-safdarjung-02", name: "Safdarjung Hospital Emergency", beds_available: 4, trauma_ready: true },
+      { id: "hosp-apollo", name: "Indraprastha Apollo Hospital", beds_available: 8, trauma_ready: true },
+      { id: "hosp-max", name: "Max Super Speciality Hospital (Saket)", beds_available: 5, trauma_ready: true },
+      { id: "hosp-rml-05", name: "Dr. Ram Manohar Lohia (RML) Hospital", beds_available: 5, trauma_ready: true },
+      { id: "hosp-gangaram-06", name: "Sir Ganga Ram Hospital", beds_available: 5, trauma_ready: true },
+      { id: "hosp-lnjp-07", name: "Lok Nayak Jai Prakash (LNJP) Hospital", beds_available: 5, trauma_ready: true },
+      { id: "hosp-fortis", name: "Fortis Escorts Heart Institute", beds_available: 5, trauma_ready: true },
     ];
   }
 }

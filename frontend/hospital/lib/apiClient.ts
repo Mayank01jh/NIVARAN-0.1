@@ -217,15 +217,29 @@ class NivaranApiClient {
   async listHospitals(): Promise<any[]> {
     try {
       const res = await fetch(`${getApiBase()}/hospitals/`, { headers: this.headers() });
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) return data;
+      }
     } catch {}
     return [
-      { _id: "hosp-aiims-01", id: "hosp-aiims-01", name: "AIIMS Trauma Centre" },
+      { _id: "hosp-aiims-01", id: "hosp-aiims-01", name: "AIIMS Apex Trauma Center" },
       { _id: "hosp-safdarjung-02", id: "hosp-safdarjung-02", name: "Safdarjung Hospital Emergency" },
       { _id: "hosp-apollo", id: "hosp-apollo", name: "Indraprastha Apollo Hospital" },
       { _id: "hosp-max", id: "hosp-max", name: "Max Super Speciality Hospital (Saket)" },
+      { _id: "hosp-rml-05", id: "hosp-rml-05", name: "Dr. Ram Manohar Lohia (RML) Hospital" },
+      { _id: "hosp-gangaram-06", id: "hosp-gangaram-06", name: "Sir Ganga Ram Hospital" },
+      { _id: "hosp-lnjp-07", id: "hosp-lnjp-07", name: "Lok Nayak Jai Prakash (LNJP) Hospital" },
       { _id: "hosp-fortis", id: "hosp-fortis", name: "Fortis Escorts Heart Institute" },
     ];
+  }
+
+  async getHospital(hospitalId: string): Promise<any | null> {
+    try {
+      const res = await fetch(`${getApiBase()}/hospitals/${hospitalId}`, { headers: this.headers() });
+      if (res.ok) return await res.json();
+    } catch {}
+    return null;
   }
 
   async listInboundCasualties(): Promise<any[]> {

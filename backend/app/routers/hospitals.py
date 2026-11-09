@@ -62,7 +62,15 @@ async def list_hospitals(
     current_user: dict = Depends(get_current_user),
 ):
     cursor = db.hospitals.find({}, limit=100)
-    return await cursor.to_list(length=100)
+    items = await cursor.to_list(length=100)
+    if not items:
+        try:
+            from app.services.seed_data import seed_emergency_network
+            await seed_emergency_network(db)
+            items = await db.hospitals.find({}, limit=100).to_list(length=100)
+        except Exception:
+            pass
+    return items
 
 
 @router.get("/inbound", response_model=list[dict])
@@ -77,6 +85,20 @@ async def list_inbound_casualties(
         limit=50,
     )
     return await cursor.to_list(length=50)
+
+
+@router.get("/{hospital_id}", response_model=dict)
+async def get_hospital(
+    hospital_id: str,
+    db: AsyncIOMotorDatabase = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
+    hospital = await db.hospitals.find_one({"_id": hospital_id})
+    if not hospital:
+        hospital = await db.hospitals.find_one({"$or": [{"_id": hospital_id}, {"name": {"$regex": hospital_id, "$options": "i"}}]})
+    if not hospital:
+        raise HTTPException(status_code=404, detail="Hospital not found")
+    return hospital
 
 
 @router.get("/{hospital_id}/pre-alerts", response_model=list[dict])
